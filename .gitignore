@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# Secrets / Config local com chaves de API
+.env
+.env.local
+.DS_Store
