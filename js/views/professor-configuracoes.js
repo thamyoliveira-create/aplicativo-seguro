@@ -1,5 +1,5 @@
 /**
- * View: Configurações do Professor e Chave de API Gemini
+ * View: Configurações do Professor, Senha e Chave de API Gemini
  */
 
 const ProfessorConfiguracoesView = {
@@ -16,7 +16,7 @@ const ProfessorConfiguracoesView = {
               <span>Painel da Professora</span>
             </a>
             <span class="text-xs bg-blue-900/80 px-3 py-1 rounded-full border border-blue-400/30 text-blue-200">
-              Configurações & IA
+              Configurações & Segurança
             </span>
           </div>
         </header>
@@ -24,8 +24,54 @@ const ProfessorConfiguracoesView = {
         <!-- Conteúdo -->
         <main class="max-w-4xl mx-auto w-full p-4 md:p-8 space-y-6">
           <div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Configurações & Integração com IA</h2>
-            <p class="text-xs md:text-sm text-slate-500 mt-0.5">Gerencie sua chave do Google Gemini 3.7 Flash e dados institucionais.</p>
+            <h2 class="text-2xl font-extrabold text-slate-900">Configurações & Segurança do Docente</h2>
+            <p class="text-xs md:text-sm text-slate-500 mt-0.5">Gerencie sua senha de acesso, chave do Google Gemini e dados institucionais.</p>
+          </div>
+
+          <!-- Card da Senha de Acesso do Professor -->
+          <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+              <div class="w-12 h-12 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center font-bold">
+                <i data-lucide="lock" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-base text-slate-900">Senha de Acesso da Professora</h3>
+                <p class="text-xs text-slate-500">Protege o seu painel contra acessos indevidos de alunos.</p>
+              </div>
+            </div>
+
+            <form id="form-config-senha" class="space-y-4 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block font-bold uppercase text-slate-700 mb-1">Nova Senha de Acesso *</label>
+                  <input
+                    type="password"
+                    id="input-nova-senha"
+                    required
+                    placeholder="Digite a nova senha"
+                    class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-red-600 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label class="block font-bold uppercase text-slate-700 mb-1">Confirmar Nova Senha *</label>
+                  <input
+                    type="password"
+                    id="input-confirma-senha"
+                    required
+                    placeholder="Repita a nova senha"
+                    class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-red-600 focus:bg-white"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                id="btn-salvar-senha"
+                class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow transition-all"
+              >
+                Atualizar Senha de Acesso
+              </button>
+            </form>
           </div>
 
           <!-- Card da API Gemini -->
@@ -67,7 +113,7 @@ const ProfessorConfiguracoesView = {
                 </p>
               </div>
 
-              <div class="pt-2 flex items-center gap-3">
+              <div class="pt-1 flex items-center gap-3">
                 <button
                   type="submit"
                   id="btn-salvar-config"
@@ -137,7 +183,7 @@ const ProfessorConfiguracoesView = {
       statusEl.innerHTML = `<span class="text-amber-600 font-bold">⚠️ Modo Demonstração Ativo</span>`;
     }
 
-    // Toggle de visibilidade da senha
+    // Toggle de visibilidade da chave
     const toggleBtn = document.getElementById("btn-toggle-key-visibility");
     toggleBtn.onclick = () => {
       if (keyInput.type === "password") {
@@ -149,7 +195,33 @@ const ProfessorConfiguracoesView = {
       }
     };
 
-    // Salvar Chave
+    // Salvar Senha do Professor
+    const formSenha = document.getElementById("form-config-senha");
+    formSenha.onsubmit = async (e) => {
+      e.preventDefault();
+      const nSenha = document.getElementById("input-nova-senha").value.trim();
+      const cSenha = document.getElementById("input-confirma-senha").value.trim();
+
+      if (nSenha.length < 4) {
+        alert("A senha deve ter pelo menos 4 caracteres.");
+        return;
+      }
+      if (nSenha !== cSenha) {
+        alert("As senhas digitadas não coincidem.");
+        return;
+      }
+
+      try {
+        await DB.salvarConfiguracoes({ novaSenhaProfessor: nSenha });
+        alert("Senha do docente atualizada com sucesso!");
+        document.getElementById("input-nova-senha").value = "";
+        document.getElementById("input-confirma-senha").value = "";
+      } catch (err) {
+        alert("Erro ao atualizar senha: " + err.message);
+      }
+    };
+
+    // Salvar Chave Gemini
     const form = document.getElementById("form-config-gemini");
     form.onsubmit = async (e) => {
       e.preventDefault();
@@ -165,7 +237,7 @@ const ProfessorConfiguracoesView = {
 
       try {
         await DB.salvarConfiguracoes({ geminiApiKey: newKey });
-        alert("Chave do Google Gemini salva com sucesso! Agora você pode gerar e corrigir questões em tempo real.");
+        alert("Chave do Google Gemini salva com sucesso!");
         ProfessorConfiguracoesView.render();
       } catch (err) {
         alert("Erro ao salvar chave: " + err.message);

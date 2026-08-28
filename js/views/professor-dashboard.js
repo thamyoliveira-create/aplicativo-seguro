@@ -12,9 +12,9 @@ const ProfessorDashboardView = {
         <header class="bg-[#002b66] text-white py-3.5 px-6 shadow-md border-b-4 border-[#dc2626]">
           <div class="max-w-6xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20">
                 <i data-lucide="shield-check" class="w-6 h-6 text-yellow-400"></i>
-              </a>
+              </div>
               <div>
                 <h1 class="font-extrabold text-base md:text-lg tracking-tight flex items-center gap-2">
                   Painel da Professora
@@ -35,6 +35,13 @@ const ProfessorDashboardView = {
                 <i data-lucide="sparkles" class="w-4 h-4 text-yellow-300"></i>
                 <span>+ Criar com IA</span>
               </a>
+              <button
+                onclick="ProfessorDashboardView.encerrarSessao()"
+                class="p-2 rounded-lg bg-red-950/60 hover:bg-red-900 text-red-200 hover:text-white transition-colors"
+                title="Sair do Painel"
+              >
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+              </button>
             </div>
           </div>
         </header>
@@ -203,7 +210,7 @@ const ProfessorDashboardView = {
               <button
                 onclick="ProfessorDashboardView.copiarLinkAluno('${atv.codigo}')"
                 class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-1.5 transition-colors"
-                title="Copiar link de acesso para os alunos"
+                title="Copiar código de acesso para os alunos"
               >
                 <i data-lucide="share-2" class="w-3.5 h-3.5 text-blue-600"></i>
                 <span>Código</span>
@@ -315,13 +322,13 @@ const ProfessorDashboardView = {
     ProfessorDashboardView.copiarLinkAluno = (codigo) => {
       const url = `${window.location.origin}/#aluno/prova/${codigo}`;
       navigator.clipboard.writeText(url).then(() => {
-        alert(`Link copiado para a área de transferência!
+        alert(`Código copiado para a área de transferência!
 
-Envie para os alunos:
-${url}
-Código: ${codigo}`);
+Código da Prova: ${codigo}
+Link Direto:
+${url}`);
       }).catch(() => {
-        prompt("Copie o link abaixo para seus alunos:", url);
+        prompt("Copie o código para seus alunos:", codigo);
       });
     };
 
@@ -330,6 +337,12 @@ Código: ${codigo}`);
         await DB.excluirAtividade(id);
         ProfessorDashboardView.render();
       }
+    };
+
+    ProfessorDashboardView.encerrarSessao = () => {
+      sessionStorage.removeItem("professor_autenticado");
+      sessionStorage.removeItem("professor_token");
+      window.location.hash = "#docente";
     };
   }
 };

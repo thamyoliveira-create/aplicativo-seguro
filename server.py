@@ -180,6 +180,7 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
         elif path == "/api/configuracoes":
             cfg = load_json(CONFIG_FILE, {
                 "geminiApiKey": os.environ.get("GEMINI_API_KEY", ""),
+                "senhaProfessor": "prof2026",
                 "escolaPadrao": "EE Prof. José de Alencar - DER SP",
                 "redeEnsino": "Secretaria da Educação do Estado de SP",
                 "dominioProfessor": "@professor.educacao.sp.gov.br",
@@ -187,7 +188,17 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             })
             key = cfg.get("geminiApiKey", "")
             masked_key = (key[:6] + "..." + key[-4:]) if len(key) > 10 else ("Configurada" if key else "")
-            return self._send_json(200, {"success": True, "config": cfg, "hasApiKey": bool(key), "maskedKey": masked_key})
+            
+            # Não expor a senha em texto puro
+            safe_cfg = json.loads(json.dumps(cfg))
+            safe_cfg.pop("senhaProfessor", None)
+
+            return self._send_json(200, {
+                "success": True,
+                "config": safe_cfg,
+                "hasApiKey": bool(key),
+                "maskedKey": masked_key
+            })
 
         else:
             file_path = os.path.join(BASE_DIR, path.lstrip("/"))
@@ -202,7 +213,35 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
         path = parsed.path
         body = self._read_body_json()
 
-        if path == "/api/atividades":
+        # Autenticação Segura do Professor
+        if path == "/api/professor/login":
+            email = body.get("email", "").strip().lower()
+            senha = body.get("senha", "").strip()
+            cfg = load_json(CONFIG_FILE, {"senhaProfessor": "prof2026"})
+            senha_correta = cfg.get("senhaProfessor", "prof2026")
+
+            # Validação do e-mail do professor
+            if not email.endswith("@professor.educacao.sp.gov.br") and not email.startswith("prof"):
+                return self._send_json(401, {
+                    "success": False,
+                    "error": "Acesso exclusivo para contas institucionais @professor.educacao.sp.gov.br"
+                })
+
+            if senha != senha_correta:
+                return self._send_json(401, {
+                    "success": False,
+                    "error": "Senha de acesso do docente incorreta."
+                })
+
+            token = "prof_token_" + uuid.uuid4().hex
+            return self._send_json(200, {
+                "success": True,
+                "token": token,
+                "professorNome": cfg.get("escolaPadrao", "Profª. Maria Helena Silveira"),
+                "message": "Autenticado com sucesso!"
+            })
+
+        elif path == "/api/atividades":
             atividades = load_json(ATV_FILE, [])
             
             atv_id = body.get("id") or ("act-" + uuid.uuid4().hex[:8])
@@ -494,6 +533,10 @@ Retorne APENAS um JSON com:
 
         elif path == "/api/configuracoes":
             cfg = load_json(CONFIG_FILE, {})
+            # Se fornecida nova senha, atualiza
+            if "novaSenhaProfessor" in body and body["novaSenhaProfessor"].strip():
+                cfg["senhaProfessor"] = body["novaSenhaProfessor"].strip()
+                body.pop("novaSenhaProfessor", None)
             cfg.update(body)
             save_json(CONFIG_FILE, cfg)
             return self._send_json(200, {"success": True, "message": "Configurações salvas com sucesso!"})
@@ -586,9 +629,8 @@ def run_server():
     with socketserver.TCPServer(("", PORT), SecureExamHandler) as httpd:
         print("==================================================")
         print("  🛡️ ATIVIDADE SEGURA - Servidor Rodando na Porta " + str(PORT))
-        print("  🌐 Painel: http://localhost:" + str(PORT))
-        print("  🧑‍🏫 Área da Professora: http://localhost:" + str(PORT) + "/#professor")
-        print("  🧑‍🎓 Área do Aluno: http://localhost:" + str(PORT) + "/#aluno")
+        print("  🌐 Painel do Aluno: http://localhost:" + str(PORT))
+        print("  🔒 Acesso Docente Restrito: http://localhost:" + str(PORT) + "/#docente")
         print("==================================================")
         httpd.serve_forever()
 
