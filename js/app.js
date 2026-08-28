@@ -1,10 +1,9 @@
-/**
- * App Router & Main Controller - Atividade Segura
- */
-
 const App = {
   init() {
     window.addEventListener("hashchange", () => this.handleRoute());
+    window.supabaseClient.auth.onAuthStateChange(() => {
+      setTimeout(() => this.handleRoute(), 0);
+    });
     this.handleRoute();
   },
 
@@ -12,38 +11,51 @@ const App = {
     const hash = window.location.hash.replace(/^#\/?/, "");
     const parts = hash.split("/");
 
-    // Se estiver saindo de uma prova, desativa travas de segurança
     if (!hash.startsWith("aluno/prova") && window.securityEngine) {
       window.securityEngine.destroy();
     }
 
-    if (!hash || hash === "") {
-      HomeView.render();
+    if (!hash) {
+      await HomeView.render();
     } else if (parts[0] === "aluno") {
       if (parts[1] === "prova" && parts[2]) {
-        AlunoProvaView.render({ codigo: parts[2] });
+        const student = await StudentAuth.session();
+        let localIdentity = null;
+        try {
+          localIdentity = JSON.parse(sessionStorage.getItem("aluno_ativo") || "null");
+        } catch (_) {}
+
+        if (!student || !localIdentity || localIdentity.email !== student.email) {
+          sessionStorage.removeItem("aluno_ativo");
+          await AlunoLoginView.render({ codigo: parts[2] });
+        } else {
+          await AlunoProvaView.render({ codigo: parts[2] });
+        }
       } else {
-        AlunoLoginView.render();
+        await AlunoLoginView.render();
       }
-    } else if (parts[0] === "professor") {\n      const authorized = await TeacherAuth.requireProfessor();\n      if (!authorized) { window.scrollTo(0, 0); return; }
+    } else if (parts[0] === "professor") {
+      const authorized = await TeacherAuth.requireProfessor();
+      if (!authorized) {
+        window.scrollTo(0, 0);
+        return;
+      }
+
       if (parts[1] === "nova-atividade") {
-        ProfessorNovaAtividadeView.render();
+        await ProfessorNovaAtividadeView.render();
       } else if (parts[1] === "atividade" && parts[2]) {
-        ProfessorAtividadeDetalhesView.render({ id: parts[2] });
+        await ProfessorAtividadeDetalhesView.render({ id: parts[2] });
       } else if (parts[1] === "configuracoes") {
-        ProfessorConfiguracoesView.render();
+        await ProfessorConfiguracoesView.render();
       } else {
-        ProfessorDashboardView.render();
+        await ProfessorDashboardView.render();
       }
     } else {
-      HomeView.render();
+      await HomeView.render();
     }
 
-    // Scroll to top
     window.scrollTo(0, 0);
   }
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  App.init();
-});
+window.addEventListener("DOMContentLoaded", () => App.init());
