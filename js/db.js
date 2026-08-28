@@ -1,110 +1,193 @@
 /**
- * Módulo de Banco de Dados e Sincronização - Atividade Segura
+ * Persistência Supabase com isolamento por perfil (RLS).
+ * O conteúdo completo fica visível apenas à professora. Estudantes recebem
+ * uma cópia sanitizada, sem gabaritos, respostas-modelo ou justificativas.
  */
-
 const DB = {
-  // ATIVIDADES
+  mapActivity(row) {
+    if (!row) return null;
+    const base = row.content || {};
+    return {
+      ...base,
+      id: row.id || base.id,
+      codigo: row.access_code || base.codigo,
+      titulo: row.title || base.titulo,
+      disciplina: row.subject || base.disciplina,
+      anoTurma: row.grade || base.anoTurma,
+      instrucoes: row.instructions || base.instrucoes,
+      status: row.status === "published" ? "ativa" : (row.status || base.status),
+      configuracoesSeguranca: row.security_settings || base.configuracoesSeguranca || {}
+    };
+  },
+
+  studentPayload(atividade) {
+    return {
+      pin: atividade.pin || "",
+      tempoLimiteMinutos: atividade.tempoLimiteMinutos || 45,
+      questoes: (atividade.questoes || []).map((questao) => ({
+        id: questao.id,
+        tipo: questao.tipo,
+        habilidadeBNCC: questao.habilidadeBNCC || "",
+        enunciado: questao.enunciado,
+        textoApoio: questao.textoApoio || "",
+        peso: questao.peso || 1,
+        alternativas: (questao.alternativas || []).map((alternativa) => ({
+          id: alternativa.id,
+          texto: alternativa.texto
+        }))
+      }))
+    };
+  },
+
+  mapSubmission(row) {
+    if (!row) return null;
+    return {
+      ...(row.content || {}),
+      id: row.id,
+      atividadeId: row.activity_id,
+      alunoNome: row.student_name,
+      alunoEmail: row.student_email,
+      respostas: row.answers || {},
+      infracoes: row.infractions || {},
+      nota: row.score,
+      status: row.status,
+      dataEnvio: row.submitted_at,
+      dataInicio: row.started_at
+    };
+  },
+
   async getAtividades() {
-    try {
-      const res = await fetch("/api/atividades");
-      const data = await res.json();
-      if (data.success) {
-        localStorage.setItem("cache_atividades", JSON.stringify(data.atividades));
-        return data.atividades;
-      }
-      throw new Error(data.error || "Erro ao listar");
-    } catch (e) {
-      console.warn("Usando cache offline de atividades:", e);
-      const cached = localStorage.getItem("cache_atividades");
-      return cached ? JSON.parse(cached) : [];
-    }
+    const { data, error } = await window.supabaseClient
+      .from("activities")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) throw new Error("Não foi possível carregar suas atividades.");
+    return (data || []).map((row) => this.mapActivity(row));
   },
 
   async getAtividadePorId(id) {
-    try {
-      const res = await fetch(`/api/atividades/${id}`);
-      const data = await res.json();
-      if (data.success) return data.atividade;
-      throw new Error(data.error || "Não encontrada");
-    } catch (e) {
-      const atividades = await this.getAtividades();
-      return atividades.find(a => a.id === id) || null;
-    }
+    const { data, error } = await window.supabaseClient
+      .from("activities")
+      .select("*")
+      .eq("id", id)
+      .maybeSingle();
+
+    if (error) throw new Error("Não foi possível carregar a atividade.");
+    return this.mapActivity(data);
   },
 
   async getAtividadePorCodigo(codigo) {
-    try {
-      const res = await fetch(`/api/atividades/codigo/${encodeURIComponent(codigo)}`);
-      const data = await res.json();
-      if (data.success) return data.atividade;
-      throw new Error(data.error || "Atividade não encontrada");
-    } catch (e) {
-      // Fallback offline
-      const atividades = await this.getAtividades();
-      const codeUpper = codigo.toUpperCase().trim();
-      return atividades.find(a => (a.codigo && a.codigo.toUpperCase() === codeUpper) || a.pin === codeUpper) || null;
-    }
+    const { data, error } = await window.supabaseClient
+      .rpc("get_published_activity_by_code", { p_code: String(codigo || "").trim() });
+
+    if (error) throw new Error("Não foi possível validar esse código.");
+    return data || null;
   },
 
   async salvarAtividade(atividade) {
-    const res = await fetch("/api/atividades", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(atividade)
-    });
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error || "Erro ao salvar atividade");
-    return data.atividade;
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou. Entre novamente.");
+
+    const row = {
+      teacher_id: teacher.id,
+      title: atividade.titulo,
+      subject: atividade.disciplina || "",
+      grade: atividade.anoTurma || "",
+      access_code: String(atividade.codigo || "").trim().toUpperCase(),
+      instructions: atividade.instrucoes || "",
+      status: atividade.status === "ativa" ? "published" : (atividade.status || "draft"),
+      security_settings: atividade.configuracoesSeguranca || {},
+      content: atividade,
+      student_content: this.studentPayload(atividade),
+      updated_at: new Date().toISOString()
+    };
+
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(atividade.id || "");
+    let query = window.supabaseClient.from("activities");
+    query = isUuid
+      ? query.update(row).eq("id", atividade.id).select("*").single()
+      : query.insert(row).select("*").single();
+
+    const { data, error } = await query;
+    if (error) {
+      if (error.code === "23505") throw new Error("Esse código de atividade já está em uso.");
+      throw new Error("Não foi possível salvar a atividade.");
+    }
+    return this.mapActivity(data);
   },
 
   async excluirAtividade(id) {
-    const res = await fetch(`/api/atividades/${id}`, {
-      method: "DELETE"
-    });
-    const data = await res.json();
-    return data.success;
+    const { error } = await window.supabaseClient.from("activities").delete().eq("id", id);
+    if (error) throw new Error("Não foi possível excluir a atividade.");
+    return true;
   },
 
-  // SUBMISSÕES & ALUNOS
   async getSubmissoes(atividadeId = null) {
-    try {
-      const url = atividadeId ? `/api/submissoes?atividadeId=${encodeURIComponent(atividadeId)}` : "/api/submissoes";
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data.success) return data.submissoes;
-      return [];
-    } catch (e) {
-      console.warn("Erro ao carregar submissões:", e);
-      return [];
-    }
+    let query = window.supabaseClient
+      .from("submissions")
+      .select("*")
+      .order("submitted_at", { ascending: false, nullsFirst: false });
+
+    if (atividadeId) query = query.eq("activity_id", atividadeId);
+    const { data, error } = await query;
+    if (error) throw new Error("Não foi possível carregar as entregas.");
+    return (data || []).map((row) => this.mapSubmission(row));
   },
 
   async salvarSubmissao(submissao) {
-    const res = await fetch("/api/submissoes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(submissao)
-    });
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error || "Erro ao enviar submissão");
-    return data.submissao;
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) throw new Error("Sua sessão de estudante expirou.");
+
+    const row = {
+      activity_id: submissao.atividadeId,
+      student_id: student.id,
+      student_email: student.email,
+      student_name: submissao.alunoNome,
+      answers: submissao.respostas || {},
+      infractions: submissao.infracoes || {},
+      status: submissao.status || "submitted",
+      started_at: submissao.dataInicio || new Date().toISOString(),
+      submitted_at: submissao.dataEnvio || new Date().toISOString(),
+      content: submissao
+    };
+
+    const { data, error } = await window.supabaseClient
+      .from("submissions")
+      .insert(row)
+      .select("*")
+      .single();
+
+    if (error) throw new Error("Não foi possível registrar a entrega.");
+    return this.mapSubmission(data);
   },
 
   async atualizarCorrecao(submissaoId, correcao) {
-    const res = await fetch(`/api/submissoes/${submissaoId}/corrigir`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ correcao })
-    });
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error || "Erro ao atualizar nota");
-    return data.submissao;
+    const { data: current, error: readError } = await window.supabaseClient
+      .from("submissions")
+      .select("content")
+      .eq("id", submissaoId)
+      .single();
+    if (readError) throw new Error("Não foi possível abrir a entrega.");
+
+    const score = Number(correcao?.notaTotal ?? correcao?.nota ?? 0);
+    const { data, error } = await window.supabaseClient
+      .from("submissions")
+      .update({
+        score,
+        status: "graded",
+        content: { ...(current.content || {}), correcao }
+      })
+      .eq("id", submissaoId)
+      .select("*")
+      .single();
+
+    if (error) throw new Error("Não foi possível atualizar a correção.");
+    return this.mapSubmission(data);
   },
 
-  // DRAFT LOCAL (Salvamento em tempo real da prova do aluno)
   salvarRascunhoAluno(atividadeId, respostas, submissaoId) {
-    const key = `draft_aluno_${atividadeId}`;
-    localStorage.setItem(key, JSON.stringify({
+    localStorage.setItem(`draft_aluno_${atividadeId}`, JSON.stringify({
       submissaoId,
       respostas,
       ultimoSalvamento: new Date().toISOString()
@@ -112,8 +195,7 @@ const DB = {
   },
 
   obterRascunhoAluno(atividadeId) {
-    const key = `draft_aluno_${atividadeId}`;
-    const item = localStorage.getItem(key);
+    const item = localStorage.getItem(`draft_aluno_${atividadeId}`);
     return item ? JSON.parse(item) : null;
   },
 
@@ -121,25 +203,12 @@ const DB = {
     localStorage.removeItem(`draft_aluno_${atividadeId}`);
   },
 
-  // CONFIGURAÇÕES
   async getConfiguracoes() {
-    try {
-      const res = await fetch("/api/configuracoes");
-      const data = await res.json();
-      if (data.success) return data;
-      return { config: {}, hasApiKey: false };
-    } catch (e) {
-      return { config: {}, hasApiKey: false };
-    }
+    return { config: {}, hasApiKey: false };
   },
 
-  async salvarConfiguracoes(config) {
-    const res = await fetch("/api/configuracoes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(config)
-    });
-    return await res.json();
+  async salvarConfiguracoes() {
+    throw new Error("As chaves de IA devem ser configuradas no servidor, nunca no navegador.");
   }
 };
 
