@@ -8,7 +8,7 @@ const App = {
     this.handleRoute();
   },
 
-  handleRoute() {
+  async handleRoute() {
     const hash = window.location.hash.replace(/^#\/?/, "");
     const parts = hash.split("/");
 
@@ -25,7 +25,7 @@ const App = {
       } else {
         AlunoLoginView.render();
       }
-    } else if (parts[0] === "professor") {
+    } else if (parts[0] === "professor") {\n      const authorized = await TeacherAuth.requireProfessor();\n      if (!authorized) { window.scrollTo(0, 0); return; }
       if (parts[1] === "nova-atividade") {
         ProfessorNovaAtividadeView.render();
       } else if (parts[1] === "atividade" && parts[2]) {
