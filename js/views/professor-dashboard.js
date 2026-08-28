@@ -22,11 +22,14 @@ const ProfessorDashboardView = {
                     SEDUC-SP
                   </span>
                 </h1>
-                <p class="text-xs text-blue-200">Profª. Maria Helena Silveira • maria.silveira@professor.educacao.sp.gov.br</p>
+                <p class="text-xs text-blue-200"><span id="teacher-display-name">Professora</span> • <span id="teacher-display-email"></span></p>
               </div>
             </div>
 
             <div class="flex items-center gap-3">
+              <button id="teacher-logout" type="button" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold flex items-center gap-1.5 border border-white/20 transition-all" title="Sair do painel">
+                <i data-lucide="log-out" class="w-3.5 h-3.5"></i><span class="hidden sm:inline">Sair</span>
+              </button>
               <a href="#professor/configuracoes" class="px-3 py-1.5 rounded-lg bg-blue-900/60 hover:bg-blue-900 text-xs font-semibold flex items-center gap-1.5 border border-blue-400/20 transition-all">
                 <i data-lucide="settings" class="w-3.5 h-3.5"></i>
                 <span class="hidden sm:inline">Configurações & IA</span>
@@ -119,6 +122,11 @@ const ProfessorDashboardView = {
     `;
 
     if (window.lucide) window.lucide.createIcons();
+
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    document.getElementById("teacher-display-name").textContent = teacher?.display_name || "Professora";
+    document.getElementById("teacher-display-email").textContent = teacher?.email || "";
+    document.getElementById("teacher-logout").onclick = () => TeacherAuth.logout();
 
     // Carregar Dados
     const [atividades, submissoes] = await Promise.all([
