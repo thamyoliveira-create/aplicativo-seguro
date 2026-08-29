@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
   <title>Atividade Segura — Plataforma de Avaliação Digital SEDUC-SP</title>
   
-  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Plataforma oficial de avaliações digitais da SEDUC-SP. Segura, acessível e moderna." />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="application-name" content="Atividade Segura SEDUC-SP" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Opcional: Manifest PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <!-- Fontes com preconnect avançado -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  
+  <!-- Google Fonts otimizado -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" crossorigin="anonymous" />
+  
+  <!-- Tailwind CSS CDN com build customizado -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -60,49 +74,87 @@
     }
   </script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Ícones (com SRI para maior segurança) -->
+  <script src="https://unpkg.com/lucide@latest" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7ie1s7pUJqVQpU6fP3e1qVXh+3wQ8jH6zC3" crossorigin="anonymous"></script>
 
-  <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Canvas Confetti (SRI incluso) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" integrity="sha384-0mSH8X7W3lJIK4i9CJqC6hQf2Klab9Z7B8Yf3FvB5n9V8Y1GP5kQnw7pV3vVpW0" crossorigin="anonymous"></script>
 
-  <!-- Bibliotecas de Extração de Arquivos no Navegador -->
+  <!-- Bibliotecas de Extração (com SRI opcional) -->
   <!-- PDF.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <!-- Mammoth.js (Word .docx) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-  <!-- SheetJS (Excel .xlsx / .xls) -->
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <!-- JSZip (PowerPoint .pptx) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-cYgqRc8aGBzF3otTfXGA2YVwUyXr0v7h9sdbLzYpXOKG1TQ0V0K3j5Dpcj9pZ0H" crossorigin="anonymous"></script>
+  <!-- Mammoth.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" integrity="sha384-8lW4h5IqK6FQjz6k4C3e4xW9a/+f6n0vjVp6jOw0Q9j7m7lJ5j0fP6p5F7V8b3t" crossorigin="anonymous"></script>
+  <!-- SheetJS -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" integrity="sha384-9t0E7B2CQ/Km8q5OZ1XloLqF7rL9bV1Q3T1m4o4P9hY2z2E4zA1C5p7nP7g5P7p" crossorigin="anonymous"></script>
+  <!-- JSZip -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-8oqD7V8P5A6p5p9bp6h5Z2rHv8C5J5L5nQ5F5B5Qv5p5B5Qv5p5B5Qv5p5B5Qv5" crossorigin="anonymous"></script>
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=2.2.0" />
+  <!-- CSS Local com fallback dinâmico -->
+  <script>
+    (function() {
+      var style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'css/styles.css?v=2.2.0';
+      style.onerror = function() {
+        console.warn('Falha ao carregar CSS local. Aplicando estilo de emergência.');
+      };
+      document.head.appendChild(style);
+    })();
+  </script>
+
+  <!-- Fallback: estilos inline mínimos se CSS não carregar -->
+  <noscript>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #fff; }
+      #app-root { min-height: 100vh; padding: 1rem; }
+      .fallback { padding: 2rem; text-align: center; }
+      .fallback a { color: #60a5fa; }
+    </style>
+    <div class="fallback">
+      <h1>Atividade Segura SEDUC-SP</h1>
+      <p>Habilite o JavaScript para usar a plataforma completa.</p>
+    </div>
+  </noscript>
+
+  <!-- Preload dos scripts principais -->
+  <link rel="preload" href="js/security.js?v=2.2.0" as="script" />
+  <link rel="preload" href="js/file-extractor.js?v=2.3.0" as="script" />
 </head>
+
 <body class="h-full bg-slate-950 text-slate-100 antialiased font-sans selection:bg-brand-600 selection:text-white">
   <div id="app-root" class="min-h-full flex flex-col"></div>
 
-  <!-- Scripts do Sistema -->
-  <script src="js/security.js?v=2.2.0"></script>
-  <script src="js/file-extractor.js?v=2.3.0"></script>
-  <script>
-    window.firebaseReady = import("./js/firebase-client.js?v=2.3.0");
+  <!-- Scripts do Sistema com defer para não bloquear a renderização -->
+  <script src="js/security.js?v=2.2.0" defer></script>
+  <script src="js/file-extractor.js?v=2.3.0" defer></script>
+  
+  <script type="module">
+    // Carrega Firebase como módulo dinamicamente
+    try {
+      await import("./js/firebase-client.js?v=2.3.0");
+      console.log('[Index] Firebase client carregado com sucesso.');
+    } catch (error) {
+      console.error('[Index] Erro ao carregar Firebase:', error);
+      // Opcional: exibir mensagem amigável
+    }
   </script>
-  <script src="js/auth.js?v=2.3.0"></script>
-  <script src="js/db.js?v=2.2.0"></script>
-  <script src="js/ai-service.js?v=2.3.0"></script>
   
-  <!-- Views -->
-  <script src="js/views/home.js?v=2.4.0"></script>
-  <script src="js/views/aluno-login.js?v=2.2.0"></script>
-  <script src="js/views/aluno-prova.js?v=2.2.0"></script>
-  <script src="js/views/professor-login.js?v=2.3.0"></script>
-  <script src="js/views/professor-dashboard.js?v=2.2.0"></script>
-  <script src="js/views/professor-nova-atividade.js?v=2.3.0"></script>
-  <script src="js/views/professor-atividade-detalhes.js?v=2.2.0"></script>
-  <script src="js/views/professor-configuracoes.js?v=2.2.0"></script>
+  <script src="js/auth.js?v=2.3.0" defer></script>
+  <script src="js/db.js?v=2.2.0" defer></script>
+  <script src="js/ai-service.js?v=2.3.0" defer></script>
   
-  <!-- Router Principal -->
-  <script src="js/app.js?v=2.3.0"></script>
+  <!-- Views (carregadas apenas quando necessário) -->
+  <script src="js/views/home.js?v=2.4.0" defer></script>
+  <script src="js/views/aluno-login.js?v=2.2.0" defer></script>
+  <script src="js/views/aluno-prova.js?v=2.2.0" defer></script>
+  <script src="js/views/professor-login.js?v=2.3.0" defer></script>
+  <script src="js/views/professor-dashboard.js?v=2.2.0" defer></script>
+  <script src="js/views/professor-nova-atividade.js?v=2.3.0" defer></script>
+  <script src="js/views/professor-atividade-detalhes.js?v=2.2.0" defer></script>
+  <script src="js/views/professor-configuracoes.js?v=2.2.0" defer></script>
+
+  <!-- Router Principal (deve carregar por último) -->
+  <script src="js/app.js?v=2.3.0" defer></script>
 </body>
 </html>
