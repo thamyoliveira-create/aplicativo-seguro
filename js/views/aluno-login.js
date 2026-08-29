@@ -1,190 +1,136 @@
-/**
- * View: Acesso e Identificação do Aluno
- */
-
 const AlunoLoginView = {
   async render(params = {}) {
-    const defaultCode = params.codigo || "";
     const root = document.getElementById("app-root");
+    const student = await StudentAuth.session();
 
-    root.innerHTML = `
-      <div class="min-h-screen bg-slate-100 flex flex-col justify-between text-slate-800">
-        <!-- Topo -->
-        <header class="bg-[#002b66] text-white py-3 px-6 shadow-md border-b-4 border-[#dc2626]">
-          <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 font-bold text-base hover:text-blue-200">
-              <i data-lucide="arrow-left" class="w-5 h-5"></i>
-              <span>Voltar ao Início</span>
-            </a>
-            <span class="text-xs bg-blue-900/60 px-3 py-1 rounded-full border border-blue-400/30 text-blue-200 font-mono">
-              Acesso do Estudante
-            </span>
-          </div>
-        </header>
-
-        <!-- Formulário de Entrada -->
-        <main class="max-w-md mx-auto w-full p-4 my-8">
-          <div class="bg-white rounded-3xl p-8 shadow-2xl border border-slate-200">
-            <div class="text-center mb-6">
-              <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                <i data-lucide="lock" class="w-7 h-7"></i>
+    if (!student) {
+      root.innerHTML = `
+        <main class="student-login-shell">
+          <a class="auth-back" href="#"><i data-lucide="arrow-left"></i> Início</a>
+          <section class="student-login-card">
+            <div class="student-login-mark"><i data-lucide="graduation-cap"></i></div>
+            <p class="auth-kicker">ACESSO DO ESTUDANTE</p>
+            <h1>Entre com seu e-mail institucional</h1>
+            <p>Você receberá um link na sua caixa de entrada Microsoft. Depois, informe o código da atividade e seu RA.</p>
+            <form id="student-email-form">
+              <label for="student-email">E-mail institucional</label>
+              <div class="auth-input">
+                <i data-lucide="mail"></i>
+                <input id="student-email" type="email" autocomplete="email"
+                  placeholder="nome@aluno.educacao.sp.gov.br" required>
               </div>
-              <h2 class="text-2xl font-bold text-slate-900">Entrada na Avaliação</h2>
-              <p class="text-xs text-slate-500 mt-1">Preencha seus dados para acessar o ambiente blindado</p>
-            </div>
-
-            <form id="form-aluno-login" class="space-y-4">
-              <!-- Código da Prova / PIN -->
-              <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                  Código da Atividade ou PIN *
-                </label>
-                <div class="relative">
-                  <input
-                    type="text"
-                    id="input-codigo-prova"
-                    required
-                    value="${defaultCode}"
-                    placeholder="Ex: GEO-8B-2026 ou 8421"
-                    class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:bg-white text-sm font-semibold uppercase tracking-wider transition-all"
-                  />
-                  <i data-lucide="key" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
-                </div>
-              </div>
-
-              <!-- Nome Completo -->
-              <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                  Seu Nome Completo *
-                </label>
-                <div class="relative">
-                  <input
-                    type="text"
-                    id="input-nome-aluno"
-                    required
-                    placeholder="Ex: Gabriel Santos de Oliveira"
-                    class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:bg-white text-sm transition-all"
-                  />
-                  <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
-                </div>
-              </div>
-
-              <!-- RA (Registro do Aluno) -->
-              <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
-                  <span>RA (Registro do Aluno) *</span>
-                  <span class="text-[10px] text-slate-400 font-normal">Ex: 108.452.981-3/SP</span>
-                </label>
-                <div class="relative">
-                  <input
-                    type="text"
-                    id="input-ra-aluno"
-                    required
-                    placeholder="000.000.000-0/SP"
-                    class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:bg-white text-sm font-mono transition-all"
-                  />
-                  <i data-lucide="id-card" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
-                </div>
-              </div>
-
-              <!-- E-mail Institucional -->
-              <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
-                  <span>E-mail Institucional *</span>
-                  <span class="text-[10px] text-blue-600 font-medium">@aluno.educacao.sp.gov.br</span>
-                </label>
-                <div class="relative">
-                  <input
-                    type="email"
-                    id="input-email-aluno"
-                    required
-                    placeholder="nome.sobrenome@aluno.educacao.sp.gov.br"
-                    class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:bg-white text-sm transition-all"
-                  />
-                  <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
-                </div>
-              </div>
-
-              <!-- Termos e Regras de Segurança -->
-              <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 text-xs text-amber-900 space-y-1.5 mt-2">
-                <div class="font-bold flex items-center gap-1.5 text-amber-800">
-                  <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
-                  Regras do Modo Blindado:
-                </div>
-                <ul class="list-disc list-inside space-y-0.5 text-[11px] text-amber-800/90 pl-1">
-                  <li>A tela cheia é obrigatória durante toda a avaliação.</li>
-                  <li>Trocas de abas ou perda de foco são cronometradas e registradas.</li>
-                  <li>Copiar, colar e capturas de tela estão desativados.</li>
-                  <li>Uma marca d'água com seu RA cobrirá toda a prova.</li>
-                </ul>
-              </div>
-
-              <div class="flex items-center gap-2 pt-2">
-                <input type="checkbox" id="check-concordo" required class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-slate-300 cursor-pointer" />
-                <label for="check-concordo" class="text-xs text-slate-600 cursor-pointer select-none">
-                  Estou ciente das regras de segurança e pronto(a) para iniciar.
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                id="btn-entrar-prova"
-                class="w-full py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-bold text-sm shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-2"
-              >
-                <span>Entrar em Modo Blindado</span>
-                <i data-lucide="shield" class="w-4 h-4"></i>
+              <p id="student-login-error" class="auth-error" role="alert" aria-live="polite"></p>
+              <p id="student-login-success" class="auth-success" role="status" aria-live="polite"></p>
+              <button class="auth-submit student-submit" type="submit">
+                <span>Enviar link seguro</span><i data-lucide="arrow-right"></i>
               </button>
             </form>
-          </div>
-        </main>
+            <div class="auth-divider"><span>É professora?</span></div>
+            <a class="auth-student-link" href="#professor">Acessar o painel docente</a>
+          </section>
+        </main>`;
 
-        <!-- Rodapé -->
-        <footer class="text-center py-4 text-xs text-slate-500">
-          Atividade Segura • Secretaria da Educação do Estado de São Paulo
-        </footer>
-      </div>
-    `;
+      if (window.lucide) window.lucide.createIcons();
+
+      document.getElementById("student-email-form").onsubmit = async (event) => {
+        event.preventDefault();
+        const button = event.currentTarget.querySelector(".auth-submit");
+        const error = document.getElementById("student-login-error");
+        const success = document.getElementById("student-login-success");
+        button.disabled = true;
+        button.querySelector("span").textContent = "Enviando…";
+        error.textContent = "";
+        success.textContent = "";
+
+        try {
+          const sentTo = await StudentAuth.sendMagicLink(document.getElementById("student-email").value);
+          success.textContent = `Link enviado para ${sentTo}. Abra o e-mail neste mesmo dispositivo.`;
+          button.querySelector("span").textContent = "Link enviado";
+        } catch (err) {
+          error.textContent = err.message;
+          button.disabled = false;
+          button.querySelector("span").textContent = "Enviar link seguro";
+        }
+      };
+      return;
+    }
+
+    const defaultCode = params.codigo || "";
+    root.innerHTML = `
+      <main class="student-login-shell student-identified">
+        <a class="auth-back" href="#"><i data-lucide="arrow-left"></i> Início</a>
+        <section class="student-login-card">
+          <div class="student-session">
+            <span><i data-lucide="badge-check"></i></span>
+            <div><small>Conta verificada</small><b>${student.email}</b></div>
+            <button id="student-logout" type="button" title="Sair"><i data-lucide="log-out"></i></button>
+          </div>
+          <p class="auth-kicker">ENTRAR NA ATIVIDADE</p>
+          <h1>Pronto para começar?</h1>
+          <p>Informe o código recebido da professora. O RA será usado na marca d'água da avaliação.</p>
+
+          <form id="student-activity-form">
+            <label for="activity-code">Código da atividade</label>
+            <div class="auth-input"><i data-lucide="key-round"></i>
+              <input id="activity-code" type="text" value="${defaultCode}" autocomplete="off" placeholder="Ex.: GEO-8B-2026" required>
+            </div>
+            <label for="student-name">Nome completo</label>
+            <div class="auth-input"><i data-lucide="user"></i>
+              <input id="student-name" type="text" autocomplete="name" placeholder="Seu nome completo" required>
+            </div>
+            <label for="student-ra">RA</label>
+            <div class="auth-input"><i data-lucide="id-card"></i>
+              <input id="student-ra" type="text" autocomplete="off" placeholder="000.000.000-0/SP" required>
+            </div>
+
+            <div class="exam-notice">
+              <i data-lucide="shield-alert"></i>
+              <p><b>Durante a atividade</b>Saídas da tela e perda de foco podem ser registradas. Copiar, selecionar e imprimir são dificultados pelo navegador.</p>
+            </div>
+
+            <label class="consent-row">
+              <input id="student-consent" type="checkbox" required>
+              <span>Li as orientações e estou pronto(a) para iniciar.</span>
+            </label>
+            <p id="activity-login-error" class="auth-error" role="alert" aria-live="polite"></p>
+            <button class="auth-submit student-submit" type="submit">
+              <span>Entrar na atividade</span><i data-lucide="shield-check"></i>
+            </button>
+          </form>
+        </section>
+      </main>`;
 
     if (window.lucide) window.lucide.createIcons();
+    document.getElementById("student-logout").onclick = () => StudentAuth.logout();
 
-    // Evento de Envio do Formulário
-    const form = document.getElementById("form-aluno-login");
-    form.onsubmit = async (e) => {
-      e.preventDefault();
-      const codigo = document.getElementById("input-codigo-prova").value.trim();
-      const nome = document.getElementById("input-nome-aluno").value.trim();
-      const ra = document.getElementById("input-ra-aluno").value.trim();
-      const email = document.getElementById("input-email-aluno").value.trim();
+    document.getElementById("student-activity-form").onsubmit = async (event) => {
+      event.preventDefault();
+      const button = event.currentTarget.querySelector(".auth-submit");
+      const error = document.getElementById("activity-login-error");
+      const codigo = document.getElementById("activity-code").value.trim();
+      const nome = document.getElementById("student-name").value.trim();
+      const ra = document.getElementById("student-ra").value.trim();
 
-      const btn = document.getElementById("btn-entrar-prova");
-      btn.disabled = true;
-      btn.innerHTML = `<span class="inline-block animate-spin mr-2">⏳</span> Verificando atividade...`;
+      button.disabled = true;
+      button.querySelector("span").textContent = "Verificando…";
+      error.textContent = "";
 
       try {
         const atividade = await DB.getAtividadePorCodigo(codigo);
-        if (!atividade) {
-          alert(`Código de atividade "${codigo}" não encontrado. Verifique com seu professor.`);
-          btn.disabled = false;
-          btn.innerHTML = `<span>Entrar em Modo Blindado</span> <i data-lucide="shield" class="w-4 h-4"></i>`;
-          if (window.lucide) window.lucide.createIcons();
-          return;
-        }
+        if (!atividade) throw new Error("Código não encontrado ou atividade ainda não publicada.");
 
-        // Salvar dados do aluno na sessão
         sessionStorage.setItem("aluno_ativo", JSON.stringify({
           nome,
           ra,
-          email,
+          email: student.email,
           codigoAtividade: atividade.codigo,
           atividadeId: atividade.id
         }));
-
-        // Redirecionar para a tela da prova blindada
         window.location.hash = `#aluno/prova/${atividade.codigo}`;
       } catch (err) {
-        alert("Erro ao validar atividade: " + err.message);
-        btn.disabled = false;
-        btn.innerHTML = `<span>Entrar em Modo Blindado</span>`;
+        error.textContent = err.message;
+        button.disabled = false;
+        button.querySelector("span").textContent = "Entrar na atividade";
       }
     };
   }

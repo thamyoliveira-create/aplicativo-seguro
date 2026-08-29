@@ -416,9 +416,9 @@ const ProfessorNovaAtividadeView = {
       };
 
       try {
-        await DB.salvarAtividade(novaAtividade);
+        const atividadeSalva = await DB.salvarAtividade(novaAtividade);
         alert("Avaliação criada e publicada com sucesso!");
-        window.location.hash = `#professor/atividade/${novaAtividade.id}`;
+        window.location.hash = `#professor/atividade/${atividadeSalva.id}`;
       } catch (err) {
         alert("Erro ao salvar avaliação: " + err.message);
       }
