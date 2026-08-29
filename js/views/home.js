@@ -7,6 +7,7 @@ const HomeView = {
           <a href="#" class="landing-logo" aria-label="Atividade Segura — início">
             <span><i data-lucide="shield-check"></i></span>
             <b>Atividade Segura</b>
+            <em class="landing-tagline">projeto independente</em>
           </a>
           <nav aria-label="Acessos principais">
             <a href="#aluno" class="nav-link">Sou estudante</a>
@@ -51,9 +52,12 @@ const HomeView = {
           </section>
 
           <section class="trust-strip" aria-label="Recursos principais">
-            <div><b>01</b><span><strong>Material próprio</strong>Use textos e documentos da aula como base.</span></div>
-            <div><b>02</b><span><strong>IA com direção pedagógica</strong>Defina série, habilidade, tema e dificuldade.</span></div>
-            <div><b>03</b><span><strong>Perfis separados</strong>Aluno não acessa painel, gabarito ou dados docentes.</span></div>
+            <div class="trust-item trust-item-lead">
+              <b>01</b>
+              <span><strong>Material próprio</strong>Use os textos, resumos e documentos que você já usa em aula — a IA parte do que é seu, não de um banco genérico de questões.</span>
+            </div>
+            <div class="trust-item"><b>02</b><span><strong>IA com direção pedagógica</strong>Você define série, habilidade BNCC, tema e nível de dificuldade.</span></div>
+            <div class="trust-item"><b>03</b><span><strong>Perfis separados</strong>Aluno não vê painel, gabarito ou dados da professora.</span></div>
           </section>
 
           <section class="landing-details">
@@ -63,15 +67,15 @@ const HomeView = {
             </div>
             <div class="detail-grid">
               <article><i data-lucide="file-up"></i><h3>Envie seu material</h3><p>Textos, resumos e referências orientam a criação das questões.</p></article>
-              <article><i data-lucide="sparkles"></i><h3>Contextualize com IA</h3><p>Gere itens no estilo SARESP e Prova Paulista, com distratores plausíveis.</p></article>
-              <article><i data-lucide="shield-alert"></i><h3>Aplique com registro</h3><p>Reduza copiar e colar, use marca d'água e registre perda de foco.</p></article>
-              <article><i data-lucide="line-chart"></i><h3>Acompanhe evidências</h3><p>Veja entregas e ocorrências sem misturar os espaços de aluno e professora.</p></article>
+              <article><i data-lucide="sparkles"></i><h3>Contextualize com IA</h3><p>Gere itens no estilo SARESP e Prova Paulista, com distratores plausíveis — nada de alternativas óbvias ou pegadinhas rasas.</p></article>
+              <article><i data-lucide="shield-alert"></i><h3>Aplique com registro</h3><p>Copiar e colar reduzido, marca d'água dinâmica e detecção de saída da tela cheia durante a prova.</p></article>
+              <article><i data-lucide="line-chart"></i><h3>Acompanhe evidências</h3><p>Entregas e ocorrências, sem misturar os espaços de aluno e professora.</p></article>
             </div>
           </section>
         </main>
 
         <footer class="landing-footer">
-          <span>Atividade Segura · projeto independente para apoio pedagógico</span>
+          <span>Atividade Segura · projeto independente para apoio pedagógico — não é um sistema oficial da SEDUC-SP</span>
           <span>Perfis aceitos: @professor e @aluno.educacao.sp.gov.br</span>
         </footer>
       </div>`;
