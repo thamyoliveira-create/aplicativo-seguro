@@ -1,22 +1,33 @@
-/**
- * Persistência Supabase com isolamento por perfil (RLS).
- * O conteúdo completo fica visível apenas à professora. Estudantes recebem
- * uma cópia sanitizada, sem gabaritos, respostas-modelo ou justificativas.
- */
 const DB = {
-  mapActivity(row) {
-    if (!row) return null;
-    const base = row.content || {};
+  async api() {
+    await window.firebaseReady;
+    return window.FirebaseAPI;
+  },
+
+  parseJson(value, fallback = {}) {
+    try { return JSON.parse(value || ""); } catch (_) { return fallback; }
+  },
+
+  toIso(value) {
+    return value?.toDate ? value.toDate().toISOString() : (value || null);
+  },
+
+  mapActivity(snapshot) {
+    if (!snapshot?.exists()) return null;
+    const row = snapshot.data();
+    const content = this.parseJson(row.contentJson, {});
     return {
-      ...base,
-      id: row.id || base.id,
-      codigo: row.access_code || base.codigo,
-      titulo: row.title || base.titulo,
-      disciplina: row.subject || base.disciplina,
-      anoTurma: row.grade || base.anoTurma,
-      instrucoes: row.instructions || base.instrucoes,
-      status: row.status === "published" ? "ativa" : (row.status || base.status),
-      configuracoesSeguranca: row.security_settings || base.configuracoesSeguranca || {}
+      ...content,
+      id: snapshot.id,
+      codigo: row.accessCode,
+      titulo: row.title,
+      disciplina: row.subject,
+      anoTurma: row.grade,
+      instrucoes: row.instructions,
+      status: row.status === "published" ? "ativa" : row.status,
+      configuracoesSeguranca: row.securitySettings || {},
+      teacherId: row.teacherId,
+      _createdAt: row.createdAt || null
     };
   },
 
@@ -24,166 +35,210 @@ const DB = {
     return {
       pin: atividade.pin || "",
       tempoLimiteMinutos: atividade.tempoLimiteMinutos || 45,
-      questoes: (atividade.questoes || []).map((questao) => ({
-        id: questao.id,
+      questoes: (atividade.questoes || []).slice(0, 100).map((questao) => ({
+        id: String(questao.id || "").slice(0, 100),
         tipo: questao.tipo,
-        habilidadeBNCC: questao.habilidadeBNCC || "",
-        enunciado: questao.enunciado,
-        textoApoio: questao.textoApoio || "",
-        peso: questao.peso || 1,
-        alternativas: (questao.alternativas || []).map((alternativa) => ({
-          id: alternativa.id,
-          texto: alternativa.texto
+        habilidadeBNCC: String(questao.habilidadeBNCC || "").slice(0, 80),
+        enunciado: String(questao.enunciado || "").slice(0, 12000),
+        textoApoio: String(questao.textoApoio || "").slice(0, 30000),
+        peso: Number(questao.peso || 1),
+        alternativas: (questao.alternativas || []).slice(0, 10).map((alternativa) => ({
+          id: String(alternativa.id || "").slice(0, 10),
+          texto: String(alternativa.texto || "").slice(0, 4000)
         }))
       }))
     };
   },
 
-  mapSubmission(row) {
-    if (!row) return null;
+  mapSubmission(snapshot) {
+    if (!snapshot?.exists()) return null;
+    const row = snapshot.data();
     return {
-      ...(row.content || {}),
-      id: row.id,
-      atividadeId: row.activity_id,
-      alunoNome: row.student_name,
-      alunoEmail: row.student_email,
-      respostas: row.answers || {},
-      infracoes: row.infractions || {},
-      nota: row.score,
+      ...this.parseJson(row.contentJson, {}),
+      id: snapshot.id,
+      atividadeId: row.activityId,
+      alunoNome: row.studentName,
+      alunoEmail: row.studentEmail,
+      respostas: this.parseJson(row.answersJson, {}),
+      infracoes: this.parseJson(row.infractionsJson, {}),
+      nota: row.score ?? null,
       status: row.status,
-      dataEnvio: row.submitted_at,
-      dataInicio: row.started_at
+      dataEnvio: this.toIso(row.submittedAt),
+      dataInicio: this.toIso(row.startedAt)
     };
   },
 
   async getAtividades() {
-    const { data, error } = await window.supabaseClient
-      .from("activities")
-      .select("*")
-      .order("created_at", { ascending: false });
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
 
-    if (error) throw new Error("Não foi possível carregar suas atividades.");
-    return (data || []).map((row) => this.mapActivity(row));
+    const q = F.query(
+      F.collection(F.db, "activities"),
+      F.where("teacherId", "==", teacher.id),
+      F.orderBy("createdAt", "desc")
+    );
+    const result = await F.getDocs(q);
+    return result.docs.map((item) => this.mapActivity(item));
   },
 
   async getAtividadePorId(id) {
-    const { data, error } = await window.supabaseClient
-      .from("activities")
-      .select("*")
-      .eq("id", id)
-      .maybeSingle();
-
-    if (error) throw new Error("Não foi possível carregar a atividade.");
-    return this.mapActivity(data);
+    const F = await this.api();
+    const result = await F.getDoc(F.doc(F.db, "activities", id));
+    return this.mapActivity(result);
   },
 
   async getAtividadePorCodigo(codigo) {
-    const { data, error } = await window.supabaseClient
-      .rpc("get_published_activity_by_code", { p_code: String(codigo || "").trim() });
+    const F = await this.api();
+    const normalized = String(codigo || "").trim().toUpperCase();
+    if (!/^[A-Z0-9-]{4,32}$/.test(normalized)) return null;
 
-    if (error) throw new Error("Não foi possível validar esse código.");
-    return data || null;
+    const result = await F.getDoc(F.doc(F.db, "activityCodes", normalized));
+    if (!result.exists() || result.data().status !== "published") return null;
+
+    const row = result.data();
+    const payload = this.parseJson(row.studentContentJson, {});
+    return {
+      ...payload,
+      id: row.activityId,
+      codigo: row.accessCode,
+      titulo: row.title,
+      status: "ativa",
+      teacherId: row.teacherId
+    };
   },
 
   async salvarAtividade(atividade) {
+    const F = await this.api();
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou. Entre novamente.");
 
-    const row = {
-      teacher_id: teacher.id,
-      title: atividade.titulo,
-      subject: atividade.disciplina || "",
-      grade: atividade.anoTurma || "",
-      access_code: String(atividade.codigo || "").trim().toUpperCase(),
-      instructions: atividade.instrucoes || "",
-      status: atividade.status === "ativa" ? "published" : (atividade.status || "draft"),
-      security_settings: atividade.configuracoesSeguranca || {},
-      content: atividade,
-      student_content: this.studentPayload(atividade),
-      updated_at: new Date().toISOString()
-    };
-
-    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(atividade.id || "");
-    let query = window.supabaseClient.from("activities");
-    query = isUuid
-      ? query.update(row).eq("id", atividade.id).select("*").single()
-      : query.insert(row).select("*").single();
-
-    const { data, error } = await query;
-    if (error) {
-      if (error.code === "23505") throw new Error("Esse código de atividade já está em uso.");
-      throw new Error("Não foi possível salvar a atividade.");
+    const code = String(atividade.codigo || "").trim().toUpperCase();
+    if (!/^[A-Z0-9-]{4,32}$/.test(code)) {
+      throw new Error("Use um código de 4 a 32 caracteres, contendo letras, números ou hífen.");
     }
-    return this.mapActivity(data);
+
+    const activityRef = atividade.id && !String(atividade.id).startsWith("act-")
+      ? F.doc(F.db, "activities", atividade.id)
+      : F.doc(F.collection(F.db, "activities"));
+    const codeRef = F.doc(F.db, "activityCodes", code);
+    const [activitySnap, codeSnap] = await Promise.all([F.getDoc(activityRef), F.getDoc(codeRef)]);
+
+    if (codeSnap.exists() && codeSnap.data().teacherId !== teacher.id) {
+      throw new Error("Esse código de atividade já está em uso.");
+    }
+
+    const status = atividade.status === "ativa" ? "published" : (atividade.status || "draft");
+    const createdAt = activitySnap.exists() ? activitySnap.data().createdAt : F.serverTimestamp();
+    const now = F.serverTimestamp();
+    const batch = F.writeBatch(F.db);
+
+    batch.set(activityRef, {
+      teacherId: teacher.id,
+      title: String(atividade.titulo || "").slice(0, 160),
+      subject: String(atividade.disciplina || "").slice(0, 80),
+      grade: String(atividade.anoTurma || "").slice(0, 60),
+      accessCode: code,
+      instructions: String(atividade.instrucoes || "").slice(0, 4000),
+      status,
+      securitySettings: atividade.configuracoesSeguranca || {},
+      contentJson: JSON.stringify({ ...atividade, id: activityRef.id }),
+      createdAt,
+      updatedAt: now
+    });
+
+    batch.set(codeRef, {
+      teacherId: teacher.id,
+      activityId: activityRef.id,
+      accessCode: code,
+      title: String(atividade.titulo || "").slice(0, 160),
+      status,
+      studentContentJson: JSON.stringify({
+        ...this.studentPayload(atividade),
+        disciplina: String(atividade.disciplina || "").slice(0, 80),
+        anoTurma: String(atividade.anoTurma || "").slice(0, 60),
+        instrucoes: String(atividade.instrucoes || "").slice(0, 4000),
+        configuracoesSeguranca: atividade.configuracoesSeguranca || {}
+      }),
+      createdAt: codeSnap.exists() ? codeSnap.data().createdAt : now,
+      updatedAt: now
+    });
+
+    await batch.commit();
+    return { ...atividade, id: activityRef.id, codigo: code, teacherId: teacher.id };
   },
 
   async excluirAtividade(id) {
-    const { error } = await window.supabaseClient.from("activities").delete().eq("id", id);
-    if (error) throw new Error("Não foi possível excluir a atividade.");
+    const F = await this.api();
+    const activityRef = F.doc(F.db, "activities", id);
+    const snapshot = await F.getDoc(activityRef);
+    if (!snapshot.exists()) return true;
+
+    const batch = F.writeBatch(F.db);
+    batch.delete(activityRef);
+    batch.delete(F.doc(F.db, "activityCodes", snapshot.data().accessCode));
+    await batch.commit();
     return true;
   },
 
   async getSubmissoes(atividadeId = null) {
-    let query = window.supabaseClient
-      .from("submissions")
-      .select("*")
-      .order("submitted_at", { ascending: false, nullsFirst: false });
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
 
-    if (atividadeId) query = query.eq("activity_id", atividadeId);
-    const { data, error } = await query;
-    if (error) throw new Error("Não foi possível carregar as entregas.");
-    return (data || []).map((row) => this.mapSubmission(row));
+    const filters = [F.where("teacherId", "==", teacher.id)];
+    if (atividadeId) filters.push(F.where("activityId", "==", atividadeId));
+    filters.push(F.orderBy("submittedAt", "desc"));
+
+    const result = await F.getDocs(F.query(F.collection(F.db, "submissions"), ...filters));
+    return result.docs.map((item) => this.mapSubmission(item));
   },
 
   async salvarSubmissao(submissao) {
+    const F = await this.api();
     const student = StudentAuth.user || await StudentAuth.session();
     if (!student) throw new Error("Sua sessão de estudante expirou.");
 
-    const row = {
-      activity_id: submissao.atividadeId,
-      student_id: student.id,
-      student_email: student.email,
-      student_name: submissao.alunoNome,
-      answers: submissao.respostas || {},
-      infractions: submissao.infracoes || {},
-      status: submissao.status || "submitted",
-      started_at: submissao.dataInicio || new Date().toISOString(),
-      submitted_at: submissao.dataEnvio || new Date().toISOString(),
-      content: submissao
-    };
+    let activeStudent = {};
+    try { activeStudent = JSON.parse(sessionStorage.getItem("aluno_ativo") || "{}"); } catch (_) {}
+    if (!activeStudent.teacherId) throw new Error("A identificação da atividade expirou. Entre novamente pelo código.");
 
-    const { data, error } = await window.supabaseClient
-      .from("submissions")
-      .insert(row)
-      .select("*")
-      .single();
+    const ref = F.doc(F.collection(F.db, "submissions"));
+    await F.setDoc(ref, {
+      activityId: submissao.atividadeId,
+      teacherId: activeStudent.teacherId,
+      studentId: student.id,
+      studentEmail: student.email,
+      studentName: String(submissao.alunoNome || "").slice(0, 120),
+      answersJson: JSON.stringify(submissao.respostas || {}),
+      infractionsJson: JSON.stringify(submissao.infracoes || {}),
+      status: "submitted",
+      contentJson: JSON.stringify({ ...submissao, id: ref.id }),
+      startedAt: F.Timestamp.fromDate(new Date(submissao.dataInicio || Date.now())),
+      submittedAt: F.serverTimestamp(),
+      updatedAt: F.serverTimestamp()
+    });
 
-    if (error) throw new Error("Não foi possível registrar a entrega.");
-    return this.mapSubmission(data);
+    const result = await F.getDoc(ref);
+    return this.mapSubmission(result);
   },
 
   async atualizarCorrecao(submissaoId, correcao) {
-    const { data: current, error: readError } = await window.supabaseClient
-      .from("submissions")
-      .select("content")
-      .eq("id", submissaoId)
-      .single();
-    if (readError) throw new Error("Não foi possível abrir a entrega.");
+    const F = await this.api();
+    const ref = F.doc(F.db, "submissions", submissaoId);
+    const current = await F.getDoc(ref);
+    if (!current.exists()) throw new Error("Entrega não encontrada.");
 
+    const content = this.parseJson(current.data().contentJson, {});
     const score = Number(correcao?.notaTotal ?? correcao?.nota ?? 0);
-    const { data, error } = await window.supabaseClient
-      .from("submissions")
-      .update({
-        score,
-        status: "graded",
-        content: { ...(current.content || {}), correcao }
-      })
-      .eq("id", submissaoId)
-      .select("*")
-      .single();
+    await F.updateDoc(ref, {
+      score: Math.max(0, Math.min(100, score)),
+      status: "graded",
+      contentJson: JSON.stringify({ ...content, correcao }),
+      updatedAt: F.serverTimestamp()
+    });
 
-    if (error) throw new Error("Não foi possível atualizar a correção.");
-    return this.mapSubmission(data);
+    return this.mapSubmission(await F.getDoc(ref));
   },
 
   salvarRascunhoAluno(atividadeId, respostas, submissaoId) {
