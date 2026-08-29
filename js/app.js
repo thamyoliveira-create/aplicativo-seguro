@@ -1,7 +1,8 @@
 const App = {
-  init() {
+  async init() {
     window.addEventListener("hashchange", () => this.handleRoute());
-    window.supabaseClient.auth.onAuthStateChange(() => {
+    await window.firebaseReady;
+    window.FirebaseAPI.onAuthStateChanged(window.FirebaseAPI.auth, () => {
       setTimeout(() => this.handleRoute(), 0);
     });
     this.handleRoute();
