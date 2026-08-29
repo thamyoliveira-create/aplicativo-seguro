@@ -1,157 +1,248 @@
-/**
- * Módulo de Banco de Dados e Sincronização - Atividade Segura
- */
-
 const DB = {
-  // ATIVIDADES
+  async api() {
+    await window.firebaseReady;
+    return window.FirebaseAPI;
+  },
+
+  parseJson(value, fallback = {}) {
+    try { return JSON.parse(value || ""); } catch (_) { return fallback; }
+  },
+
+  toIso(value) {
+    return value?.toDate ? value.toDate().toISOString() : (value || null);
+  },
+
+  mapActivity(snapshot) {
+    if (!snapshot?.exists()) return null;
+    const row = snapshot.data();
+    const content = this.parseJson(row.contentJson, {});
+    return {
+      ...content,
+      id: snapshot.id,
+      codigo: row.accessCode,
+      titulo: row.title,
+      disciplina: row.subject,
+      anoTurma: row.grade,
+      instrucoes: row.instructions,
+      status: row.status === "published" ? "ativa" : row.status,
+      configuracoesSeguranca: row.securitySettings || {},
+      teacherId: row.teacherId,
+      _createdAt: row.createdAt || null
+    };
+  },
+
+  studentPayload(atividade) {
+    return {
+      pin: atividade.pin || "",
+      tempoLimiteMinutos: atividade.tempoLimiteMinutos || 45,
+      questoes: (atividade.questoes || []).slice(0, 100).map((questao) => ({
+        id: String(questao.id || "").slice(0, 100),
+        tipo: questao.tipo,
+        habilidadeBNCC: String(questao.habilidadeBNCC || "").slice(0, 80),
+        enunciado: String(questao.enunciado || "").slice(0, 12000),
+        textoApoio: String(questao.textoApoio || "").slice(0, 30000),
+        peso: Number(questao.peso || 1),
+        alternativas: (questao.alternativas || []).slice(0, 10).map((alternativa) => ({
+          id: String(alternativa.id || "").slice(0, 10),
+          texto: String(alternativa.texto || "").slice(0, 4000)
+        }))
+      }))
+    };
+  },
+
+  mapSubmission(snapshot) {
+    if (!snapshot?.exists()) return null;
+    const row = snapshot.data();
+    return {
+      ...this.parseJson(row.contentJson, {}),
+      id: snapshot.id,
+      atividadeId: row.activityId,
+      alunoNome: row.studentName,
+      alunoEmail: row.studentEmail,
+      respostas: this.parseJson(row.answersJson, {}),
+      infracoes: this.parseJson(row.infractionsJson, {}),
+      nota: row.score ?? null,
+      status: row.status,
+      dataEnvio: this.toIso(row.submittedAt),
+      dataInicio: this.toIso(row.startedAt)
+    };
+  },
+
   async getAtividades() {
-    try {
-      const res = await fetch("/api/atividades");
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success && Array.isArray(data.atividades)) {
-          localStorage.setItem("cache_atividades", JSON.stringify(data.atividades));
-          return data.atividades;
-        }
-      }
-    } catch (e) {
-      console.warn("Usando cache local de atividades:", e);
-    }
-    const cached = localStorage.getItem("cache_atividades");
-    return cached ? JSON.parse(cached) : [];
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+
+    const q = F.query(
+      F.collection(F.db, "activities"),
+      F.where("teacherId", "==", teacher.id),
+      F.orderBy("createdAt", "desc")
+    );
+    const result = await F.getDocs(q);
+    return result.docs.map((item) => this.mapActivity(item));
   },
 
   async getAtividadePorId(id) {
-    try {
-      const res = await fetch(`/api/atividades/${id}`);
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) return data.atividade;
-      }
-    } catch (e) {}
-    const atividades = await this.getAtividades();
-    return atividades.find(a => a.id === id) || null;
+    const F = await this.api();
+    const result = await F.getDoc(F.doc(F.db, "activities", id));
+    return this.mapActivity(result);
   },
 
   async getAtividadePorCodigo(codigo) {
-    try {
-      const res = await fetch(`/api/atividades/codigo/${encodeURIComponent(codigo)}`);
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) return data.atividade;
-      }
-    } catch (e) {}
-    const atividades = await this.getAtividades();
-    const codeUpper = (codigo || "").toUpperCase().trim();
-    return atividades.find(a => (a.codigo && a.codigo.toUpperCase() === codeUpper) || a.pin === codeUpper) || null;
+    const F = await this.api();
+    const normalized = String(codigo || "").trim().toUpperCase();
+    if (!/^[A-Z0-9-]{4,32}$/.test(normalized)) return null;
+
+    const result = await F.getDoc(F.doc(F.db, "activityCodes", normalized));
+    if (!result.exists() || result.data().status !== "published") return null;
+
+    const row = result.data();
+    const payload = this.parseJson(row.studentContentJson, {});
+    return {
+      ...payload,
+      id: row.activityId,
+      codigo: row.accessCode,
+      titulo: row.title,
+      status: "ativa",
+      teacherId: row.teacherId
+    };
   },
 
   async salvarAtividade(atividade) {
-    try {
-      const res = await fetch("/api/atividades", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(atividade)
-      });
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success && data.atividade) {
-          this._updateLocalCache(data.atividade);
-          return data.atividade;
-        }
-      }
-    } catch (e) {
-      console.warn("Salvando em cache local:", e);
-    }
-    this._updateLocalCache(atividade);
-    return atividade;
-  },
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou. Entre novamente.");
 
-  _updateLocalCache(atividade) {
-    const cached = JSON.parse(localStorage.getItem("cache_atividades") || "[]");
-    const idx = cached.findIndex(a => a.id === atividade.id || a.codigo === atividade.codigo);
-    if (idx >= 0) cached[idx] = atividade;
-    else cached.unshift(atividade);
-    localStorage.setItem("cache_atividades", JSON.stringify(cached));
+    const code = String(atividade.codigo || "").trim().toUpperCase();
+    if (!/^[A-Z0-9-]{4,32}$/.test(code)) {
+      throw new Error("Use um código de 4 a 32 caracteres, contendo letras, números ou hífen.");
+    }
+
+    const activityRef = atividade.id && !String(atividade.id).startsWith("act-")
+      ? F.doc(F.db, "activities", atividade.id)
+      : F.doc(F.collection(F.db, "activities"));
+    const codeRef = F.doc(F.db, "activityCodes", code);
+    const [activitySnap, codeSnap] = await Promise.all([F.getDoc(activityRef), F.getDoc(codeRef)]);
+
+    if (codeSnap.exists() && codeSnap.data().teacherId !== teacher.id) {
+      throw new Error("Esse código de atividade já está em uso.");
+    }
+
+    const status = atividade.status === "ativa" ? "published" : (atividade.status || "draft");
+    const createdAt = activitySnap.exists() ? activitySnap.data().createdAt : F.serverTimestamp();
+    const now = F.serverTimestamp();
+    const batch = F.writeBatch(F.db);
+
+    batch.set(activityRef, {
+      teacherId: teacher.id,
+      title: String(atividade.titulo || "").slice(0, 160),
+      subject: String(atividade.disciplina || "").slice(0, 80),
+      grade: String(atividade.anoTurma || "").slice(0, 60),
+      accessCode: code,
+      instructions: String(atividade.instrucoes || "").slice(0, 4000),
+      status,
+      securitySettings: atividade.configuracoesSeguranca || {},
+      contentJson: JSON.stringify({ ...atividade, id: activityRef.id }),
+      createdAt,
+      updatedAt: now
+    });
+
+    batch.set(codeRef, {
+      teacherId: teacher.id,
+      activityId: activityRef.id,
+      accessCode: code,
+      title: String(atividade.titulo || "").slice(0, 160),
+      status,
+      studentContentJson: JSON.stringify({
+        ...this.studentPayload(atividade),
+        disciplina: String(atividade.disciplina || "").slice(0, 80),
+        anoTurma: String(atividade.anoTurma || "").slice(0, 60),
+        instrucoes: String(atividade.instrucoes || "").slice(0, 4000),
+        configuracoesSeguranca: atividade.configuracoesSeguranca || {}
+      }),
+      createdAt: codeSnap.exists() ? codeSnap.data().createdAt : now,
+      updatedAt: now
+    });
+
+    await batch.commit();
+    return { ...atividade, id: activityRef.id, codigo: code, teacherId: teacher.id };
   },
 
   async excluirAtividade(id) {
-    try {
-      const res = await fetch(`/api/atividades/${id}`, {
-        method: "DELETE"
-      });
-      const text = await res.text();
-    } catch (e) {}
-    const cached = JSON.parse(localStorage.getItem("cache_atividades") || "[]");
-    const filtered = cached.filter(a => a.id !== id);
-    localStorage.setItem("cache_atividades", JSON.stringify(filtered));
+    const F = await this.api();
+    const activityRef = F.doc(F.db, "activities", id);
+    const snapshot = await F.getDoc(activityRef);
+    if (!snapshot.exists()) return true;
+
+    const batch = F.writeBatch(F.db);
+    batch.delete(activityRef);
+    batch.delete(F.doc(F.db, "activityCodes", snapshot.data().accessCode));
+    await batch.commit();
     return true;
   },
 
-  // SUBMISSÕES & ALUNOS
   async getSubmissoes(atividadeId = null) {
-    try {
-      const url = atividadeId ? `/api/submissoes?atividadeId=${encodeURIComponent(atividadeId)}` : "/api/submissoes";
-      const res = await fetch(url);
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) return data.submissoes;
-      }
-    } catch (e) {}
-    const cached = JSON.parse(localStorage.getItem("cache_submissoes") || "[]");
-    if (atividadeId) return cached.filter(s => s.atividadeId === atividadeId);
-    return cached;
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+
+    const filters = [F.where("teacherId", "==", teacher.id)];
+    if (atividadeId) filters.push(F.where("activityId", "==", atividadeId));
+    filters.push(F.orderBy("submittedAt", "desc"));
+
+    const result = await F.getDocs(F.query(F.collection(F.db, "submissions"), ...filters));
+    return result.docs.map((item) => this.mapSubmission(item));
   },
 
   async salvarSubmissao(submissao) {
-    try {
-      const res = await fetch("/api/submissoes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(submissao)
-      });
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) {
-          this._updateLocalSubmissao(data.submissao);
-          return data.submissao;
-        }
-      }
-    } catch (e) {}
-    this._updateLocalSubmissao(submissao);
-    return submissao;
-  },
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) throw new Error("Sua sessão de estudante expirou.");
 
-  _updateLocalSubmissao(submissao) {
-    const cached = JSON.parse(localStorage.getItem("cache_submissoes") || "[]");
-    cached.unshift(submissao);
-    localStorage.setItem("cache_submissoes", JSON.stringify(cached));
+    let activeStudent = {};
+    try { activeStudent = JSON.parse(sessionStorage.getItem("aluno_ativo") || "{}"); } catch (_) {}
+    if (!activeStudent.teacherId) throw new Error("A identificação da atividade expirou. Entre novamente pelo código.");
+
+    const ref = F.doc(F.collection(F.db, "submissions"));
+    await F.setDoc(ref, {
+      activityId: submissao.atividadeId,
+      teacherId: activeStudent.teacherId,
+      studentId: student.id,
+      studentEmail: student.email,
+      studentName: String(submissao.alunoNome || "").slice(0, 120),
+      answersJson: JSON.stringify(submissao.respostas || {}),
+      infractionsJson: JSON.stringify(submissao.infracoes || {}),
+      status: "submitted",
+      contentJson: JSON.stringify({ ...submissao, id: ref.id }),
+      startedAt: F.Timestamp.fromDate(new Date(submissao.dataInicio || Date.now())),
+      submittedAt: F.serverTimestamp(),
+      updatedAt: F.serverTimestamp()
+    });
+
+    const result = await F.getDoc(ref);
+    return this.mapSubmission(result);
   },
 
   async atualizarCorrecao(submissaoId, correcao) {
-    const res = await fetch(`/api/submissoes/${submissaoId}/corrigir`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ correcao })
+    const F = await this.api();
+    const ref = F.doc(F.db, "submissions", submissaoId);
+    const current = await F.getDoc(ref);
+    if (!current.exists()) throw new Error("Entrega não encontrada.");
+
+    const content = this.parseJson(current.data().contentJson, {});
+    const score = Number(correcao?.notaTotal ?? correcao?.nota ?? 0);
+    await F.updateDoc(ref, {
+      score: Math.max(0, Math.min(100, score)),
+      status: "graded",
+      contentJson: JSON.stringify({ ...content, correcao }),
+      updatedAt: F.serverTimestamp()
     });
-    const text = await res.text();
-    let data = {};
-    if (text.trim().startsWith("{")) {
-      try { data = JSON.parse(text); } catch (_) {}
-    }
-    return data.submissao || { id: submissaoId, correcao };
+
+    return this.mapSubmission(await F.getDoc(ref));
   },
 
-  // DRAFT LOCAL (Salvamento em tempo real da prova do aluno)
   salvarRascunhoAluno(atividadeId, respostas, submissaoId) {
-    const key = `draft_aluno_${atividadeId}`;
-    localStorage.setItem(key, JSON.stringify({
+    localStorage.setItem(`draft_aluno_${atividadeId}`, JSON.stringify({
       submissaoId,
       respostas,
       ultimoSalvamento: new Date().toISOString()
@@ -159,8 +250,7 @@ const DB = {
   },
 
   obterRascunhoAluno(atividadeId) {
-    const key = `draft_aluno_${atividadeId}`;
-    const item = localStorage.getItem(key);
+    const item = localStorage.getItem(`draft_aluno_${atividadeId}`);
     return item ? JSON.parse(item) : null;
   },
 
@@ -168,38 +258,12 @@ const DB = {
     localStorage.removeItem(`draft_aluno_${atividadeId}`);
   },
 
-  // CONFIGURAÇÕES
   async getConfiguracoes() {
-    try {
-      const res = await fetch("/api/configuracoes");
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) return data;
-      }
-    } catch (e) {}
-    const cached = JSON.parse(localStorage.getItem("cache_config") || "{}");
-    return { config: cached, hasApiKey: !!cached.geminiApiKey };
+    return { config: {}, hasApiKey: false };
   },
 
-  async salvarConfiguracoes(config) {
-    try {
-      const res = await fetch("/api/configuracoes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(config)
-      });
-      const text = await res.text();
-      if (text.trim().startsWith("{")) {
-        const data = JSON.parse(text);
-        if (data.success) {
-          localStorage.setItem("cache_config", JSON.stringify(config));
-          return data;
-        }
-      }
-    } catch (e) {}
-    localStorage.setItem("cache_config", JSON.stringify(config));
-    return { success: true, config };
+  async salvarConfiguracoes() {
+    throw new Error("As chaves de IA devem ser configuradas no servidor, nunca no navegador.");
   }
 };
 
