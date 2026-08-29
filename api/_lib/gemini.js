@@ -1,5 +1,9 @@
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY || "AIzaSyBbg3rwkyNxT4Mesa8BzUXwDf4OOq-l1ko";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.7-flash";
+const GEMINI_FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-3.6-flash,gemini-2.5-flash")
+  .split(",")
+  .map((model) => model.trim())
+  .filter(Boolean);
 const TEACHER_DOMAIN = "@professor.educacao.sp.gov.br";
 
 function sendJson(res, status, payload) {
@@ -36,30 +40,47 @@ async function callGemini({ systemInstruction, prompt }) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw Object.assign(new Error("A chave GEMINI_API_KEY ainda não foi configurada na Vercel."), { status: 503 });
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(GEMINI_MODEL)}:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemInstruction }] },
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens: 8192,
-          responseMimeType: "application/json"
-        }
-      })
+  const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS])];
+  const requestBody = JSON.stringify({
+    systemInstruction: { parts: [{ text: systemInstruction }] },
+    contents: [{ role: "user", parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.2,
+      maxOutputTokens: 8192,
+      responseMimeType: "application/json"
     }
-  );
-  const data = await response.json();
-  if (!response.ok) {
-    const message = data?.error?.message || "A IA não conseguiu processar o material.";
-    throw Object.assign(new Error(message), { status: response.status });
+  });
+  let lastError;
+
+  for (const model of models) {
+    const attempts = model === GEMINI_MODEL ? 2 : 1;
+    for (let attempt = 0; attempt < attempts; attempt += 1) {
+      if (attempt > 0) await new Promise((resolve) => setTimeout(resolve, 900 + Math.floor(Math.random() * 400)));
+
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${apiKey}`,
+        { method: "POST", headers: { "Content-Type": "application/json" }, body: requestBody }
+      );
+      const data = await response.json().catch(() => ({}));
+      if (response.ok) {
+        const text = data.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("") || "";
+        if (!text) throw Object.assign(new Error("A IA não retornou questões."), { status: 502 });
+        return parseGeminiJson(text);
+      }
+
+      const transient = response.status === 408 || response.status === 429 || response.status >= 500;
+      lastError = Object.assign(new Error(data?.error?.message || "A IA não conseguiu processar o material."), {
+        status: response.status,
+        transient
+      });
+      if (!transient) throw lastError;
+    }
   }
-  const text = data.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("") || "";
-  if (!text) throw Object.assign(new Error("A IA não retornou questões."), { status: 502 });
-  return parseGeminiJson(text);
+
+  throw Object.assign(
+    new Error("A IA está temporariamente ocupada. Aguarde alguns segundos e tente gerar novamente; o arquivo continua selecionado."),
+    { status: lastError?.status || 503 }
+  );
 }
 
 function validateText(value, max = 60000) {
