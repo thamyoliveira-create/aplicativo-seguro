@@ -3,24 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Atividade Segura - Avaliação Escolar Anticola com IA</title>
+  <title>Atividade Segura — Plataforma de Avaliação Digital SEDUC-SP</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0c1a40'
+            },
             sp: {
-              blue: "#002b66",
-              lightblue: "#0056b3",
-              red: "#dc2626",
-              gold: "#f59e0b"
+              blue: '#002b66',
+              dark: '#07122b',
+              red: '#dc2626',
+              gold: '#f59e0b'
+            },
+            dark: {
+              950: '#070b14',
+              900: '#0b1120',
+              850: '#0f172a',
+              800: '#1e293b',
+              700: '#334155'
             }
           },
           fontFamily: {
-            sans: ["Plus Jakarta Sans", "Inter", "sans-serif"]
+            sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'glow-blue': '0 0 25px -5px rgba(59, 130, 246, 0.4)',
+            'glow-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.4)',
+            'card-hover': '0 20px 35px -10px rgba(0, 0, 0, 0.25)',
+            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)'
           }
         }
       }
@@ -33,14 +66,25 @@
   <!-- Canvas Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+  <!-- Bibliotecas de Extração de Arquivos no Navegador -->
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- Mammoth.js (Word .docx) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <!-- SheetJS (Excel .xlsx / .xls) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- JSZip (PowerPoint .pptx) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="h-full bg-slate-900 text-slate-800 antialiased selection:bg-blue-200">
-  <div id="app-root" class="min-h-full"></div>
+<body class="h-full bg-slate-950 text-slate-100 antialiased font-sans selection:bg-brand-600 selection:text-white">
+  <div id="app-root" class="min-h-full flex flex-col"></div>
 
   <!-- Scripts do Sistema -->
   <script src="js/security.js"></script>
+  <script src="js/file-extractor.js"></script>
   <script src="js/db.js"></script>
   <script src="js/ai-service.js"></script>
   

@@ -8,12 +8,34 @@ const AIService = {
     anoTurma,
     tema,
     estilo = "Prova Paulista",
-    qtdMultiplaEscolha = 2,
-    qtdDissertativa = 1,
+    qtdMultiplaEscolha,
+    qtdDissertativa,
+    quantidade,
+    tipoQuestoes,
+    dificuldade,
     habilidadeBNCC = "",
     textoBase = ""
   }) {
     try {
+      const qtdTotal = parseInt(quantidade) || 3;
+      const tipo = tipoQuestoes || "mistas";
+
+      let finalMultipla = qtdMultiplaEscolha;
+      let finalDissertativa = qtdDissertativa;
+
+      if (finalMultipla === undefined || finalDissertativa === undefined) {
+        if (tipo === "multipla_escolha") {
+          finalMultipla = qtdTotal;
+          finalDissertativa = 0;
+        } else if (tipo === "dissertativa") {
+          finalMultipla = 0;
+          finalDissertativa = qtdTotal;
+        } else {
+          finalMultipla = Math.max(1, Math.floor(qtdTotal * 0.65));
+          finalDissertativa = Math.max(1, qtdTotal - finalMultipla);
+        }
+      }
+
       const res = await fetch("/api/gemini/gerar-questoes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -22,8 +44,11 @@ const AIService = {
           anoTurma,
           tema,
           estilo,
-          qtdMultiplaEscolha,
-          qtdDissertativa,
+          quantidade: qtdTotal,
+          tipoQuestoes: tipo,
+          dificuldade,
+          qtdMultiplaEscolha: finalMultipla,
+          qtdDissertativa: finalDissertativa,
           habilidadeBNCC,
           textoBase
         })
@@ -36,6 +61,29 @@ const AIService = {
       return data;
     } catch (err) {
       console.error("Erro no AIService.gerarQuestoes:", err);
+      throw err;
+    }
+  },
+
+  async estruturarQuestoes({ texto, formato = "documento", nomeArquivo = "" }) {
+    try {
+      const res = await fetch("/api/gemini/estruturar-questoes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          texto,
+          formato,
+          nomeArquivo
+        })
+      });
+
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error(data.error || "Falha ao estruturar questões com IA");
+      }
+      return data;
+    } catch (err) {
+      console.error("Erro no AIService.estruturarQuestoes:", err);
       throw err;
     }
   },

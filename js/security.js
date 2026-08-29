@@ -195,17 +195,17 @@ class SecurityEngine {
     if (!modal) {
       modal = document.createElement("div");
       modal.id = "fullscreen-required-modal";
-      modal.className = "fixed inset-0 z-[100000] bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4";
+      modal.className = "fixed inset-0 z-[100000] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4";
       modal.innerHTML = `
-        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center border-2 border-red-500 animate-bounce-short">
-          <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
-            ⚠️
+        <div class="glass-card rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-rose-500/50 animate-fade-in">
+          <div class="w-16 h-16 bg-rose-950/80 text-rose-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-rose-500/40 text-2xl">
+            🛡️
           </div>
-          <h2 class="text-2xl font-bold text-slate-800 mb-2">Tela Cheia Obrigatória</h2>
-          <p class="text-slate-600 mb-6 text-sm">
-            Para garantir a integridade da avaliação, esta prova deve ser realizada exclusivamente em tela cheia. Esta saída foi registrada no seu relatório.
+          <h2 class="text-2xl font-black text-white mb-2 tracking-tight">Tela Cheia Obrigatória</h2>
+          <p class="text-slate-300 mb-6 text-xs leading-relaxed">
+            Para garantir a integridade da avaliação, esta atividade deve ser realizada exclusivamente em tela cheia. Esta ocorrência foi registrada no seu relatório.
           </p>
-          <button id="btn-return-fullscreen" class="w-full py-3 px-6 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl shadow-lg shadow-red-500/30 transition-all flex items-center justify-center gap-2">
+          <button id="btn-return-fullscreen" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-extrabold text-xs md:text-sm rounded-xl shadow-lg shadow-rose-600/30 transition-all flex items-center justify-center gap-2 border border-white/10">
             <span>Retornar à Prova em Tela Cheia</span>
           </button>
         </div>
@@ -290,12 +290,12 @@ class SecurityEngine {
 
   showInfractionAlert(mensagem) {
     const toast = document.createElement("div");
-    toast.className = "fixed top-5 right-5 z-[999999] bg-red-600 text-white px-5 py-4 rounded-xl shadow-2xl border border-red-400 flex items-start gap-3 max-w-sm animate-slide-in";
+    toast.className = "fixed top-5 right-5 z-[999999] glass-card bg-rose-950/90 text-white px-5 py-4 rounded-2xl shadow-2xl border border-rose-500/50 flex items-start gap-3 max-w-sm animate-fade-in";
     toast.innerHTML = `
       <span class="text-xl">⚠️</span>
       <div>
-        <h4 class="font-bold text-sm">Registro de Ocorrência</h4>
-        <p class="text-xs text-red-100 mt-1">${mensagem}</p>
+        <h4 class="font-extrabold text-xs text-rose-300 uppercase tracking-wider">Registro de Ocorrência</h4>
+        <p class="text-xs text-slate-200 mt-1 leading-relaxed">${mensagem}</p>
       </div>
     `;
     document.body.appendChild(toast);
@@ -306,9 +306,9 @@ class SecurityEngine {
   }
 
   showToast(mensagem, tipo = "info") {
-    const bg = tipo === "error" ? "bg-red-600" : tipo === "warning" ? "bg-amber-600" : "bg-blue-600";
+    const borderBg = tipo === "error" ? "bg-rose-950/90 border-rose-500/40 text-rose-200" : tipo === "warning" ? "bg-amber-950/90 border-amber-500/40 text-amber-200" : "bg-brand-950/90 border-brand-500/40 text-brand-200";
     const toast = document.createElement("div");
-    toast.className = `fixed bottom-5 right-5 z-[999999] ${bg} text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm animate-fade-in`;
+    toast.className = `fixed bottom-5 right-5 z-[999999] glass-card ${borderBg} px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-semibold animate-fade-in border`;
     toast.innerHTML = `<span>${tipo === "error" ? "🚫" : tipo === "warning" ? "⚠️" : "ℹ️"}</span> <span>${mensagem}</span>`;
     document.body.appendChild(toast);
     setTimeout(() => {

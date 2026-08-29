@@ -28,8 +28,11 @@ const App = {
     // 2. Proteção das Rotas do Professor
     if (parts[0] === "professor") {
       const isAuth = sessionStorage.getItem("professor_autenticado") === "true";
-      if (!isAuth) {
-        // Redireciona para o login com senha do docente
+      const hasNome = !!sessionStorage.getItem("professor_nome");
+      const hasEscola = !!sessionStorage.getItem("professor_escola");
+
+      if (!isAuth || !hasNome || !hasEscola) {
+        // Redireciona para o formulário de identificação e login do docente
         ProfessorAuthView.render();
         window.scrollTo(0, 0);
         return;
