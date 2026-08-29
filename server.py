@@ -1,8 +1,10 @@
+
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Atividade Segura - Servidor Backend & API REST
-Desenvolvido para Avaliações Escolares Anticola com IA (Gemini 3.7 Flash)
+Desenvolvido para Avaliações Escolares Anticola com IA (Google Gemini)
 """
 
 import http.server
@@ -15,29 +17,90 @@ import re
 import mimetypes
 import uuid
 import datetime
+import hashlib
+import logging
+from pathlib import Path
+from http.server import ThreadingHTTPServer
+from socketserver import ThreadingMixIn
 
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
 PORT = 3000
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-ATV_FILE = os.path.join(DATA_DIR, "atividades.json")
-SUB_FILE = os.path.join(DATA_DIR, "submissoes.json")
-CONFIG_FILE = os.path.join(DATA_DIR, "config.json")
-PROF_FILE = os.path.join(DATA_DIR, "professores.json")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+ATV_FILE = DATA_DIR / "atividades.json"
+SUB_FILE = DATA_DIR / "submissoes.json"
+CONFIG_FILE = DATA_DIR / "config.json"
+PROF_FILE = DATA_DIR / "professores.json"
+
+# Caminhos públicos que não exigem token
+ROTAS_PUBLICAS_POST = {
+    "/api/professor/login",
+    "/api/professor/verificar-email",
+    "/api/submissoes",
+}
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%d/%m/%Y %H:%M:%S"
+)
+logger = logging.getLogger("atividade-segura")
+
+# ============================================================
+# UTILITÁRIOS
+# ============================================================
 
 def load_json(filepath, default=[]):
-    if not os.path.exists(filepath):
+    if not Path(filepath).exists():
         return default
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        print("Erro ao carregar " + str(filepath) + ": " + str(e))
+        logger.error(f"Erro ao carregar {filepath}: {e}")
         return default
 
+
 def save_json(filepath, data):
-    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    Path(filepath).parent.mkdir(parents=True, exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def safe_int(value, default=0):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def safe_float(value, default=0.0):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def hash_senha(senha):
+    """Gera hash SHA-256 com salt fixo."""
+    salt = "atividade_segura_salt_2026"
+    return hashlib.sha256((salt + senha).encode("utf-8")).hexdigest()
+
+
+def verificar_senha(prof, senha):
+    """Verifica senha, aceitando hash novo ou texto puro antigo."""
+    if not prof:
+        return False
+    stored = prof.get("senha", "")
+    if stored == hash_senha(senha):
+        return True
+    if stored == senha:  # migração de senha antiga
+        prof["senha"] = hash_senha(senha)
+        return True
+    return False
+
 
 def get_gemini_api_key():
     env_key = os.environ.get("GEMINI_API_KEY")
@@ -45,6 +108,7 @@ def get_gemini_api_key():
         return env_key
     cfg = load_json(CONFIG_FILE, {})
     return cfg.get("geminiApiKey", "")
+
 
 def call_gemini(prompt, system_instruction=None, json_mode=True):
     api_key = get_gemini_api_key()
@@ -55,48 +119,36 @@ def call_gemini(prompt, system_instruction=None, json_mode=True):
     last_err = None
 
     for model in models_to_try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key=" + api_key
-        
-        contents = [
-            {
-                "role": "user",
-                "parts": [{"text": prompt}]
-            }
-        ]
-        
-        generation_config = {
-            "temperature": 0.3,
-            "maxOutputTokens": 4096
-        }
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+
+        contents = [{"role": "user", "parts": [{"text": prompt}]}]
+
+        generation_config = {"temperature": 0.3, "maxOutputTokens": 4096}
         if json_mode:
             generation_config["responseMimeType"] = "application/json"
 
-        body = {
-            "contents": contents,
-            "generationConfig": generation_config
-        }
-        
+        body = {"contents": contents, "generationConfig": generation_config}
         if system_instruction:
-            body["systemInstruction"] = {
-                "parts": [{"text": system_instruction}]
-            }
+            body["systemInstruction"] = {"parts": [{"text": system_instruction}]}
 
         try:
             req = urllib.request.Request(
                 url,
                 data=json.dumps(body).encode("utf-8"),
-                headers={"Content-Type": "application/json"},
+                headers={
+                    "Content-Type": "application/json",
+                    "x-goog-api-key": api_key
+                },
                 method="POST"
             )
             with urllib.request.urlopen(req, timeout=35) as response:
                 res_data = json.loads(response.read().decode("utf-8"))
-                
+
                 candidates = res_data.get("candidates", [])
                 if candidates:
                     parts = candidates[0].get("content", {}).get("parts", [])
                     if parts:
-                        text_out = parts[0].get("text", "")
-                        return text_out, None
+                        return parts[0].get("text", ""), None
                 return None, "Nenhuma resposta retornada pelo modelo."
         except urllib.error.HTTPError as e:
             err_body = e.read().decode("utf-8", errors="ignore")
@@ -117,8 +169,7 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
     import xml.etree.ElementTree as ET
 
     ext = (filename.rsplit(".", 1)[-1] if "." in filename else "").lower()
-    
-    # 1. Plain text / CSV
+
     if ext in ["txt", "csv", "json"]:
         for enc in ["utf-8", "latin-1", "cp1252"]:
             try:
@@ -127,7 +178,6 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
                 pass
         return file_bytes.decode("utf-8", errors="ignore")
 
-    # 2. Word .docx
     if ext == "docx" or file_bytes.startswith(b"PK"):
         try:
             with zipfile.ZipFile(io.BytesIO(file_bytes)) as z:
@@ -141,28 +191,8 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
                     if texts:
                         return "\n".join(texts)
         except Exception as e:
-            print("Erro ao ler docx via zipfile: " + str(e))
+            logger.error(f"Erro ao ler docx via zipfile: {e}")
 
-    # 3. PowerPoint .pptx
-    if ext == "pptx" or file_bytes.startswith(b"PK"):
-        try:
-            with zipfile.ZipFile(io.BytesIO(file_bytes)) as z:
-                slide_names = sorted([n for n in z.namelist() if n.startswith("ppt/slides/slide") and n.endswith(".xml")])
-                texts = []
-                for s in slide_names:
-                    tree = ET.fromstring(z.read(s))
-                    slide_texts = []
-                    for node in tree.iter():
-                        if node.tag.endswith("}t") and node.text:
-                            slide_texts.append(node.text)
-                    if slide_texts:
-                        texts.append(" ".join(slide_texts))
-                if texts:
-                    return "\n\n".join(texts)
-        except Exception as e:
-            print("Erro ao ler pptx via zipfile: " + str(e))
-
-    # 4. Excel .xlsx
     if ext in ["xlsx", "xls"] and file_bytes.startswith(b"PK"):
         try:
             with zipfile.ZipFile(io.BytesIO(file_bytes)) as z:
@@ -175,9 +205,8 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
                 if texts:
                     return "\n".join(texts)
         except Exception as e:
-            print("Erro ao ler xlsx via zipfile: " + str(e))
+            logger.error(f"Erro ao ler xlsx via zipfile: {e}")
 
-    # 5. Raw text fallback for text / doc
     try:
         raw = file_bytes.decode("utf-8", errors="ignore")
         cleaned = "".join([c for c in raw if c.isprintable() or c in "\n\r\t"])
@@ -189,7 +218,190 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
     return ""
 
 
+def parse_document_text_fallback(texto, nome_arquivo=""):
+    linhas = [l.strip() for l in (texto or "").split("\n") if l.strip()]
+    if not linhas:
+        return {
+            "tituloSugerido": "Avaliação Importada",
+            "disciplinaSugerida": "",
+            "anoTurmaSugerido": "",
+            "questoes": []
+        }
+
+    titulo = ""
+    for l in linhas[:5]:
+        if len(l) > 8 and not re.match(r"^(quest[aã]o|[0-9]+[\.\-\)]|p[aá]gina|slide|planilha)", l, re.I):
+            titulo = l
+            break
+    if not titulo:
+        titulo = (nome_arquivo.rsplit(".", 1)[0] if nome_arquivo else "Avaliação Importada").replace("-", " ").replace("_", " ").title()
+
+    questoes = []
+    current_q = None
+
+    q_pattern = re.compile(r"^(?:quest[aã]o\s*([0-9]+)|([0-9]{1,2})[\.\-\)\s]|item\s*([0-9]+)|(?:slide|p[aá]gina)\s*([0-9]+))\s*[:\.\-]?\s*(.*)", re.I)
+    alt_pattern = re.compile(r"^(?:\(?([a-eA-E])\)|\(?([a-eA-E])[\.\-\]])\s*(.*)")
+
+    for linha in linhas:
+        if re.match(r"^\[?---\s*(?:p[aá]gina|slide|planilha)", linha, re.I):
+            continue
+
+        q_match = q_pattern.match(linha)
+        alt_match = alt_pattern.match(linha)
+
+        if alt_match and current_q:
+            letra = (alt_match.group(1) or alt_match.group(2)).upper()
+            texto_alt = alt_match.group(3).strip()
+
+            is_correta = False
+            if re.search(r"\(x\)|\*|\[correta\]|\(correta\)|gabarito", texto_alt, re.I):
+                is_correta = True
+                texto_alt = re.sub(r"\(x\)|\*|\[correta\]|\(correta\)|gabarito", "", texto_alt, flags=re.I).strip()
+
+            current_q["alternativas"].append({"id": letra, "texto": texto_alt or f"Alternativa {letra}"})
+            if is_correta:
+                current_q["correta"] = letra
+            current_q["tipo"] = "multipla_escolha"
+
+        elif q_match:
+            if current_q:
+                questoes.append(current_q)
+
+            num = q_match.group(1) or q_match.group(2) or q_match.group(3) or str(len(questoes) + 1)
+            enunciado_inicial = q_match.group(5).strip()
+
+            current_q = {
+                "id": f"q_imp_{len(questoes)+1}_{uuid.uuid4().hex[:4]}",
+                "tipo": "dissertativa",
+                "habilidadeBNCC": "BNCC-GERAL",
+                "enunciado": enunciado_inicial or f"Questão {num}",
+                "textoApoio": "",
+                "peso": 2.5,
+                "alternativas": [],
+                "correta": "A",
+                "respostaEsperada": "Resposta modelo baseada no texto do documento.",
+                "criteriosCorrecao": "Critérios pedagógicos de avaliação."
+            }
+        else:
+            if current_q:
+                if not current_q["alternativas"]:
+                    current_q["enunciado"] += "\n" + linha
+                else:
+                    current_q["alternativas"][-1]["texto"] += " " + linha
+
+    if current_q:
+        questoes.append(current_q)
+
+    if not questoes and linhas:
+        chunk_size = max(1, len(linhas) // 3)
+        for idx in range(0, min(3, len(linhas))):
+            trecho = "\n".join(linhas[idx*chunk_size : (idx+1)*chunk_size])
+            questoes.append({
+                "id": f"q_imp_{idx+1}_{uuid.uuid4().hex[:4]}",
+                "tipo": "dissertativa",
+                "habilidadeBNCC": "BNCC-GERAL",
+                "enunciado": trecho[:300] if len(trecho) > 300 else trecho,
+                "textoApoio": "",
+                "peso": 2.5,
+                "respostaEsperada": "Desenvolvimento dissertativo fundamentado no conteúdo apresentado.",
+                "criteriosCorrecao": "Coerência, clareza e domínio conceitual."
+            })
+
+    if questoes:
+        peso_padrao = round(10.0 / len(questoes), 1)
+        for q in questoes:
+            q["peso"] = peso_padrao
+            if q["tipo"] == "multipla_escolha":
+                if not q.get("correta") and q.get("alternativas"):
+                    q["correta"] = q["alternativas"][0]["id"]
+                for a in q.get("alternativas", []):
+                    a["correta"] = (a.get("id") == q.get("correta"))
+
+    return {
+        "tituloSugerido": titulo,
+        "disciplinaSugerida": "",
+        "anoTurmaSugerido": "",
+        "questoes": questoes
+    }
+
+
+def generate_smart_mock_questions(disciplina, ano, tema, estilo, qtd_mult, qtd_diss, bncc):
+    questoes = []
+    ano_digit = ano[0] if ano and ano[0].isdigit() else "8"
+    disc_prefix = disciplina[:2].upper() if disciplina else "GE"
+
+    for i in range(qtd_mult):
+        bncc_code = bncc if bncc else ("EF0" + str(ano_digit) + disc_prefix + "0" + str(i + 1))
+        questoes.append({
+            "id": "q_gen_m_" + str(i + 1) + "_" + uuid.uuid4().hex[:4],
+            "tipo": "multipla_escolha",
+            "habilidadeBNCC": bncc_code,
+            "enunciado": "Considerando os conceitos centrais de " + (tema or disciplina) + " abordados no " + str(ano) + ", analise a situação-problema e assinale a alternativa que expressa a conclusão correta:",
+            "textoApoio": "O estudo sistemático de " + (tema or disciplina) + " exige compreender as inter-relações entre os elementos conceituais, as evidências empíricas e seus impactos na sociedade contemporânea.",
+            "peso": round(10.0 / max(1, (qtd_mult + qtd_diss)), 1),
+            "correta": "A",
+            "alternativas": [
+                {
+                    "id": "A",
+                    "texto": "Demonstra a relação de causa e efeito direta entre os fatores estruturais de " + (tema or disciplina) + " e os resultados observados.",
+                    "correta": True,
+                    "justificativa": "Correta. Alinha-se diretamente com o princípio teórico e as evidências apresentadas."
+                },
+                {
+                    "id": "B",
+                    "texto": "Afirma incorretamente que não há qualquer influência dos processos de " + (tema or disciplina) + " no contexto atual.",
+                    "correta": False,
+                    "justificativa": "Incorreta. Desconsidera o impacto comprovado."
+                },
+                {
+                    "id": "C",
+                    "texto": "Generaliza o fenômeno de modo restrito a apenas uma localidade isolada sem base factual.",
+                    "correta": False,
+                    "justificativa": "Incorreta. Trata-se de uma generalização apressada."
+                },
+                {
+                    "id": "D",
+                    "texto": "Inverte a ordem cronológica e conceitual dos eventos analisados.",
+                    "correta": False,
+                    "justificativa": "Incorreta. Apresenta contradição lógica."
+                }
+            ]
+        })
+
+    for j in range(qtd_diss):
+        bncc_code_d = bncc if bncc else ("EF0" + str(ano_digit) + disc_prefix + "0" + str(qtd_mult + j + 1))
+        questoes.append({
+            "id": "q_gen_d_" + str(j + 1) + "_" + uuid.uuid4().hex[:4],
+            "tipo": "dissertativa",
+            "habilidadeBNCC": bncc_code_d,
+            "enunciado": "A partir do texto de apoio e dos seus conhecimentos sobre '" + (tema or disciplina) + "', elabore um texto dissertativo-argumentativo que explique: 1) Qual é o principal desafio envolvido; 2) Duas propostas ou consequências fundamentadas na realidade estudada.",
+            "textoApoio": "As transformações e dinâmicas relacionadas a " + (tema or disciplina) + " provocam debates constantes entre especialistas e demandam soluções inovadoras alinhadas aos direitos humanos e ao desenvolvimento sustentável.",
+            "peso": round(10.0 / max(1, (qtd_mult + qtd_diss)), 1),
+            "criteriosCorrecao": [
+                "Identificação e conceituação precisa do desafio central - até 2.0 pts",
+                "Apresentação e fundamentação da 1ª consequência/proposta - até 1.5 pts",
+                "Apresentação e fundamentação da 2ª consequência/proposta - até 1.5 pts"
+            ],
+            "respostaEsperada": "O aluno deve caracterizar com clareza a essência de " + (tema or disciplina) + ", relacionando as causas estruturais com consequências práticas no cotidiano, apresentando pelo menos dois argumentos lógicos e fundamentados."
+        })
+
+    return {
+        "tituloSugerido": "Atividade Avaliativa: " + (tema or disciplina) + " (" + str(ano) + ")",
+        "instrucoes": "Avaliação contextualizada padrão " + estilo + ". Leia com atenção e fundamente suas respostas dissertativas.",
+        "questoes": questoes
+    }
+
+
+# ============================================================
+# HANDLER PRINCIPAL
+# ============================================================
+
 class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
+
+    # --------------------------------------------------------
+    # Utilitários do handler
+    # --------------------------------------------------------
+
     def end_headers(self):
         if self.path.startswith("/api/"):
             self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
@@ -218,55 +430,115 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             post_body = self.rfile.read(content_len).decode("utf-8")
             return json.loads(post_body)
         except Exception as e:
-            print("Erro lendo corpo JSON: " + str(e))
+            logger.error(f"Erro lendo corpo JSON: {e}")
             return {}
+
+    # --------------------------------------------------------
+    # Autenticação por token
+    # --------------------------------------------------------
+
+    def _verificar_token_professor(self):
+        auth = self.headers.get("Authorization", "")
+        token = auth.replace("Bearer ", "").strip() if auth.startswith("Bearer ") else ""
+        if not token:
+            return None
+
+        professores = load_json(PROF_FILE, {})
+        if isinstance(professores, list):
+            professores = {p.get("email", "").lower(): p for p in professores if "email" in p}
+
+        for prof in professores.values():
+            if prof.get("token") == token:
+                return prof
+        return None
+
+    def _rota_requer_professor(self, path):
+        if path in ROTAS_PUBLICAS_POST:
+            return False
+        if path.endswith("/infracao"):
+            return False
+        return True
+
+    def _sanitizar_atividade(self, atividade):
+        """Remove respostas, gabaritos e critérios de correção."""
+        safe = json.loads(json.dumps(atividade))
+        for q in safe.get("questoes", []):
+            q.pop("respostaEsperada", None)
+            q.pop("criteriosCorrecao", None)
+            for alt in q.get("alternativas", []):
+                alt.pop("correta", None)
+                alt.pop("justificativa", None)
+        return safe
+
+    # --------------------------------------------------------
+    # GET
+    # --------------------------------------------------------
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
+        # ---- Rota: listar atividades ----
         if path == "/api/atividades":
             atividades = load_json(ATV_FILE, [])
+            professor = self._verificar_token_professor()
+
+            if not professor:
+                # Aluno ou visitante: retorna somente versão sanitizada
+                atividades_safe = [self._sanitizar_atividade(a) for a in atividades]
+                return self._send_json(200, {"success": True, "atividades": atividades_safe})
+
             return self._send_json(200, {"success": True, "atividades": atividades})
 
+        # ---- Rota: buscar atividade por código (aluno) ----
         elif path.startswith("/api/atividades/codigo/"):
             codigo = path.replace("/api/atividades/codigo/", "").strip().upper()
             atividades = load_json(ATV_FILE, [])
             atividade = next((a for a in atividades if a.get("codigo", "").upper() == codigo or a.get("pin") == codigo), None)
-            
+
             if not atividade:
                 return self._send_json(404, {"success": False, "error": "Atividade com código " + codigo + " não encontrada."})
 
-            safe_atv = json.loads(json.dumps(atividade))
-            for q in safe_atv.get("questoes", []):
-                q.pop("respostaEsperada", None)
-                q.pop("criteriosCorrecao", None)
-                for alt in q.get("alternativas", []):
-                    alt.pop("correta", None)
-                    alt.pop("justificativa", None)
-
+            safe_atv = self._sanitizar_atividade(atividade)
             return self._send_json(200, {"success": True, "atividade": safe_atv})
 
+        # ---- Rota: buscar atividade por ID ----
         elif path.startswith("/api/atividades/"):
             atv_id = path.replace("/api/atividades/", "").strip()
             atividades = load_json(ATV_FILE, [])
             atividade = next((a for a in atividades if a.get("id") == atv_id), None)
-            
+
             if not atividade:
                 return self._send_json(404, {"success": False, "error": "Atividade não encontrada."})
-            return self._send_json(200, {"success": True, "atividade": atividade})
 
+            professor = self._verificar_token_professor()
+            if professor:
+                return self._send_json(200, {"success": True, "atividade": atividade})
+
+            safe_atv = self._sanitizar_atividade(atividade)
+            return self._send_json(200, {"success": True, "atividade": safe_atv})
+
+        # ---- Rota: listar submissões (apenas professor) ----
         elif path == "/api/submissoes":
+            professor = self._verificar_token_professor()
+            if not professor:
+                return self._send_json(401, {"success": False, "error": "Acesso não autorizado. Faça login do professor."})
+
             query_params = urllib.parse.parse_qs(parsed.query)
             submissoes = load_json(SUB_FILE, [])
-            
+
             if "atividadeId" in query_params:
                 act_id = query_params["atividadeId"][0]
                 submissoes = [s for s in submissoes if s.get("atividadeId") == act_id]
-                
+
             return self._send_json(200, {"success": True, "submissoes": submissoes})
 
+        # ---- Rota: configurações (apenas professor) ----
         elif path == "/api/configuracoes":
+            professor = self._verificar_token_professor()
+            if not professor:
+                return self._send_json(401, {"success": False, "error": "Acesso não autorizado. Faça login do professor."})
+
             cfg = load_json(CONFIG_FILE, {
                 "geminiApiKey": os.environ.get("GEMINI_API_KEY", ""),
                 "senhaProfessor": "prof2026",
@@ -278,10 +550,10 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             })
             key = cfg.get("geminiApiKey", "")
             masked_key = (key[:6] + "..." + key[-4:]) if len(key) > 10 else ("Configurada" if key else "")
-            
-            # Não expor a senha em texto puro
+
             safe_cfg = json.loads(json.dumps(cfg))
             safe_cfg.pop("senhaProfessor", None)
+            safe_cfg.pop("geminiApiKey", None)  # nunca expor a chave completa
 
             return self._send_json(200, {
                 "success": True,
@@ -290,20 +562,31 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                 "maskedKey": masked_key
             })
 
+        # ---- Arquivos estáticos ----
         else:
-            file_path = os.path.join(BASE_DIR, path.lstrip("/"))
-            if os.path.isfile(file_path):
+            file_path = BASE_DIR / path.lstrip("/")
+            if file_path.is_file():
                 return super().do_GET()
             else:
                 self.path = "/index.html"
                 return super().do_GET()
+
+    # --------------------------------------------------------
+    # POST
+    # --------------------------------------------------------
 
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
         body = self._read_body_json()
 
-        # Autenticação e Cadastro Individual de Professores por E-mail
+        # Verifica se a rota exige professor autenticado
+        if self._rota_requer_professor(path):
+            professor = self._verificar_token_professor()
+            if not professor:
+                return self._send_json(401, {"success": False, "error": "Acesso não autorizado. Faça login novamente."})
+
+        # ---- Login / Cadastro de professor ----
         if path == "/api/professor/login":
             nome = body.get("nome", "").strip()
             escola = body.get("escola", "").strip()
@@ -311,40 +594,32 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             senha = body.get("senha", "").strip()
 
             if not email:
-                return self._send_json(400, {
-                    "success": False,
-                    "error": "Por favor, informe o seu e-mail."
-                })
-
+                return self._send_json(400, {"success": False, "error": "Por favor, informe o seu e-mail."})
             if not senha or len(senha) < 3:
-                return self._send_json(400, {
-                    "success": False,
-                    "error": "A senha deve conter pelo menos 3 caracteres."
-                })
+                return self._send_json(400, {"success": False, "error": "A senha deve conter pelo menos 3 caracteres."})
 
             professores = load_json(PROF_FILE, {})
             if isinstance(professores, list):
                 professores = {p.get("email", "").lower(): p for p in professores if "email" in p}
 
-            # Se o professor já existe no cadastro
             if email in professores:
                 prof = professores[email]
-                if prof.get("senha") != senha:
+                if not verificar_senha(prof, senha):
                     return self._send_json(401, {
                         "success": False,
                         "error": "Senha incorreta para este e-mail. Por favor, digite a senha pessoal criada no seu primeiro acesso."
                     })
 
-                # Atualiza nome e escola se enviados
                 if nome:
                     prof["nome"] = nome
                 if escola:
                     prof["escola"] = escola
                 prof["ultimoAcesso"] = datetime.datetime.now().isoformat()
+                token = "prof_token_" + uuid.uuid4().hex
+                prof["token"] = token
                 professores[email] = prof
                 save_json(PROF_FILE, professores)
 
-                token = "prof_token_" + uuid.uuid4().hex
                 return self._send_json(200, {
                     "success": True,
                     "token": token,
@@ -355,31 +630,26 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                     "message": f"Bem-vindo(a) de volta, {prof.get('nome', 'Docente')}!"
                 })
             else:
-                # Primeiro acesso: cadastra com a senha criada pelo próprio professor
+                # Primeiro acesso
                 if not nome:
-                    return self._send_json(400, {
-                        "success": False,
-                        "error": "Primeiro acesso: por favor, informe o seu Nome Completo."
-                    })
+                    return self._send_json(400, {"success": False, "error": "Primeiro acesso: por favor, informe o seu Nome Completo."})
                 if not escola:
-                    return self._send_json(400, {
-                        "success": False,
-                        "error": "Primeiro acesso: por favor, informe a Escola onde leciona."
-                    })
+                    return self._send_json(400, {"success": False, "error": "Primeiro acesso: por favor, informe a Escola onde leciona."})
 
+                token = "prof_token_" + uuid.uuid4().hex
                 novo_prof = {
                     "id": "prof_" + uuid.uuid4().hex[:8],
                     "email": email,
                     "nome": nome,
                     "escola": escola,
-                    "senha": senha,  # senha criada exclusivamente por este professor
+                    "senha": hash_senha(senha),
+                    "token": token,
                     "dataCriacao": datetime.datetime.now().isoformat(),
                     "ultimoAcesso": datetime.datetime.now().isoformat()
                 }
                 professores[email] = novo_prof
                 save_json(PROF_FILE, professores)
 
-                token = "prof_token_" + uuid.uuid4().hex
                 return self._send_json(200, {
                     "success": True,
                     "token": token,
@@ -390,6 +660,7 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                     "message": "Conta de professor criada com sucesso e já conectada!"
                 })
 
+        # ---- Verificar e-mail do professor ----
         elif path == "/api/professor/verificar-email":
             email = body.get("email", "").strip().lower()
             professores = load_json(PROF_FILE, {})
@@ -405,14 +676,12 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                     "escola": prof.get("escola", "")
                 })
             else:
-                return self._send_json(200, {
-                    "success": True,
-                    "cadastrado": False
-                })
+                return self._send_json(200, {"success": True, "cadastrado": False})
 
+        # ---- Criar / atualizar atividade ----
         elif path == "/api/atividades":
             atividades = load_json(ATV_FILE, [])
-            
+
             atv_id = body.get("id") or ("act-" + uuid.uuid4().hex[:8])
             if not body.get("codigo"):
                 prefix = (body.get("disciplina") or "PROVA")[:3].upper()
@@ -424,16 +693,17 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
 
             body["id"] = atv_id
             body["dataCriacao"] = datetime.datetime.utcnow().isoformat() + "Z"
-            
+
             index = next((i for i, a in enumerate(atividades) if a.get("id") == atv_id), None)
             if index is not None:
                 atividades[index] = body
             else:
                 atividades.insert(0, body)
-                
+
             save_json(ATV_FILE, atividades)
             return self._send_json(201, {"success": True, "atividade": body, "message": "Atividade salva com sucesso!"})
 
+        # ---- Extrair texto de arquivo ----
         elif path == "/api/arquivo/extrair-texto":
             nome_arquivo = body.get("nomeArquivo", "arquivo")
             b64_data = body.get("base64", "")
@@ -448,10 +718,7 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                 })
 
             if not b64_data:
-                return self._send_json(400, {
-                    "success": False,
-                    "error": "Nenhum dado de arquivo ou texto fornecido."
-                })
+                return self._send_json(400, {"success": False, "error": "Nenhum dado de arquivo ou texto fornecido."})
 
             try:
                 import base64
@@ -459,7 +726,7 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                     b64_data = b64_data.split(",", 1)[1]
                 file_bytes = base64.b64decode(b64_data)
                 texto_extraido = extract_text_from_file_bytes(file_bytes, nome_arquivo)
-                
+
                 if not texto_extraido or len(texto_extraido.strip()) < 5:
                     return self._send_json(400, {
                         "success": False,
@@ -474,11 +741,9 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                     "nomeArquivo": nome_arquivo
                 })
             except Exception as ex:
-                return self._send_json(500, {
-                    "success": False,
-                    "error": f"Erro no processamento do arquivo: {str(ex)}"
-                })
+                return self._send_json(500, {"success": False, "error": f"Erro no processamento do arquivo: {str(ex)}"})
 
+        # ---- Gerar questões com Gemini ----
         elif path == "/api/gemini/gerar-questoes":
             disciplina = body.get("disciplina") or "Geral"
             ano_turma = body.get("anoTurma") or "8º Ano Fundamental"
@@ -487,18 +752,13 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             habilidade_bncc = body.get("habilidadeBNCC") or ""
             texto_base = body.get("textoBase") or ""
 
-            # Cálculo flexível e robusto de quantidade e tipos
-            try:
-                qtd_total = int(body.get("quantidade") or 3)
-            except (ValueError, TypeError):
-                qtd_total = 3
-
+            qtd_total = safe_int(body.get("quantidade"), 3)
             tipo_q = body.get("tipoQuestoes") or "mistas"
 
             try:
                 if body.get("qtdMultiplaEscolha") is not None and body.get("qtdDissertativa") is not None:
-                    qtd_multipla = int(body.get("qtdMultiplaEscolha"))
-                    qtd_dissertativa = int(body.get("qtdDissertativa"))
+                    qtd_multipla = safe_int(body.get("qtdMultiplaEscolha"), 1)
+                    qtd_dissertativa = safe_int(body.get("qtdDissertativa"), 1)
                 elif tipo_q == "multipla_escolha":
                     qtd_multipla = qtd_total
                     qtd_dissertativa = 0
@@ -565,7 +825,7 @@ Retorne APENAS um objeto JSON estruturado exatamente com o seguinte formato:
                 raw_ai, err = call_gemini(user_prompt, system_instruction=sys_prompt, json_mode=True)
             else:
                 err = "Chave Gemini não configurada."
-            
+
             if err or not raw_ai:
                 mock_data = generate_smart_mock_questions(disciplina, ano_turma, tema, estilo, qtd_multipla, qtd_dissertativa, habilidade_bncc)
                 return self._send_json(200, {
@@ -579,9 +839,9 @@ Retorne APENAS um objeto JSON estruturado exatamente com o seguinte formato:
                 clean_json = re.sub(r"^```json\s*", "", raw_ai.strip())
                 clean_json = re.sub(r"\s*```$", "", clean_json.strip())
                 parsed_res = json.loads(clean_json)
-                
+
                 for i, q in enumerate(parsed_res.get("questoes", [])):
-                    q["id"] = "q_gen_" + str(i+1) + "_" + uuid.uuid4().hex[:4]
+                    q["id"] = "q_gen_" + str(i + 1) + "_" + uuid.uuid4().hex[:4]
                     if q.get("tipo") == "multipla_escolha":
                         alts = q.get("alternativas", [])
                         for a in alts:
@@ -594,14 +854,14 @@ Retorne APENAS um objeto JSON estruturado exatamente com o seguinte formato:
                             q["correta"] = str(q.get("correta", "A")).upper().strip()
                         for a in alts:
                             a["correta"] = (a.get("id") == q["correta"])
-                    
+
                 return self._send_json(200, {
                     "success": True,
                     "modo": "gemini_flash",
                     "resultado": parsed_res
                 })
             except Exception as parse_err:
-                print("Erro parseando JSON da IA: " + str(parse_err) + ". Raw: " + str(raw_ai))
+                logger.error(f"Erro parseando JSON da IA: {parse_err}. Raw: {raw_ai}")
                 mock_data = generate_smart_mock_questions(disciplina, ano_turma, tema, estilo, qtd_multipla, qtd_dissertativa, habilidade_bncc)
                 return self._send_json(200, {
                     "success": True,
@@ -610,6 +870,7 @@ Retorne APENAS um objeto JSON estruturado exatamente com o seguinte formato:
                     "resultado": mock_data
                 })
 
+        # ---- Estruturar questões de documento ----
         elif path == "/api/gemini/estruturar-questoes":
             raw_text = body.get("texto", "").strip()
             formato = body.get("formato", "documento")
@@ -687,7 +948,7 @@ Retorne APENAS um objeto JSON válido no formato:
                 peso_por_q = round(10.0 / total_q, 1)
 
                 for i, q in enumerate(questoes):
-                    q["id"] = "q_imp_" + str(i+1) + "_" + uuid.uuid4().hex[:4]
+                    q["id"] = "q_imp_" + str(i + 1) + "_" + uuid.uuid4().hex[:4]
                     if not q.get("peso"):
                         q["peso"] = peso_por_q
                     if q.get("tipo") == "multipla_escolha":
@@ -702,11 +963,11 @@ Retorne APENAS um objeto JSON válido no formato:
 
                 return self._send_json(200, {
                     "success": True,
-                    "modo": "gemini_3.7_flash_estruturador",
+                    "modo": "gemini_flash_estruturador",
                     "resultado": parsed_res
                 })
             except Exception as parse_err:
-                print("Erro parseando estruturação IA: " + str(parse_err) + ". Usando contingência.")
+                logger.error(f"Erro parseando estruturação IA: {parse_err}. Usando contingência.")
                 parsed_fallback = parse_document_text_fallback(raw_text, nome_arquivo)
                 return self._send_json(200, {
                     "success": True,
@@ -715,12 +976,13 @@ Retorne APENAS um objeto JSON válido no formato:
                     "resultado": parsed_fallback
                 })
 
+        # ---- Corrigir dissertativa com Gemini ----
         elif path == "/api/gemini/corrigir-dissertativa":
             enunciado = body.get("enunciado", "")
             resposta_aluno = body.get("respostaAluno", "")
             resposta_esperada = body.get("respostaEsperada", "")
             criterios = body.get("criteriosCorrecao", [])
-            peso_maximo = float(body.get("pesoMaximo", 5.0))
+            peso_maximo = safe_float(body.get("pesoMaximo"), 5.0)
 
             sys_prompt = """Você é um corretor pedagógico experiente da Secretaria da Educação de SP.
 Sua missão é avaliar a resposta dissertativa de um aluno à luz dos critérios de correção e da resposta modelo esperada.
@@ -746,6 +1008,7 @@ Retorne APENAS um JSON com:
             user_prompt += "- Resposta do Aluno: \"" + resposta_aluno + "\"\n"
 
             raw_ai, err = call_gemini(user_prompt, system_instruction=sys_prompt, json_mode=True)
+
             if err or not raw_ai:
                 words = resposta_aluno.strip().split()
                 word_count = len(words)
@@ -770,28 +1033,29 @@ Retorne APENAS um JSON com:
                 clean_json = re.sub(r"^```json\s*", "", raw_ai.strip())
                 clean_json = re.sub(r"\s*```$", "", clean_json.strip())
                 parsed_res = json.loads(clean_json)
-                return self._send_json(200, {"success": True, "modo": "gemini_3.7_flash", "correcao": parsed_res})
+                return self._send_json(200, {"success": True, "modo": "gemini_flash", "correcao": parsed_res})
             except Exception as e:
                 return self._send_json(500, {"success": False, "error": "Erro decodificando correção: " + str(e)})
 
+        # ---- Enviar submissão (aluno) ----
         elif path == "/api/submissoes":
             submissoes = load_json(SUB_FILE, [])
             sub_id = body.get("id") or ("sub-" + uuid.uuid4().hex[:8])
-            
+
             body["id"] = sub_id
             if not body.get("dataEnvio"):
                 body["dataEnvio"] = datetime.datetime.utcnow().isoformat() + "Z"
-                
+
             atividades = load_json(ATV_FILE, [])
             atividade = next((a for a in atividades if a.get("id") == body.get("atividadeId")), None)
-            
+
             nota_obj = 0.0
             nota_max_obj = 0.0
             nota_max_diss = 0.0
-            
+
             if atividade:
                 for q in atividade.get("questoes", []):
-                    peso = float(q.get("peso", 1.0))
+                    peso = safe_float(q.get("peso"), 1.0)
                     if q.get("tipo") == "multipla_escolha":
                         nota_max_obj += peso
                         alt_correta = next((alt.get("id") for alt in q.get("alternativas", []) if alt.get("correta")), None)
@@ -802,7 +1066,7 @@ Retorne APENAS um JSON com:
                         nota_max_diss += peso
 
             index = next((i for i, s in enumerate(submissoes) if s.get("id") == sub_id), None)
-            
+
             if "correcao" not in body or not body["correcao"]:
                 body["correcao"] = {
                     "notaObjetivas": round(nota_obj, 1),
@@ -820,11 +1084,12 @@ Retorne APENAS um JSON com:
             save_json(SUB_FILE, submissoes)
             return self._send_json(201, {"success": True, "submissao": body, "message": "Atividade enviada com sucesso!"})
 
+        # ---- Registrar infração (aluno) ----
         elif path.startswith("/api/submissoes/") and path.endswith("/infracao"):
             sub_id = path.replace("/api/submissoes/", "").replace("/infracao", "").strip()
             submissoes = load_json(SUB_FILE, [])
             sub = next((s for s in submissoes if s.get("id") == sub_id), None)
-            
+
             if not sub:
                 sub = {
                     "id": sub_id,
@@ -857,7 +1122,7 @@ Retorne APENAS um JSON com:
 
             tipo = body.get("tipo", "alerta")
             detalhe = body.get("detalhe", "Evento de segurança")
-            tempo_fora = int(body.get("tempoForaSegundos", 0))
+            tempo_fora = safe_int(body.get("tempoForaSegundos"), 0)
 
             if tipo == "troca_aba":
                 infracoes["totalTrocasAba"] += 1
@@ -878,11 +1143,12 @@ Retorne APENAS um JSON com:
             save_json(SUB_FILE, submissoes)
             return self._send_json(200, {"success": True, "infracoes": infracoes})
 
+        # ---- Corrigir submissão (professor) ----
         elif path.startswith("/api/submissoes/") and path.endswith("/corrigir"):
             sub_id = path.replace("/api/submissoes/", "").replace("/corrigir", "").strip()
             submissoes = load_json(SUB_FILE, [])
             sub = next((s for s in submissoes if s.get("id") == sub_id), None)
-            
+
             if not sub:
                 return self._send_json(404, {"success": False, "error": "Submissão não encontrada."})
 
@@ -891,228 +1157,71 @@ Retorne APENAS um JSON com:
             save_json(SUB_FILE, submissoes)
             return self._send_json(200, {"success": True, "submissao": sub})
 
+        # ---- Salvar configurações ----
         elif path == "/api/configuracoes":
             cfg = load_json(CONFIG_FILE, {})
             prof_email = body.get("professorEmail", "").strip().lower()
             nova_senha = body.get("novaSenhaProfessor", "").strip()
 
-            # Se fornecida nova senha, atualiza o professor correspondente
             if nova_senha:
                 if prof_email:
                     professores = load_json(PROF_FILE, {})
                     if isinstance(professores, dict) and prof_email in professores:
-                        professores[prof_email]["senha"] = nova_senha
+                        professores[prof_email]["senha"] = hash_senha(nova_senha)
                         save_json(PROF_FILE, professores)
-                cfg["senhaProfessor"] = nova_senha
+                cfg["senhaProfessor"] = hash_senha(nova_senha)
                 body.pop("novaSenhaProfessor", None)
 
             cfg.update(body)
             save_json(CONFIG_FILE, cfg)
             return self._send_json(200, {"success": True, "message": "Configurações salvas com sucesso!"})
 
+        # ---- Rota não encontrada ----
         else:
             return self._send_json(404, {"success": False, "error": "Rota não encontrada."})
+
+    # --------------------------------------------------------
+    # DELETE
+    # --------------------------------------------------------
 
     def do_DELETE(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
+
+        # Exige professor autenticado
+        professor = self._verificar_token_professor()
+        if not professor:
+            return self._send_json(401, {"success": False, "error": "Acesso não autorizado. Faça login do professor."})
+
         if path.startswith("/api/atividades/"):
             atv_id = path.replace("/api/atividades/", "").strip()
             atividades = load_json(ATV_FILE, [])
             atividades = [a for a in atividades if a.get("id") != atv_id]
             save_json(ATV_FILE, atividades)
             return self._send_json(200, {"success": True, "message": "Atividade excluída com sucesso."})
+
         return self._send_json(404, {"success": False, "error": "Rota não encontrada."})
 
 
-def parse_document_text_fallback(texto, nome_arquivo=""):
-    linhas = [l.strip() for l in (texto or "").split("\n") if l.strip()]
-    if not linhas:
-        return {
-            "tituloSugerido": "Avaliação Importada",
-            "disciplinaSugerida": "",
-            "anoTurmaSugerido": "",
-            "questoes": []
-        }
-    
-    titulo = ""
-    for l in linhas[:5]:
-        if len(l) > 8 and not re.match(r"^(quest[aã]o|[0-9]+[\.\-\)]|p[aá]gina|slide|planilha)", l, re.I):
-            titulo = l
-            break
-    if not titulo:
-        titulo = (nome_arquivo.rsplit(".", 1)[0] if nome_arquivo else "Avaliação Importada").replace("-", " ").replace("_", " ").title()
-
-    questoes = []
-    current_q = None
-    
-    q_pattern = re.compile(r"^(?:quest[aã]o\s*([0-9]+)|([0-9]{1,2})[\.\-\)\s]|item\s*([0-9]+)|(?:slide|p[aá]gina)\s*([0-9]+))\s*[:\.\-]?\s*(.*)", re.I)
-    alt_pattern = re.compile(r"^(?:\(?([a-eA-E])\)|\(?([a-eA-E])[\.\-\]])\s*(.*)")
-
-    for linha in linhas:
-        if re.match(r"^\[?---\s*(?:p[aá]gina|slide|planilha)", linha, re.I):
-            continue
-
-        q_match = q_pattern.match(linha)
-        alt_match = alt_pattern.match(linha)
-
-        if alt_match and current_q:
-            letra = (alt_match.group(1) or alt_match.group(2)).upper()
-            texto_alt = alt_match.group(3).strip()
-            
-            is_correta = False
-            if re.search(r"\(x\)|\*|\[correta\]|\(correta\)|gabarito", texto_alt, re.I):
-                is_correta = True
-                texto_alt = re.sub(r"\(x\)|\*|\[correta\]|\(correta\)|gabarito", "", texto_alt, flags=re.I).strip()
-
-            current_q["alternativas"].append({
-                "id": letra,
-                "texto": texto_alt or f"Alternativa {letra}"
-            })
-            if is_correta:
-                current_q["correta"] = letra
-            current_q["tipo"] = "multipla_escolha"
-
-        elif q_match:
-            if current_q:
-                questoes.append(current_q)
-
-            num = q_match.group(1) or q_match.group(2) or q_match.group(3) or str(len(questoes) + 1)
-            enunciado_inicial = q_match.group(5).strip()
-
-            current_q = {
-                "id": f"q_imp_{len(questoes)+1}_{uuid.uuid4().hex[:4]}",
-                "tipo": "dissertativa",
-                "habilidadeBNCC": "BNCC-GERAL",
-                "enunciado": enunciado_inicial or f"Questão {num}",
-                "textoApoio": "",
-                "peso": 2.5,
-                "alternativas": [],
-                "correta": "A",
-                "respostaEsperada": "Resposta modelo baseada no texto do documento.",
-                "criteriosCorrecao": "Critérios pedagógicos de avaliação."
-            }
-        else:
-            if current_q:
-                if not current_q["alternativas"]:
-                    current_q["enunciado"] += "\n" + linha
-                else:
-                    current_q["alternativas"][-1]["texto"] += " " + linha
-
-    if current_q:
-        questoes.append(current_q)
-
-    if not questoes and linhas:
-        chunk_size = max(1, len(linhas) // 3)
-        for idx in range(0, min(3, len(linhas))):
-            trecho = "\n".join(linhas[idx*chunk_size : (idx+1)*chunk_size])
-            questoes.append({
-                "id": f"q_imp_{idx+1}_{uuid.uuid4().hex[:4]}",
-                "tipo": "dissertativa",
-                "habilidadeBNCC": "BNCC-GERAL",
-                "enunciado": trecho[:300] if len(trecho) > 300 else trecho,
-                "textoApoio": "",
-                "peso": 2.5,
-                "respostaEsperada": "Desenvolvimento dissertativo fundamentado no conteúdo apresentado.",
-                "criteriosCorrecao": "Coerência, clareza e domínio conceitual."
-            })
-
-    if questoes:
-        peso_padrao = round(10.0 / len(questoes), 1)
-        for q in questoes:
-            q["peso"] = peso_padrao
-            if q["tipo"] == "multipla_escolha":
-                if not q.get("correta") and q.get("alternativas"):
-                    q["correta"] = q["alternativas"][0]["id"]
-                for a in q.get("alternativas", []):
-                    a["correta"] = (a.get("id") == q.get("correta"))
-
-    return {
-        "tituloSugerido": titulo,
-        "disciplinaSugerida": "",
-        "anoTurmaSugerido": "",
-        "questoes": questoes
-    }
-
-
-def generate_smart_mock_questions(disciplina, ano, tema, estilo, qtd_mult, qtd_diss, bncc):
-    questoes = []
-    
-    ano_digit = ano[0] if ano and ano[0].isdigit() else "8"
-    disc_prefix = disciplina[:2].upper() if disciplina else "GE"
-
-    for i in range(qtd_mult):
-        bncc_code = bncc if bncc else ("EF0" + str(ano_digit) + disc_prefix + "0" + str(i+1))
-        questoes.append({
-            "id": "q_gen_m_" + str(i+1) + "_" + uuid.uuid4().hex[:4],
-            "tipo": "multipla_escolha",
-            "habilidadeBNCC": bncc_code,
-            "enunciado": "Considerando os conceitos centrais de " + (tema or disciplina) + " abordados no " + str(ano) + ", analise a situação-problema e assinale a alternativa que expressa a conclusão correta:",
-            "textoApoio": "O estudo sistemático de " + (tema or disciplina) + " exige compreender as inter-relações entre os elementos conceituais, as evidências empíricas e seus impactos na sociedade contemporânea.",
-            "peso": round(10.0 / max(1, (qtd_mult + qtd_diss)), 1),
-            "correta": "A",
-            "alternativas": [
-                {
-                    "id": "A",
-                    "texto": "Demonstra a relação de causa e efeito direta entre os fatores estruturais de " + (tema or disciplina) + " e os resultados observados.",
-                    "correta": True,
-                    "justificativa": "Correta. Alinha-se diretamente com o princípio teórico e as evidências apresentadas."
-                },
-                {
-                    "id": "B",
-                    "texto": "Afirma incorretamente que não há qualquer influência dos processos de " + (tema or disciplina) + " no contexto atual.",
-                    "correta": False,
-                    "justificativa": "Incorreta. Desconsidera o impacto comprovado."
-                },
-                {
-                    "id": "C",
-                    "texto": "Generaliza o fenômeno de modo restrito a apenas uma localidade isolada sem base factual.",
-                    "correta": False,
-                    "justificativa": "Incorreta. Trata-se de uma generalização apressada."
-                },
-                {
-                    "id": "D",
-                    "texto": "Inverte a ordem cronológica e conceitual dos eventos analisados.",
-                    "correta": False,
-                    "justificativa": "Incorreta. Apresenta contradição lógica."
-                }
-            ]
-        })
-        
-    for j in range(qtd_diss):
-        bncc_code_d = bncc if bncc else ("EF0" + str(ano_digit) + disc_prefix + "0" + str(qtd_mult+j+1))
-        questoes.append({
-            "id": "q_gen_d_" + str(j+1) + "_" + uuid.uuid4().hex[:4],
-            "tipo": "dissertativa",
-            "habilidadeBNCC": bncc_code_d,
-            "enunciado": "A partir do texto de apoio e dos seus conhecimentos sobre '" + (tema or disciplina) + "', elabore um texto dissertativo-argumentativo que explique: 1) Qual é o principal desafio envolvido; 2) Duas propostas ou consequências fundamentadas na realidade estudada.",
-            "textoApoio": "As transformações e dinâmicas relacionadas a " + (tema or disciplina) + " provocam debates constantes entre especialistas e demandam soluções inovadoras alinhadas aos direitos humanos e ao desenvolvimento sustentável.",
-            "peso": round(10.0 / max(1, (qtd_mult + qtd_diss)), 1),
-            "criteriosCorrecao": [
-                "Identificação e conceituação precisa do desafio central - até 2.0 pts",
-                "Apresentação e fundamentação da 1ª consequência/proposta - até 1.5 pts",
-                "Apresentação e fundamentação da 2ª consequência/proposta - até 1.5 pts"
-            ],
-            "respostaEsperada": "O aluno deve caracterizar com clareza a essência de " + (tema or disciplina) + ", relacionando as causas estruturais com consequências práticas no cotidiano, apresentando pelo menos dois argumentos lógicos e fundamentados."
-        })
-
-    return {
-        "tituloSugerido": "Atividade Avaliativa: " + (tema or disciplina) + " (" + str(ano) + ")",
-        "instrucoes": "Avaliação contextualizada padrão " + estilo + ". Leia com atenção e fundamente suas respostas dissertativas.",
-        "questoes": questoes
-    }
-
+# ============================================================
+# EXECUÇÃO DO SERVIDOR
+# ============================================================
 
 def run_server():
     os.chdir(BASE_DIR)
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("", PORT), SecureExamHandler) as httpd:
-        print("==================================================")
-        print("  🛡️ ATIVIDADE SEGURA - Servidor Rodando na Porta " + str(PORT))
-        print("  🌐 Painel do Aluno: http://localhost:" + str(PORT))
-        print("  🔒 Acesso Docente Restrito: http://localhost:" + str(PORT) + "/#docente")
-        print("==================================================")
-        httpd.serve_forever()
+    ThreadingHTTPServer.allow_reuse_address = True
+
+    with ThreadingHTTPServer(("", PORT), SecureExamHandler) as httpd:
+        logger.info("==================================================")
+        logger.info("  🛡️ ATIVIDADE SEGURA - Servidor Rodando na Porta %s", PORT)
+        logger.info("  🌐 Painel: http://localhost:%s", PORT)
+        logger.info("  🔒 Acesso Docente: http://localhost:%s/#professor", PORT)
+        logger.info("==================================================")
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            logger.info("Servidor encerrado.")
+
 
 if __name__ == "__main__":
     run_server()
