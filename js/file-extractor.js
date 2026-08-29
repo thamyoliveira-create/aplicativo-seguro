@@ -249,6 +249,9 @@
      */
     async extract(file, onProgress) {
       if (!file) throw new Error("Nenhum arquivo fornecido.");
+      if (file.size > 10 * 1024 * 1024) {
+        throw new Error("O arquivo ultrapassa o limite de 10 MB. Reduza o documento e tente novamente.");
+      }
       const format = this.detectFormat(file.name);
 
       if (!format) {
