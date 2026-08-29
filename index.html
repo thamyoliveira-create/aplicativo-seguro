@@ -84,21 +84,25 @@
 
   <!-- Scripts do Sistema -->
   <script src="js/security.js?v=2.2.0"></script>
-  <script src="js/file-extractor.js?v=2.2.0"></script>
+  <script src="js/file-extractor.js?v=2.3.0"></script>
+  <script>
+    window.firebaseReady = import("./js/firebase-client.js?v=2.3.0");
+  </script>
+  <script src="js/auth.js?v=2.3.0"></script>
   <script src="js/db.js?v=2.2.0"></script>
-  <script src="js/ai-service.js?v=2.2.0"></script>
+  <script src="js/ai-service.js?v=2.3.0"></script>
   
   <!-- Views -->
   <script src="js/views/home.js?v=2.2.0"></script>
   <script src="js/views/aluno-login.js?v=2.2.0"></script>
   <script src="js/views/aluno-prova.js?v=2.2.0"></script>
-  <script src="js/views/professor-auth.js?v=2.2.0"></script>
+  <script src="js/views/professor-login.js?v=2.3.0"></script>
   <script src="js/views/professor-dashboard.js?v=2.2.0"></script>
-  <script src="js/views/professor-nova-atividade.js?v=2.2.0"></script>
+  <script src="js/views/professor-nova-atividade.js?v=2.3.0"></script>
   <script src="js/views/professor-atividade-detalhes.js?v=2.2.0"></script>
   <script src="js/views/professor-configuracoes.js?v=2.2.0"></script>
   
   <!-- Router Principal -->
-  <script src="js/app.js?v=2.2.0"></script>
+  <script src="js/app.js?v=2.3.0"></script>
 </body>
 </html>
