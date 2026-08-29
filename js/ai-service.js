@@ -3,6 +3,16 @@
  */
 
 const AIService = {
+  async authHeaders() {
+    await window.firebaseReady;
+    const user = window.FirebaseAPI?.auth?.currentUser;
+    if (!user) throw new Error("Sua sessão docente expirou. Entre novamente.");
+    return {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${await user.getIdToken()}`
+    };
+  },
+
   async gerarQuestoes({
     disciplina,
     anoTurma,
@@ -38,7 +48,7 @@ const AIService = {
 
       const res = await fetch("/api/gemini/gerar-questoes", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await this.authHeaders(),
         body: JSON.stringify({
           disciplina,
           anoTurma,
@@ -60,29 +70,25 @@ const AIService = {
         if (data.success && (data.questoes || data.resultado?.questoes)) {
           return data;
         }
+        throw new Error(data.error || "A IA não conseguiu gerar as questões.");
       }
+      throw new Error("O servidor de IA retornou uma resposta inválida.");
     } catch (err) {
-      console.warn("API remota indisponível, usando motor pedagógico local:", err);
+      console.error("Erro ao gerar questões:", err);
+      throw err;
     }
-
-    return this.generateMockQuestionsClientSide({
-      disciplina,
-      anoTurma,
-      tema,
-      quantidade: parseInt(quantidade) || 3,
-      tipoQuestoes: tipoQuestoes || "mistas"
-    });
   },
 
-  async estruturarQuestoes({ texto, formato = "documento", nomeArquivo = "" }) {
+  async estruturarQuestoes({ texto, formato = "documento", nomeArquivo = "", modo = "importar" }) {
     try {
       const res = await fetch("/api/gemini/estruturar-questoes", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await this.authHeaders(),
         body: JSON.stringify({
           texto,
           formato,
-          nomeArquivo
+          nomeArquivo,
+          modo
         })
       });
 
@@ -92,12 +98,13 @@ const AIService = {
         if (data.success && data.resultado?.questoes?.length > 0) {
           return data;
         }
+        throw new Error(data.error || "Nenhuma questão foi encontrada no material.");
       }
+      throw new Error("O servidor de IA retornou uma resposta inválida.");
     } catch (err) {
-      console.warn("Estruturador remoto indisponível, usando parser no navegador:", err);
+      console.error("Erro ao estruturar o material:", err);
+      throw err;
     }
-
-    return this.parseDocumentTextClientSide(texto, nomeArquivo);
   },
 
   parseDocumentTextClientSide(texto, nomeArquivo = "") {
@@ -243,7 +250,7 @@ const AIService = {
     try {
       const res = await fetch("/api/gemini/corrigir-dissertativa", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await this.authHeaders(),
         body: JSON.stringify({
           enunciado,
           respostaAluno,
