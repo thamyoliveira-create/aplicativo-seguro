@@ -118,19 +118,27 @@ const DB = {
       throw new Error("Use um código de 4 a 32 caracteres, contendo letras, números ou hífen.");
     }
 
-    const activityRef = atividade.id && !String(atividade.id).startsWith("act-")
+    const isExisting = Boolean(atividade.id && atividade._createdAt);
+    const activityRef = isExisting
       ? F.doc(F.db, "activities", atividade.id)
       : F.doc(F.collection(F.db, "activities"));
     const codeRef = F.doc(F.db, "activityCodes", code);
-    const [activitySnap, codeSnap] = await Promise.all([F.getDoc(activityRef), F.getDoc(codeRef)]);
-
-    if (codeSnap.exists() && codeSnap.data().teacherId !== teacher.id) {
-      throw new Error("Esse código de atividade já está em uso.");
-    }
+    const activitySnap = isExisting ? await F.getDoc(activityRef) : null;
+    const previousCode = activitySnap?.exists() ? activitySnap.data().accessCode : null;
 
     const status = atividade.status === "ativa" ? "published" : (atividade.status || "draft");
-    const createdAt = activitySnap.exists() ? activitySnap.data().createdAt : F.serverTimestamp();
+    const createdAt = activitySnap?.exists() ? activitySnap.data().createdAt : F.serverTimestamp();
     const now = F.serverTimestamp();
+    const requestedSecurity = atividade.configuracoesSeguranca || {};
+    const securitySettings = {
+      bloquearCopiarColar: requestedSecurity.bloquearCopiarColar !== false,
+      bloquearBotaoDireito: requestedSecurity.bloquearBotaoDireito !== false,
+      telaCheiaObrigatoria: requestedSecurity.telaCheiaObrigatoria !== false,
+      marcaDaguaRA: requestedSecurity.marcaDaguaRA !== false,
+      detectarTrocaAba: requestedSecurity.detectarTrocaAba !== false,
+      embaralharQuestoes: requestedSecurity.embaralharQuestoes !== false,
+      embaralharAlternativas: requestedSecurity.embaralharAlternativas !== false
+    };
     const batch = F.writeBatch(F.db);
 
     batch.set(activityRef, {
@@ -141,7 +149,7 @@ const DB = {
       accessCode: code,
       instructions: String(atividade.instrucoes || "").slice(0, 4000),
       status,
-      securitySettings: atividade.configuracoesSeguranca || {},
+      securitySettings,
       contentJson: JSON.stringify({ ...atividade, id: activityRef.id }),
       createdAt,
       updatedAt: now
@@ -158,13 +166,24 @@ const DB = {
         disciplina: String(atividade.disciplina || "").slice(0, 80),
         anoTurma: String(atividade.anoTurma || "").slice(0, 60),
         instrucoes: String(atividade.instrucoes || "").slice(0, 4000),
-        configuracoesSeguranca: atividade.configuracoesSeguranca || {}
+        configuracoesSeguranca: securitySettings
       }),
-      createdAt: codeSnap.exists() ? codeSnap.data().createdAt : now,
+      createdAt: activitySnap?.exists() ? activitySnap.data().createdAt : now,
       updatedAt: now
     });
 
-    await batch.commit();
+    if (previousCode && previousCode !== code) {
+      batch.delete(F.doc(F.db, "activityCodes", previousCode));
+    }
+
+    try {
+      await batch.commit();
+    } catch (error) {
+      if (error?.code === "permission-denied") {
+        throw new Error("O Firebase recusou o salvamento. Atualize a página, entre novamente e tente outra vez.");
+      }
+      throw error;
+    }
     return { ...atividade, id: activityRef.id, codigo: code, teacherId: teacher.id };
   },
 
