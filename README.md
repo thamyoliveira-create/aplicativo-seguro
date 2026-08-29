@@ -1,41 +1,65 @@
-# 🛡️ Atividade Segura - Plataforma de Avaliações Anticola & IA Pedagógica
+# 🛡️ Atividade Segura — Plataforma de Avaliações Anticola & IA Pedagógica
 
-Desenvolvido para professores e estudantes da rede estadual e escolas públicas/privadas, integrando **Google Gemini 3.7 Flash** e mecanismos de segurança no navegador.
-
----
-
-## 🚀 Funcionalidades Principais
-
-### 👩‍🏫 Painel da Professora
-- **Gerador Pedagógico com IA (Gemini 3.7 Flash)**: Criação de questões de Múltipla Escolha e Dissertativas alinhadas à **BNCC**, **Prova Paulista** e **SARESP**.
-- **Corretor Automático de Dissertativas por IA**: Análise da resposta do aluno com base na rubrica do professor, sugerindo nota e feedback formativo com 1 clique.
-- **Painel de Monitoramento & Infrações**: Relatório em tempo real de trocas de abas, saídas de tela cheia e tentativas de cópia com carimbo de data/hora.
-- **Modo "Visualizar como Aluno"**: Teste instantâneo de toda a experiência e travas de segurança.
-
-### 🎓 Área do Estudante ("Modo Prova Blindado")
-- **Bloqueio de Teclas & Atalhos**: Interceptação de `Ctrl+C`, `Ctrl+V`, `Ctrl+P` (impressão), `F12`, clique direito e seleção de texto.
-- **Tela Cheia Obrigatória**: Bloqueio com aviso caso o aluno saia da tela cheia.
-- **Detecção de Troca de Abas**: Cronometragem e notificação de saídas da página.
-- **Marca d'Água Dinâmica Anti-Foto**: Carimbo visual contínuo com Nome e RA do aluno cobrindo as questões.
-- **Salvamento Automático em Tempo Real**: Proteção contra queda de conexão ou fechamento acidental.
+Plataforma web para professores e estudantes das redes estadual e particular, que une **inteligência artificial** para criar e corrigir atividades com um **modo prova protegido**, impedindo cópias, troca de abas e saídas da tela cheia.
 
 ---
 
-## 🏃 Como Executar Localmente
+## ✨ Destaques
 
-No terminal, execute:
+- 🧠 **Geração de questões com IA** alinhadas à BNCC, Prova Paulista e SARESP
+- 📝 **Correção automática de dissertativas** com feedback formativo
+- 🔒 **Modo Prova Blindado** com bloqueio de atalhos e tela cheia obrigatória
+- 🕵️ **Monitoramento de infrações** em tempo real (troca de abas, cópias, saída de tela)
+- 💾 **Salvamento automático** contra quedas de conexão
+
+---
+
+## 👩‍🏫 Funcionalidades
+
+### Painel da Professora
+
+- **Gerador Pedagógico com IA (Google Gemini)**  
+  Cria questões de múltipla escolha e dissertativas alinhadas às diretrizes educacionais.
+
+- **Corretor Automático de Dissertativas**  
+  Analisa respostas com base na rubrica do professor e sugere nota + feedback formativo em 1 clique.
+
+- **Painel de Monitoramento & Infrações**  
+  Relatório em tempo real de trocas de abas, saídas de tela cheia e tentativas de cópia, tudo com data e hora.
+
+- **Modo Visualizar como Aluno**  
+  Permite testar a experiência do estudante e validar as travas de segurança.
+
+### Área do Estudante — Modo Prova Blindado
+
+- **Bloqueio de teclas e atalhos**: Ctrl+C, Ctrl+V, Ctrl+P, F12, botão direito e seleção de texto.
+- **Tela cheia obrigatória** com avisos caso o aluno tente sair.
+- **Detecção de troca de abas** com cronometragem e notificação.
+- **Marca d'água dinâmica** com nome e RA do aluno sobre as questões, dificultando fotos.
+- **Salvamento automático em tempo real** para evitar perda de respostas.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Python 3** — servidor local
+- **HTML, CSS e JavaScript** — interface e controle de segurança no navegador
+- **Google Gemini API** — geração e correção de atividades
+- **Git/GitHub** — versionamento
+
+---
+
+## 📋 Pré-requisitos
+
+- **Python 3.8 ou superior**
+- Navegador atualizado (Chrome, Edge ou Firefox)
+- Uma chave de API do Google Gemini (gratuita no [Google AI Studio](https://aistudio.google.com/app/apikey))
+
+---
+
+## 📦 Instalação
+
+1. **Clone o repositório**
+
 ```bash
-python3 server.py
-```
-Acesse no seu navegador:
-- **Painel Geral**: `http://localhost:3000`
-- **Área da Professora**: `http://localhost:3000/#professor`
-- **Área do Estudante**: `http://localhost:3000/#aluno`
-
----
-
-## ⚙️ Configuração da Chave Gemini
-
-Você pode configurar a chave da API do Gemini de duas formas:
-1. Pelo próprio painel da professora na aba **Configurações & IA**; ou
-2. Definindo a variável de ambiente: `export GEMINI_API_KEY="sua-chave"`
+git clone https://github.com/seu-usuario/atividade-segura.git
