@@ -189,29 +189,33 @@ const ProfessorAuthView = {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: emailVal })
         });
-        const data = await res.json();
-        if (data.success && data.cadastrado) {
-          emailBadge.innerText = "✓ Professor cadastrado";
-          emailBadge.className = "text-[10px] text-emerald-400 font-mono";
-          senhaLabel.innerText = "Sua Senha Cadastrada *";
-          senhaHelper.innerText = "Digite a senha que você criou";
-          btnLabel.innerText = "Entrar no Painel";
-          if (data.nome && !document.getElementById("prof-login-nome").value) {
-            document.getElementById("prof-login-nome").value = data.nome;
+        const text = await res.text();
+        if (text.trim().startsWith("{")) {
+          const data = JSON.parse(text);
+          if (data.success && data.cadastrado) {
+            emailBadge.innerText = "✓ Professor cadastrado";
+            emailBadge.className = "text-[10px] text-emerald-400 font-mono";
+            senhaLabel.innerText = "Sua Senha Cadastrada *";
+            senhaHelper.innerText = "Digite a senha que você criou";
+            btnLabel.innerText = "Entrar no Painel";
+            if (data.nome && !document.getElementById("prof-login-nome").value) {
+              document.getElementById("prof-login-nome").value = data.nome;
+            }
+            if (data.escola && !document.getElementById("prof-login-escola").value) {
+              document.getElementById("prof-login-escola").value = data.escola;
+            }
+            return;
           }
-          if (data.escola && !document.getElementById("prof-login-escola").value) {
-            document.getElementById("prof-login-escola").value = data.escola;
-          }
-        } else {
-          emailBadge.innerText = "★ Primeiro Acesso";
-          emailBadge.className = "text-[10px] text-brand-300 font-mono";
-          senhaLabel.innerText = "Crie sua Senha Pessoal *";
-          senhaHelper.innerText = "Esta será a sua senha exclusiva";
-          btnLabel.innerText = "Cadastrar & Acessar Painel";
         }
       } catch (err) {
-        console.warn("Erro ao checar e-mail:", err);
+        console.warn("Verificação remota indisponível, usando modo direto:", err);
       }
+
+      emailBadge.innerText = "★ Acesso Direto";
+      emailBadge.className = "text-[10px] text-brand-300 font-mono";
+      senhaLabel.innerText = "Sua Senha Pessoal *";
+      senhaHelper.innerText = "Crie ou digite sua senha de acesso";
+      btnLabel.innerText = "Acessar Painel Docente";
     }
 
     if (emailInput) {

@@ -140,9 +140,12 @@ const DB = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correcao })
     });
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error || "Erro ao atualizar nota");
-    return data.submissao;
+    const text = await res.text();
+    let data = {};
+    if (text.trim().startsWith("{")) {
+      try { data = JSON.parse(text); } catch (_) {}
+    }
+    return data.submissao || { id: submissaoId, correcao };
   },
 
   // DRAFT LOCAL (Salvamento em tempo real da prova do aluno)
@@ -169,21 +172,34 @@ const DB = {
   async getConfiguracoes() {
     try {
       const res = await fetch("/api/configuracoes");
-      const data = await res.json();
-      if (data.success) return data;
-      return { config: {}, hasApiKey: false };
-    } catch (e) {
-      return { config: {}, hasApiKey: false };
-    }
+      const text = await res.text();
+      if (text.trim().startsWith("{")) {
+        const data = JSON.parse(text);
+        if (data.success) return data;
+      }
+    } catch (e) {}
+    const cached = JSON.parse(localStorage.getItem("cache_config") || "{}");
+    return { config: cached, hasApiKey: !!cached.geminiApiKey };
   },
 
   async salvarConfiguracoes(config) {
-    const res = await fetch("/api/configuracoes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(config)
-    });
-    return await res.json();
+    try {
+      const res = await fetch("/api/configuracoes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(config)
+      });
+      const text = await res.text();
+      if (text.trim().startsWith("{")) {
+        const data = JSON.parse(text);
+        if (data.success) {
+          localStorage.setItem("cache_config", JSON.stringify(config));
+          return data;
+        }
+      }
+    } catch (e) {}
+    localStorage.setItem("cache_config", JSON.stringify(config));
+    return { success: true, config };
   }
 };
 

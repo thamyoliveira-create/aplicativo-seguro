@@ -228,9 +228,14 @@
         })
       });
 
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      if (resText.trim().startsWith("{")) {
+        try { data = JSON.parse(resText); } catch (_) {}
+      }
+
       if (!data.success || !data.texto) {
-        throw new Error(data.error || "Não foi possível extrair texto deste documento.");
+        throw new Error(data.error || "Não foi possível extrair o texto deste arquivo.");
       }
 
       return {
