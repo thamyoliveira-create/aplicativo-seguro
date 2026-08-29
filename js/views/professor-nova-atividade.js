@@ -88,6 +88,14 @@ const ProfessorNovaAtividadeView = {
               </div>
             </div>
 
+            <label class="block text-xs font-bold text-slate-200" for="nova-upload-mode">
+              O que a IA deve fazer com o arquivo?
+              <select id="nova-upload-mode" class="mt-2 w-full p-3 bg-dark-950 border border-slate-700 rounded-xl text-xs text-white">
+                <option value="importar">Importar o questionário existente sem criar novas questões</option>
+                <option value="gerar">Gerar novas questões contextualizadas com base no material</option>
+              </select>
+            </label>
+
             <!-- Área Aberta de Drag & Drop -->
             <div
               id="nova-upload-dropzone"
@@ -468,6 +476,14 @@ const ProfessorNovaAtividadeView = {
               </div>
             </div>
 
+            <label class="block text-xs font-bold text-slate-200" for="upload-processing-mode">
+              Como deseja usar o conteúdo?
+              <select id="upload-processing-mode" class="mt-2 w-full p-3 bg-dark-900 border border-slate-700 rounded-xl text-xs text-white">
+                <option value="importar">Manter e estruturar as questões do arquivo</option>
+                <option value="gerar">Criar novas questões interpretativas sobre os assuntos</option>
+              </select>
+            </label>
+
             <!-- Aviso de Fidelidade -->
             <div class="p-3 bg-brand-950/30 rounded-xl border border-brand-500/20 text-[11px] text-slate-300 flex items-start gap-2.5">
               <i data-lucide="info" class="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5"></i>
@@ -644,7 +660,8 @@ const ProfessorNovaAtividadeView = {
         const resEstrutura = await AIService.estruturarQuestoes({
           texto: extracted.text,
           formato: extracted.format,
-          nomeArquivo: file.name
+          nomeArquivo: file.name,
+          modo: document.getElementById("nova-upload-mode")?.value || "importar"
         });
 
         const resultado = resEstrutura.resultado || {};
@@ -870,7 +887,8 @@ const ProfessorNovaAtividadeView = {
           const resEstrutura = await AIService.estruturarQuestoes({
             texto: textoFinal,
             formato: currentExtractedData ? currentExtractedData.format : "documento",
-            nomeArquivo: currentExtractedData ? currentExtractedData.fileName : ""
+            nomeArquivo: currentExtractedData ? currentExtractedData.fileName : "",
+            modo: document.getElementById("upload-processing-mode")?.value || "importar"
           });
 
           const resultado = resEstrutura.resultado || {};
