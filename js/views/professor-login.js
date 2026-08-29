@@ -80,6 +80,7 @@ const ProfessorLoginView = {
         } else {
           await TeacherAuth.login(email, password.value);
           window.location.hash = "#professor";
+          await App.handleRoute();
         }
       } catch (err) {
         error.textContent = err.message;
