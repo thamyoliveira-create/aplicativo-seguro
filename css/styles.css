@@ -382,6 +382,43 @@ body {
 .auth-input svg { width: 18px; color: #73837d; flex: 0 0 auto; }
 .auth-input input { width: 100%; border: 0; outline: 0; background: transparent; font-size: 13px; }
 .auth-field-note { margin-top: 8px; color: #7b8984; font-size: 10px; line-height: 1.5; }
+.auth-mode-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 0 0 22px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #ece9e0;
+}
+.auth-mode-tabs button {
+  min-height: 38px;
+  border-radius: 9px;
+  color: #667770;
+  font-size: 11px;
+  font-weight: 800;
+}
+.auth-mode-tabs button.active {
+  color: var(--ink);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(16,42,38,.08);
+}
+.password-toggle {
+  display: grid;
+  place-items: center;
+  color: #73837d;
+  flex: 0 0 auto;
+}
+.password-toggle svg { width: 17px; }
+.auth-text-button {
+  width: 100%;
+  margin-top: 17px;
+  color: #52665f;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .auth-error, .auth-success { min-height: 17px; margin-top: 12px; font-size: 11px; line-height: 1.5; }
 .auth-error { color: #b33428; }
 .auth-success { color: #277054; }
