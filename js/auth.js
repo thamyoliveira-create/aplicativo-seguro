@@ -113,11 +113,8 @@ const PortalAuth = {
       await credential.user.reload();
 
       if (!credential.user.emailVerified) {
-        await F.sendEmailVerification(credential.user, {
-          url: `${window.location.origin}${window.location.pathname}#${role === "teacher" ? "professor" : "aluno"}`
-        });
         await F.signOut(F.auth);
-        throw new Error("Confirme seu e-mail antes de entrar. Enviamos uma nova mensagem de verificação.");
+        throw new Error("Sua conta ainda não foi confirmada. Abra a mensagem de verificação enviada no primeiro cadastro.");
       }
 
       if (this.roleFromEmail(credential.user.email) !== role) {
