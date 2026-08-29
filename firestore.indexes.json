@@ -1,0 +1,56 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "activities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "teacherId", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "submissions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "teacherId", "order": "ASCENDING" },
+        { "fieldPath": "submittedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "submissions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "teacherId", "order": "ASCENDING" },
+        { "fieldPath": "activityId", "order": "ASCENDING" },
+        { "fieldPath": "submittedAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "activities",
+      "fieldPath": "contentJson",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "activityCodes",
+      "fieldPath": "studentContentJson",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "submissions",
+      "fieldPath": "contentJson",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "submissions",
+      "fieldPath": "answersJson",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "submissions",
+      "fieldPath": "infractionsJson",
+      "indexes": []
+    }
+  ]
+}

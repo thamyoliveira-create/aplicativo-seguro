@@ -4,6 +4,8 @@
  */
 
 const AlunoLoginView = {
+  mode: "login",
+
   async render(params = {}) {
     // Redireciona para a Home com rolagem para o formulário de login
     window.location.hash = "#secao-login";

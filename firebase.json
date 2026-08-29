@@ -1,0 +1,17 @@
+{
+  "auth": {
+    "authorizedDomains": [
+      "localhost",
+      "atividade-segura.firebaseapp.com",
+      "atividade-segura.web.app",
+      "aplicativo-seguro.vercel.app"
+    ],
+    "providers": {
+      "emailPassword": true
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
