@@ -118,7 +118,8 @@ const HomeView = {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
         <!-- 3. SEÇÃO: COMO FUNCIONA O ACESSO (3 PASSOS) -->
         <section id="como-funciona" class="py-18 px-4 sm:px-6 max-w-5xl mx-auto w-full border-b border-slate-800/80 my-4">
@@ -145,9 +146,6 @@ const HomeView = {
                 Digite seu e-mail terminado em <code class="text-brand-300 font-mono bg-brand-950/60 px-1 py-0.5 rounded">@aluno.educacao.sp.gov.br</code>, seu nome completo e seu RA oficial de SP.
               </p>
             </div>
-            <div class="trust-item"><b>02</b><span><strong>IA com direção pedagógica</strong>Você define série, habilidade BNCC, tema e nível de dificuldade.</span></div>
-            <div class="trust-item"><b>03</b><span><strong>Perfis separados</strong>Aluno não vê painel, gabarito ou dados da professora.</span></div>
-          </section>
 
             <!-- Passo 2 -->
             <div class="glass-card p-6.5 rounded-3xl relative overflow-hidden feature-card">
@@ -464,16 +462,59 @@ const HomeView = {
                 <span>Acesso Docente</span>
               </a>
             </div>
-          </section>
-        </main>
-
-        <footer class="landing-footer">
-          <span>Atividade Segura · projeto independente para apoio pedagógico — não é um sistema oficial da SEDUC-SP</span>
-          <span>Perfis aceitos: @professor e @aluno.educacao.sp.gov.br</span>
+          </div>
         </footer>
-      </div>`;
+      </div>
+    `;
 
     if (window.lucide) window.lucide.createIcons();
+
+    // Evento de Envio do Login do Aluno
+    const form = document.getElementById("form-aluno-home");
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("home-aluno-email").value.trim().toLowerCase();
+      const nome = document.getElementById("home-aluno-nome").value.trim();
+      const ra = document.getElementById("home-aluno-ra").value.trim();
+      const codigo = document.getElementById("home-aluno-codigo").value.trim().toUpperCase();
+
+      // Se for um professor digitando seu e-mail de professor, redireciona para a autenticação do docente
+      if (email.endsWith("@professor.educacao.sp.gov.br") || email.startsWith("prof")) {
+        window.location.hash = "#docente";
+        return;
+      }
+
+      const btn = document.getElementById("btn-iniciar-prova-aluno");
+      btn.disabled = true;
+      btn.innerHTML = `<span class="animate-spin mr-2">⏳</span> Carregando atividade...`;
+
+      try {
+        const atividade = await DB.getAtividadePorCodigo(codigo);
+        if (!atividade) {
+          alert(`Código de atividade "${codigo}" não encontrado. Verifique com sua professora.`);
+          btn.disabled = false;
+          btn.innerHTML = `<span>Acessar e Responder Avaliação</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+          if (window.lucide) window.lucide.createIcons();
+          return;
+        }
+
+        // Salvar sessão do estudante
+        sessionStorage.setItem("aluno_ativo", JSON.stringify({
+          nome,
+          ra,
+          email,
+          codigoAtividade: atividade.codigo,
+          atividadeId: atividade.id
+        }));
+
+        // Redireciona imediatamente para a prova blindada
+        window.location.hash = `#aluno/prova/${atividade.codigo}`;
+      } catch (err) {
+        alert("Erro ao validar atividade: " + err.message);
+        btn.disabled = false;
+        btn.innerHTML = `<span>Acessar e Responder Avaliação</span>`;
+      }
+    };
   }
 };
 

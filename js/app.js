@@ -1,30 +1,29 @@
+/**
+ * App Router & Main Controller - Atividade Segura
+ * Proteção de rotas do docente e separação estrita do ambiente do aluno
+ */
+
 const App = {
-  async init() {
+  init() {
     window.addEventListener("hashchange", () => this.handleRoute());
-    await window.firebaseReady;
-    window.FirebaseAPI.onAuthStateChanged(window.FirebaseAPI.auth, () => {
-      setTimeout(() => this.handleRoute(), 0);
-    });
     this.handleRoute();
   },
 
-  async handleRoute() {
+  handleRoute() {
     const hash = window.location.hash.replace(/^#\/?/, "");
     const parts = hash.split("/");
 
+    // Se estiver saindo de uma prova do aluno, desativa travas de segurança
     if (!hash.startsWith("aluno/prova") && window.securityEngine) {
       window.securityEngine.destroy();
     }
 
-    if (!hash) {
-      await HomeView.render();
-    } else if (parts[0] === "aluno") {
-      if (parts[1] === "prova" && parts[2]) {
-        const student = await StudentAuth.session();
-        let localIdentity = null;
-        try {
-          localIdentity = JSON.parse(sessionStorage.getItem("aluno_ativo") || "null");
-        } catch (_) {}
+    // 1. Rota de Autenticação do Docente
+    if (hash === "docente" || hash === "professor/login") {
+      ProfessorAuthView.render();
+      window.scrollTo(0, 0);
+      return;
+    }
 
     // 2. Proteção das Rotas do Professor
     if (parts[0] === "professor") {
@@ -40,20 +39,35 @@ const App = {
       }
 
       if (parts[1] === "nova-atividade") {
-        await ProfessorNovaAtividadeView.render();
+        ProfessorNovaAtividadeView.render();
       } else if (parts[1] === "atividade" && parts[2]) {
-        await ProfessorAtividadeDetalhesView.render({ id: parts[2] });
+        ProfessorAtividadeDetalhesView.render({ id: parts[2] });
       } else if (parts[1] === "configuracoes") {
-        await ProfessorConfiguracoesView.render();
+        ProfessorConfiguracoesView.render();
       } else {
-        await ProfessorDashboardView.render();
+        ProfessorDashboardView.render();
       }
-    } else {
-      await HomeView.render();
+      window.scrollTo(0, 0);
+      return;
     }
 
+    // 3. Rotas do Aluno
+    if (parts[0] === "aluno") {
+      if (parts[1] === "prova" && parts[2]) {
+        AlunoProvaView.render({ codigo: parts[2] });
+      } else {
+        HomeView.render();
+      }
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    // Rota Padrão: Portal de Entrada do Aluno
+    HomeView.render();
     window.scrollTo(0, 0);
   }
 };
 
-window.addEventListener("DOMContentLoaded", () => App.init());
+window.addEventListener("DOMContentLoaded", () => {
+  App.init();
+});
