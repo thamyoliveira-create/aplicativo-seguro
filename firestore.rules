@@ -1,0 +1,223 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed data model
+    // ===============================================================
+    // users_private/{uid}: email, displayName, role, createdAt, updatedAt.
+    // activities/{id}: teacher-owned full activity; contentJson may contain answers.
+    // activityCodes/{CODE}: sanitized published payload in studentContentJson.
+    // submissions/{id}: student response owned by studentId and teacherId.
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function verifiedEmail() {
+      return signedIn() && request.auth.token.email is string &&
+        request.auth.token.email_verified == true;
+    }
+
+    function isTeacher() {
+      return verifiedEmail() &&
+        request.auth.token.email.matches('^.+@professor\\.educacao\\.sp\\.gov\\.br$');
+    }
+
+    function isStudent() {
+      return verifiedEmail() &&
+        request.auth.token.email.matches('^.+@aluno\\.educacao\\.sp\\.gov\\.br$');
+    }
+
+    function recentTimestamp(value) {
+      return value is timestamp &&
+        value >= request.time - duration.value(5, 'm') &&
+        value <= request.time + duration.value(1, 'm');
+    }
+
+    function validShortString(value, minSize, maxSize) {
+      return value is string && value.size() >= minSize && value.size() <= maxSize;
+    }
+
+    function validStatus(value) {
+      return value in ['draft', 'published', 'closed'];
+    }
+
+    function validProfile(data) {
+      return data.keys().hasAll(['email', 'displayName', 'role', 'createdAt', 'updatedAt']) &&
+        data.keys().hasOnly(['email', 'displayName', 'role', 'createdAt', 'updatedAt']) &&
+        data.email is string && data.email.size() <= 254 &&
+        data.email == request.auth.token.email &&
+        validShortString(data.displayName, 1, 100) &&
+        data.role in ['teacher', 'student'] &&
+        ((data.role == 'teacher' && isTeacher()) || (data.role == 'student' && isStudent())) &&
+        data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    function validActivity(data) {
+      return data.keys().hasAll([
+          'teacherId', 'title', 'subject', 'grade', 'accessCode', 'instructions',
+          'status', 'securitySettings', 'contentJson', 'createdAt', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'teacherId', 'title', 'subject', 'grade', 'accessCode', 'instructions',
+          'status', 'securitySettings', 'contentJson', 'createdAt', 'updatedAt'
+        ]) &&
+        data.teacherId is string && data.teacherId == request.auth.uid &&
+        validShortString(data.title, 1, 160) &&
+        validShortString(data.subject, 0, 80) &&
+        validShortString(data.grade, 0, 60) &&
+        data.accessCode is string && data.accessCode.matches('^[A-Z0-9-]{4,32}$') &&
+        validShortString(data.instructions, 0, 4000) &&
+        validStatus(data.status) &&
+        data.securitySettings is map &&
+        data.securitySettings.keys().hasAll([
+          'bloquearCopiarColar', 'bloquearBotaoDireito', 'telaCheiaObrigatoria',
+          'marcaDaguaRA', 'detectarTrocaAba', 'embaralharQuestoes', 'embaralharAlternativas'
+        ]) &&
+        data.securitySettings.keys().hasOnly([
+          'bloquearCopiarColar', 'bloquearBotaoDireito', 'telaCheiaObrigatoria',
+          'marcaDaguaRA', 'detectarTrocaAba', 'embaralharQuestoes', 'embaralharAlternativas'
+        ]) &&
+        data.securitySettings.bloquearCopiarColar is bool &&
+        data.securitySettings.bloquearBotaoDireito is bool &&
+        data.securitySettings.telaCheiaObrigatoria is bool &&
+        data.securitySettings.marcaDaguaRA is bool &&
+        data.securitySettings.detectarTrocaAba is bool &&
+        data.securitySettings.embaralharQuestoes is bool &&
+        data.securitySettings.embaralharAlternativas is bool &&
+        data.contentJson is string && data.contentJson.size() <= 750000 &&
+        data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    function validActivityCode(data, code) {
+      return data.keys().hasAll([
+          'teacherId', 'activityId', 'accessCode', 'title', 'status',
+          'studentContentJson', 'createdAt', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'teacherId', 'activityId', 'accessCode', 'title', 'status',
+          'studentContentJson', 'createdAt', 'updatedAt'
+        ]) &&
+        data.teacherId is string && data.teacherId == request.auth.uid &&
+        validShortString(data.activityId, 10, 128) &&
+        data.accessCode == code && code.matches('^[A-Z0-9-]{4,32}$') &&
+        validShortString(data.title, 1, 160) &&
+        validStatus(data.status) &&
+        data.studentContentJson is string && data.studentContentJson.size() <= 650000 &&
+        data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    function validSubmission(data) {
+      return data.keys().hasAll([
+          'activityId', 'teacherId', 'studentId', 'studentEmail', 'studentName',
+          'answersJson', 'infractionsJson', 'status', 'contentJson',
+          'startedAt', 'submittedAt', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'activityId', 'teacherId', 'studentId', 'studentEmail', 'studentName',
+          'answersJson', 'infractionsJson', 'status', 'score', 'contentJson',
+          'startedAt', 'submittedAt', 'updatedAt'
+        ]) &&
+        validShortString(data.activityId, 10, 128) &&
+        validShortString(data.teacherId, 10, 128) &&
+        validShortString(data.studentId, 10, 128) &&
+        data.studentEmail is string && data.studentEmail.size() <= 254 &&
+        validShortString(data.studentName, 2, 120) &&
+        data.answersJson is string && data.answersJson.size() <= 500000 &&
+        data.infractionsJson is string && data.infractionsJson.size() <= 120000 &&
+        data.contentJson is string && data.contentJson.size() <= 700000 &&
+        data.status in ['submitted', 'graded'] &&
+        (!('score' in data) || (data.score is number && data.score >= 0 && data.score <= 100)) &&
+        data.startedAt is timestamp && data.submittedAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    match /users_private/{uid} {
+      allow create: if signedIn() && request.auth.uid == uid &&
+        validProfile(request.resource.data) &&
+        recentTimestamp(request.resource.data.createdAt) &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow read: if signedIn() && request.auth.uid == uid;
+
+      allow update: if signedIn() && request.auth.uid == uid &&
+        validProfile(request.resource.data) &&
+        request.resource.data.email == resource.data.email &&
+        request.resource.data.role == resource.data.role &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if false;
+    }
+
+    match /activities/{activityId} {
+      allow create: if isTeacher() && validActivity(request.resource.data) &&
+        recentTimestamp(request.resource.data.createdAt) &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow read: if isTeacher() && resource.data.teacherId == request.auth.uid;
+
+      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+        validActivity(request.resource.data) &&
+        request.resource.data.teacherId == resource.data.teacherId &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if isTeacher() && resource.data.teacherId == request.auth.uid;
+    }
+
+    match /activityCodes/{code} {
+      allow create: if isTeacher() && validActivityCode(request.resource.data, code) &&
+        recentTimestamp(request.resource.data.createdAt) &&
+        recentTimestamp(request.resource.data.updatedAt) &&
+        getAfter(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.teacherId == request.auth.uid;
+
+      allow get: if (isTeacher() && resource.data.teacherId == request.auth.uid) ||
+        (isStudent() && resource.data.status == 'published');
+      allow list: if false;
+
+      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+        validActivityCode(request.resource.data, code) &&
+        request.resource.data.teacherId == resource.data.teacherId &&
+        request.resource.data.activityId == resource.data.activityId &&
+        request.resource.data.accessCode == resource.data.accessCode &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if isTeacher() && resource.data.teacherId == request.auth.uid;
+    }
+
+    match /submissions/{submissionId} {
+      allow create: if isStudent() && validSubmission(request.resource.data) &&
+        request.resource.data.studentId == request.auth.uid &&
+        request.resource.data.studentEmail == request.auth.token.email &&
+        request.resource.data.status == 'submitted' &&
+        !('score' in request.resource.data) &&
+        recentTimestamp(request.resource.data.submittedAt) &&
+        recentTimestamp(request.resource.data.updatedAt) &&
+        get(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.teacherId == request.resource.data.teacherId &&
+        get(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.status == 'published';
+
+      allow read: if signedIn() &&
+        ((isStudent() && resource.data.studentId == request.auth.uid) ||
+         (isTeacher() && resource.data.teacherId == request.auth.uid));
+
+      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+        validSubmission(request.resource.data) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'score', 'contentJson', 'updatedAt']) &&
+        request.resource.data.activityId == resource.data.activityId &&
+        request.resource.data.teacherId == resource.data.teacherId &&
+        request.resource.data.studentId == resource.data.studentId &&
+        request.resource.data.studentEmail == resource.data.studentEmail &&
+        request.resource.data.startedAt == resource.data.startedAt &&
+        request.resource.data.submittedAt == resource.data.submittedAt &&
+        request.resource.data.status == 'graded' &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
