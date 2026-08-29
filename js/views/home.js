@@ -35,11 +35,19 @@ const HomeView = {
               <a href="#faq" class="hover:text-brand-400 transition-colors">Dúvidas Frequentes</a>
             </nav>
 
-            <!-- Botão CTA Topo -->
-            <div class="flex items-center gap-3">
+            <!-- Botões CTA Topo -->
+            <div class="flex items-center gap-2 sm:gap-3">
+              <a
+                href="#docente"
+                class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white text-xs font-bold shadow-glow-emerald transition-all flex items-center gap-1.5 border border-emerald-400/30"
+                title="Área do Professor: Enviar arquivos e criar avaliações"
+              >
+                <i data-lucide="upload-cloud" class="w-3.5 h-3.5"></i>
+                <span class="hidden sm:inline">Área do Professor •</span> Criar Prova
+              </a>
               <a
                 href="#secao-login"
-                class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 active:scale-95 text-white text-xs font-bold shadow-glow-blue transition-all flex items-center gap-1.5 border border-brand-400/20"
+                class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 active:scale-95 text-white text-xs font-bold shadow-glow-blue transition-all flex items-center gap-1.5 border border-brand-400/20"
               >
                 <span>Acessar Prova</span>
                 <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
@@ -70,11 +78,19 @@ const HomeView = {
             <!-- Botões de Ação -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
               <a
+                href="#docente"
+                class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm shadow-glow-emerald transition-all flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 border border-emerald-400/30"
+              >
+                <i data-lucide="file-up" class="w-5 h-5"></i>
+                <span>Professor: Criar Prova via Arquivo</span>
+              </a>
+
+              <a
                 href="#secao-login"
                 class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold text-sm shadow-glow-blue transition-all flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 border border-white/10"
               >
-                <span>Fazer Login & Responder Prova</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <i data-lucide="user-check" class="w-4 h-4"></i>
+                <span>Aluno: Responder Avaliação</span>
               </a>
 
               <a
@@ -82,7 +98,7 @@ const HomeView = {
                 class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-dark-800/80 hover:bg-dark-800 text-slate-200 hover:text-white border border-slate-700 font-semibold text-sm transition-all flex items-center justify-center gap-2"
               >
                 <i data-lucide="book-open" class="w-4 h-4 text-brand-400"></i>
-                <span>Ver Orientações de Prova</span>
+                <span>Orientações</span>
               </a>
             </div>
 
@@ -117,6 +133,76 @@ const HomeView = {
                   <p class="text-[11px] text-slate-400 mt-0.5">Mesmas regras para toda a sala</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2.5 CARD DE CRIAR ATIVIDADE DIRETO DA HOME (PROFESSOR) -->
+        <section id="secao-professor-upload" class="max-w-4xl mx-auto px-4 sm:px-6 -mt-8 mb-8 relative z-20 w-full">
+          <div class="glass-card rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/50 bg-dark-900/95 shadow-2xl space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shadow-glow-emerald flex-shrink-0">
+                  <i data-lucide="file-up" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-[10px] font-extrabold uppercase tracking-wider">Acesso do Professor</span>
+                    <h3 class="text-lg sm:text-xl font-black text-white">Criar Avaliação a partir de Arquivo</h3>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-0.5">Arraste seu questionário em Word (.docx), PDF, Excel ou PPTX para transformar em prova pronta</p>
+                </div>
+              </div>
+              <a
+                href="#docente"
+                class="px-4 py-2 rounded-xl bg-dark-800 hover:bg-dark-750 text-emerald-400 hover:text-emerald-300 border border-emerald-500/30 text-xs font-bold transition-all flex items-center gap-1.5 self-start sm:self-auto"
+              >
+                <span>Painel Docente</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Dropzone aberta -->
+            <div
+              id="home-upload-dropzone"
+              class="relative overflow-hidden border-2 border-dashed border-emerald-500/40 hover:border-emerald-400 bg-dark-950/80 hover:bg-dark-950 rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all space-y-3"
+            >
+              <input
+                type="file"
+                id="home-file-input"
+                accept=".docx,.doc,.pdf,.xlsx,.xls,.pptx,.txt,.csv"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                title="Clique ou arraste um arquivo de prova para cá"
+              />
+              <div class="w-12 h-12 rounded-2xl bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto shadow-glow-emerald pointer-events-none">
+                <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+              </div>
+              <div class="pointer-events-none">
+                <p class="text-base font-bold text-white">Solte seu arquivo aqui ou clique para selecionar</p>
+                <p class="text-xs text-slate-400 mt-1">O sistema extrai o texto e estrutura as questões com alternativas e gabarito automaticamente</p>
+              </div>
+              <div class="flex items-center justify-center gap-2 flex-wrap pt-1 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-lg bg-blue-950/70 border border-blue-500/30 text-blue-300 text-[10px] font-bold font-mono">Word .docx / .doc</span>
+                <span class="px-2.5 py-1 rounded-lg bg-red-950/70 border border-red-500/30 text-red-300 text-[10px] font-bold font-mono">PDF</span>
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold font-mono">Excel .xlsx</span>
+                <span class="px-2.5 py-1 rounded-lg bg-orange-950/70 border border-orange-500/30 text-orange-300 text-[10px] font-bold font-mono">PowerPoint .pptx</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-[10px] font-bold font-mono">TXT / CSV</span>
+              </div>
+            </div>
+
+            <!-- Status Box de processamento -->
+            <div id="home-upload-status" class="hidden space-y-3 p-5 bg-dark-950 rounded-2xl border border-slate-800 text-xs">
+              <div class="flex items-center justify-between">
+                <span id="home-file-name" class="font-bold text-white truncate max-w-[240px] sm:max-w-md">arquivo.docx</span>
+                <span id="home-status-indicator" class="text-emerald-400 font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Lendo documento...
+                </span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div id="home-progress-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full transition-all duration-300" style="width: 20%;"></div>
+              </div>
+              <p id="home-status-detail" class="text-[11px] text-slate-400 text-center font-mono">Processando arquivo no navegador...</p>
             </div>
           </div>
         </section>
@@ -515,6 +601,154 @@ const HomeView = {
         btn.innerHTML = `<span>Acessar e Responder Avaliação</span>`;
       }
     };
+
+    // Eventos do Upload de Arquivos na Home (Área do Professor)
+    const homeFileInput = document.getElementById("home-file-input");
+    const homeDropzone = document.getElementById("home-upload-dropzone");
+    const homeStatusBox = document.getElementById("home-upload-status");
+    const homeFileName = document.getElementById("home-file-name");
+    const homeStatusInd = document.getElementById("home-status-indicator");
+    const homeProgressBar = document.getElementById("home-progress-bar");
+    const homeStatusDetail = document.getElementById("home-status-detail");
+
+    if (homeFileInput) {
+      homeFileInput.onchange = () => {
+        if (homeFileInput.files && homeFileInput.files.length > 0) {
+          processHomeFile(homeFileInput.files[0]);
+        }
+      };
+    }
+
+    if (homeDropzone) {
+      homeDropzone.ondragover = (e) => {
+        e.preventDefault();
+        homeDropzone.classList.add("border-emerald-400", "bg-emerald-950/40");
+      };
+      homeDropzone.ondragleave = () => {
+        homeDropzone.classList.remove("border-emerald-400", "bg-emerald-950/40");
+      };
+      homeDropzone.ondrop = (e) => {
+        e.preventDefault();
+        homeDropzone.classList.remove("border-emerald-400", "bg-emerald-950/40");
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          processHomeFile(e.dataTransfer.files[0]);
+        }
+      };
+    }
+
+    async function processHomeFile(file) {
+      if (!window.FileExtractor) {
+        alert("Carregando o módulo de arquivos. Tente novamente em 2 segundos.");
+        return;
+      }
+
+      const format = window.FileExtractor.detectFormat(file.name);
+      if (!format) {
+        alert("Formato não suportado. Por favor, envie arquivos Word (.docx/.doc), PDF (.pdf), Excel (.xlsx/.xls), PowerPoint (.pptx) ou Texto (.txt/.csv).");
+        return;
+      }
+
+      homeDropzone.classList.add("hidden");
+      homeStatusBox.classList.remove("hidden");
+      homeFileName.innerText = file.name;
+      homeStatusInd.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Lendo documento...`;
+      homeProgressBar.style.width = "25%";
+      homeStatusDetail.innerText = "Extraindo conteúdo do arquivo...";
+
+      try {
+        const extracted = await window.FileExtractor.extract(file, (msg, pct) => {
+          homeStatusDetail.innerText = msg;
+          homeProgressBar.style.width = `${Math.min(50, Math.round(pct * 0.5))}%`;
+        });
+
+        homeStatusInd.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> Estruturando questões...`;
+        homeProgressBar.style.width = "65%";
+        homeStatusDetail.innerText = "Organizando questões, alternativas e gabaritos...";
+
+        const resEstrutura = await AIService.estruturarQuestoes({
+          texto: extracted.text,
+          formato: extracted.format,
+          nomeArquivo: file.name
+        });
+
+        const resultado = resEstrutura.resultado || {};
+        const rawQuestoes = resultado.questoes || [];
+
+        if (rawQuestoes.length === 0) {
+          throw new Error("Não foram identificadas questões no documento enviado.");
+        }
+
+        const questoes = rawQuestoes.map((q, idx) => {
+          if (!q.id) q.id = `q_home_${idx + 1}_${Date.now()}`;
+          if (q.tipo === "multipla_escolha") {
+            const alts = q.alternativas || [];
+            alts.forEach(a => {
+              if (a.id) a.id = String(a.id).toUpperCase().trim();
+            });
+            if (!q.correta && alts.length > 0) {
+              const cor = alts.find(a => a.correta);
+              q.correta = cor ? cor.id : alts[0].id;
+            } else {
+              q.correta = String(q.correta || "A").toUpperCase().trim();
+            }
+            alts.forEach(a => {
+              a.correta = (a.id === q.correta);
+            });
+          }
+          return q;
+        });
+
+        homeProgressBar.style.width = "90%";
+        homeStatusDetail.innerText = "Salvando avaliação...";
+
+        const codigo = `AVAL-${Math.floor(1000 + Math.random() * 9000)}`;
+        const titulo = resultado.tituloSugerido || file.name.replace(/\.[^/.]+$/, "");
+        const nomeProf = sessionStorage.getItem("professor_nome") || localStorage.getItem("professor_nome") || "Profª. Docente";
+        const escolaProf = sessionStorage.getItem("professor_escola") || localStorage.getItem("professor_escola") || "Escola Estadual";
+
+        const novaAtividade = {
+          id: `ativ-${codigo.toLowerCase()}-${Date.now()}`,
+          codigo: codigo,
+          titulo: titulo,
+          disciplina: resultado.disciplinaSugerida || "Geral",
+          anoTurma: resultado.anoTurmaSugerido || "8º Ano Fundamental",
+          professorNome: nomeProf,
+          escola: escolaProf,
+          professorEmail: sessionStorage.getItem("professor_email") || localStorage.getItem("professor_email") || "",
+          dataCriacao: new Date().toISOString(),
+          tempoLimiteMinutos: 45,
+          configuracoesSeguranca: {
+            bloquearCopiarColar: true,
+            telaCheiaObrigatoria: true,
+            marcaDaguaRA: true,
+            detectarTrocaAba: true,
+            embaralharQuestoes: true,
+            embaralharAlternativas: true
+          },
+          questoes: questoes
+        };
+
+        await DB.salvarAtividade(novaAtividade);
+
+        sessionStorage.setItem("professor_autenticado", "true");
+        sessionStorage.setItem("professor_nome", nomeProf);
+        sessionStorage.setItem("professor_escola", escolaProf);
+
+        homeProgressBar.style.width = "100%";
+        homeStatusInd.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Concluído!`;
+        homeStatusDetail.innerText = `Avaliação criada com ${questoes.length} questões prontas!`;
+
+        alert(`🎉 Sucesso! A avaliação "${titulo}" foi criada a partir do arquivo com ${questoes.length} questões!\n\nCódigo da Prova: ${codigo}`);
+
+        window.location.hash = "#professor";
+      } catch (err) {
+        console.error("Erro no processamento do arquivo na home:", err);
+        alert("Não foi possível processar o arquivo: " + err.message);
+        homeStatusBox.classList.add("hidden");
+        homeDropzone.classList.remove("hidden");
+        if (homeFileInput) homeFileInput.value = "";
+      }
+    }
   }
 };
 

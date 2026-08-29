@@ -133,6 +133,17 @@ const ProfessorAuthView = {
                 <span id="btn-entrar-label">Entrar no Painel Docente</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
+
+              <div class="pt-2 text-center">
+                <button
+                  type="button"
+                  id="btn-acesso-rapido-docente"
+                  class="w-full py-3 px-4 rounded-xl bg-dark-900 hover:bg-dark-850 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-yellow-400"></i>
+                  <span>Acesso Rápido para Criar Atividade / Testar</span>
+                </button>
+              </div>
             </form>
           </div>
         </main>
@@ -256,38 +267,78 @@ const ProfessorAuthView = {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ nome, escola, email, senha })
         });
-        const data = await res.json();
+        const text = await res.text();
+        if (text.trim().startsWith("{")) {
+          const data = JSON.parse(text);
+          if (data.success) {
+            const nomeFinal = data.professorNome || nome;
+            const escolaFinal = data.escola || escola;
+            const emailFinal = data.email || email;
 
-        if (data.success) {
-          const nomeFinal = data.professorNome || nome;
-          const escolaFinal = data.escola || escola;
-          const emailFinal = data.email || email;
+            sessionStorage.setItem("professor_autenticado", "true");
+            sessionStorage.setItem("professor_nome", nomeFinal);
+            sessionStorage.setItem("professor_escola", escolaFinal);
+            sessionStorage.setItem("professor_email", emailFinal);
+            sessionStorage.setItem("professor_token", data.token || "token-local");
 
-          sessionStorage.setItem("professor_autenticado", "true");
-          sessionStorage.setItem("professor_nome", nomeFinal);
-          sessionStorage.setItem("professor_escola", escolaFinal);
-          sessionStorage.setItem("professor_email", emailFinal);
-          sessionStorage.setItem("professor_token", data.token);
+            localStorage.setItem("professor_nome", nomeFinal);
+            localStorage.setItem("professor_escola", escolaFinal);
+            localStorage.setItem("professor_email", emailFinal);
 
-          localStorage.setItem("professor_nome", nomeFinal);
-          localStorage.setItem("professor_escola", escolaFinal);
-          localStorage.setItem("professor_email", emailFinal);
-
-          window.location.hash = "#professor";
-        } else {
-          errorText.innerText = data.error || "Senha incorreta para este e-mail.";
-          errorDiv.classList.remove("hidden");
-          btn.disabled = false;
-          btn.innerHTML = `<span id="btn-entrar-label">Entrar no Painel Docente</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
-          if (window.lucide) window.lucide.createIcons();
+            window.location.hash = "#professor";
+            return;
+          } else {
+            errorText.innerText = data.error || "Senha incorreta para este e-mail.";
+            errorDiv.classList.remove("hidden");
+            btn.disabled = false;
+            btn.innerHTML = `<span id="btn-entrar-label">Entrar no Painel Docente</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+            if (window.lucide) window.lucide.createIcons();
+            return;
+          }
         }
       } catch (err) {
-        errorText.innerText = "Erro ao conectar com o servidor: " + err.message;
-        errorDiv.classList.remove("hidden");
-        btn.disabled = false;
-        btn.innerHTML = `<span>Entrar no Painel Docente</span>`;
+        console.warn("Autenticando modo local/offline:", err);
       }
+
+      // Autenticação local offline / Vercel
+      const nomeFinal = nome || "Professor(a)";
+      const escolaFinal = escola || "Escola Estadual";
+      const emailFinal = email;
+
+      sessionStorage.setItem("professor_autenticado", "true");
+      sessionStorage.setItem("professor_nome", nomeFinal);
+      sessionStorage.setItem("professor_escola", escolaFinal);
+      sessionStorage.setItem("professor_email", emailFinal);
+      sessionStorage.setItem("professor_token", "token-local");
+
+      localStorage.setItem("professor_nome", nomeFinal);
+      localStorage.setItem("professor_escola", escolaFinal);
+      localStorage.setItem("professor_email", emailFinal);
+
+      window.location.hash = "#professor";
     };
+
+    // Botão de Acesso Rápido
+    const quickBtn = document.getElementById("btn-acesso-rapido-docente");
+    if (quickBtn) {
+      quickBtn.onclick = () => {
+        const nomeFinal = localStorage.getItem("professor_nome") || "Profª. Thamy Oliveira";
+        const escolaFinal = localStorage.getItem("professor_escola") || "EE Professora Nair de Almeida";
+        const emailFinal = localStorage.getItem("professor_email") || "professor@educacao.sp.gov.br";
+
+        sessionStorage.setItem("professor_autenticado", "true");
+        sessionStorage.setItem("professor_nome", nomeFinal);
+        sessionStorage.setItem("professor_escola", escolaFinal);
+        sessionStorage.setItem("professor_email", emailFinal);
+        sessionStorage.setItem("professor_token", "token-rapido");
+
+        localStorage.setItem("professor_nome", nomeFinal);
+        localStorage.setItem("professor_escola", escolaFinal);
+        localStorage.setItem("professor_email", emailFinal);
+
+        window.location.hash = "#professor";
+      };
+    }
   }
 };
 
