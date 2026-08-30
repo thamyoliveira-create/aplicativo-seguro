@@ -12,15 +12,13 @@ const ProfessorDashboardView = {
     const profEmail = sessionStorage.getItem("professor_email") || localStorage.getItem("professor_email") || "";
     
     root.innerHTML = `
-      <div class="min-h-screen bg-dark-950 text-slate-100 flex flex-col font-sans selection:bg-brand-600 selection:text-white">
+      <div class="teacher-editorial min-h-screen text-slate-100 flex flex-col selection:bg-brand-600 selection:text-white">
         
         <!-- Topo da Professora -->
         <header class="glass-nav sticky top-0 z-50 py-3.5 px-4 md:px-8">
           <div class="max-w-6xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3.5">
-              <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center border border-white/10 shadow-glow-blue">
-                <i data-lucide="shield-check" class="w-5 h-5 text-yellow-400"></i>
-              </div>
+              <div class="teacher-brand-stamp" aria-hidden="true">AS</div>
               <div>
                 <div class="flex items-center gap-2">
                   <h1 class="font-black text-base md:text-lg text-white tracking-tight">${profNome}</h1>
@@ -37,11 +35,11 @@ const ProfessorDashboardView = {
             </div>
 
             <div class="flex items-center gap-3">
-              <a href="#professor/configuracoes" class="px-3.5 py-2 rounded-xl bg-dark-900 hover:bg-dark-850 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-slate-700 transition-all">
+              <a href="#professor/configuracoes" class="teacher-secondary-action px-3.5 py-2 rounded-xl bg-dark-900 hover:bg-dark-850 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-slate-700 transition-all">
                 <i data-lucide="settings" class="w-3.5 h-3.5 text-slate-400"></i>
                 <span class="hidden sm:inline">Configurações & IA</span>
               </a>
-              <a href="#professor/nova-atividade" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold text-xs md:text-sm flex items-center gap-2 shadow-glow-blue transition-all border border-white/10">
+              <a href="#professor/nova-atividade" class="teacher-primary-action px-4 py-2 rounded-xl text-white font-extrabold text-xs md:text-sm flex items-center gap-2 transition-all">
                 <i data-lucide="sparkles" class="w-4 h-4 text-yellow-300"></i>
                 <span>+ Criar com IA</span>
               </a>
@@ -62,7 +60,7 @@ const ProfessorDashboardView = {
           <div id="metrics-cards" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
               <div class="w-12 h-12 rounded-xl bg-brand-950/80 text-brand-400 border border-brand-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <i data-lucide="file-text" class="w-6 h-6"></i>
+                <span class="dash-metric-mark">01</span>
               </div>
               <div>
                 <div class="text-2xl font-black text-white" id="stat-atividades">0</div>
@@ -72,7 +70,7 @@ const ProfessorDashboardView = {
 
             <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
               <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <i data-lucide="users" class="w-6 h-6"></i>
+                <span class="dash-metric-mark">02</span>
               </div>
               <div>
                 <div class="text-2xl font-black text-white" id="stat-submissoes">0</div>
@@ -82,7 +80,7 @@ const ProfessorDashboardView = {
 
             <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
               <div class="w-12 h-12 rounded-xl bg-amber-950/80 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                <span class="dash-metric-mark">03</span>
               </div>
               <div>
                 <div class="text-2xl font-black text-white" id="stat-infracoes">0</div>
@@ -92,7 +90,7 @@ const ProfessorDashboardView = {
 
             <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
               <div class="w-12 h-12 rounded-xl bg-purple-950/80 text-purple-400 border border-purple-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                <span class="dash-metric-mark">04</span>
               </div>
               <div>
                 <div class="text-2xl font-black text-white">Gemini 3.7</div>
@@ -102,12 +100,10 @@ const ProfessorDashboardView = {
           </div>
 
           <!-- Caixa de Upload Direto para Criar Atividade -->
-          <div class="glass-card rounded-3xl p-6 md:p-8 border border-blue-500/40 shadow-2xl mb-8 space-y-4 relative overflow-hidden bg-gradient-to-br from-dark-900 via-dark-950 to-blue-950/20">
+          <div class="teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 space-y-4 relative overflow-hidden">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
               <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center shadow-glow-blue border border-white/10 flex-shrink-0">
-                  <i data-lucide="file-up" class="w-6 h-6 text-cyan-300"></i>
-                </div>
+                <div class="teacher-file-mark" aria-hidden="true">//</div>
                 <div>
                   <h2 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
                     <span>Criar Atividade Direto de um Arquivo</span>
