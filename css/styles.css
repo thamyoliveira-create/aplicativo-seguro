@@ -387,6 +387,54 @@ body {
 .detail-grid p { color: #64756f; font-size: 12px; line-height: 1.7; }
 .landing-footer { padding: 25px 32px; display: flex; justify-content: space-between; gap: 20px; color: #77857f; border-top: 1px solid rgba(16,42,38,.1); font-size: 11px; }
 
+/* Tela intermediária: escolha de perfil */
+.access-choice-shell {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 72px 24px 44px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(240,170,60,.25), transparent 23%),
+    radial-gradient(circle at 92% 85%, rgba(184,215,199,.58), transparent 27%),
+    var(--paper);
+}
+.access-choice-shell::after {
+  content: "A  B  C  D  ?";
+  position: fixed;
+  right: -25px;
+  bottom: 18px;
+  color: rgba(16,42,38,.045);
+  font: 800 clamp(70px, 11vw, 150px)/1 var(--font-mono);
+  letter-spacing: -.12em;
+  pointer-events: none;
+}
+.access-choice-back { position: absolute; top: 25px; left: 28px; display: inline-flex; align-items: center; gap: 8px; color: #52665f; font-size: 12px; font-weight: 800; }
+.access-choice-back svg { width: 16px; }
+.access-choice-panel { width: min(100%, 920px); position: relative; z-index: 1; }
+.access-choice-heading { text-align: center; }
+.access-choice-heading .landing-logo { margin-bottom: 34px; }
+.access-choice-heading .auth-kicker { margin: 0 0 14px; }
+.access-choice-heading h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.05em; }
+.access-choice-heading > p:last-child { margin: 17px 0 34px; color: #61736c; font-size: 14px; }
+.access-choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.access-choice-card { min-height: 300px; padding: 29px; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid rgba(16,42,38,.15); background: rgba(255,253,250,.82); box-shadow: 9px 10px 0 rgba(16,42,38,.08); transition: transform .2s, box-shadow .2s, border-color .2s; }
+.access-choice-card:hover { transform: translate(3px, 3px); box-shadow: 5px 6px 0 rgba(16,42,38,.11); border-color: currentColor; }
+.access-choice-card:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
+.access-choice-icon { width: 51px; height: 51px; margin-bottom: 34px; display: grid; place-items: center; border-radius: 15px 5px 15px 5px; color: white; background: var(--ink); }
+.access-choice-icon svg { width: 25px; }
+.access-choice-card.student { color: #315f85; }
+.access-choice-card.teacher { color: #28725a; }
+.access-choice-card small { font-size: 10px; font-weight: 900; letter-spacing: .16em; }
+.access-choice-card h2 { margin: 8px 0; color: var(--ink); font: 700 30px/1.1 Georgia, serif; letter-spacing: -.03em; }
+.access-choice-card p { min-height: 44px; margin: 0 0 26px; color: #60726b; font-size: 13px; line-height: 1.65; }
+.access-choice-card strong { margin-top: auto; display: inline-flex; align-items: center; gap: 9px; font-size: 12px; }
+.access-choice-card strong svg { width: 16px; transition: transform .2s; }
+.access-choice-card:hover strong svg { transform: translateX(4px); }
+.access-choice-note { margin-top: 28px; display: flex; justify-content: center; align-items: center; gap: 8px; color: #6d7d77; font-size: 11px; }
+.access-choice-note svg { width: 14px; }
+
 /* Autenticação */
 .auth-page, .student-login-shell {
   min-height: 100vh;
@@ -553,6 +601,12 @@ body {
   .detail-grid { grid-template-columns: 1fr; }
   .detail-grid article:nth-child(even) { transform: none; }
   .landing-footer { flex-direction: column; }
+  .access-choice-shell { padding: 82px 17px 35px; align-items: start; }
+  .access-choice-heading .landing-logo { margin-bottom: 25px; }
+  .access-choice-heading h1 { font-size: 43px; }
+  .access-choice-grid { grid-template-columns: 1fr; }
+  .access-choice-card { min-height: 235px; padding: 23px; }
+  .access-choice-icon { margin-bottom: 22px; }
   .auth-page, .student-login-shell { padding: 90px 17px 40px; }
   .auth-story { display: none; }
   .auth-card, .student-login-card { padding: 25px 20px; box-shadow: 9px 10px 0 rgba(16,42,38,.09); }
