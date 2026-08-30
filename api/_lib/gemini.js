@@ -1,6 +1,6 @@
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY || "AIzaSyBbg3rwkyNxT4Mesa8BzUXwDf4OOq-l1ko";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.7-flash";
-const GEMINI_FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-3.6-flash,gemini-2.5-flash")
+const GEMINI_FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash")
   .split(",")
   .map((model) => model.trim())
   .filter(Boolean);
@@ -40,7 +40,7 @@ async function callGemini({ systemInstruction, prompt }) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw Object.assign(new Error("A chave GEMINI_API_KEY ainda não foi configurada na Vercel."), { status: 503 });
 
-  const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS])];
+  const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS])].slice(0, 2);
   const requestBody = JSON.stringify({
     systemInstruction: { parts: [{ text: systemInstruction }] },
     contents: [{ role: "user", parts: [{ text: prompt }] }],
@@ -52,14 +52,14 @@ async function callGemini({ systemInstruction, prompt }) {
   });
   let lastError;
 
-  for (const model of models) {
-    const attempts = model === GEMINI_MODEL ? 2 : 1;
-    for (let attempt = 0; attempt < attempts; attempt += 1) {
-      if (attempt > 0) await new Promise((resolve) => setTimeout(resolve, 900 + Math.floor(Math.random() * 400)));
-
+  for (const [index, model] of models.entries()) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), index === 0 ? 22000 : 28000);
+    console.info("[gemini] geração iniciada", { model, tentativa: index + 1 });
+    try {
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${apiKey}`,
-        { method: "POST", headers: { "Content-Type": "application/json" }, body: requestBody }
+        { method: "POST", headers: { "Content-Type": "application/json" }, body: requestBody, signal: controller.signal }
       );
       const data = await response.json().catch(() => ({}));
       if (response.ok) {
@@ -74,6 +74,13 @@ async function callGemini({ systemInstruction, prompt }) {
         transient
       });
       if (!transient) throw lastError;
+      console.warn("[gemini] modelo indisponível; tentando alternativa", { model, status: response.status });
+    } catch (error) {
+      if (error?.name !== "AbortError") throw error;
+      lastError = Object.assign(new Error(`Tempo excedido no modelo ${model}.`), { status: 504, transient: true });
+      console.warn("[gemini] tempo excedido; tentando alternativa", { model });
+    } finally {
+      clearTimeout(timeout);
     }
   }
 
