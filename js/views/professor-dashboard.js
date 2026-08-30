@@ -308,20 +308,24 @@ const ProfessorDashboardView = {
           dashProgressBar.style.width = `${Math.min(50, Math.round(pct * 0.5))}%`;
         });
 
-        dashStatusInd.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> Estruturando com Gemini...`;
+        dashStatusInd.innerHTML = modoArquivo === "gerar"
+          ? `<span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> Criando com Gemini...`
+          : `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Organizando no navegador...`;
         dashProgressBar.style.width = "60%";
         dashStatusDetail.innerText = modoArquivo === "gerar"
           ? "Criando 4 questões objetivas e 2 dissertativas a partir do assunto..."
           : "Organizando as questões existentes sem mudar o tipo...";
 
-        const resEstrutura = await AIService.estruturarQuestoes({
-          texto: extracted.text,
-          formato: extracted.format,
-          nomeArquivo: file.name,
-          modo: modoArquivo,
-          qtdMultiplaEscolha: 4,
-          qtdDissertativa: 2
-        });
+        const resEstrutura = modoArquivo === "importar"
+          ? AIService.parseDocumentTextClientSide(extracted.text, file.name)
+          : await AIService.estruturarQuestoes({
+              texto: extracted.text,
+              formato: extracted.format,
+              nomeArquivo: file.name,
+              modo: modoArquivo,
+              qtdMultiplaEscolha: 4,
+              qtdDissertativa: 2
+            });
 
         const resultado = resEstrutura.resultado || {};
         const questoes = resultado.questoes || [];
