@@ -113,79 +113,65 @@ const AIService = {
   },
 
   parseDocumentTextClientSide(texto, nomeArquivo = "") {
-    const lines = (texto || "").split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-    const questoes = [];
-    let currentQ = null;
-    const qStartRegex = /^(?:quest[aã]o|exerc[ií]cio|item|\d+)[\s.:\-)]+/i;
-    const altRegex = /^([a-eA-E])[\s.:\)\-]+(.*)$/;
+    const cleanText = String(texto || "").replace(/\f/g, "\n");
+    const sections = cleanText.split(/^\s*gabarito\s*$/im);
+    const questionLines = sections[0].split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+    const answerLines = (sections.slice(1).join("\n") || "").split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+    const rawQuestions = [];
+    const answers = {};
+    let current = null;
 
-    for (let line of lines) {
-      if (/^\[---.*---\]$/.test(line)) continue;
-
-      if (qStartRegex.test(line)) {
-        if (currentQ) questoes.push(currentQ);
-        currentQ = {
-          id: `q_imp_${questoes.length + 1}_${Date.now()}`,
-          tipo: "multipla_escolha",
-          enunciado: line.replace(qStartRegex, "").trim() || line,
-          peso: 2.5,
-          alternativas: [],
-          correta: "A",
-          respostaEsperada: ""
-        };
-        continue;
-      }
-
-      const altMatch = line.match(altRegex);
-      if (altMatch && currentQ) {
-        const letra = altMatch[1].toUpperCase();
-        const altTexto = altMatch[2].trim();
-        const isMarked = /(\*|\(x\)|\(correta\)|gabarito)/i.test(altTexto);
-        const cleanTexto = altTexto.replace(/(\*|\(x\)|\(correta\)|gabarito)/gi, "").trim();
-
-        if (isMarked) currentQ.correta = letra;
-        currentQ.alternativas.push({
-          id: letra,
-          texto: cleanTexto || altTexto,
-          correta: (letra === currentQ.correta)
-        });
-        continue;
-      }
-
-      if (currentQ) {
-        if (currentQ.alternativas.length === 0) {
-          currentQ.enunciado += " " + line;
-        } else {
-          const lastAlt = currentQ.alternativas[currentQ.alternativas.length - 1];
-          lastAlt.texto += " " + line;
+    const collectNumberedBlocks = (lines, target, includePrefix = false) => {
+      let block = null;
+      lines.forEach((line) => {
+        if (/^\[---.*---\]$/.test(line)) return;
+        const start = line.match(/^(?:(?:quest[aã]o|exerc[ií]cio|item)\s*)?(\d{1,3})[.):\-–]?\s+(.*)$/i);
+        if (start) {
+          if (block) target(block);
+          block = { number: Number(start[1]), lines: [includePrefix ? line : start[2]] };
+        } else if (block) {
+          block.lines.push(line);
         }
-      } else if (line.length > 10) {
-        currentQ = {
-          id: `q_imp_${questoes.length + 1}_${Date.now()}`,
-          tipo: "multipla_escolha",
-          enunciado: line,
-          peso: 2.5,
-          alternativas: [],
-          correta: "A",
-          respostaEsperada: ""
-        };
-      }
-    }
+      });
+      if (block) target(block);
+    };
 
-    if (currentQ) questoes.push(currentQ);
+    collectNumberedBlocks(answerLines, (block) => { answers[block.number] = block.lines.join(" "); });
+    collectNumberedBlocks(questionLines, (block) => rawQuestions.push(block));
 
-    // Ajustar questões que não tiveram alternativas
-    questoes.forEach(q => {
-      if (!q.alternativas || q.alternativas.length < 2) {
-        q.tipo = "dissertativa";
-        q.respostaEsperada = q.respostaEsperada || "Critérios e pontos essenciais para a correção.";
-        delete q.alternativas;
-        delete q.correta;
-      } else {
-        q.alternativas.forEach(a => {
-          a.correta = (a.id === q.correta);
-        });
+    const altRegex = /^([a-eA-E])[.):.-]\s+(.*)$/;
+    const objectiveCue = /(assinale|marque|selecione|escolha|alternativa correta|opção correta|qual das alternativas)/i;
+    const questoes = rawQuestions.map((raw, index) => {
+      const alternativeStarts = raw.lines.map((line, lineIndex) => ({ line, lineIndex, match: line.match(altRegex) })).filter((item) => item.match);
+      const objective = objectiveCue.test(raw.lines.join(" ")) && alternativeStarts.length >= 2;
+      const base = {
+        id: `q_imp_${raw.number}_${Date.now()}_${index}`,
+        tipo: objective ? "multipla_escolha" : "dissertativa",
+        peso: 1,
+        respostaEsperada: answers[raw.number] || ""
+      };
+
+      if (!objective) {
+        return { ...base, enunciado: raw.lines.join("\n") };
       }
+
+      const firstAlternative = alternativeStarts[0].lineIndex;
+      const alternativas = [];
+      let activeAlternative = null;
+      raw.lines.slice(firstAlternative).forEach((line) => {
+        const match = line.match(altRegex);
+        if (match) {
+          activeAlternative = { id: match[1].toUpperCase(), texto: match[2].trim(), correta: false };
+          alternativas.push(activeAlternative);
+        } else if (activeAlternative) {
+          activeAlternative.texto += ` ${line}`;
+        }
+      });
+      const answer = answers[raw.number] || "";
+      const correctMatch = answer.match(/(?:^|\s)([A-E])(?:[).:\s]|$)/i);
+      const correta = correctMatch?.[1]?.toUpperCase() || alternativas[0].id;
+      alternativas.forEach((alt) => { alt.correta = alt.id === correta; });
+      return { ...base, enunciado: raw.lines.slice(0, firstAlternative).join(" "), alternativas, correta };
     });
 
     const tituloSugerido = (nomeArquivo || "").replace(/\.[^/.]+$/, "") || "Avaliação Estruturada";
@@ -194,7 +180,7 @@ const AIService = {
       resultado: {
         tituloSugerido,
         disciplinaSugerida: "Geral",
-        anoTurmaSugerido: "8º Ano Fundamental",
+        anoTurmaSugerido: "",
         questoes
       }
     };
