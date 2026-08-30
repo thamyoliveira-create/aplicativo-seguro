@@ -378,9 +378,13 @@ const ProfessorDashboardView = {
         dashDropzone.classList.remove("hidden");
         if (dashFileInput) dashFileInput.value = "";
 
-        await ProfessorDashboardView.carregarAtividades();
-        await ProfessorDashboardView.carregarSubmissoes();
-        ProfessorDashboardView.atualizarMetricas();
+        try {
+          await ProfessorDashboardView.carregarAtividades();
+          await ProfessorDashboardView.carregarSubmissoes();
+          ProfessorDashboardView.atualizarMetricas();
+        } catch (refreshError) {
+          console.warn("A atividade foi criada, mas a atualização do painel falhou:", refreshError);
+        }
       } catch (err) {
         console.error("Erro no processamento do arquivo no dashboard:", err);
         alert("Não foi possível gerar a avaliação a partir deste arquivo: " + err.message);
