@@ -19,6 +19,10 @@ const App = {
 
     if (!hash) {
       await HomeView.render();
+    } else if (hash === "como-funciona") {
+      await HomeView.render();
+    } else if (hash === "acesso") {
+      await HomeView.renderAccess();
     } else if (parts[0] === "aluno") {
       if (parts[1] === "prova" && parts[2]) {
         const student = await StudentAuth.session();
@@ -56,7 +60,11 @@ const App = {
       await HomeView.render();
     }
 
-    window.scrollTo(0, 0);
+    if (hash === "como-funciona") {
+      document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
   }
 };
 
