@@ -11,6 +11,7 @@ const ProfessorAtividadeDetalhesView = {
   async render(params = {}) {
     const root = document.getElementById("app-root");
     const atvId = params.id;
+    this.activeTab = params.preview ? "gabarito" : "submissoes";
 
     root.innerHTML = `
       <div class="min-h-screen bg-dark-950 flex items-center justify-center text-white hero-mesh">
@@ -185,7 +186,7 @@ const ProfessorAtividadeDetalhesView = {
     `;
 
     if (window.lucide) window.lucide.createIcons();
-    this.renderActiveTab();
+    this.switchTab(this.activeTab);
   },
 
   switchTab(tab) {
