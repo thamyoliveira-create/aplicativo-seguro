@@ -79,7 +79,7 @@ const AIService = {
     }
   },
 
-  async estruturarQuestoes({ texto, formato = "documento", nomeArquivo = "", modo = "importar" }) {
+  async estruturarQuestoes({ texto, formato = "documento", nomeArquivo = "", modo = "importar", qtdMultiplaEscolha = 4, qtdDissertativa = 2 }) {
     try {
       const res = await fetch("/api/gemini/estruturar-questoes", {
         method: "POST",
@@ -88,7 +88,9 @@ const AIService = {
           texto,
           formato,
           nomeArquivo,
-          modo
+          modo,
+          qtdMultiplaEscolha,
+          qtdDissertativa
         })
       });
 
