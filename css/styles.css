@@ -185,6 +185,7 @@ body {
 .landing-shell {
   min-height: 100vh;
   color: var(--ink);
+  font-family: "IBM Plex Sans", sans-serif;
   background:
     linear-gradient(rgba(16, 42, 38, .035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16, 42, 38, .035) 1px, transparent 1px),
@@ -219,6 +220,7 @@ body {
   background: var(--ink);
   transform: rotate(-3deg);
 }
+.landing-logo .brand-stamp { font: 800 11px/1 "IBM Plex Sans", sans-serif; letter-spacing: -.06em; border-radius: 4px 11px 5px 10px; box-shadow: 3px 3px 0 var(--sun); }
 
 .landing-logo svg, .auth-brand svg { width: 21px; }
 .landing-nav nav { display: flex; align-items: center; gap: 12px; }
@@ -259,7 +261,7 @@ body {
 .eyebrow span { width: 28px; height: 2px; background: currentColor; }
 
 .hero-copy h1, .landing-details h2, .auth-story h1, .student-login-card h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Fraunces", Georgia, serif;
   letter-spacing: -.045em;
   font-weight: 700;
 }
@@ -311,9 +313,11 @@ body {
 }
 .hero-primary:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
 .hero-primary svg { width: 18px; }
+.hero-primary > span { font-size: 20px; line-height: .7; }
 .hero-secondary { color: var(--ink); border-bottom: 1px solid currentColor; padding: 9px 0; }
 .hero-domain { margin-top: 27px; display: flex; gap: 8px; align-items: center; color: #6b7c75; font-size: 12px; }
 .hero-domain svg { width: 15px; }
+.ink-dot { width: 9px; height: 9px; display: inline-block; flex: 0 0 auto; border: 2px solid currentColor; border-radius: 50% 45% 55% 42%; box-shadow: 3px 1px 0 var(--sun); transform: rotate(-12deg); }
 
 .hero-visual { min-height: 590px; position: relative; display: grid; place-items: center; }
 .visual-orbit { position: absolute; border: 1px solid rgba(16,42,38,.16); border-radius: 50%; }
@@ -337,6 +341,7 @@ body {
 .question-preview h2 { margin: 9px 0 18px; font-size: 18px; line-height: 1.45; }
 .preview-source { padding: 13px; display: flex; gap: 10px; color: #50645d; background: #eef4ef; border-left: 3px solid var(--mint); font-size: 12px; line-height: 1.55; }
 .preview-source svg { width: 17px; flex: 0 0 auto; }
+.drawn-quote { flex: 0 0 auto; color: var(--coral); font: 800 29px/.8 "Fraunces", serif; transform: rotate(-8deg); }
 .preview-answer { height: 45px; display: flex; gap: 12px; align-items: center; border-bottom: 1px solid #ebe7de; }
 .preview-answer > span { width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid #cdd5d1; border-radius: 50%; font-size: 10px; font-weight: 800; }
 .preview-answer > div { width: 72%; height: 6px; border-radius: 6px; background: #e8e6df; }
@@ -344,8 +349,10 @@ body {
 .preview-answer.active > span { color: #fff; border-color: #2b745a; background: #2b745a; }
 .preview-answer.active > div { background: #cfe4da; }
 .preview-answer svg { width: 15px; }
+.preview-answer > b { font-size: 14px; transform: rotate(-8deg); }
 .preview-footer { margin-top: 20px; justify-content: flex-start; gap: 7px; color: #71827b; font-size: 10px; text-transform: uppercase; letter-spacing: .09em; }
 .preview-footer svg { width: 14px; color: var(--coral); }
+.drawn-spark { color: var(--coral); font-size: 17px; transform: rotate(12deg); }
 .security-note {
   position: absolute;
   z-index: 3;
@@ -361,6 +368,7 @@ body {
   box-shadow: 8px 8px 0 var(--sun);
 }
 .security-note svg { width: 21px; }
+.drawn-eye { color: var(--sun); font: 800 28px/1 "Fraunces", serif; transform: rotate(-9deg); }
 .security-note span { display: grid; font-size: 10px; color: #bcd0c8; }
 .security-note b { color: #fff; font-size: 12px; }
 
@@ -398,14 +406,17 @@ body {
 }
 .story-time { position: sticky; top: 28px; padding-top: 7px; display: grid; color: var(--coral); }
 .story-time span { font-size: 9px; font-weight: 900; letter-spacing: .17em; }
-.story-time strong { margin-top: 5px; color: var(--ink); font: 700 39px/1 Georgia, serif; letter-spacing: -.05em; }
-.story-copy h2 { max-width: 680px; margin: 19px 0 27px; font: 700 clamp(42px, 5vw, 66px)/1.02 Georgia, "Times New Roman", serif; letter-spacing: -.05em; }
+.story-time strong { margin-top: 5px; color: var(--ink); font: 700 39px/1 "Fraunces", Georgia, serif; letter-spacing: -.05em; }
+.story-copy h2 { max-width: 680px; margin: 19px 0 27px; font: 700 clamp(42px, 5vw, 66px)/1.02 "Fraunces", Georgia, serif; letter-spacing: -.05em; }
 .story-copy > p:not(.eyebrow) { max-width: 720px; margin: 0 0 18px; color: #596d66; font-size: 16px; line-height: 1.8; }
 .story-link { margin-top: 13px; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; color: var(--coral); border-bottom: 2px solid currentColor; font-size: 13px; font-weight: 900; }
 .story-link svg { width: 17px; transition: transform .2s; }
 .story-link:hover svg { transform: translateX(4px); }
+.story-link > span { font-size: 19px; transition: transform .2s; }
+.story-link:hover > span { transform: translateX(4px); }
 .story-margin-note { margin-top: 65px; padding: 25px; color: var(--ink); border: 1px solid rgba(16,42,38,.16); border-radius: 4px 22px 4px 22px; background: #fffdfa; box-shadow: 9px 10px 0 var(--mint); transform: rotate(1.3deg); }
 .story-margin-note svg { width: 24px; color: var(--coral); }
+.pencil-mark { display: inline-block; color: var(--coral); font: 800 25px/1 "Fraunces", serif; letter-spacing: -.2em; transform: rotate(-12deg); }
 .story-margin-note p { margin: 27px 0 0; color: #60726b; font-size: 12px; line-height: 1.75; }
 .story-margin-note strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 13px; }
 
@@ -417,6 +428,7 @@ body {
   place-items: center;
   padding: 72px 24px 44px;
   color: var(--ink);
+  font-family: "IBM Plex Sans", sans-serif;
   background:
     radial-gradient(circle at 8% 12%, rgba(240,170,60,.25), transparent 23%),
     radial-gradient(circle at 92% 85%, rgba(184,215,199,.58), transparent 27%),
@@ -438,9 +450,9 @@ body {
 .access-choice-heading { text-align: center; }
 .access-choice-heading .landing-logo { margin-bottom: 34px; }
 .access-choice-heading .auth-kicker { margin: 0 0 14px; }
-.access-choice-heading h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.05em; }
+.access-choice-heading h1 { margin: 0; font-family: "Fraunces", Georgia, serif; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.05em; }
 .access-choice-heading > p:last-child { margin: 17px 0 34px; color: #61736c; font-size: 14px; }
-.access-choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.access-choice-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: start; }
 .access-choice-card { min-height: 300px; padding: 29px; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid rgba(16,42,38,.15); background: rgba(255,253,250,.82); box-shadow: 9px 10px 0 rgba(16,42,38,.08); transition: transform .2s, box-shadow .2s, border-color .2s; }
 .access-choice-card:hover { transform: translate(3px, 3px); box-shadow: 5px 6px 0 rgba(16,42,38,.11); border-color: currentColor; }
 .access-choice-card:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
@@ -448,12 +460,14 @@ body {
 .access-choice-icon svg { width: 25px; }
 .access-choice-card.student { color: #315f85; }
 .access-choice-card.teacher { color: #28725a; }
+.access-choice-card.teacher { margin-top: 34px; border-radius: 3px 28px 3px 28px; }
+.access-choice-card.student { border-radius: 26px 3px 26px 3px; }
 .access-choice-card small { font-size: 10px; font-weight: 900; letter-spacing: .16em; }
-.access-choice-card h2 { margin: 8px 0; color: var(--ink); font: 700 30px/1.1 Georgia, serif; letter-spacing: -.03em; }
+.access-choice-card h2 { margin: 8px 0; color: var(--ink); font: 700 30px/1.1 "Fraunces", Georgia, serif; letter-spacing: -.03em; }
 .access-choice-card p { min-height: 44px; margin: 0 0 26px; color: #60726b; font-size: 13px; line-height: 1.65; }
 .access-choice-card strong { margin-top: auto; display: inline-flex; align-items: center; gap: 9px; font-size: 12px; }
-.access-choice-card strong svg { width: 16px; transition: transform .2s; }
-.access-choice-card:hover strong svg { transform: translateX(4px); }
+.access-choice-card strong > span { font-size: 18px; transition: transform .2s; }
+.access-choice-card:hover strong > span { transform: translateX(4px); }
 .access-choice-note { margin-top: 28px; display: flex; justify-content: center; align-items: center; gap: 8px; color: #6d7d77; font-size: 11px; }
 .access-choice-note svg { width: 14px; }
 
@@ -635,6 +649,7 @@ body {
   .access-choice-heading .landing-logo { margin-bottom: 25px; }
   .access-choice-heading h1 { font-size: 43px; }
   .access-choice-grid { grid-template-columns: 1fr; }
+  .access-choice-card.teacher { margin-top: 0; }
   .access-choice-card { min-height: 235px; padding: 23px; }
   .access-choice-icon { margin-bottom: 22px; }
   .auth-page, .student-login-shell { padding: 90px 17px 40px; }
