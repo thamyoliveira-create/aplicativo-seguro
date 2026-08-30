@@ -379,9 +379,7 @@ const ProfessorDashboardView = {
         if (dashFileInput) dashFileInput.value = "";
 
         try {
-          await ProfessorDashboardView.carregarAtividades();
-          await ProfessorDashboardView.carregarSubmissoes();
-          ProfessorDashboardView.atualizarMetricas();
+          await ProfessorDashboardView.loadData();
         } catch (refreshError) {
           console.warn("A atividade foi criada, mas a atualização do painel falhou:", refreshError);
         }
@@ -412,6 +410,8 @@ const ProfessorDashboardView = {
     try {
       const atividades = await DB.getAtividades();
       const submissoes = await DB.getSubmissoes();
+      this.atividades = atividades;
+      this.submissoes = submissoes;
 
       // Estatísticas
       const statAtiv = document.getElementById("stat-atividades");
@@ -462,7 +462,7 @@ const ProfessorDashboardView = {
                   <p class="text-xs text-slate-400 line-clamp-2 mb-4">${a.descricao || "Avaliação com questões objetivas e dissertativas alinhadas à BNCC."}</p>
                 </div>
 
-                <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between text-xs">
+                <div class="border-t border-slate-800/80 pt-4 space-y-3 text-xs">
                   <div class="flex items-center gap-3 text-slate-400 font-medium">
                     <span class="flex items-center gap-1">
                       <i data-lucide="help-circle" class="w-3.5 h-3.5 text-brand-400"></i>
@@ -474,9 +474,9 @@ const ProfessorDashboardView = {
                     </span>
                   </div>
 
-                  <div class="flex items-center gap-2">
+                  <div class="flex flex-wrap items-center gap-2">
                     <button
-                      onclick="ProfessorDashboardView.copiarCodigo('' + a.codigo + '')"
+                      onclick="ProfessorDashboardView.copiarCodigo('${a.codigo}')"
                       class="px-3 py-1.5 rounded-xl bg-dark-900 hover:bg-dark-800 text-slate-300 hover:text-white border border-slate-700 font-bold transition-all text-xs flex items-center gap-1"
                       title="Copiar código para passar aos alunos"
                     >
@@ -485,12 +485,29 @@ const ProfessorDashboardView = {
                     </button>
 
                     <a
+                      href="#professor/atividade/${a.id}/visualizar"
+                      class="px-3.5 py-1.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 font-bold transition-all text-xs flex items-center gap-1"
+                    >
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                      <span>Visualizar</span>
+                    </a>
+
+                    <a
                       href="#professor/atividade/${a.id}"
                       class="px-3.5 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all text-xs flex items-center gap-1 shadow-glow-blue"
                     >
-                      <span>Ver Resultados</span>
+                      <span>Resultados</span>
                       <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
+
+                    <button
+                      onclick="ProfessorDashboardView.excluirAtividade('${a.id}')"
+                      class="px-3 py-1.5 rounded-xl bg-rose-950 hover:bg-rose-900 text-rose-300 border border-rose-500/30 font-bold transition-all text-xs flex items-center gap-1"
+                      title="Excluir atividade"
+                    >
+                      <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                      <span>Excluir</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -543,6 +560,26 @@ const ProfessorDashboardView = {
   copiarCodigo(codigo) {
     navigator.clipboard.writeText(codigo);
     alert(`Código da prova "${codigo}" copiado para a área de transferência! Compartilhe com seus alunos na lousa ou Classroom.`);
+  },
+
+  async excluirAtividade(id) {
+    const atividade = (this.atividades || []).find((item) => item.id === id);
+    const titulo = atividade?.titulo || "esta atividade";
+    if (!window.confirm(`Excluir permanentemente “${titulo}”?\n\nO código de acesso deixará de funcionar. Esta ação não pode ser desfeita.`)) return;
+
+    try {
+      await DB.excluirAtividade(id);
+      this.atividades = (this.atividades || []).filter((item) => item.id !== id);
+      try {
+        await this.loadData();
+      } catch (refreshError) {
+        console.warn("A atividade foi excluída, mas a lista não foi atualizada:", refreshError);
+      }
+      alert("Atividade excluída com sucesso.");
+    } catch (error) {
+      console.error("Erro ao excluir atividade:", error);
+      alert(`Não foi possível excluir a atividade: ${error.message}`);
+    }
   }
 };
 
