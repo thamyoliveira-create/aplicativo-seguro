@@ -493,6 +493,14 @@ const ProfessorDashboardView = {
                     </a>
 
                     <a
+                      href="#professor/atividade/${a.id}/editar"
+                      class="px-3.5 py-1.5 rounded-xl bg-amber-950 hover:bg-amber-900 text-amber-300 border border-amber-500/30 font-bold transition-all text-xs flex items-center gap-1"
+                    >
+                      <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+                      <span>Editar</span>
+                    </a>
+
+                    <a
                       href="#professor/atividade/${a.id}"
                       class="px-3.5 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all text-xs flex items-center gap-1 shadow-glow-blue"
                     >
