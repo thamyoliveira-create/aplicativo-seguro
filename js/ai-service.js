@@ -100,6 +100,9 @@ const AIService = {
         }
         throw new Error(data.error || "Nenhuma questão foi encontrada no material.");
       }
+      if (res.status === 504 || /timeout|timed out|FUNCTION_INVOCATION_TIMEOUT/i.test(resText)) {
+        throw new Error("A geração ultrapassou o tempo máximo. Tente novamente; o arquivo não precisa ser alterado.");
+      }
       throw new Error("O servidor de IA retornou uma resposta inválida.");
     } catch (err) {
       console.error("Erro ao estruturar o material:", err);
