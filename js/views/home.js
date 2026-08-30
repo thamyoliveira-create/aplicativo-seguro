@@ -5,15 +5,15 @@ const HomeView = {
       <main class="landing-shell">
         <header class="landing-nav">
           <a class="landing-logo" href="#" aria-label="Atividade Segura — início"><span><i data-lucide="shield-check"></i></span><b>Atividade Segura</b></a>
-          <nav aria-label="Navegação principal"><a class="nav-link" href="#como-funciona">Como funciona</a><a class="nav-cta" href="#acesso">Entrar <i data-lucide="arrow-up-right"></i></a></nav>
+          <nav aria-label="Navegação principal"><a class="nav-link" href="#como-funciona">Uma cena conhecida</a><a class="nav-cta" href="#acesso">Entrar <i data-lucide="arrow-up-right"></i></a></nav>
         </header>
         <section class="landing-hero" aria-labelledby="landing-title">
           <div class="hero-copy">
-            <p class="eyebrow"><span></span>Feito para quem já corrigiu prova às 23h</p>
-            <h1 id="landing-title">A prova pede <em>interpretação.</em><br>O site cuida do resto.</h1>
-            <p class="hero-lead">Envie seu PDF, Word ou planilha. A IA organiza questões contextualizadas, você revisa o gabarito e os alunos respondem em um ambiente com marca d’água e registro de troca de aba.</p>
-            <div class="hero-actions"><a class="hero-primary" href="#acesso">Começar agora <i data-lucide="arrow-right"></i></a><a class="hero-secondary" href="#como-funciona">Ver o caminho do arquivo</a></div>
-            <p class="hero-domain"><i data-lucide="badge-check"></i> Acesso com e-mail institucional da Educação SP</p>
+            <p class="eyebrow"><span></span>UMA PERGUNTA MEIO INCONVENIENTE</p>
+            <h1 id="landing-title">Se a resposta cabe num <em>Ctrl+C,</em><br>a prova mediu o quê?</h1>
+            <p class="hero-lead">Você prepara um texto bom, pensa no contexto, confere o gabarito. Na manhã seguinte, metade da turma descobre que copiar é bem mais rápido que interpretar. Não é exatamente o plano de aula.</p>
+            <div class="hero-actions"><a class="hero-primary" href="#acesso">Tenho um arquivo e pouco tempo <i data-lucide="arrow-right"></i></a><a class="hero-secondary" href="#como-funciona">Continue, isso parece familiar</a></div>
+            <p class="hero-domain"><i data-lucide="badge-check"></i> Para contas institucionais da Educação SP</p>
           </div>
           <div class="hero-visual" aria-label="Exemplo de questão contextualizada">
             <div class="visual-orbit orbit-one" aria-hidden="true"></div><div class="visual-orbit orbit-two" aria-hidden="true"></div>
@@ -25,15 +25,21 @@ const HomeView = {
               <div class="preview-answer"><span>A</span><div></div></div><div class="preview-answer active"><span>B</span><div></div><i data-lucide="check"></i></div><div class="preview-answer"><span>C</span><div></div></div>
               <div class="preview-footer"><i data-lucide="brain"></i> interpretação antes do chute</div>
             </article>
-            <div class="security-note"><i data-lucide="scan-eye"></i><span><b>Modo de prova ativo</b>marca d’água + registro de abas</span></div>
+            <div class="security-note"><i data-lucide="scan-eye"></i><span><b>Não faz milagre</b>mas registra troca de aba</span></div>
           </div>
         </section>
-        <section id="como-funciona" class="trust-strip" aria-label="Como a plataforma funciona">
-          <div><b>01</b><span><strong>Você envia o material</strong>PDF, Word, Excel ou PowerPoint.</span></div>
-          <div><b>02</b><span><strong>A IA organiza</strong>Questões, alternativas e respostas esperadas.</span></div>
-          <div><b>03</b><span><strong>Você revisa e publica</strong>Nada vai para a turma sem passar pela professora.</span></div>
+        <section id="como-funciona" class="landing-story" aria-labelledby="story-title">
+          <div class="story-time"><span>QUARTA-FEIRA</span><strong>7h18</strong></div>
+          <div class="story-copy">
+            <p class="eyebrow"><span></span>CENA CONHECIDA</p>
+            <h2 id="story-title">O PDF está pronto.<br>A turma chega em doze minutos.</h2>
+            <p>A professora envia o arquivo. A IA separa enunciados, alternativas e respostas esperadas. Antes de publicar, ela lê tudo, corrige uma alternativa estranha e transforma duas questões objetivas em dissertativas.</p>
+            <p>Depois, gera um PIN. Os alunos entram com o e-mail institucional. A prova recebe marca d’água e as saídas da aba ficam registradas. Ainda é uma sala de aula — só há menos trabalho braçal no caminho.</p>
+            <a class="story-link" href="#acesso">Certo, agora quero entrar <i data-lucide="arrow-right"></i></a>
+          </div>
+          <aside class="story-margin-note"><i data-lucide="pencil-line"></i><p><strong>A IA entrega um rascunho.</strong> Quem conhece a turma, muda o tipo da questão e aperta “publicar” é a professora.</p></aside>
         </section>
-        <footer class="landing-footer"><span>Atividade Segura · Educação SP</span><span>A tecnologia ajuda. A palavra final continua sendo da professora.</span></footer>
+        <footer class="landing-footer"><span>Atividade Segura · Educação SP</span><span>Sem “revolucionar a educação”. A ideia é funcionar na aula de amanhã.</span></footer>
       </main>`;
     if (window.lucide) window.lucide.createIcons();
   },
