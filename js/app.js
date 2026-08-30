@@ -46,7 +46,7 @@ const App = {
       if (parts[1] === "nova-atividade") {
         await ProfessorNovaAtividadeView.render();
       } else if (parts[1] === "atividade" && parts[2]) {
-        await ProfessorAtividadeDetalhesView.render({ id: parts[2] });
+        await ProfessorAtividadeDetalhesView.render({ id: parts[2], preview: parts[3] === "visualizar" });
       } else if (parts[1] === "configuracoes") {
         await ProfessorConfiguracoesView.render();
       } else {
