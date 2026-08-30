@@ -7,11 +7,17 @@ const ProfessorAtividadeDetalhesView = {
   atividade: null,
   submissoes: [],
   activeTab: "submissoes",
+  editMode: false,
+
+  escape(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
+  },
 
   async render(params = {}) {
     const root = document.getElementById("app-root");
     const atvId = params.id;
     this.activeTab = params.preview ? "gabarito" : "submissoes";
+    this.editMode = Boolean(params.edit);
 
     root.innerHTML = `
       <div class="min-h-screen bg-dark-950 flex items-center justify-center text-white hero-mesh">
@@ -288,8 +294,30 @@ const ProfessorAtividadeDetalhesView = {
 
   renderTabGabarito(container) {
     const atv = this.atividade;
+    if (this.editMode) {
+      container.innerHTML = `
+        <form id="activity-editor" class="space-y-5" onsubmit="return false">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-5">
+            <div><h2 class="text-lg font-black text-white">Editar atividade</h2><p class="text-xs text-slate-400 mt-1">Troque o tipo da questão e revise o conteúdo antes de salvar.</p></div>
+            <div class="flex gap-2"><button type="button" onclick="ProfessorAtividadeDetalhesView.cancelarEdicao()" class="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 font-bold">Cancelar</button><button type="button" id="save-activity-edit" onclick="ProfessorAtividadeDetalhesView.salvarEdicao()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold"><span>Salvar alterações</span></button></div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="text-xs font-bold text-slate-300 sm:col-span-3">Título<input id="edit-title" value="${this.escape(atv.titulo)}" maxlength="160" class="mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white"></label>
+            <label class="text-xs font-bold text-slate-300">Disciplina<input id="edit-subject" value="${this.escape(atv.disciplina)}" maxlength="80" class="mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white"></label>
+            <label class="text-xs font-bold text-slate-300">Turma/Ano<input id="edit-grade" value="${this.escape(atv.anoTurma)}" maxlength="60" class="mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white"></label>
+            <label class="text-xs font-bold text-slate-300">Tempo (minutos)<input id="edit-time" type="number" min="5" max="300" value="${Number(atv.tempoLimiteMinutos || 45)}" class="mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white"></label>
+          </div>
+          <div class="space-y-4">
+            ${(atv.questoes || []).map((q, idx) => this.renderQuestionEditor(q, idx)).join("")}
+          </div>
+          <div class="flex justify-end"><button type="button" onclick="ProfessorAtividadeDetalhesView.salvarEdicao()" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold">Salvar alterações</button></div>
+        </form>`;
+      return;
+    }
+
     container.innerHTML = `
       <div class="space-y-4 text-xs">
+        <div class="flex items-center justify-between gap-3 pb-2"><div><h2 class="text-lg font-black text-white">Visualização da atividade</h2><p class="text-slate-400 mt-1">Confira o que será apresentado e o gabarito pedagógico.</p></div><a href="#professor/atividade/${atv.id}/editar" class="px-4 py-2 rounded-xl bg-amber-950 text-amber-300 border border-amber-500/30 font-bold flex items-center gap-2"><i data-lucide="pencil" class="w-4 h-4"></i> Editar</a></div>
         ${(atv.questoes || []).map((q, idx) => {
           const isDiss = q.tipo === "dissertativa";
           return `
@@ -298,8 +326,10 @@ const ProfessorAtividadeDetalhesView = {
                 <span class="font-bold text-white text-sm">Questão ${idx + 1} (${isDiss ? "Dissertativa" : "Múltipla Escolha"})</span>
                 <span class="text-[11px] text-slate-400">Valor: ${q.peso || 2.5} pts</span>
               </div>
+              ${q.textoApoio ? `<div class="p-3 rounded-xl bg-dark-950 border-l-2 border-brand-500 text-slate-400 leading-relaxed">${q.textoApoio}</div>` : ""}
               <p class="text-slate-300 leading-relaxed font-medium">${q.enunciado}</p>
               ${!isDiss ? `
+                <div class="grid gap-2">${(q.alternativas || []).map((alt) => `<div class="p-2.5 rounded-xl border ${String(alt.id) === String(q.correta) ? "border-emerald-500/50 bg-emerald-950/30 text-emerald-200" : "border-slate-800 text-slate-400"}"><strong>${alt.id})</strong> ${alt.texto}</div>`).join("")}</div>
                 <div class="mt-2 bg-emerald-950/60 border border-emerald-500/30 p-2.5 rounded-xl text-emerald-300 font-bold">
                   Gabarito: Alternativa ${q.correta}) ${q.justificativa || ""}
                 </div>
@@ -313,6 +343,91 @@ const ProfessorAtividadeDetalhesView = {
         }).join("")}
       </div>
     `;
+  },
+
+  renderQuestionEditor(q, idx) {
+    const isDiss = q.tipo === "dissertativa";
+    if (!isDiss && (!Array.isArray(q.alternativas) || q.alternativas.length < 2)) {
+      q.alternativas = ["A", "B", "C", "D"].map((id) => ({ id, texto: "", correta: id === "A" }));
+      q.correta = q.correta || "A";
+    }
+    return `
+      <fieldset class="question-editor p-4 sm:p-5 rounded-2xl bg-dark-900/80 border border-slate-800" data-question-index="${idx}">
+        <div class="grid sm:grid-cols-[1fr_220px_100px] gap-3 items-end mb-4">
+          <legend class="text-sm font-black text-white">Questão ${idx + 1}</legend>
+          <label class="text-[11px] font-bold text-slate-300">Tipo<select class="edit-question-type mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white" onchange="ProfessorAtividadeDetalhesView.alterarTipoQuestao(${idx}, this.value)"><option value="multipla_escolha" ${!isDiss ? "selected" : ""}>Múltipla escolha</option><option value="dissertativa" ${isDiss ? "selected" : ""}>Dissertativa</option></select></label>
+          <label class="text-[11px] font-bold text-slate-300">Peso<input class="edit-question-weight mt-1.5 w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white" type="number" min="0.1" max="100" step="0.1" value="${Number(q.peso || 1)}"></label>
+        </div>
+        <label class="block text-[11px] font-bold text-slate-300">Texto de apoio<textarea class="edit-question-support mt-1.5 w-full min-h-20 bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white">${this.escape(q.textoApoio)}</textarea></label>
+        <label class="block mt-3 text-[11px] font-bold text-slate-300">Enunciado<textarea class="edit-question-prompt mt-1.5 w-full min-h-24 bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white" required>${this.escape(q.enunciado)}</textarea></label>
+        ${isDiss ? `<label class="block mt-3 text-[11px] font-bold text-purple-300">Resposta esperada<textarea class="edit-question-expected mt-1.5 w-full min-h-24 bg-purple-950/30 border border-purple-500/30 rounded-xl px-3 py-2.5 text-white">${this.escape(q.respostaEsperada)}</textarea></label>` : `
+          <div class="mt-3 space-y-2"><p class="text-[11px] font-bold text-emerald-300">Alternativas — marque a correta</p>${(q.alternativas || []).map((alt, altIdx) => `<label class="grid grid-cols-[24px_1fr] gap-2 items-center"><input type="radio" name="correct-${idx}" value="${this.escape(alt.id || String.fromCharCode(65 + altIdx))}" ${String(q.correta || (q.alternativas.find((item) => item.correta)?.id)) === String(alt.id) ? "checked" : ""}><input class="edit-alternative w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white" data-alt-id="${this.escape(alt.id || String.fromCharCode(65 + altIdx))}" value="${this.escape(alt.texto)}" placeholder="Alternativa ${alt.id || String.fromCharCode(65 + altIdx)}"></label>`).join("")}</div>`}
+      </fieldset>`;
+  },
+
+  capturarEdicao() {
+    const title = document.getElementById("edit-title");
+    if (title) {
+      this.atividade.titulo = title.value.trim();
+      this.atividade.disciplina = document.getElementById("edit-subject").value.trim();
+      this.atividade.anoTurma = document.getElementById("edit-grade").value.trim();
+      this.atividade.tempoLimiteMinutos = Number(document.getElementById("edit-time").value || 45);
+    }
+    document.querySelectorAll("[data-question-index]").forEach((field) => {
+      const idx = Number(field.dataset.questionIndex);
+      const q = this.atividade.questoes[idx];
+      q.peso = Number(field.querySelector(".edit-question-weight").value || 1);
+      q.textoApoio = field.querySelector(".edit-question-support").value.trim();
+      q.enunciado = field.querySelector(".edit-question-prompt").value.trim();
+      const expected = field.querySelector(".edit-question-expected");
+      if (expected) q.respostaEsperada = expected.value.trim();
+      const alternativeInputs = Array.from(field.querySelectorAll(".edit-alternative"));
+      if (alternativeInputs.length) {
+        q.alternativas = alternativeInputs.map((input) => ({ id: input.dataset.altId, texto: input.value.trim(), correta: false }));
+        q.correta = field.querySelector(`input[name="correct-${idx}"]:checked`)?.value || q.alternativas[0]?.id || "A";
+        q.alternativas.forEach((alt) => { alt.correta = alt.id === q.correta; });
+      }
+      q.tipo = field.querySelector(".edit-question-type").value;
+    });
+  },
+
+  alterarTipoQuestao(idx, tipo) {
+    this.capturarEdicao();
+    const q = this.atividade.questoes[idx];
+    q.tipo = tipo;
+    if (tipo === "multipla_escolha" && (!Array.isArray(q.alternativas) || q.alternativas.length < 2)) {
+      q.alternativas = ["A", "B", "C", "D"].map((id) => ({ id, texto: "", correta: id === "A" }));
+      q.correta = "A";
+    }
+    this.renderTabGabarito(document.getElementById("tab-content"));
+  },
+
+  async salvarEdicao() {
+    this.capturarEdicao();
+    const invalidQuestion = this.atividade.questoes.some((q) => !q.enunciado || (q.tipo === "multipla_escolha" && (q.alternativas || []).filter((alt) => alt.texto).length < 2));
+    if (!this.atividade.titulo || invalidQuestion) {
+      alert("Preencha o título, todos os enunciados e pelo menos duas alternativas nas questões objetivas.");
+      return;
+    }
+    const button = document.getElementById("save-activity-edit");
+    if (button) { button.disabled = true; button.querySelector("span").textContent = "Salvando…"; }
+    try {
+      await DB.salvarAtividade(this.atividade);
+      this.editMode = false;
+      this.activeTab = "gabarito";
+      alert("Alterações salvas com sucesso.");
+      this.renderMainLayout();
+    } catch (error) {
+      if (button) { button.disabled = false; button.querySelector("span").textContent = "Salvar alterações"; }
+      alert(`Não foi possível salvar: ${error.message}`);
+    }
+  },
+
+  async cancelarEdicao() {
+    if (!confirm("Descartar as alterações feitas nesta tela?")) return;
+    this.atividade = await DB.getAtividadePorId(this.atividade.id);
+    this.editMode = false;
+    this.renderMainLayout();
   },
 
   renderTabInfracoes(container) {
