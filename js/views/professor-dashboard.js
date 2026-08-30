@@ -124,6 +124,15 @@ const ProfessorDashboardView = {
               </div>
             </div>
 
+            <fieldset class="mb-4 grid sm:grid-cols-2 gap-3" aria-label="Como usar o arquivo">
+              <label class="cursor-pointer rounded-2xl border border-slate-700 bg-dark-950/70 p-4 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40">
+                <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="importar" checked class="mt-1 accent-blue-500"><span><strong class="block text-sm text-white">Manter como está</strong><small class="block mt-1 text-slate-400 leading-relaxed">Importa as questões do arquivo sem mudar o tipo. Subitens “a, b, c” continuam sendo partes da mesma questão.</small></span></span>
+              </label>
+              <label class="cursor-pointer rounded-2xl border border-slate-700 bg-dark-950/70 p-4 has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-950/30">
+                <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="gerar" class="mt-1 accent-emerald-500"><span><strong class="block text-sm text-white">Criar uma prova nova</strong><small class="block mt-1 text-slate-400 leading-relaxed">Usa o assunto como base e gera 4 questões objetivas + 2 dissertativas contextualizadas.</small></span></span>
+              </label>
+            </fieldset>
+
             <!-- Área Aberta de Drag & Drop -->
             <div
               id="dash-upload-dropzone"
@@ -297,6 +306,7 @@ const ProfessorDashboardView = {
       dashStatusDetail.innerText = "Extraindo texto das páginas/slides...";
 
       try {
+        const modoArquivo = document.querySelector('input[name="dash-file-mode"]:checked')?.value || "importar";
         const extracted = await window.FileExtractor.extract(file, (msg, pct) => {
           dashStatusDetail.innerText = msg;
           dashProgressBar.style.width = `${Math.min(50, Math.round(pct * 0.5))}%`;
@@ -304,12 +314,17 @@ const ProfessorDashboardView = {
 
         dashStatusInd.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> Estruturando com Gemini...`;
         dashProgressBar.style.width = "60%";
-        dashStatusDetail.innerText = "Organizando questões, alternativas e gabaritos sem inventar nada...";
+        dashStatusDetail.innerText = modoArquivo === "gerar"
+          ? "Criando 4 questões objetivas e 2 dissertativas a partir do assunto..."
+          : "Organizando as questões existentes sem mudar o tipo...";
 
         const resEstrutura = await AIService.estruturarQuestoes({
           texto: extracted.text,
           formato: extracted.format,
-          nomeArquivo: file.name
+          nomeArquivo: file.name,
+          modo: modoArquivo,
+          qtdMultiplaEscolha: 4,
+          qtdDissertativa: 2
         });
 
         const resultado = resEstrutura.resultado || {};
