@@ -1,9 +1,10 @@
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY || "AIzaSyBbg3rwkyNxT4Mesa8BzUXwDf4OOq-l1ko";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.7-flash";
-const GEMINI_FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash")
+const RETIRED_MODELS = new Set(["gemini-2.5-flash", "models/gemini-2.5-flash"]);
+const GEMINI_FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-3.6-flash")
   .split(",")
   .map((model) => model.trim())
-  .filter(Boolean);
+  .filter((model) => model && !RETIRED_MODELS.has(model));
 const TEACHER_DOMAIN = "@professor.educacao.sp.gov.br";
 
 function sendJson(res, status, payload) {
@@ -40,7 +41,9 @@ async function callGemini({ systemInstruction, prompt }) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw Object.assign(new Error("A chave GEMINI_API_KEY ainda não foi configurada na Vercel."), { status: 503 });
 
-  const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS])].slice(0, 2);
+  const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS, "gemini-3.6-flash"])]
+    .filter((model) => !RETIRED_MODELS.has(model))
+    .slice(0, 2);
   const requestBody = JSON.stringify({
     systemInstruction: { parts: [{ text: systemInstruction }] },
     contents: [{ role: "user", parts: [{ text: prompt }] }],
