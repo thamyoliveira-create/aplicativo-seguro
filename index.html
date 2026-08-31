@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Atividade Segura — Plataforma de Avaliação Digital SEDUC-SP</title>
-  
+
   <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,21 +60,21 @@
     }
   </script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Ícones -->
+  <script src="https://unpkg.com/lucide@latest" crossorigin="anonymous"></script>
 
   <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" integrity="sha384-HAH79XdRvHr6axVGh4xQWVCp14kcd32bNk4Xu0sHDHtFQ42n6BAM8ykvB47dGz6D" crossorigin="anonymous"></script>
 
   <!-- Bibliotecas de Extração de Arquivos no Navegador -->
   <!-- PDF.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <!-- Mammoth.js (Word .docx) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-  <!-- SheetJS (Excel .xlsx / .xls) -->
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <!-- JSZip (PowerPoint .pptx) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>
+  <!-- Mammoth.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" integrity="sha384-nFoSjZIoH3CCp8W639jJyQkuPHinJ2NHe7on1xvlUA7SuGfJAfvMldrsoAVm6ECz" crossorigin="anonymous"></script>
+  <!-- SheetJS -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" integrity="sha384-vtjasyidUo0kW94K5MXDXntzOJpQgBKXmE7e2Ga4LG0skTTLeBi97eFAXsqewJjw" crossorigin="anonymous"></script>
+  <!-- JSZip -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css?v=2.6.0" />
@@ -83,15 +83,26 @@
   <div id="app-root" class="min-h-full flex flex-col"></div>
 
   <!-- Scripts do Sistema -->
-  <script src="js/security.js?v=2.2.0"></script>
-  <script src="js/file-extractor.js?v=2.3.0"></script>
+  <script src="js/config.js?v=1.0.0" defer></script>
+  <script src="js/security-utils.js?v=1.0.0" defer></script>
+  <script src="js/security.js?v=2.2.0" defer></script>
+  <script src="js/file-extractor.js?v=2.3.0" defer></script>
+
+  <!-- Componentes UI Reutilizáveis -->
+  <script src="js/components.js?v=1.0.0" defer></script>
+  <script src="js/view-patterns.js?v=1.0.0" defer></script>
+
+  <!-- PWA & Service Worker -->
+  <script src="js/pwa.js?v=1.0.0" defer></script>
+
   <script>
     window.firebaseReady = import("./js/firebase-client.js?v=2.3.0");
   </script>
+
   <script src="js/auth.js?v=2.3.0"></script>
   <script src="js/db.js?v=2.3.0"></script>
   <script src="js/ai-service.js?v=2.6.0"></script>
-  
+
   <!-- Views -->
   <script src="js/views/home.js?v=2.7.0"></script>
   <script src="js/views/aluno-login.js?v=2.2.0"></script>
@@ -101,7 +112,7 @@
   <script src="js/views/professor-nova-atividade.js?v=2.3.0"></script>
   <script src="js/views/professor-atividade-detalhes.js?v=2.4.0"></script>
   <script src="js/views/professor-configuracoes.js?v=2.2.0"></script>
-  
+
   <!-- Router Principal -->
   <script src="js/app.js?v=2.6.0"></script>
 </body>

@@ -9,3 +9,21 @@ venv/
 .env
 .env.local
 .DS_Store
+
+# Rate limiting & Security
+data/rate_limit.json
+data/login_rate_limit.json
+data/login_attempts.json
+data/logs/
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log

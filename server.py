@@ -49,6 +49,52 @@ logging.basicConfig(
 logger = logging.getLogger("atividade-segura")
 
 # ============================================================
+# RATE LIMITING E SEGURANÇA
+# ============================================================
+try:
+    from server_security import RateLimiter, LoginAttemptTracker, setup_structured_logging
+    
+    # Configurar logging estruturado
+    logger = setup_structured_logging(
+        "atividade-segura",
+        log_level=logging.INFO,
+        log_file=str(DATA_DIR / "logs" / "app.log")
+    )
+    
+    # Rate limiter geral (100 requisições por 15 minutos)
+    general_limiter = RateLimiter(
+        window_seconds=int(os.environ.get("RATE_LIMIT_WINDOW_MS", "900000")) // 1000,
+        max_requests=int(os.environ.get("RATE_LIMIT_MAX_REQUESTS", "100")),
+        lockout_seconds=15 * 60,
+        storage_file=str(DATA_DIR / "rate_limit.json")
+    )
+    
+    # Rate limiter de login (5 tentativas por minuto, lockout 15 minutos)
+    login_limiter = RateLimiter(
+        window_seconds=60,
+        max_requests=5,
+        lockout_seconds=int(os.environ.get("LOCKOUT_DURATION_MINUTES", "15")) * 60,
+        storage_file=str(DATA_DIR / "login_rate_limit.json")
+    )
+    
+    # Rastreador de tentativas de login
+    login_tracker = LoginAttemptTracker(
+        max_attempts=int(os.environ.get("MAX_LOGIN_ATTEMPTS", "5")),
+        lockout_seconds=int(os.environ.get("LOCKOUT_DURATION_MINUTES", "15")) * 60,
+        storage_file=str(DATA_DIR / "login_attempts.json")
+    )
+    
+    RATE_LIMITING_ENABLED = os.environ.get("RATE_LIMIT_ENABLED", "true").lower() == "true"
+    logger.info("Rate limiting e logging estruturado ativados")
+    
+except ImportError:
+    logger.warning("server_security não disponível. Rate limiting desativado.")
+    RATE_LIMITING_ENABLED = False
+    general_limiter = None
+    login_limiter = None
+    login_tracker = None
+
+# ============================================================
 # UTILITÁRIOS
 # ============================================================
 
@@ -169,6 +215,22 @@ def extract_text_from_file_bytes(file_bytes, filename=""):
     import xml.etree.ElementTree as ET
 
     ext = (filename.rsplit(".", 1)[-1] if "." in filename else "").lower()
+
+    if ext == "pdf" or file_bytes.startswith(b"%PDF"):
+        try:
+            from pypdf import PdfReader
+            reader = PdfReader(io.BytesIO(file_bytes))
+            paginas = []
+            for pagina in reader.pages:
+                texto_pagina = pagina.extract_text() or ""
+                if texto_pagina.strip():
+                    paginas.append(texto_pagina.strip())
+            if paginas:
+                return "\n\n".join(paginas)
+        except ImportError:
+            logger.error("pypdf não instalado. Rode: pip install pypdf")
+        except Exception as e:
+            logger.error(f"Erro ao extrair texto de PDF via pypdf: {e}")
 
     if ext in ["txt", "csv", "json"]:
         for enc in ["utf-8", "latin-1", "cp1252"]:
@@ -579,6 +641,20 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
         body = self._read_body_json()
+        
+        # ============================================================
+        # RATE LIMITING GERAL POR IP
+        # ============================================================
+        if RATE_LIMITING_ENABLED and general_limiter:
+            client_ip = self.client_address[0]
+            is_allowed, reason, remaining = general_limiter.is_allowed(client_ip, logger)
+            
+            if not is_allowed:
+                return self._send_json(429, {
+                    "success": False,
+                    "error": reason,
+                    "retryAfter": remaining
+                })
 
         # Verifica se a rota exige professor autenticado
         if self._rota_requer_professor(path):
@@ -592,6 +668,28 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             escola = body.get("escola", "").strip()
             email = body.get("email", "").strip().lower()
             senha = body.get("senha", "").strip()
+            
+            # ============================================================
+            # RATE LIMITING ESPECÍFICO PARA LOGIN
+            # ============================================================
+            if RATE_LIMITING_ENABLED and login_tracker and login_limiter:
+                # Verificar se o email está bloqueado
+                is_locked, lock_msg = login_tracker.is_locked(email, logger)
+                if is_locked:
+                    return self._send_json(429, {
+                        "success": False,
+                        "error": lock_msg,
+                        "retryAfter": int(login_tracker.lockout_seconds)
+                    })
+                
+                # Verificar rate limit de login (5 por minuto)
+                is_allowed, reason, remaining = login_limiter.is_allowed(email, logger)
+                if not is_allowed:
+                    return self._send_json(429, {
+                        "success": False,
+                        "error": reason,
+                        "retryAfter": remaining
+                    })
 
             if not email:
                 return self._send_json(400, {"success": False, "error": "Por favor, informe o seu e-mail."})
@@ -605,6 +703,10 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
             if email in professores:
                 prof = professores[email]
                 if not verificar_senha(prof, senha):
+                    # Registrar tentativa falhada de login
+                    if RATE_LIMITING_ENABLED and login_tracker:
+                        login_tracker.record_attempt(email, success=False, logger=logger)
+                    
                     return self._send_json(401, {
                         "success": False,
                         "error": "Senha incorreta para este e-mail. Por favor, digite a senha pessoal criada no seu primeiro acesso."
@@ -619,6 +721,10 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                 prof["token"] = token
                 professores[email] = prof
                 save_json(PROF_FILE, professores)
+                
+                # Registrar login bem-sucedido
+                if RATE_LIMITING_ENABLED and login_tracker:
+                    login_tracker.record_attempt(email, success=True, logger=logger)
 
                 return self._send_json(200, {
                     "success": True,
@@ -649,6 +755,10 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
                 }
                 professores[email] = novo_prof
                 save_json(PROF_FILE, professores)
+                
+                # Registrar novo cadastro bem-sucedido
+                if RATE_LIMITING_ENABLED and login_tracker:
+                    login_tracker.record_attempt(email, success=True, logger=logger)
 
                 return self._send_json(200, {
                     "success": True,

@@ -1,0 +1,40 @@
+{
+  "name": "atividade-segura",
+  "version": "1.0.0",
+  "description": "🛡️ Plataforma de Avaliações Anticola & IA Pedagógica - SEDUC-SP",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "dev": "python3 server.py",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint js/ tests/ --ext .js",
+    "format": "prettier --write \"js/**/*.js\" \"tests/**/*.js\""
+  },
+  "keywords": [
+    "educacao",
+    "avaliacao",
+    "seguranca",
+    "ia",
+    "gemini"
+  ],
+  "author": "SEDUC-SP",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.0",
+    "vitest": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "jsdom": "^23.0.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

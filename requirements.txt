@@ -1,0 +1,3 @@
+# Dependências Python do backend (server.py)
+# Instale com: pip install -r requirements.txt
+pypdf>=6.0
