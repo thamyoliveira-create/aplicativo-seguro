@@ -20,13 +20,47 @@ const PortalAuth = {
     return null;
   },
 
+  /**
+   * Extrai o RA do email do aluno
+   * Formato: 0000+ra+dig+sp@aluno.educacao.sp.gov.br
+   * Retorna: "ra.dig" (ex: "123456.7")
+   */
+  extractRAFromEmail(email) {
+    const normalized = this.normalizeEmail(email);
+    if (!normalized.endsWith(this.domains.student)) return null;
+    
+    const localPart = normalized.split("@")[0];
+    const parts = localPart.split("+");
+    
+    // Esperado: ["0000", "ra", "dig", "sp"]
+    if (parts.length !== 4 || parts[0] !== "0000") return null;
+    
+    const ra = parts[1];
+    const dig = parts[2];
+    
+    // Validar se ra e dig são números
+    if (!/^\d+$/.test(ra) || !/^\d$/.test(dig)) return null;
+    
+    return `${ra}.${dig}`;
+  },
+
   validateEmail(email, role) {
     const normalized = this.normalizeEmail(email);
     const domain = this.domains[role];
+    
     if (!normalized.endsWith(domain) || normalized === domain) {
       const label = role === "teacher" ? "professor" : "aluno";
       throw new Error(`Use seu e-mail institucional @${label}.educacao.sp.gov.br.`);
     }
+
+    // Validação específica para alunos: verificar formato do RA
+    if (role === "student") {
+      const raFormatted = this.extractRAFromEmail(normalized);
+      if (!raFormatted) {
+        throw new Error(`E-mail de aluno deve estar no formato: 0000+XXXXXX+D+SP@aluno.educacao.sp.gov.br (onde XXXXXX é o RA e D é o dígito verificador).`);
+      }
+    }
+
     return normalized;
   },
 
@@ -50,17 +84,26 @@ const PortalAuth = {
     const existing = await F.getDoc(profileRef);
     const name = String(displayName || user.displayName || user.email.split("@")[0]).trim().slice(0, 100);
 
+    // Extrair RA se for aluno
+    const studentRA = role === "student" ? this.extractRAFromEmail(user.email) : null;
+
     if (!existing.exists()) {
       await F.setDoc(profileRef, {
         email: this.normalizeEmail(user.email),
         displayName: name,
         role,
+        studentRA: studentRA,
         createdAt: F.serverTimestamp(),
         updatedAt: F.serverTimestamp()
       });
     }
 
-    return existing.exists() ? existing.data() : { email: user.email, displayName: name, role };
+    return existing.exists() ? existing.data() : { 
+      email: user.email, 
+      displayName: name, 
+      role,
+      studentRA: studentRA
+    };
   },
 
   async identity() {
@@ -81,6 +124,7 @@ const PortalAuth = {
       email: this.normalizeEmail(user.email),
       display_name: profile.displayName || user.displayName || "",
       role,
+      studentRA: profile.studentRA || null,
       emailVerified: true
     };
   },
