@@ -26,9 +26,10 @@ const AlunoLoginView = {
                 <label for="student-account-name">Nome completo</label>
                 <div class="auth-input"><i data-lucide="user"></i><input id="student-account-name" type="text" autocomplete="name" maxlength="100" required></div>
               ` : ""}
-              <label for="student-email">E-mail institucional</label>
-              <div class="auth-input"><i data-lucide="mail"></i><input id="student-email" type="email" autocomplete="email" placeholder="nome@aluno.educacao.sp.gov.br" required></div>
-              <label for="student-password">Senha</label>
+              <label for="student-ra-input">RA (Registro do Aluno)</label>
+              <div class="auth-input"><i data-lucide="id-card"></i><input id="student-ra-input" type="text" autocomplete="off" placeholder="Ex.: 12345678901" required></div>
+              <p class="auth-field-note">Seu e-mail será montado automaticamente: <strong id="student-email-preview">@aluno.educacao.sp.gov.br</strong></p>
+              <label for="student-password">Senha (você cria neste primeiro acesso)</label>
               <div class="auth-input"><i data-lucide="lock-keyhole"></i><input id="student-password" type="password" autocomplete="${registering ? "new-password" : "current-password"}" minlength="8" placeholder="Mínimo de 8 caracteres" required><button class="password-toggle" type="button" aria-label="Mostrar senha"><i data-lucide="eye"></i></button></div>
               <p id="student-login-error" class="auth-error" role="alert" aria-live="polite"></p>
               <p id="student-login-success" class="auth-success" role="status" aria-live="polite"></p>
@@ -47,6 +48,15 @@ const AlunoLoginView = {
       });
 
       const password = document.getElementById("student-password");
+      const raInput = document.getElementById("student-ra-input");
+      const emailPreview = document.getElementById("student-email-preview");
+
+      // Atualiza preview do email em tempo real
+      raInput.addEventListener("input", () => {
+        const ra = raInput.value.replace(/\D/g, "");
+        emailPreview.textContent = ra ? `0000${ra}sp@aluno.educacao.sp.gov.br` : "@aluno.educacao.sp.gov.br";
+      });
+
       document.querySelector(".password-toggle").onclick = () => {
         password.type = password.type === "password" ? "text" : "password";
       };
@@ -56,7 +66,8 @@ const AlunoLoginView = {
         const button = event.currentTarget.querySelector(".auth-submit");
         const error = document.getElementById("student-login-error");
         const success = document.getElementById("student-login-success");
-        const email = document.getElementById("student-email").value;
+        const ra = raInput.value.replace(/\D/g, "");
+        const email = `0000${ra}sp@aluno.educacao.sp.gov.br`;
         button.disabled = true;
         button.querySelector("span").textContent = registering ? "Criando…" : "Verificando…";
         error.textContent = "";
@@ -83,7 +94,8 @@ const AlunoLoginView = {
         const error = document.getElementById("student-login-error");
         const success = document.getElementById("student-login-success");
         try {
-          const sentTo = await StudentAuth.resetPassword(document.getElementById("student-email").value);
+          const ra = raInput.value.replace(/\D/g, "");
+          const sentTo = await StudentAuth.resetPassword(`0000${ra}sp@aluno.educacao.sp.gov.br`);
           success.textContent = `Enviamos as instruções de recuperação para ${sentTo}.`;
           error.textContent = "";
         } catch (err) { error.textContent = err.message; success.textContent = ""; }
