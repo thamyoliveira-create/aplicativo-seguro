@@ -14,10 +14,11 @@ const AlunoProvaView = {
     if (stored) {
       aluno = JSON.parse(stored);
     } else {
+      // Placeholder de demonstracao — o fluxo real preenche via login do aluno.
       aluno = {
-        nome: "Gabriel Santos de Oliveira",
-        ra: "108.452.981-3/SP",
-        email: "gabriel.oliveira452@aluno.educacao.sp.gov.br",
+        nome: "Aluno Visitante",
+        ra: "000.000.000-0/SP",
+        email: "visitante@exemplo.com",
         codigoAtividade: codigo
       };
       sessionStorage.setItem("aluno_ativo", JSON.stringify(aluno));
