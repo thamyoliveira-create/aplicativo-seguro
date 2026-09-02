@@ -603,7 +603,7 @@ class SecureExamHandler(http.server.SimpleHTTPRequestHandler):
 
             cfg = load_json(CONFIG_FILE, {
                 "geminiApiKey": os.environ.get("GEMINI_API_KEY", ""),
-                "senhaProfessor": "prof2026",
+                "senhaProfessor": os.environ.get("SENHA_PROFESSOR_PADRAO", ""),
                 "professorNome": "",
                 "escolaPadrao": "",
                 "redeEnsino": "Secretaria da Educação do Estado de SP",

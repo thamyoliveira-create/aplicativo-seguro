@@ -27,3 +27,6 @@ coverage/
 # Logs
 logs/
 *.log
+
+# Dados locais / seed (podem conter PII) - nunca versionar
+/data/*.json
