@@ -3,11 +3,11 @@
    ========================================================================== */
 
 :root {
-  --font-sans: 'Karla', 'Segoe UI', -apple-system, sans-serif;
-  --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+  --font-heading: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --brand-primary: #2f9bd8;
-  --brand-navy: #0b1119;
+  --brand-primary: #12C7BE;
+  --brand-navy: #0A0E0F;
 }
 
 html {
@@ -174,13 +174,13 @@ body {
 
 /* Landing e autenticação */
 :root {
-  --ink: #0b1119;
-  --ink-soft: #3f5364;
-  --paper: #f4f7f9;
-  --paper-deep: #e4edf3;
-  --sun: #5bb7e8;
-  --coral: #2f9bd8;
-  --mint: #b9dff2;
+  --ink: #F2F5F4;
+  --ink-soft: #9DB0AD;
+  --paper: #0A0E0F;
+  --paper-deep: #111A1B;
+  --sun: #12C7BE;
+  --coral: #12C7BE;
+  --mint: #0E2A28;
 }
 
 .landing-shell {
@@ -294,7 +294,7 @@ body {
 
 .hero-lead {
   max-width: 620px;
-  color: #5f7180;
+  color: #9DB0AD;
   font-size: 18px;
   line-height: 1.75;
 }
@@ -316,7 +316,7 @@ body {
 .hero-primary svg { width: 18px; }
 .hero-primary > span { font-size: 20px; line-height: .7; }
 .hero-secondary { color: var(--ink); border-bottom: 1px solid currentColor; padding: 9px 0; }
-.hero-domain { margin-top: 27px; display: flex; gap: 8px; align-items: center; color: #708290; font-size: 12px; }
+.hero-domain { margin-top: 27px; display: flex; gap: 8px; align-items: center; color: #9DB0AD; font-size: 12px; }
 .hero-domain svg { width: 15px; }
 .ink-dot { width: 9px; height: 9px; display: inline-block; flex: 0 0 auto; border: 2px solid currentColor; border-radius: 50% 45% 55% 42%; box-shadow: 3px 1px 0 var(--sun); transform: rotate(-12deg); }
 
@@ -331,7 +331,7 @@ body {
   padding: 28px;
   border: 1px solid rgba(16,42,38,.14);
   border-radius: 6px 30px 6px 30px;
-  background: #ffffff;
+  background: #111A1B;
   box-shadow: 22px 24px 0 rgba(16,42,38,.08);
   transform: rotate(1.5deg);
 }
@@ -340,14 +340,14 @@ body {
 .preview-number { color: var(--coral); }
 .preview-label { margin-top: 28px; color: var(--coral); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
 .question-preview h2 { margin: 9px 0 18px; font-size: 18px; line-height: 1.45; }
-.preview-source { padding: 13px; display: flex; gap: 10px; color: #4d6475; background: #eef8fd; border-left: 3px solid var(--mint); font-size: 12px; line-height: 1.55; }
+.preview-source { padding: 13px; display: flex; gap: 10px; color: #4d6475; background: #0E2A28; border-left: 3px solid var(--mint); font-size: 12px; line-height: 1.55; }
 .preview-source svg { width: 17px; flex: 0 0 auto; }
 .drawn-quote { flex: 0 0 auto; color: var(--coral); font: 800 29px/.8 var(--font-heading); transform: rotate(-8deg); }
 .preview-answer { height: 45px; display: flex; gap: 12px; align-items: center; border-bottom: 1px solid #ebe7de; }
 .preview-answer > span { width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid #cdd5d1; border-radius: 50%; font-size: 10px; font-weight: 800; }
 .preview-answer > div { width: 72%; height: 6px; border-radius: 6px; background: #e8e6df; }
-.preview-answer.active { color: #176f9f; }
-.preview-answer.active > span { color: #fff; border-color: #176f9f; background: #176f9f; }
+.preview-answer.active { color: #0B8B84; }
+.preview-answer.active > span { color: #fff; border-color: #0B8B84; background: #0B8B84; }
 .preview-answer.active > div { background: #d9effa; }
 .preview-answer svg { width: 15px; }
 .preview-answer > b { font-size: 14px; transform: rotate(-8deg); }
@@ -415,7 +415,7 @@ body {
 .story-link:hover svg { transform: translateX(4px); }
 .story-link > span { font-size: 19px; transition: transform .2s; }
 .story-link:hover > span { transform: translateX(4px); }
-.story-margin-note { margin-top: 65px; padding: 25px; color: var(--ink); border: 1px solid rgba(16,42,38,.16); border-radius: 4px 22px 4px 22px; background: #ffffff; box-shadow: 9px 10px 0 var(--mint); transform: rotate(1.3deg); }
+.story-margin-note { margin-top: 65px; padding: 25px; color: var(--ink); border: 1px solid rgba(16,42,38,.16); border-radius: 4px 22px 4px 22px; background: #111A1B; box-shadow: 9px 10px 0 var(--mint); transform: rotate(1.3deg); }
 .story-margin-note svg { width: 24px; color: var(--coral); }
 .pencil-mark { display: inline-block; color: var(--coral); font: 800 25px/1 "Fraunces", serif; letter-spacing: -.2em; transform: rotate(-12deg); }
 .story-margin-note p { margin: 27px 0 0; color: #60726b; font-size: 12px; line-height: 1.75; }
@@ -489,7 +489,7 @@ body {
 .teacher-editorial .glass-card { color: var(--ink); background: rgba(255,253,250,.88); border-color: rgba(16,42,38,.14) !important; backdrop-filter: none; box-shadow: 7px 8px 0 rgba(16,42,38,.06); }
 .teacher-editorial .text-white { color: var(--ink) !important; }
 .teacher-editorial .text-slate-100, .teacher-editorial .text-slate-200, .teacher-editorial .text-slate-300 { color: #405850 !important; }
-.teacher-editorial .text-slate-400, .teacher-editorial .text-slate-500, .teacher-editorial .text-slate-600 { color: #708290 !important; }
+.teacher-editorial .text-slate-400, .teacher-editorial .text-slate-500, .teacher-editorial .text-slate-600 { color: #9DB0AD !important; }
 .teacher-editorial .border-slate-700, .teacher-editorial .border-slate-800 { border-color: rgba(16,42,38,.16) !important; }
 .teacher-editorial [class*="bg-dark-"] { background-color: rgba(244,241,232,.72) !important; }
 .teacher-editorial [class*="bg-brand-950"], .teacher-editorial [class*="bg-emerald-950"] { background-color: rgba(184,215,199,.28) !important; }
@@ -514,7 +514,7 @@ body {
 .teacher-editorial #dash-upload-status-box { background: rgba(255,253,250,.8) !important; }
 .teacher-editorial #atividades-list > .glass-card:nth-child(even) { transform: translateY(10px); border-radius: 24px 5px 24px 5px; }
 .teacher-editorial #atividades-list > .glass-card:nth-child(odd) { border-radius: 5px 24px 5px 24px; }
-.teacher-editorial table thead { color: #5f7180; }
+.teacher-editorial table thead { color: #9DB0AD; }
 .teacher-editorial table tbody tr:hover { background: rgba(184,215,199,.14) !important; }
 .teacher-editorial .bg-brand-600, .teacher-editorial a.bg-brand-600, .teacher-editorial button.bg-brand-600 { color: white !important; background: var(--coral) !important; }
 .teacher-editorial button[class*="bg-rose"], .teacher-editorial a[class*="bg-rose"] { color: #a94332 !important; }
