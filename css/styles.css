@@ -3,10 +3,11 @@
    ========================================================================== */
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-sans: 'Karla', 'Segoe UI', -apple-system, sans-serif;
+  --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --brand-primary: #2563eb;
-  --brand-navy: #07122b;
+  --brand-primary: #2f9bd8;
+  --brand-navy: #0b1119;
 }
 
 html {
@@ -33,7 +34,7 @@ body {
     radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.25) 0px, transparent 50%),
     radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.20) 0px, transparent 50%),
     radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
-    #070b14;
+    #0b1119;
 }
 
 /* Glassmorphism Classes */
@@ -160,7 +161,7 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070b14;
+  background: #0b1119;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
@@ -173,19 +174,19 @@ body {
 
 /* Landing e autenticação */
 :root {
-  --ink: #102a26;
-  --ink-soft: #25443e;
-  --paper: #f4f1e8;
-  --paper-deep: #e9e2d3;
-  --sun: #f0aa3c;
-  --coral: #df664d;
-  --mint: #b8d7c7;
+  --ink: #0b1119;
+  --ink-soft: #3f5364;
+  --paper: #f4f7f9;
+  --paper-deep: #e4edf3;
+  --sun: #5bb7e8;
+  --coral: #2f9bd8;
+  --mint: #b9dff2;
 }
 
 .landing-shell {
   min-height: 100vh;
   color: var(--ink);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: var(--font-sans);
   background:
     linear-gradient(rgba(16, 42, 38, .035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16, 42, 38, .035) 1px, transparent 1px),
@@ -220,7 +221,7 @@ body {
   background: var(--ink);
   transform: rotate(-3deg);
 }
-.landing-logo .brand-stamp { font: 800 11px/1 "IBM Plex Sans", sans-serif; letter-spacing: -.06em; border-radius: 4px 11px 5px 10px; box-shadow: 3px 3px 0 var(--sun); }
+.landing-logo .brand-stamp { font: 800 11px/1 var(--font-heading); letter-spacing: -.06em; border-radius: 4px 11px 5px 10px; box-shadow: 3px 3px 0 var(--sun); }
 
 .landing-logo svg, .auth-brand svg { width: 21px; }
 .landing-nav nav { display: flex; align-items: center; gap: 12px; }
@@ -261,7 +262,7 @@ body {
 .eyebrow span { width: 28px; height: 2px; background: currentColor; }
 
 .hero-copy h1, .landing-details h2, .auth-story h1, .student-login-card h1 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-heading);
   letter-spacing: -.045em;
   font-weight: 700;
 }
@@ -293,7 +294,7 @@ body {
 
 .hero-lead {
   max-width: 620px;
-  color: #536760;
+  color: #5f7180;
   font-size: 18px;
   line-height: 1.75;
 }
@@ -315,7 +316,7 @@ body {
 .hero-primary svg { width: 18px; }
 .hero-primary > span { font-size: 20px; line-height: .7; }
 .hero-secondary { color: var(--ink); border-bottom: 1px solid currentColor; padding: 9px 0; }
-.hero-domain { margin-top: 27px; display: flex; gap: 8px; align-items: center; color: #6b7c75; font-size: 12px; }
+.hero-domain { margin-top: 27px; display: flex; gap: 8px; align-items: center; color: #708290; font-size: 12px; }
 .hero-domain svg { width: 15px; }
 .ink-dot { width: 9px; height: 9px; display: inline-block; flex: 0 0 auto; border: 2px solid currentColor; border-radius: 50% 45% 55% 42%; box-shadow: 3px 1px 0 var(--sun); transform: rotate(-12deg); }
 
@@ -330,7 +331,7 @@ body {
   padding: 28px;
   border: 1px solid rgba(16,42,38,.14);
   border-radius: 6px 30px 6px 30px;
-  background: #fffdfa;
+  background: #ffffff;
   box-shadow: 22px 24px 0 rgba(16,42,38,.08);
   transform: rotate(1.5deg);
 }
@@ -339,15 +340,15 @@ body {
 .preview-number { color: var(--coral); }
 .preview-label { margin-top: 28px; color: var(--coral); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
 .question-preview h2 { margin: 9px 0 18px; font-size: 18px; line-height: 1.45; }
-.preview-source { padding: 13px; display: flex; gap: 10px; color: #50645d; background: #eef4ef; border-left: 3px solid var(--mint); font-size: 12px; line-height: 1.55; }
+.preview-source { padding: 13px; display: flex; gap: 10px; color: #4d6475; background: #eef8fd; border-left: 3px solid var(--mint); font-size: 12px; line-height: 1.55; }
 .preview-source svg { width: 17px; flex: 0 0 auto; }
-.drawn-quote { flex: 0 0 auto; color: var(--coral); font: 800 29px/.8 "Fraunces", serif; transform: rotate(-8deg); }
+.drawn-quote { flex: 0 0 auto; color: var(--coral); font: 800 29px/.8 var(--font-heading); transform: rotate(-8deg); }
 .preview-answer { height: 45px; display: flex; gap: 12px; align-items: center; border-bottom: 1px solid #ebe7de; }
 .preview-answer > span { width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid #cdd5d1; border-radius: 50%; font-size: 10px; font-weight: 800; }
 .preview-answer > div { width: 72%; height: 6px; border-radius: 6px; background: #e8e6df; }
-.preview-answer.active { color: #2b745a; }
-.preview-answer.active > span { color: #fff; border-color: #2b745a; background: #2b745a; }
-.preview-answer.active > div { background: #cfe4da; }
+.preview-answer.active { color: #176f9f; }
+.preview-answer.active > span { color: #fff; border-color: #176f9f; background: #176f9f; }
+.preview-answer.active > div { background: #d9effa; }
 .preview-answer svg { width: 15px; }
 .preview-answer > b { font-size: 14px; transform: rotate(-8deg); }
 .preview-footer { margin-top: 20px; justify-content: flex-start; gap: 7px; color: #71827b; font-size: 10px; text-transform: uppercase; letter-spacing: .09em; }
@@ -414,7 +415,7 @@ body {
 .story-link:hover svg { transform: translateX(4px); }
 .story-link > span { font-size: 19px; transition: transform .2s; }
 .story-link:hover > span { transform: translateX(4px); }
-.story-margin-note { margin-top: 65px; padding: 25px; color: var(--ink); border: 1px solid rgba(16,42,38,.16); border-radius: 4px 22px 4px 22px; background: #fffdfa; box-shadow: 9px 10px 0 var(--mint); transform: rotate(1.3deg); }
+.story-margin-note { margin-top: 65px; padding: 25px; color: var(--ink); border: 1px solid rgba(16,42,38,.16); border-radius: 4px 22px 4px 22px; background: #ffffff; box-shadow: 9px 10px 0 var(--mint); transform: rotate(1.3deg); }
 .story-margin-note svg { width: 24px; color: var(--coral); }
 .pencil-mark { display: inline-block; color: var(--coral); font: 800 25px/1 "Fraunces", serif; letter-spacing: -.2em; transform: rotate(-12deg); }
 .story-margin-note p { margin: 27px 0 0; color: #60726b; font-size: 12px; line-height: 1.75; }
@@ -428,7 +429,7 @@ body {
   place-items: center;
   padding: 72px 24px 44px;
   color: var(--ink);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: var(--font-sans);
   background:
     radial-gradient(circle at 8% 12%, rgba(240,170,60,.25), transparent 23%),
     radial-gradient(circle at 92% 85%, rgba(184,215,199,.58), transparent 27%),
@@ -450,7 +451,7 @@ body {
 .access-choice-heading { text-align: center; }
 .access-choice-heading .landing-logo { margin-bottom: 34px; }
 .access-choice-heading .auth-kicker { margin: 0 0 14px; }
-.access-choice-heading h1 { margin: 0; font-family: "Fraunces", Georgia, serif; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.05em; }
+.access-choice-heading h1 { margin: 0; font-family: var(--font-heading); font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.05em; }
 .access-choice-heading > p:last-child { margin: 17px 0 34px; color: #61736c; font-size: 14px; }
 .access-choice-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: start; }
 .access-choice-card { min-height: 300px; padding: 29px; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid rgba(16,42,38,.15); background: rgba(255,253,250,.82); box-shadow: 9px 10px 0 rgba(16,42,38,.08); transition: transform .2s, box-shadow .2s, border-color .2s; }
@@ -475,20 +476,20 @@ body {
 .teacher-editorial {
   min-height: 100vh;
   color: var(--ink);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: var(--font-sans);
   background:
     linear-gradient(rgba(16,42,38,.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16,42,38,.035) 1px, transparent 1px),
     var(--paper);
   background-size: 32px 32px;
 }
-.teacher-editorial h1, .teacher-editorial h2, .teacher-editorial h3 { font-family: "Fraunces", Georgia, serif; letter-spacing: -.025em; }
+.teacher-editorial h1, .teacher-editorial h2, .teacher-editorial h3 { font-family: var(--font-heading); letter-spacing: -.025em; }
 .teacher-editorial .glass-nav { color: var(--ink); background: rgba(244,241,232,.9); border-color: rgba(16,42,38,.13); box-shadow: 0 7px 30px rgba(16,42,38,.06); }
 .teacher-brand-stamp { width: 42px; height: 42px; display: grid; place-items: center; color: white; background: var(--ink); border-radius: 5px 13px 6px 11px; box-shadow: 4px 4px 0 var(--sun); transform: rotate(-3deg); font-size: 11px; font-weight: 900; letter-spacing: -.06em; }
 .teacher-editorial .glass-card { color: var(--ink); background: rgba(255,253,250,.88); border-color: rgba(16,42,38,.14) !important; backdrop-filter: none; box-shadow: 7px 8px 0 rgba(16,42,38,.06); }
 .teacher-editorial .text-white { color: var(--ink) !important; }
 .teacher-editorial .text-slate-100, .teacher-editorial .text-slate-200, .teacher-editorial .text-slate-300 { color: #405850 !important; }
-.teacher-editorial .text-slate-400, .teacher-editorial .text-slate-500, .teacher-editorial .text-slate-600 { color: #6b7c75 !important; }
+.teacher-editorial .text-slate-400, .teacher-editorial .text-slate-500, .teacher-editorial .text-slate-600 { color: #708290 !important; }
 .teacher-editorial .border-slate-700, .teacher-editorial .border-slate-800 { border-color: rgba(16,42,38,.16) !important; }
 .teacher-editorial [class*="bg-dark-"] { background-color: rgba(244,241,232,.72) !important; }
 .teacher-editorial [class*="bg-brand-950"], .teacher-editorial [class*="bg-emerald-950"] { background-color: rgba(184,215,199,.28) !important; }
@@ -502,7 +503,7 @@ body {
 .teacher-editorial #metrics-cards > .glass-card:nth-child(2), .teacher-editorial #metrics-cards > .glass-card:nth-child(4) { transform: translateY(13px); }
 .teacher-editorial #metrics-cards > .glass-card > div:first-child { width: 34px; height: auto; padding: 0; display: block; color: var(--coral) !important; background: transparent !important; border: 0 !important; }
 .dash-metric-mark { font: 800 17px/1 "Fraunces", serif; border-bottom: 2px solid currentColor; }
-.teacher-editorial #metrics-cards .text-2xl { font-family: "Fraunces", Georgia, serif; font-size: 29px; color: var(--ink) !important; }
+.teacher-editorial #metrics-cards .text-2xl { font-family: var(--font-heading); font-size: 29px; color: var(--ink) !important; }
 .teacher-upload-card { margin-top: 13px; border-radius: 7px 34px 7px 34px !important; border: 1px solid rgba(16,42,38,.2) !important; box-shadow: 14px 16px 0 var(--mint) !important; overflow: visible !important; }
 .teacher-upload-card::before { content: "ARQUIVO → ATIVIDADE"; position: absolute; top: -11px; right: 28px; padding: 5px 9px; color: white; background: var(--coral); transform: rotate(1.5deg); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
 .teacher-file-mark { width: 48px; height: 48px; display: grid; place-items: center; flex: 0 0 auto; color: var(--coral); border: 2px solid currentColor; border-radius: 50% 44% 51% 46%; font: 800 19px/1 "Fraunces", serif; letter-spacing: -.2em; transform: rotate(-8deg); }
@@ -513,7 +514,7 @@ body {
 .teacher-editorial #dash-upload-status-box { background: rgba(255,253,250,.8) !important; }
 .teacher-editorial #atividades-list > .glass-card:nth-child(even) { transform: translateY(10px); border-radius: 24px 5px 24px 5px; }
 .teacher-editorial #atividades-list > .glass-card:nth-child(odd) { border-radius: 5px 24px 5px 24px; }
-.teacher-editorial table thead { color: #536760; }
+.teacher-editorial table thead { color: #5f7180; }
 .teacher-editorial table tbody tr:hover { background: rgba(184,215,199,.14) !important; }
 .teacher-editorial .bg-brand-600, .teacher-editorial a.bg-brand-600, .teacher-editorial button.bg-brand-600 { color: white !important; background: var(--coral) !important; }
 .teacher-editorial button[class*="bg-rose"], .teacher-editorial a[class*="bg-rose"] { color: #a94332 !important; }
