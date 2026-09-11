@@ -3,11 +3,11 @@
    ========================================================================== */
 
 :root {
-  --font-sans: 'Inter', 'Segoe UI', -apple-system, sans-serif;
-  --font-heading: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --brand-primary: #12C7BE;
-  --brand-navy: #0A0E0F;
+  --font-sans: 'Outfit', 'Segoe UI', -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --brand-primary: #03E39D;
+  --brand-navy: #1A0F1C;
 }
 
 html {
@@ -174,13 +174,13 @@ body {
 
 /* Landing e autenticação */
 :root {
-  --ink: #F2F5F4;
-  --ink-soft: #9DB0AD;
-  --paper: #0A0E0F;
-  --paper-deep: #111A1B;
-  --sun: #12C7BE;
-  --coral: #12C7BE;
-  --mint: #0E2A28;
+  --ink: #FFF5FB;
+  --ink-soft: #C6B3C7;
+  --paper: #1A0F1C;
+  --paper-deep: #261629;
+  --sun: #03E39D;
+  --coral: #FB58A7;
+  --mint: #3A2440;
 }
 
 .landing-shell {
