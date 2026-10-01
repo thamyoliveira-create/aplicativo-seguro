@@ -29,6 +29,14 @@ const App = {
     } else if (hash === "acesso") {
       await HomeView.renderAccess();
     } else if (parts[0] === "simulados") {
+      if (parts[1] === "prova" && parts[2]) {
+        const student = await StudentAuth.session();
+        if (!student) {
+          await AlunoLoginView.render({ redirect: `simulados/prova/${parts[2]}`, simuladoId: parts[2], modo: "simulado" });
+          window.scrollTo(0, 0);
+          return;
+        }
+      }
       await SimuladosView.render({ parts });
     } else if (parts[0] === "aluno") {
       if (parts[1] === "prova" && parts[2]) {

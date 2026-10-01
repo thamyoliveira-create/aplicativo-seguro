@@ -264,13 +264,31 @@ const DB = {
     return `${studentId}_${String(simuladoId || "treino").replace(/[^a-z0-9_-]/gi, "_")}_${mode}`;
   },
 
-  async salvarProgressoSimulado({ simuladoId = "treino", mode = "prova", answers = {}, stats = {}, result = null, status = "draft" } = {}) {
+  mapSimuladoProgress(snapshot) {
+    if (!snapshot?.exists()) return null;
+    const row = snapshot.data();
+    return {
+      id: snapshot.id,
+      ...row,
+      answers: this.parseJson(row.answersJson, {}),
+      stats: this.parseJson(row.statsJson, {}),
+      result: this.parseJson(row.resultJson, {}),
+      startedAt: this.toIso(row.startedAt),
+      finishedAt: this.toIso(row.finishedAt),
+      updatedAt: this.toIso(row.updatedAt)
+    };
+  },
+
+  async salvarProgressoSimulado({ simuladoId = "treino", mode = "prova", answers = {}, stats = {}, result = null, status = "draft", studentName = "", studentRA = "" } = {}) {
     const F = await this.api();
     const student = StudentAuth.user || await StudentAuth.session();
     if (!student) throw new Error("Entre como aluno para salvar este progresso na nuvem.");
 
     const normalizedMode = mode === "treino" ? "treino" : "prova";
     const normalizedSimulado = normalizedMode === "treino" ? "treino" : String(simuladoId || "").slice(0, 40);
+    const fallbackName = student.display_name || student.email.split("@")[0];
+    const normalizedName = String(studentName || result?.studentName || fallbackName).trim().slice(0, 120);
+    const normalizedRA = String(studentRA || result?.studentRA || student.studentRA || "TREINO").trim().slice(0, 40);
     const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
     const current = await F.getDoc(ref);
     const startedAt = current.exists() ? current.data().startedAt : F.serverTimestamp();
@@ -279,6 +297,8 @@ const DB = {
     await F.setDoc(ref, {
       studentId: student.id,
       studentEmail: student.email,
+      studentName: normalizedName,
+      studentRA: normalizedRA,
       simuladoId: normalizedSimulado,
       mode: normalizedMode,
       answersJson: JSON.stringify(answers || {}),
@@ -291,7 +311,7 @@ const DB = {
     });
 
     const saved = await F.getDoc(ref);
-    return saved.exists() ? { id: saved.id, ...saved.data() } : null;
+    return this.mapSimuladoProgress(saved);
   },
 
   async obterProgressoSimulado(simuladoId = "treino", mode = "prova") {
@@ -305,17 +325,7 @@ const DB = {
     const snap = await F.getDoc(ref);
     if (!snap.exists()) return null;
 
-    const data = snap.data();
-    return {
-      id: snap.id,
-      ...data,
-      answers: this.parseJson(data.answersJson, {}),
-      stats: this.parseJson(data.statsJson, {}),
-      result: this.parseJson(data.resultJson, {}),
-      startedAt: this.toIso(data.startedAt),
-      finishedAt: this.toIso(data.finishedAt),
-      updatedAt: this.toIso(data.updatedAt)
-    };
+    return this.mapSimuladoProgress(snap);
   },
 
   async salvarResultadoSimulado(payload = {}) {
@@ -325,8 +335,25 @@ const DB = {
       answers: payload.answers || payload.respostas || {},
       stats: payload.stats || {},
       result: payload,
-      status: "finished"
+      status: "finished",
+      studentName: payload.studentName,
+      studentRA: payload.studentRA
     });
+  },
+
+  async getResultadosSimulados() {
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+
+    const result = await F.getDocs(F.query(
+      F.collection(F.db, "simuladoProgress"),
+      F.where("mode", "==", "prova"),
+      F.where("status", "==", "finished")
+    ));
+    return result.docs
+      .map((item) => this.mapSimuladoProgress(item))
+      .sort((a, b) => String(b.finishedAt || b.updatedAt || "").localeCompare(String(a.finishedAt || a.updatedAt || "")));
   },
 
   async sincronizarStatsTreino(stats = {}) {

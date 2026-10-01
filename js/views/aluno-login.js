@@ -96,6 +96,11 @@ const AlunoLoginView = {
       return;
     }
 
+    if (params.redirect && String(params.redirect).startsWith("simulados/prova/")) {
+      window.location.hash = `#${params.redirect}`;
+      return;
+    }
+
     const defaultCode = params.codigo || "";
     root.innerHTML = `
       <main class="student-login-shell student-identified">

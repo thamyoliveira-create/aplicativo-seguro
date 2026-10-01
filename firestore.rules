@@ -134,15 +134,17 @@ service cloud.firestore {
 
     function validSimuladoProgress(data) {
       return data.keys().hasAll([
-          'studentId', 'studentEmail', 'simuladoId', 'mode', 'answersJson',
+          'studentId', 'studentEmail', 'studentName', 'studentRA', 'simuladoId', 'mode', 'answersJson',
           'statsJson', 'resultJson', 'status', 'startedAt', 'finishedAt', 'updatedAt'
         ]) &&
         data.keys().hasOnly([
-          'studentId', 'studentEmail', 'simuladoId', 'mode', 'answersJson',
+          'studentId', 'studentEmail', 'studentName', 'studentRA', 'simuladoId', 'mode', 'answersJson',
           'statsJson', 'resultJson', 'status', 'startedAt', 'finishedAt', 'updatedAt'
         ]) &&
         data.studentId is string && data.studentId == request.auth.uid &&
         data.studentEmail is string && data.studentEmail == request.auth.token.email && data.studentEmail.size() <= 254 &&
+        validShortString(data.studentName, 2, 120) &&
+        validShortString(data.studentRA, 2, 40) &&
         data.simuladoId in ['1serie_dia1', '1serie_dia2', '2serie_dia1', '2serie_dia2', 'treino'] &&
         data.mode in ['prova', 'treino'] &&
         data.answersJson is string && data.answersJson.size() <= 200000 &&
@@ -244,7 +246,8 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.startedAt) &&
         recentTimestamp(request.resource.data.updatedAt);
 
-      allow read: if isStudent() && resource.data.studentId == request.auth.uid;
+      allow read: if (isStudent() && resource.data.studentId == request.auth.uid) ||
+        (isTeacher() && resource.data.mode == 'prova' && resource.data.status == 'finished');
 
       allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
         validSimuladoProgress(request.resource.data) &&

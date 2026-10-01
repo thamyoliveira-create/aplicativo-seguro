@@ -122,6 +122,39 @@ const ProfessorDashboardView = {
             </div>
           </a>
 
+          <!-- Resultados dos Simulados Oficiais -->
+          <section class="glass-card rounded-3xl p-6 md:p-8 mb-8 border border-emerald-500/20">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
+              <div>
+                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+                  <i data-lucide="clipboard-check" class="w-5 h-5 text-emerald-400"></i>
+                  Quem fez o Simulado Provão
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Resultados salvos com login institucional, nome e RA do estudante</p>
+              </div>
+              <span class="text-[11px] text-emerald-300 font-mono bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/25">
+                <span id="stat-simulados-finalizados">0</span> finalizados
+              </span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
+                    <th class="py-3 px-3">Estudante & RA</th>
+                    <th class="py-3 px-3">E-mail</th>
+                    <th class="py-3 px-3">Simulado</th>
+                    <th class="py-3 px-3">Acertos</th>
+                    <th class="py-3 px-3">Nota</th>
+                    <th class="py-3 px-3">Finalizado em</th>
+                  </tr>
+                </thead>
+                <tbody id="simulados-results-tbody" class="divide-y divide-slate-800/60">
+                  <tr><td colspan="6" class="py-8 text-center text-slate-500">Nenhum simulado finalizado ainda.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           <!-- Caixa de Upload Direto para Criar Atividade -->
           <div class="teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 space-y-4 relative overflow-hidden">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
@@ -448,8 +481,15 @@ const ProfessorDashboardView = {
     try {
       const atividades = await DB.getAtividades();
       const submissoes = await DB.getSubmissoes();
+      let resultadosSimulados = [];
+      try {
+        resultadosSimulados = await DB.getResultadosSimulados();
+      } catch (simError) {
+        console.warn("Erro ao carregar resultados dos simulados:", simError);
+      }
       this.atividades = atividades;
       this.submissoes = submissoes;
+      this.resultadosSimulados = resultadosSimulados;
 
       // Estatísticas
       const statAtiv = document.getElementById("stat-atividades");
@@ -458,6 +498,8 @@ const ProfessorDashboardView = {
 
       if (statAtiv) statAtiv.innerText = atividades.length;
       if (statSub) statSub.innerText = submissoes.length;
+      const statSim = document.getElementById("stat-simulados-finalizados");
+      if (statSim) statSim.innerText = resultadosSimulados.length;
 
       let totalInf = 0;
       submissoes.forEach(s => {
@@ -560,6 +602,32 @@ const ProfessorDashboardView = {
             `;
           }).join("");
         }
+      }
+
+      // Renderizar Resultados dos Simulados Oficiais
+      const simTbody = document.getElementById("simulados-results-tbody");
+      if (simTbody && resultadosSimulados.length > 0) {
+        simTbody.innerHTML = resultadosSimulados.slice(0, 25).map((row) => {
+          const result = row.result || {};
+          const config = window.SimuladosData?.getConfig?.(row.simuladoId);
+          const score = result.score ?? 0;
+          const acertos = result.totalAcertos ?? Object.keys(row.answers || {}).length;
+          const total = result.totalQuestoes ?? "—";
+          const finalizado = row.finishedAt ? new Date(row.finishedAt).toLocaleString("pt-BR") : "—";
+          return `
+            <tr class="hover:bg-dark-900/60 transition-colors">
+              <td class="py-3.5 px-3">
+                <div class="font-bold text-white">${row.studentName || "Aluno"}</div>
+                <div class="text-[10px] text-slate-400 font-mono">RA ${row.studentRA || "—"}</div>
+              </td>
+              <td class="py-3.5 px-3 text-slate-400 font-mono max-w-[190px] truncate">${row.studentEmail || "—"}</td>
+              <td class="py-3.5 px-3 text-slate-300 max-w-[220px] truncate">${config?.titulo || row.simuladoId}</td>
+              <td class="py-3.5 px-3 text-slate-300 font-mono">${acertos}/${total}</td>
+              <td class="py-3.5 px-3"><span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-black">${score}%</span></td>
+              <td class="py-3.5 px-3 text-slate-400 font-mono">${finalizado}</td>
+            </tr>
+          `;
+        }).join("");
       }
 
       // Renderizar Submissões na Tabela

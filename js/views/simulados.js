@@ -49,6 +49,31 @@ const SimuladosView = {
     }[char]));
   },
 
+  simuladoIdentityKey(simuladoId) {
+    return `simulado_identity_${simuladoId}`;
+  },
+
+  getSimuladoIdentity(simuladoId) {
+    try {
+      const data = JSON.parse(sessionStorage.getItem(this.simuladoIdentityKey(simuladoId)) || "null");
+      if (data?.studentName && data?.studentRA && data?.studentEmail) return data;
+    } catch (_) {}
+    return null;
+  },
+
+  saveSimuladoIdentity(simuladoId, student, studentName, studentRA) {
+    const identity = {
+      studentId: student.id,
+      studentEmail: student.email,
+      studentName: String(studentName || "").trim().slice(0, 120),
+      studentRA: String(studentRA || "").trim().slice(0, 40),
+      simuladoId,
+      confirmedAt: new Date().toISOString()
+    };
+    sessionStorage.setItem(this.simuladoIdentityKey(simuladoId), JSON.stringify(identity));
+    return identity;
+  },
+
   getSelectedConfig() {
     return window.SimuladosData.getConfig(this.state.simuladoId) || window.SimuladosData.getAllConfigs()[0];
   },
@@ -98,7 +123,15 @@ const SimuladosView = {
     this.setCloudStatus("syncing", "Salvando progresso na nuvem...");
     this.state.cloudTimer = setTimeout(async () => {
       try {
-        await DB.salvarProgressoSimulado({ simuladoId, mode, answers: this.state.answers, status: "draft" });
+        const identity = mode === "prova" ? this.getSimuladoIdentity(simuladoId) : null;
+        await DB.salvarProgressoSimulado({
+          simuladoId,
+          mode,
+          answers: this.state.answers,
+          status: "draft",
+          studentName: identity?.studentName,
+          studentRA: identity?.studentRA
+        });
         this.setCloudStatus("synced", "Progresso salvo na nuvem.");
       } catch (err) {
         this.setCloudStatus("local", err.message || "Salvo neste dispositivo.");
@@ -660,10 +693,96 @@ const SimuladosView = {
   // PROVA COMPLETA (QUESTÃO POR QUESTÃO COM CARTÃO-RESPOSTA DIGITAL)
   // ============================================================
 
-  renderProva(simuladoId) {
+  renderLoginRequired(simuladoId, config) {
+    document.getElementById("app-root").innerHTML = `
+      <main class="min-h-screen hero-mesh text-slate-100 p-6 flex items-center justify-center">
+        <section class="glass-card rounded-[2rem] p-7 md:p-9 max-w-xl w-full border border-slate-700 text-center">
+          <div class="w-16 h-16 rounded-3xl bg-brand-600/20 text-brand-300 border border-brand-500/30 flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="shield-check" class="w-8 h-8"></i>
+          </div>
+          <p class="text-[11px] uppercase tracking-[0.22em] font-black text-brand-300">Acesso seguro obrigatório</p>
+          <h1 class="text-2xl md:text-3xl font-black text-white mt-2">Entre com seu e-mail institucional</h1>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Para a professora saber quem fez o simulado, a prova oficial só abre para aluno logado com e-mail <b>@aluno.educacao.sp.gov.br</b>.</p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="#aluno" class="px-5 py-3 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-glow-blue transition-all">Entrar como aluno</a>
+            <a href="#simulados" class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-bold text-sm transition-all">Voltar aos simulados</a>
+          </div>
+        </section>
+      </main>`;
+    if (window.lucide) window.lucide.createIcons();
+  },
+
+  renderIdentityForm(config, student) {
+    const savedName = this.esc(student.display_name || "");
+    const savedRA = this.esc(student.studentRA || "");
+    document.getElementById("app-root").innerHTML = `
+      <main class="min-h-screen hero-mesh text-slate-100 p-6 flex items-center justify-center">
+        <section class="glass-card rounded-[2rem] p-7 md:p-9 max-w-2xl w-full border border-slate-700">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="id-card" class="w-7 h-7"></i>
+            </div>
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.22em] font-black text-emerald-300">Identificação do aluno</p>
+              <h1 class="text-2xl md:text-3xl font-black text-white mt-1">Confirmar dados antes do simulado</h1>
+              <p class="text-sm text-slate-400 mt-2">Esses dados serão gravados no resultado para a professora acompanhar quem realizou a atividade.</p>
+            </div>
+          </div>
+
+          <form id="simulado-identity-form" class="space-y-4">
+            <div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4 text-xs text-slate-300">
+              <b class="text-white block mb-1">${this.esc(config.titulo)}</b>
+              E-mail institucional: <span class="font-mono text-brand-300">${this.esc(student.email)}</span>
+            </div>
+            <label class="block space-y-1.5">
+              <span class="text-xs uppercase font-bold text-slate-400">Nome completo</span>
+              <input id="simulado-student-name" class="w-full bg-dark-950 border border-slate-700 rounded-2xl px-4 py-3 text-white focus:border-brand-500 focus:outline-none" value="${savedName}" maxlength="120" required />
+            </label>
+            <label class="block space-y-1.5">
+              <span class="text-xs uppercase font-bold text-slate-400">RA</span>
+              <input id="simulado-student-ra" class="w-full bg-dark-950 border border-slate-700 rounded-2xl px-4 py-3 text-white focus:border-brand-500 focus:outline-none" value="${savedRA}" placeholder="Digite seu RA" maxlength="40" required />
+            </label>
+            <label class="flex gap-3 rounded-2xl bg-amber-950/30 border border-amber-500/20 p-4 text-xs text-amber-100 leading-relaxed">
+              <input type="checkbox" required class="mt-1 accent-amber-500" />
+              <span>Confirmo que os dados estão corretos e que farei a atividade sem sair da aba.</span>
+            </label>
+            <p id="simulado-identity-error" class="text-rose-300 text-xs font-bold min-h-4"></p>
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button type="submit" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow-glow-emerald transition-all inline-flex items-center justify-center gap-2">
+                <i data-lucide="play-circle" class="w-4 h-4"></i> Iniciar simulado seguro
+              </button>
+              <a href="#simulados" class="px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-bold text-sm transition-all text-center">Voltar</a>
+            </div>
+          </form>
+        </section>
+      </main>`;
+
+    document.getElementById("simulado-identity-form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.getElementById("simulado-student-name").value.trim();
+      const ra = document.getElementById("simulado-student-ra").value.trim();
+      const error = document.getElementById("simulado-identity-error");
+      if (name.length < 2 || ra.length < 2) {
+        error.textContent = "Informe nome completo e RA para iniciar.";
+        return;
+      }
+      this.saveSimuladoIdentity(config.id, student, name, ra);
+      this.state.startedAt = null;
+      this.renderProva(config.id);
+    });
+    if (window.lucide) window.lucide.createIcons();
+  },
+
+  async renderProva(simuladoId) {
     const config = window.SimuladosData.getConfig(simuladoId);
     if (!config) return this.renderCatalogo();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) return this.renderLoginRequired(simuladoId, config);
+
     this.state.simuladoId = simuladoId;
+    const identity = this.getSimuladoIdentity(simuladoId);
+    if (!identity || identity.studentEmail !== student.email) return this.renderIdentityForm(config, student);
+
     const questoes = window.SimuladosData.getQuestoesPorSimulado(simuladoId);
     if (!this.state.startedAt || this.currentSimuladoId !== simuladoId) this.startSession(config);
 
@@ -687,6 +806,7 @@ const SimuladosView = {
               <div>
                 <h1 class="font-black text-white text-sm md:text-base leading-tight">${this.esc(config.titulo)}</h1>
                 <p class="text-[11px] text-slate-400 font-mono">${config.serie} · Dia ${config.dia} · ${questoes.length} Questões</p>
+                <p class="text-[10px] text-emerald-300 font-mono mt-0.5">${this.esc(identity.studentName)} · RA ${this.esc(identity.studentRA)}</p>
               </div>
             </div>
 
@@ -991,8 +1111,9 @@ const SimuladosView = {
     this.state.secureMode = enabled;
     if (!enabled) return this.destroySecurity();
     if (!window.securityEngine) return;
+    const identity = this.getSimuladoIdentity(config.id) || {};
     window.securityEngine.init(
-      { nome: "Estudante", ra: "SIMULADO", email: "simulado@local" },
+      { nome: identity.studentName || "Estudante", ra: identity.studentRA || "SIMULADO", email: identity.studentEmail || "simulado@local" },
       { id: config.id, titulo: config.titulo, configuracoesSeguranca: { bloquearCopiarColar: true, bloquearBotaoDireito: true, telaCheiaObrigatoria: false, marcaDaguaRA: true, detectarTrocaAba: true } },
       `local_${config.id}`,
       () => {}
@@ -1006,6 +1127,12 @@ const SimuladosView = {
 
   finishSimulado() {
     const config = this.getSelectedConfig();
+    const identity = this.getSimuladoIdentity(config.id);
+    if (!identity) {
+      alert("Confirme seu nome e RA antes de finalizar o simulado.");
+      this.state.startedAt = null;
+      return this.renderProva(config.id);
+    }
     const questoes = window.SimuladosData.getQuestoesPorSimulado(config.id);
     clearInterval(this.state.timer);
     const porComponente = {};
@@ -1027,6 +1154,9 @@ const SimuladosView = {
       totalAcertos: acertos,
       porComponente,
       answers: this.state.answers,
+      studentName: identity.studentName,
+      studentRA: identity.studentRA,
+      studentEmail: identity.studentEmail,
       completedAt: new Date().toISOString()
     };
     this.destroySecurity();
@@ -1039,6 +1169,7 @@ const SimuladosView = {
           </div>
           <h1 class="text-4xl md:text-5xl font-black text-white mt-3">${percent}% de aproveitamento</h1>
           <p class="text-slate-300 text-base mt-2">Você acertou <b class="text-emerald-300">${acertos}</b> de <b class="text-white">${questoes.length}</b> questões.</p>
+          <p class="text-xs text-emerald-300 mt-2 font-mono">${this.esc(identity.studentName)} · RA ${this.esc(identity.studentRA)} · ${this.esc(identity.studentEmail)}</p>
           <p id="cloud-result-note" class="text-xs text-slate-400 mt-2 font-mono">Salvando resultado na nuvem...</p>
 
           <div class="grid md:grid-cols-2 gap-3 mt-6">
