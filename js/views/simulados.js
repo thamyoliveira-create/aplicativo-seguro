@@ -447,7 +447,7 @@ const SimuladosView = {
             <div id="page-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
               <img
                 id="page-img-el"
-                src="${q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
+                src="${q.imagemQuestao || q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
                 alt="Enunciado oficial da Questão ${q.numero} - Página ${q.paginaPdf || 1}"
                 class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
                 loading="eager"
@@ -774,7 +774,7 @@ const SimuladosView = {
             <div id="prova-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
               <img
                 id="prova-img-el"
-                src="${q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
+                src="${q.imagemQuestao || q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
                 alt="Caderno Oficial - Questão ${q.numero} (Página ${q.paginaPdf || 1})"
                 class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
                 loading="eager"
