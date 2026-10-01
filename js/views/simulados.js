@@ -791,6 +791,7 @@ const SimuladosView = {
 
     const q = questoes[this.state.currentIndex] || questoes[0];
     const answeredCount = Object.keys(this.state.answers).length;
+    const allAnswered = answeredCount === questoes.length;
     const progressPct = Math.round((answeredCount / questoes.length) * 100);
 
     document.getElementById("app-root").innerHTML = `
@@ -819,8 +820,8 @@ const SimuladosView = {
               <span class="text-xs text-slate-300 font-mono hidden sm:inline">
                 <b class="text-white">${answeredCount}</b>/${questoes.length}
               </span>
-              <button id="finish-simulado" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black shadow-glow-emerald transition-all">
-                Finalizar Prova
+              <button id="finish-simulado" class="px-4 py-2 rounded-xl ${allAnswered ? "bg-emerald-600 hover:bg-emerald-500 shadow-glow-emerald" : "bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed"} text-white text-xs font-black transition-all" ${allAnswered ? "" : "disabled"} title="${allAnswered ? "Enviar prova" : "Responda todas as questões para enviar"}">
+                ${allAnswered ? "Finalizar Prova" : `Faltam ${questoes.length - answeredCount}`}
               </button>
             </div>
           </div>
@@ -862,6 +863,7 @@ const SimuladosView = {
             </div>
             <div class="text-xs font-semibold text-slate-400 whitespace-nowrap hidden md:block pl-2">
               <span class="text-white font-bold">${answeredCount}</span>/${questoes.length} respondidas (${progressPct}%)
+              ${allAnswered ? `<span class="ml-2 text-emerald-300">Pronto para enviar</span>` : `<span class="ml-2 text-amber-300">faltam ${questoes.length - answeredCount}</span>`}
             </div>
           </div>
         </div>
@@ -1134,6 +1136,15 @@ const SimuladosView = {
       return this.renderProva(config.id);
     }
     const questoes = window.SimuladosData.getQuestoesPorSimulado(config.id);
+    const missingQuestions = questoes
+      .filter(q => !this.state.answers[q.id])
+      .map(q => q.numero);
+    if (missingQuestions.length > 0) {
+      alert(`Responda todas as questões antes de enviar. Faltam: ${missingQuestions.map(n => `Q${String(n).padStart(2, "0")}`).join(", ")}`);
+      const firstMissing = questoes.findIndex(q => !this.state.answers[q.id]);
+      if (firstMissing >= 0) this.state.currentIndex = firstMissing;
+      return this.renderProva(config.id);
+    }
     clearInterval(this.state.timer);
     const porComponente = {};
     let acertos = 0;
