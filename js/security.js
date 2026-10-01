@@ -16,6 +16,8 @@ class SecurityEngine {
       saidasTelaCheia: 0,
       tentativasCopiarColar: 0,
       tentativasPrint: 0,
+      tentativasBotaoDireito: 0,
+      tentativasFerramentas: 0,
       historico: []
     };
     this.blurStartTime = null;
@@ -59,6 +61,7 @@ class SecurityEngine {
     if (config.bloquearBotaoDireito) {
       this.handlers.contextmenu = (e) => {
         e.preventDefault();
+        this.registerInfraction("tentativa_botao_direito", "Tentativa de abrir o menu do botão direito.");
         this.showToast("Menu de contexto (botão direito) desativado nesta avaliação.", "warning");
         return false;
       };
@@ -138,7 +141,7 @@ class SecurityEngine {
 
   handleVisibilityChange() {
     if (document.hidden) {
-      this.blurStartTime = Date.now();
+      if (!this.blurStartTime) this.blurStartTime = Date.now();
     } else {
       if (this.blurStartTime) {
         const durationSec = Math.max(1, Math.round((Date.now() - this.blurStartTime) / 1000));
@@ -255,6 +258,10 @@ class SecurityEngine {
       this.infractions.tentativasCopiarColar += 1;
     } else if (tipo === "tentativa_print") {
       this.infractions.tentativasPrint += 1;
+    } else if (tipo === "tentativa_botao_direito") {
+      this.infractions.tentativasBotaoDireito = (this.infractions.tentativasBotaoDireito || 0) + 1;
+    } else if (tipo === "ferramenta_desenvolvedor") {
+      this.infractions.tentativasFerramentas = (this.infractions.tentativasFerramentas || 0) + 1;
     }
 
     const infractionItem = {
@@ -269,23 +276,7 @@ class SecurityEngine {
       this.onInfractionCallback(this.infractions, infractionItem);
     }
 
-    // Sincronizar com a API se houver submissaoId
-    if (this.submissaoId) {
-      fetch(`/api/submissoes/${this.submissaoId}/infracao`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tipo,
-          detalhe,
-          tempoForaSegundos: tempoForaSec,
-          alunoNome: this.studentData?.nome,
-          alunoEmail: this.studentData?.email,
-          alunoRA: this.studentData?.ra,
-          turma: this.activityData?.anoTurma,
-          atividadeId: this.activityData?.id
-        })
-      }).catch(err => console.warn("Erro sincronizando infração:", err));
-    }
+    // A sincronização em tempo real é feita pelo onInfractionCallback (Firestore).
   }
 
   showInfractionAlert(mensagem) {
@@ -346,3 +337,17 @@ class SecurityEngine {
 }
 
 window.securityEngine = new SecurityEngine();
+
+// Resumo das infrações para os relatórios do professor
+window.resumoInfracoes = function (inf) {
+  inf = inf || {};
+  const itens = [
+    ["trocas de aba", inf.totalTrocasAba],
+    ["saídas da tela cheia", inf.saidasTelaCheia],
+    ["tentativas de copiar/colar", inf.tentativasCopiarColar],
+    ["cliques com botão direito", inf.tentativasBotaoDireito],
+    ["tentativas de imprimir", inf.tentativasPrint],
+    ["tentativas de inspecionar", inf.tentativasFerramentas]
+  ].filter(([, n]) => (n || 0) > 0).map(([rotulo, n]) => ({ rotulo, n }));
+  return { total: itens.reduce((acc, i) => acc + i.n, 0), itens, texto: itens.map(i => `${i.n} ${i.rotulo}`).join(" · ") };
+};

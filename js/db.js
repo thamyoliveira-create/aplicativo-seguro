@@ -200,7 +200,7 @@ const DB = {
     return true;
   },
 
-  async getSubmissoes(atividadeId = null) {
+  async getSubmissoes(atividadeId = null, incluirEmAndamento = false) {
     const F = await this.api();
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou.");
@@ -210,10 +210,67 @@ const DB = {
     filters.push(F.orderBy("submittedAt", "desc"));
 
     const result = await F.getDocs(F.query(F.collection(F.db, "submissions"), ...filters));
-    return result.docs.map((item) => this.mapSubmission(item));
+    const todas = result.docs.map((item) => this.mapSubmission(item));
+    return incluirEmAndamento ? todas : todas.filter((s) => s.status !== "in_progress");
+  },
+
+  // Cria o registro da prova assim que o aluno começa, para as infrações chegarem ao professor na hora
+  async iniciarSubmissao(submissao) {
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) throw new Error("Sua sessão de estudante expirou.");
+    let activeStudent = {};
+    try { activeStudent = JSON.parse(sessionStorage.getItem("aluno_ativo") || "{}"); } catch (_) {}
+    if (!activeStudent.teacherId) throw new Error("A identificação da atividade expirou.");
+
+    const chave = `submissao_doc_${submissao.atividadeId}`;
+    let docId = null;
+    try { docId = sessionStorage.getItem(chave); } catch (_) {}
+    if (docId) return docId;
+
+    const ref = F.doc(F.collection(F.db, "submissions"));
+    await F.setDoc(ref, {
+      activityId: submissao.atividadeId,
+      teacherId: activeStudent.teacherId,
+      studentId: student.id,
+      studentEmail: student.email,
+      studentName: String(submissao.alunoNome || "").slice(0, 120),
+      answersJson: "{}",
+      infractionsJson: JSON.stringify(submissao.infracoes || {}),
+      status: "in_progress",
+      contentJson: JSON.stringify({ ...submissao, id: ref.id, status: "em_andamento" }),
+      startedAt: F.serverTimestamp(),
+      submittedAt: F.serverTimestamp(),
+      updatedAt: F.serverTimestamp()
+    });
+    try { sessionStorage.setItem(chave, ref.id); } catch (_) {}
+    return ref.id;
+  },
+
+  async atualizarInfracoes(docId, infracoes) {
+    const F = await this.api();
+    await F.updateDoc(F.doc(F.db, "submissions", docId), {
+      infractionsJson: JSON.stringify(infracoes || {}).slice(0, 119000),
+      updatedAt: F.serverTimestamp()
+    });
   },
 
   async salvarSubmissao(submissao) {
+    if (submissao.docId) {
+      const F = await this.api();
+      const ref = F.doc(F.db, "submissions", submissao.docId);
+      await F.updateDoc(ref, {
+        answersJson: JSON.stringify(submissao.respostas || {}),
+        infractionsJson: JSON.stringify(submissao.infracoes || {}),
+        status: "submitted",
+        contentJson: JSON.stringify({ ...submissao, id: submissao.docId }),
+        submittedAt: F.serverTimestamp(),
+        updatedAt: F.serverTimestamp()
+      });
+      try { sessionStorage.removeItem(`submissao_doc_${submissao.atividadeId}`); } catch (_) {}
+      return this.mapSubmission(await F.getDoc(ref));
+    }
+
     const F = await this.api();
     const student = StudentAuth.user || await StudentAuth.session();
     if (!student) throw new Error("Sua sessão de estudante expirou.");
@@ -339,6 +396,19 @@ const DB = {
       studentName: payload.studentName,
       studentRA: payload.studentRA
     });
+  },
+
+  async getSimuladosEmAndamento() {
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+    const result = await F.getDocs(F.query(
+      F.collection(F.db, "simuladoProgress"),
+      F.where("mode", "==", "prova"),
+      F.where("status", "==", "draft")
+    ));
+    return result.docs.map((item) => this.mapSimuladoProgress(item))
+      .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
   },
 
   async getResultadosSimulados() {
