@@ -13,8 +13,13 @@ const App = {
     if (hash === "docente" || hash === "professor/login") hash = "professor";
     const parts = hash.split("/");
 
-    if (!hash.startsWith("aluno/prova") && window.securityEngine) {
+    if (!hash.startsWith("aluno/prova") && !hash.startsWith("simulados/prova") && window.securityEngine) {
       window.securityEngine.destroy();
+    }
+
+    if (hash === "provao") {
+      window.location.hash = "#simulados";
+      return;
     }
 
     if (!hash) {
@@ -23,6 +28,8 @@ const App = {
       await HomeView.render();
     } else if (hash === "acesso") {
       await HomeView.renderAccess();
+    } else if (parts[0] === "simulados") {
+      await SimuladosView.render({ parts });
     } else if (parts[0] === "aluno") {
       if (parts[1] === "prova" && parts[2]) {
         const student = await StudentAuth.session();

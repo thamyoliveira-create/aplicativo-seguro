@@ -35,6 +35,10 @@ const ProfessorDashboardView = {
             </div>
 
             <div class="flex items-center gap-3">
+              <a href="#simulados" class="teacher-secondary-action px-3.5 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-200 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-emerald-500/30 transition-all">
+                <i data-lucide="book-open-check" class="w-3.5 h-3.5 text-emerald-300"></i>
+                <span class="hidden sm:inline">Provão 2026</span>
+              </a>
               <a href="#professor/configuracoes" class="teacher-secondary-action px-3.5 py-2 rounded-xl bg-dark-900 hover:bg-dark-850 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-slate-700 transition-all">
                 <i data-lucide="settings" class="w-3.5 h-3.5 text-slate-400"></i>
                 <span class="hidden sm:inline">Configurações & IA</span>
@@ -98,6 +102,25 @@ const ProfessorDashboardView = {
               </div>
             </div>
           </div>
+
+          <!-- Banco Oficial de Simulados -->
+          <a href="#simulados" class="block teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 relative overflow-hidden border border-emerald-500/20 hover:border-emerald-400/50 transition-all feature-card">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="book-open-check" class="w-7 h-7"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.22em] font-black text-emerald-300">Banco Oficial</p>
+                  <h2 class="text-xl font-black text-white mt-1">Simulados Provão Paulista 2026</h2>
+                  <p class="text-sm text-slate-400 mt-2 max-w-3xl">Importe cadernos completos da 1ª e 2ª série ou selecione questões por disciplina, descritor, conteúdo do edital e taxa de acerto histórica.</p>
+                </div>
+              </div>
+              <span class="px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold inline-flex items-center gap-2">
+                Abrir simulados <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </a>
 
           <!-- Caixa de Upload Direto para Criar Atividade -->
           <div class="teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 space-y-4 relative overflow-hidden">

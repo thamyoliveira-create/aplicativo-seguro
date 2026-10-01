@@ -35,33 +35,33 @@ const ConfirmDialog = {
     const icons = { info: "ℹ️", warning: "⚠️", error: "❌", success: "✓" };
 
     const html = `
-      <div id="${modalId}" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl max-w-md p-6">
+      <div id="${modalId}" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl max-w-md w-full p-6 text-slate-100">
           <div class="flex items-start">
             <div class="flex-shrink-0 text-3xl mr-3">
               ${icons[type] || icons.info}
             </div>
             <div class="flex-1">
-              <h2 class="text-lg font-bold text-slate-900">${title}</h2>
-              <p class="mt-2 text-slate-700">${message}</p>
+              <h2 class="text-lg font-bold text-white">${title}</h2>
+              <p class="mt-2 text-slate-300 text-sm leading-relaxed">${message}</p>
             </div>
           </div>
-          
-          <div class="flex justify-end gap-2 mt-6">
-            <button 
-              class="px-4 py-2 rounded-lg font-semibold bg-slate-200 text-slate-900 hover:bg-slate-300"
+
+          <div class="flex justify-end gap-2.5 mt-6">
+            <button
+              class="px-4 py-2 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700 text-sm transition-all"
               onclick="
                 document.getElementById('${modalId}').remove();
-                ${onCancel.toString().includes("=>") ? onCancel.toString() : "(" + onCancel.toString() + ")()"} 
+                ${onCancel.toString().includes("=>") ? onCancel.toString() : "(" + onCancel.toString() + ")()"}
               "
             >
               ${cancelText}
             </button>
-            <button 
-              class="px-4 py-2 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700"
+            <button
+              class="px-4 py-2 rounded-xl font-semibold bg-brand-600 text-white hover:bg-brand-500 text-sm transition-all shadow-glow-blue"
               onclick="
                 document.getElementById('${modalId}').remove();
-                ${onConfirm.toString().includes("=>") ? onConfirm.toString() : "(" + onConfirm.toString() + ")()"} 
+                ${onConfirm.toString().includes("=>") ? onConfirm.toString() : "(" + onConfirm.toString() + ")()"}
               "
             >
               ${confirmText}
@@ -92,34 +92,34 @@ const FormBuilder = {
     } = options;
 
     return `
-      <form class="space-y-4" onsubmit="event.preventDefault(); FormBuilder.handleSubmit(event, ${JSON.stringify(validationRules)})">
-        <h2 class="text-2xl font-bold text-slate-900">${title}</h2>
-        
+      <form class="space-y-4 text-slate-100" onsubmit="event.preventDefault(); FormBuilder.handleSubmit(event, ${JSON.stringify(validationRules)})">
+        <h2 class="text-2xl font-bold text-white">${title}</h2>
+
         ${fields.map((field, idx) => {
           const errors = validationRules[field.name] || [];
-          
+
           if (field.type === "text" || field.type === "email" || field.type === "password") {
             return `
               <div class="mb-4">
-                <label class="block text-sm font-medium text-slate-700 mb-2">${field.label}</label>
+                <label class="block text-sm font-medium text-slate-300 mb-2">${field.label}</label>
                 <input
                   type="${field.type}"
                   name="${field.name}"
                   placeholder="${field.placeholder || ""}"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 placeholder:text-slate-600 transition-all"
                   ${field.required ? "required" : ""}
                   ${field.maxLength ? `maxlength="${field.maxLength}"` : ""}
                 />
-                ${field.hint ? `<p class="text-sm text-slate-500 mt-1">${field.hint}</p>` : ""}
+                ${field.hint ? `<p class="text-xs text-slate-400 mt-1">${field.hint}</p>` : ""}
               </div>
             `;
           } else if (field.type === "select") {
             return `
               <div class="mb-4">
-                <label class="block text-sm font-medium text-slate-700 mb-2">${field.label}</label>
-                <select 
+                <label class="block text-sm font-medium text-slate-300 mb-2">${field.label}</label>
+                <select
                   name="${field.name}"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all"
                   ${field.required ? "required" : ""}
                 >
                   <option value="">Selecione...</option>
@@ -130,24 +130,24 @@ const FormBuilder = {
           } else if (field.type === "textarea") {
             return `
               <div class="mb-4">
-                <label class="block text-sm font-medium text-slate-700 mb-2">${field.label}</label>
+                <label class="block text-sm font-medium text-slate-300 mb-2">${field.label}</label>
                 <textarea
                   name="${field.name}"
                   placeholder="${field.placeholder || ""}"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 resize-none placeholder:text-slate-600 transition-all"
                   rows="4"
                   ${field.required ? "required" : ""}
                 ></textarea>
               </div>
             `;
           }
-          
+
           return "";
         }).join("")}
-        
-        <button 
+
+        <button
           type="submit"
-          class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+          class="w-full px-4 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-bold shadow-glow-blue transition-all"
         >
           ${submitText}
         </button>

@@ -1,6 +1,6 @@
 /**
  * Biblioteca de Componentes Reutilizáveis - Atividade Segura
- * Componentes UI comuns para evitar duplicação de código
+ * Componentes UI comuns com suporte completo e contrastado a Dark Mode
  */
 
 const Components = {
@@ -19,27 +19,27 @@ const Components = {
     loading = false,
     type = "button"
   } = {}) {
-    const baseClasses = "font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
-    
+    const baseClasses = "font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950 inline-flex items-center justify-center";
+
     const variants = {
-      primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-      secondary: "bg-slate-200 text-slate-900 hover:bg-slate-300 focus:ring-slate-400",
-      danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
-      success: "bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500",
-      ghost: "text-blue-600 hover:bg-blue-50 focus:ring-blue-500"
+      primary: "bg-brand-600 text-white hover:bg-brand-500 focus:ring-brand-500 shadow-glow-blue",
+      secondary: "bg-slate-800 text-slate-200 hover:bg-slate-700 hover:text-white border border-slate-700 focus:ring-slate-500",
+      danger: "bg-rose-600 text-white hover:bg-rose-500 focus:ring-rose-500 shadow-lg shadow-rose-950/50",
+      success: "bg-emerald-600 text-white hover:bg-emerald-500 focus:ring-emerald-500 shadow-glow-emerald",
+      ghost: "text-brand-400 hover:bg-slate-800 hover:text-brand-300 focus:ring-brand-500"
     };
 
     const sizes = {
-      sm: "px-3 py-1.5 text-sm",
-      md: "px-4 py-2 text-base",
-      lg: "px-6 py-3 text-lg"
+      sm: "px-3 py-1.5 text-xs",
+      md: "px-4 py-2.5 text-sm",
+      lg: "px-6 py-3 text-base"
     };
 
-    const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : "";
+    const disabledClass = disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "";
     const loadingClass = loading ? "opacity-75 pointer-events-none" : "";
 
     return `
-      <button 
+      <button
         type="${type}"
         class="${baseClasses} ${variants[variant]} ${sizes[size]} ${disabledClass} ${loadingClass} ${className}"
         ${disabled ? "disabled" : ""}
@@ -70,11 +70,11 @@ const Components = {
     hint = null,
     className = ""
   } = {}) {
-    const baseClasses = "w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors";
-    const errorClass = error ? "border-red-500 focus:ring-red-500" : "border-slate-300";
-    
+    const baseClasses = "w-full px-4 py-2.5 bg-slate-900 border text-slate-100 placeholder:text-slate-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all font-sans text-sm";
+    const errorClass = error ? "border-rose-500 focus:ring-rose-500/20" : "border-slate-700";
+
     return `
-      ${label ? `<label class="block text-sm font-medium text-slate-700 mb-2">${label}</label>` : ""}
+      ${label ? `<label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">${label}</label>` : ""}
       <input
         type="${type}"
         name="${name}"
@@ -86,8 +86,8 @@ const Components = {
         ${maxLength ? `maxlength="${maxLength}"` : ""}
         ${pattern ? `pattern="${pattern}"` : ""}
       />
-      ${error ? `<p class="text-sm text-red-600 mt-1">${error}</p>` : ""}
-      ${hint ? `<p class="text-sm text-slate-500 mt-1">${hint}</p>` : ""}
+      ${error ? `<p class="text-xs text-rose-400 mt-1.5 font-medium">${error}</p>` : ""}
+      ${hint ? `<p class="text-xs text-slate-400 mt-1.5">${hint}</p>` : ""}
     `;
   },
 
@@ -101,21 +101,21 @@ const Components = {
     error = null,
     className = ""
   } = {}) {
-    const baseClasses = "w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500";
-    const errorClass = error ? "border-red-500" : "";
-    
+    const baseClasses = "w-full px-4 py-2.5 bg-slate-900 border border-slate-700 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all font-sans text-sm";
+    const errorClass = error ? "border-rose-500" : "";
+
     return `
-      ${label ? `<label class="block text-sm font-medium text-slate-700 mb-2">${label}</label>` : ""}
-      <select 
+      ${label ? `<label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">${label}</label>` : ""}
+      <select
         name="${name}"
         class="${baseClasses} ${errorClass} ${className}"
         ${required ? "required" : ""}
         ${disabled ? "disabled" : ""}
       >
-        <option value="">Selecione uma opção</option>
-        ${options.map(opt => `<option value="${opt.value}" ${opt.value === value ? "selected" : ""}>${opt.label}</option>`).join("")}
+        <option value="" class="bg-slate-900 text-slate-400">Selecione uma opção</option>
+        ${options.map(opt => `<option value="${opt.value}" class="bg-slate-900 text-slate-100" ${opt.value === value ? "selected" : ""}>${opt.label}</option>`).join("")}
       </select>
-      ${error ? `<p class="text-sm text-red-600 mt-1">${error}</p>` : ""}
+      ${error ? `<p class="text-xs text-rose-400 mt-1.5 font-medium">${error}</p>` : ""}
     `;
   },
 
@@ -132,10 +132,10 @@ const Components = {
     className = ""
   } = {}) {
     const variants = {
-      info: "bg-blue-50 border-blue-200 text-blue-800",
-      success: "bg-emerald-50 border-emerald-200 text-emerald-800",
-      warning: "bg-amber-50 border-amber-200 text-amber-800",
-      error: "bg-red-50 border-red-200 text-red-800"
+      info: "bg-blue-950/60 border-blue-500/50 text-blue-200",
+      success: "bg-emerald-950/60 border-emerald-500/50 text-emerald-200",
+      warning: "bg-amber-950/60 border-amber-500/50 text-amber-200",
+      error: "bg-rose-950/60 border-rose-500/50 text-rose-200"
     };
 
     const icons = {
@@ -146,19 +146,19 @@ const Components = {
     };
 
     return `
-      <div class="border-l-4 ${variants[type]} p-4 rounded-md ${className}" role="alert">
+      <div class="border-l-4 ${variants[type]} p-4 rounded-xl border-y border-r border-slate-800 ${className}" role="alert">
         <div class="flex">
           <div class="flex-shrink-0 text-xl mr-3">
             ${icon || icons[type]}
           </div>
           <div class="flex-1">
-            ${title ? `<h3 class="font-semibold mb-1">${title}</h3>` : ""}
-            <p>${message}</p>
+            ${title ? `<h3 class="font-bold text-sm mb-1">${title}</h3>` : ""}
+            <p class="text-xs leading-relaxed opacity-90">${message}</p>
           </div>
           ${dismissible ? `
-            <button 
-              type="button" 
-              class="ml-4 text-lg opacity-70 hover:opacity-100"
+            <button
+              type="button"
+              class="ml-4 text-base opacity-60 hover:opacity-100 transition-opacity"
               onclick="this.parentElement.parentElement.remove()"
             >
               ✕
@@ -183,24 +183,25 @@ const Components = {
     };
 
     const variants = {
-      info: "bg-blue-600",
-      success: "bg-emerald-600",
-      warning: "bg-amber-600",
-      error: "bg-red-600"
+      info: "bg-brand-600 shadow-glow-blue",
+      success: "bg-emerald-600 shadow-glow-emerald",
+      warning: "bg-amber-600 shadow-lg shadow-amber-950/50",
+      error: "bg-rose-600 shadow-lg shadow-rose-950/50"
     };
 
     const toastId = `toast-${Date.now()}`;
-    
+
     return `
-      <div 
+      <div
         id="${toastId}"
-        class="fixed ${positions[position]} ${variants[type]} text-white px-4 py-3 rounded-lg shadow-lg animate-fade-in z-50"
+        class="fixed ${positions[position]} ${variants[type]} text-white px-4 py-3 rounded-xl shadow-2xl border border-white/10 animate-fade-in z-50 text-sm font-semibold"
       >
         ${message}
       </div>
       <script>
         setTimeout(() => {
-          document.getElementById("${toastId}").remove();
+          const el = document.getElementById("${toastId}");
+          if (el) el.remove();
         }, ${duration});
       </script>
     `;
@@ -226,30 +227,32 @@ const Components = {
     };
 
     return `
-      <div id="${id}" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl ${sizes[size]} p-6 max-h-96 overflow-y-auto">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold text-slate-900">${title}</h2>
+      <div id="${id}" class="fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl ${sizes[size]} w-full p-6 max-h-[90vh] overflow-y-auto text-slate-100">
+          <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
+            <h2 class="text-lg font-bold text-white">${title}</h2>
             ${closable ? `
-              <button 
-                class="text-slate-400 hover:text-slate-600 text-2xl leading-none"
+              <button
+                class="text-slate-400 hover:text-white text-xl leading-none transition-colors p-1"
                 onclick="document.getElementById('${id}').classList.add('hidden')"
               >
                 ✕
               </button>
             ` : ""}
           </div>
-          
-          <div class="mb-6 text-slate-700">
+
+          <div class="mb-6 text-slate-300 text-sm leading-relaxed">
             ${content}
           </div>
-          
-          <div class="flex justify-end gap-2">
+
+          <div class="flex justify-end gap-2.5 pt-3 border-t border-slate-800">
             ${buttons.map(btn => `
-              <button 
+              <button
                 type="button"
-                class="px-4 py-2 rounded-lg font-semibold transition-colors
-                  ${btn.variant === "danger" ? "bg-red-600 text-white hover:bg-red-700" : "bg-blue-600 text-white hover:bg-blue-700"}
+                class="px-4 py-2 rounded-xl text-sm font-bold transition-all
+                  ${btn.variant === "danger"
+                    ? "bg-rose-600 text-white hover:bg-rose-500 shadow-lg shadow-rose-950/40"
+                    : "bg-brand-600 text-white hover:bg-brand-500 shadow-glow-blue"}
                 "
                 onclick="${btn.onClick}"
               >
@@ -274,18 +277,18 @@ const Components = {
     padding = "md"
   } = {}) {
     const paddings = {
-      sm: "p-3",
-      md: "p-4",
-      lg: "p-6"
+      sm: "p-3.5",
+      md: "p-5",
+      lg: "p-7"
     };
 
     return `
-      <div class="bg-white rounded-lg border border-slate-200 shadow-sm ${paddings[padding]} ${className}">
-        ${title ? `<h3 class="text-lg font-semibold text-slate-900 mb-3">${title}</h3>` : ""}
-        <div class="text-slate-700">
+      <div class="glass-card rounded-2xl border border-slate-700/80 ${paddings[padding]} ${className}">
+        ${title ? `<h3 class="text-base font-bold text-white mb-3">${title}</h3>` : ""}
+        <div class="text-slate-300 text-sm leading-relaxed">
           ${content}
         </div>
-        ${footer ? `<div class="mt-4 pt-4 border-t border-slate-200">${footer}</div>` : ""}
+        ${footer ? `<div class="mt-4 pt-4 border-t border-slate-800">${footer}</div>` : ""}
       </div>
     `;
   },
@@ -297,7 +300,7 @@ const Components = {
     className = ""
   } = {}) {
     const skeletons = Array(count).fill(0).map(() => `
-      <div class="${height} ${width} bg-slate-200 rounded animate-pulse mb-2"></div>
+      <div class="${height} ${width} bg-slate-800/80 rounded-xl animate-pulse mb-2.5"></div>
     `).join("");
 
     return `<div class="${className}">${skeletons}</div>`;
@@ -313,20 +316,20 @@ const Components = {
     size = "md"
   } = {}) {
     const variants = {
-      blue: "bg-blue-100 text-blue-800",
-      red: "bg-red-100 text-red-800",
-      green: "bg-emerald-100 text-emerald-800",
-      yellow: "bg-amber-100 text-amber-800",
-      purple: "bg-purple-100 text-purple-800"
+      blue: "bg-blue-950 text-blue-300 border border-blue-500/40",
+      red: "bg-rose-950 text-rose-300 border border-rose-500/40",
+      green: "bg-emerald-950 text-emerald-300 border border-emerald-500/40",
+      yellow: "bg-amber-950 text-amber-300 border border-amber-500/40",
+      purple: "bg-purple-950 text-purple-300 border border-purple-500/40"
     };
 
     const sizes = {
-      sm: "px-2 py-1 text-xs",
-      md: "px-3 py-1 text-sm",
-      lg: "px-4 py-2 text-base"
+      sm: "px-2.5 py-0.5 text-[10px]",
+      md: "px-3 py-1 text-xs",
+      lg: "px-4 py-1.5 text-sm"
     };
 
-    return `<span class="${variants[variant]} ${sizes[size]} rounded-full font-semibold">${text}</span>`;
+    return `<span class="${variants[variant]} ${sizes[size]} rounded-full font-bold inline-flex items-center gap-1">${text}</span>`;
   },
 
   // ============================================================
@@ -344,7 +347,7 @@ const Components = {
     };
 
     const colors = {
-      blue: "text-blue-600",
+      blue: "text-brand-500",
       slate: "text-slate-400",
       white: "text-white"
     };
@@ -367,59 +370,28 @@ const Components = {
     striped = true,
     hoverable = true
   } = {}) {
-    const stripedClass = striped ? "odd:bg-slate-50" : "";
-    const hoverClass = hoverable ? "hover:bg-slate-100" : "";
+    const stripedClass = striped ? "odd:bg-slate-900/40 even:bg-slate-900/80" : "";
+    const hoverClass = hoverable ? "hover:bg-slate-800/60" : "";
 
     return `
-      <div class="overflow-x-auto">
-        <table class="w-full text-left">
-          <thead class="bg-slate-100 border-b border-slate-300">
+      <div class="overflow-x-auto rounded-2xl border border-slate-800">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-slate-900 border-b border-slate-800">
             <tr>
-              ${headers.map(h => `<th class="px-4 py-2 font-semibold text-slate-900">${h}</th>`).join("")}
+              ${headers.map(h => `<th class="px-4 py-3 font-bold text-xs uppercase tracking-wider text-slate-300">${h}</th>`).join("")}
             </tr>
           </thead>
-          <tbody>
-            ${rows.map((row, idx) => `
-              <tr class="border-b border-slate-200 ${stripedClass} ${hoverClass}">
-                ${row.map(cell => `<td class="px-4 py-3">${cell}</td>`).join("")}
+          <tbody class="divide-y divide-slate-800/60 text-xs md:text-sm text-slate-300">
+            ${rows.map(row => `
+              <tr class="${stripedClass} ${hoverClass} transition-colors">
+                ${row.map(cell => `<td class="px-4 py-3.5">${cell}</td>`).join("")}
               </tr>
             `).join("")}
           </tbody>
         </table>
       </div>
     `;
-  },
-
-  // ============================================================
-  // UTILITÁRIOS
-  // ============================================================
-
-  /**
-   * Renderiza um componente no DOM
-   */
-  render(html, container) {
-    if (typeof container === "string") {
-      container = document.querySelector(container);
-    }
-    if (container) {
-      container.innerHTML = html;
-    }
-  },
-
-  /**
-   * Renderiza um componente e o adiciona ao final do container
-   */
-  append(html, container) {
-    if (typeof container === "string") {
-      container = document.querySelector(container);
-    }
-    if (container) {
-      container.insertAdjacentHTML("beforeend", html);
-    }
   }
 };
 
-// Exportar para uso em módulos
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = Components;
-}
+window.Components = Components;

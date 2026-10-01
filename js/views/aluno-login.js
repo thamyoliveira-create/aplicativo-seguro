@@ -26,9 +26,9 @@ const AlunoLoginView = {
                 <label for="student-account-name">Nome completo</label>
                 <div class="auth-input"><i data-lucide="user"></i><input id="student-account-name" type="text" autocomplete="name" maxlength="100" required></div>
               ` : ""}
-              <label for="student-ra-input">RA (Registro do Aluno)</label>
-              <div class="auth-input"><i data-lucide="id-card"></i><input id="student-ra-input" type="text" autocomplete="off" placeholder="Ex.: 12345678901" required></div>
-              <p class="auth-field-note">Seu e-mail será montado automaticamente: <strong id="student-email-preview">@aluno.educacao.sp.gov.br</strong></p>
+              <label for="student-email-input">E-mail institucional do aluno</label>
+              <div class="auth-input"><i data-lucide="mail"></i><input id="student-email-input" type="email" autocomplete="email" placeholder="seuemail@aluno.educacao.sp.gov.br" required></div>
+              <p class="auth-field-note">Aceitamos somente contas com final <strong>@aluno.educacao.sp.gov.br</strong>.</p>
               <label for="student-password">Senha (você cria neste primeiro acesso)</label>
               <div class="auth-input"><i data-lucide="lock-keyhole"></i><input id="student-password" type="password" autocomplete="${registering ? "new-password" : "current-password"}" minlength="8" placeholder="Mínimo de 8 caracteres" required><button class="password-toggle" type="button" aria-label="Mostrar senha"><i data-lucide="eye"></i></button></div>
               <p id="student-login-error" class="auth-error" role="alert" aria-live="polite"></p>
@@ -37,7 +37,8 @@ const AlunoLoginView = {
               ${!registering ? `<button id="student-reset" class="auth-text-button" type="button">Esqueci minha senha</button>` : ""}
             </form>
 
-            <div class="auth-divider"><span>É professora?</span></div>
+            <div class="auth-divider"><span>Também disponível</span></div>
+            <a class="auth-student-link" href="#simulados">Treinar no Simulado Provão Paulista 2026</a>
             <a class="auth-student-link" href="#professor">Acessar o painel docente</a>
           </section>
         </main>`;
@@ -48,14 +49,7 @@ const AlunoLoginView = {
       });
 
       const password = document.getElementById("student-password");
-      const raInput = document.getElementById("student-ra-input");
-      const emailPreview = document.getElementById("student-email-preview");
-
-      // Atualiza preview do email em tempo real
-      raInput.addEventListener("input", () => {
-        const ra = raInput.value.replace(/\D/g, "");
-        emailPreview.textContent = ra ? `0000${ra}sp@aluno.educacao.sp.gov.br` : "@aluno.educacao.sp.gov.br";
-      });
+      const emailInput = document.getElementById("student-email-input");
 
       document.querySelector(".password-toggle").onclick = () => {
         password.type = password.type === "password" ? "text" : "password";
@@ -66,8 +60,7 @@ const AlunoLoginView = {
         const button = event.currentTarget.querySelector(".auth-submit");
         const error = document.getElementById("student-login-error");
         const success = document.getElementById("student-login-success");
-        const ra = raInput.value.replace(/\D/g, "");
-        const email = `0000${ra}sp@aluno.educacao.sp.gov.br`;
+        const email = emailInput.value.trim().toLowerCase();
         button.disabled = true;
         button.querySelector("span").textContent = registering ? "Criando…" : "Verificando…";
         error.textContent = "";
@@ -94,8 +87,8 @@ const AlunoLoginView = {
         const error = document.getElementById("student-login-error");
         const success = document.getElementById("student-login-success");
         try {
-          const ra = raInput.value.replace(/\D/g, "");
-          const sentTo = await StudentAuth.resetPassword(`0000${ra}sp@aluno.educacao.sp.gov.br`);
+          const email = emailInput.value.trim().toLowerCase();
+          const sentTo = await StudentAuth.resetPassword(email);
           success.textContent = `Enviamos as instruções de recuperação para ${sentTo}.`;
           error.textContent = "";
         } catch (err) { error.textContent = err.message; success.textContent = ""; }
@@ -125,6 +118,7 @@ const AlunoLoginView = {
             <label for="student-ra">RA</label>
             <div class="auth-input"><i data-lucide="id-card"></i><input id="student-ra" type="text" autocomplete="off" placeholder="000.000.000-0/SP" required></div>
             <div class="exam-notice"><i data-lucide="shield-alert"></i><p><b>Durante a atividade</b>Saídas da tela e perda de foco podem ser registradas. Copiar, selecionar e imprimir são dificultados pelo navegador.</p></div>
+            <a href="#simulados" class="auth-student-link">Ou treinar agora no Simulado Provão Paulista 2026</a>
             <label class="consent-row"><input id="student-consent" type="checkbox" required><span>Li as orientações e estou pronto(a) para iniciar.</span></label>
             <p id="activity-login-error" class="auth-error" role="alert" aria-live="polite"></p>
             <button class="auth-submit student-submit" type="submit"><span>Entrar na atividade</span><i data-lucide="shield-check"></i></button>
@@ -146,6 +140,11 @@ const AlunoLoginView = {
       error.textContent = "";
 
       try {
+        if (codigo.toUpperCase() === "PROVAO") {
+          window.location.hash = "#simulados";
+          return;
+        }
+
         const atividade = await DB.getAtividadePorCodigo(codigo);
         if (!atividade) throw new Error("Código não encontrado ou atividade ainda não publicada.");
         sessionStorage.setItem("aluno_ativo", JSON.stringify({

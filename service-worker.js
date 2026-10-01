@@ -3,7 +3,7 @@
  * Implementa cache inteligente e suporte offline
  */
 
-const CACHE_VERSION = "v1.0.0";
+const CACHE_VERSION = "v2.7.0";
 const CACHE_NAMES = {
   STATIC: `atividade-segura-static-${CACHE_VERSION}`,
   DYNAMIC: `atividade-segura-dynamic-${CACHE_VERSION}`,
@@ -23,6 +23,10 @@ const STATIC_ASSETS = [
   "/js/security-utils.js",
   "/js/components.js",
   "/js/config.js",
+  "/js/data/simulados-provao-2026.js",
+  "/js/views/simulados.js",
+  "/js/views/aluno-login.js",
+  "/js/views/professor-dashboard.js",
   "/manifest.json",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png"

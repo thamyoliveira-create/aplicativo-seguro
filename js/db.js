@@ -260,6 +260,86 @@ const DB = {
     return this.mapSubmission(await F.getDoc(ref));
   },
 
+  simuladoProgressId(studentId, simuladoId, mode) {
+    return `${studentId}_${String(simuladoId || "treino").replace(/[^a-z0-9_-]/gi, "_")}_${mode}`;
+  },
+
+  async salvarProgressoSimulado({ simuladoId = "treino", mode = "prova", answers = {}, stats = {}, result = null, status = "draft" } = {}) {
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) throw new Error("Entre como aluno para salvar este progresso na nuvem.");
+
+    const normalizedMode = mode === "treino" ? "treino" : "prova";
+    const normalizedSimulado = normalizedMode === "treino" ? "treino" : String(simuladoId || "").slice(0, 40);
+    const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
+    const current = await F.getDoc(ref);
+    const startedAt = current.exists() ? current.data().startedAt : F.serverTimestamp();
+    const finished = status === "finished";
+
+    await F.setDoc(ref, {
+      studentId: student.id,
+      studentEmail: student.email,
+      simuladoId: normalizedSimulado,
+      mode: normalizedMode,
+      answersJson: JSON.stringify(answers || {}),
+      statsJson: JSON.stringify(stats || {}),
+      resultJson: JSON.stringify(result || {}),
+      status: finished ? "finished" : "draft",
+      startedAt,
+      finishedAt: finished ? F.serverTimestamp() : null,
+      updatedAt: F.serverTimestamp()
+    });
+
+    const saved = await F.getDoc(ref);
+    return saved.exists() ? { id: saved.id, ...saved.data() } : null;
+  },
+
+  async obterProgressoSimulado(simuladoId = "treino", mode = "prova") {
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) return null;
+
+    const normalizedMode = mode === "treino" ? "treino" : "prova";
+    const normalizedSimulado = normalizedMode === "treino" ? "treino" : String(simuladoId || "").slice(0, 40);
+    const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
+    const snap = await F.getDoc(ref);
+    if (!snap.exists()) return null;
+
+    const data = snap.data();
+    return {
+      id: snap.id,
+      ...data,
+      answers: this.parseJson(data.answersJson, {}),
+      stats: this.parseJson(data.statsJson, {}),
+      result: this.parseJson(data.resultJson, {}),
+      startedAt: this.toIso(data.startedAt),
+      finishedAt: this.toIso(data.finishedAt),
+      updatedAt: this.toIso(data.updatedAt)
+    };
+  },
+
+  async salvarResultadoSimulado(payload = {}) {
+    return this.salvarProgressoSimulado({
+      simuladoId: payload.simuladoId,
+      mode: "prova",
+      answers: payload.answers || payload.respostas || {},
+      stats: payload.stats || {},
+      result: payload,
+      status: "finished"
+    });
+  },
+
+  async sincronizarStatsTreino(stats = {}) {
+    return this.salvarProgressoSimulado({
+      simuladoId: "treino",
+      mode: "treino",
+      answers: {},
+      stats,
+      result: {},
+      status: "draft"
+    });
+  },
+
   salvarRascunhoAluno(atividadeId, respostas, submissaoId) {
     localStorage.setItem(`draft_aluno_${atividadeId}`, JSON.stringify({
       submissaoId,

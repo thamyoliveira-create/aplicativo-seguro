@@ -5,14 +5,14 @@ const HomeView = {
       <main class="landing-shell">
         <header class="landing-nav">
           <a class="landing-logo" href="#" aria-label="Atividade Segura — início"><span class="brand-stamp" aria-hidden="true">AS</span><b>Atividade Segura</b></a>
-          <nav aria-label="Navegação principal"><a class="nav-link" href="#como-funciona">Uma cena conhecida</a><a class="nav-cta" href="#acesso">Entrar <span aria-hidden="true">↗</span></a></nav>
+          <nav aria-label="Navegação principal"><a class="nav-link" href="#como-funciona">Uma cena conhecida</a><a class="nav-link" href="#simulados">Simulados</a><a class="nav-cta" href="#acesso">Entrar <span aria-hidden="true">↗</span></a></nav>
         </header>
         <section class="landing-hero" aria-labelledby="landing-title">
           <div class="hero-copy">
             <p class="eyebrow"><span></span>UMA PERGUNTA MEIO INCONVENIENTE</p>
             <h1 id="landing-title">Se a resposta cabe num <em>Ctrl+C,</em><br>a prova mediu o quê?</h1>
             <p class="hero-lead">Você prepara um texto bom, pensa no contexto, confere o gabarito. Na manhã seguinte, metade da turma descobre que copiar é bem mais rápido que interpretar. Não é exatamente o plano de aula.</p>
-            <div class="hero-actions"><a class="hero-primary" href="#acesso">Tenho um arquivo e pouco tempo <span aria-hidden="true">→</span></a><a class="hero-secondary" href="#como-funciona">Continue, isso parece familiar</a></div>
+            <div class="hero-actions"><a class="hero-primary" href="#acesso">Tenho um arquivo e pouco tempo <span aria-hidden="true">→</span></a><a class="hero-secondary" href="#simulados">Simulados Provão 2026</a><a class="hero-secondary" href="#como-funciona">Continue, isso parece familiar</a></div>
             <p class="hero-domain"><span class="ink-dot" aria-hidden="true"></span> Para contas institucionais da Educação SP</p>
           </div>
           <div class="hero-visual" aria-label="Exemplo de questão contextualizada">
@@ -59,6 +59,7 @@ const HomeView = {
           <div class="access-choice-grid">
             <a class="access-choice-card student" href="#aluno"><span class="access-choice-icon" aria-hidden="true">01</span><small>ESTUDANTE</small><h2>Sou aluno</h2><p>Tenho um código e quero acessar minha atividade.</p><strong>Entrar como aluno <span aria-hidden="true">→</span></strong></a>
             <a class="access-choice-card teacher" href="#professor"><span class="access-choice-icon" aria-hidden="true">02</span><small>DOCENTE</small><h2>Sou professora</h2><p>Quero criar, revisar ou acompanhar uma atividade.</p><strong>Abrir painel docente <span aria-hidden="true">→</span></strong></a>
+            <a class="access-choice-card" href="#simulados"><span class="access-choice-icon" aria-hidden="true">03</span><small>SIMULADOS</small><h2>Provão Paulista 2026</h2><p>Treine por série, disciplina, descritor ou caderno completo.</p><strong>Abrir simulados <span aria-hidden="true">→</span></strong></a>
           </div>
           <p class="access-choice-note"><span class="ink-dot" aria-hidden="true"></span> Cada perfil entra somente com seu domínio institucional.</p>
         </section>

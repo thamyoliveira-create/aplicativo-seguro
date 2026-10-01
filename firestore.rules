@@ -44,11 +44,12 @@ service cloud.firestore {
 
     function validProfile(data) {
       return data.keys().hasAll(['email', 'displayName', 'role', 'createdAt', 'updatedAt']) &&
-        data.keys().hasOnly(['email', 'displayName', 'role', 'createdAt', 'updatedAt']) &&
+        data.keys().hasOnly(['email', 'displayName', 'role', 'studentRA', 'createdAt', 'updatedAt']) &&
         data.email is string && data.email.size() <= 254 &&
         data.email == request.auth.token.email &&
         validShortString(data.displayName, 1, 100) &&
         data.role in ['teacher', 'student'] &&
+        (!('studentRA' in data) || data.studentRA == null || (data.studentRA is string && data.studentRA.size() <= 30)) &&
         ((data.role == 'teacher' && isTeacher()) || (data.role == 'student' && isStudent())) &&
         data.createdAt is timestamp && data.updatedAt is timestamp;
     }
@@ -129,6 +130,28 @@ service cloud.firestore {
         data.status in ['submitted', 'graded'] &&
         (!('score' in data) || (data.score is number && data.score >= 0 && data.score <= 100)) &&
         data.startedAt is timestamp && data.submittedAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    function validSimuladoProgress(data) {
+      return data.keys().hasAll([
+          'studentId', 'studentEmail', 'simuladoId', 'mode', 'answersJson',
+          'statsJson', 'resultJson', 'status', 'startedAt', 'finishedAt', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'studentId', 'studentEmail', 'simuladoId', 'mode', 'answersJson',
+          'statsJson', 'resultJson', 'status', 'startedAt', 'finishedAt', 'updatedAt'
+        ]) &&
+        data.studentId is string && data.studentId == request.auth.uid &&
+        data.studentEmail is string && data.studentEmail == request.auth.token.email && data.studentEmail.size() <= 254 &&
+        data.simuladoId in ['1serie_dia1', '1serie_dia2', '2serie_dia1', '2serie_dia2', 'treino'] &&
+        data.mode in ['prova', 'treino'] &&
+        data.answersJson is string && data.answersJson.size() <= 200000 &&
+        data.statsJson is string && data.statsJson.size() <= 200000 &&
+        data.resultJson is string && data.resultJson.size() <= 200000 &&
+        data.status in ['draft', 'finished'] &&
+        data.startedAt is timestamp &&
+        (data.finishedAt == null || data.finishedAt is timestamp) &&
+        data.updatedAt is timestamp;
     }
 
     match /users_private/{uid} {
@@ -214,6 +237,25 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.updatedAt);
 
       allow delete: if false;
+    }
+
+    match /simuladoProgress/{progressId} {
+      allow create: if isStudent() && validSimuladoProgress(request.resource.data) &&
+        recentTimestamp(request.resource.data.startedAt) &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow read: if isStudent() && resource.data.studentId == request.auth.uid;
+
+      allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
+        validSimuladoProgress(request.resource.data) &&
+        request.resource.data.studentId == resource.data.studentId &&
+        request.resource.data.studentEmail == resource.data.studentEmail &&
+        request.resource.data.simuladoId == resource.data.simuladoId &&
+        request.resource.data.mode == resource.data.mode &&
+        request.resource.data.startedAt == resource.data.startedAt &&
+        recentTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if isStudent() && resource.data.studentId == request.auth.uid;
     }
 
     match /{document=**} {

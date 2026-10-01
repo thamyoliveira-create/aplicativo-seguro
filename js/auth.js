@@ -21,27 +21,25 @@ const PortalAuth = {
   },
 
   /**
-   * Extrai o RA do email do aluno
-   * Formato: 0000+ra+dig+sp@aluno.educacao.sp.gov.br
-   * Retorna: "ra.dig" (ex: "123456.7")
+   * Tenta extrair o RA do e-mail institucional do aluno quando ele segue
+   * algum padrão reconhecível. A SEDUC pode variar o formato do login, então
+   * esta informação é auxiliar: o domínio institucional é a validação principal.
    */
   extractRAFromEmail(email) {
     const normalized = this.normalizeEmail(email);
     if (!normalized.endsWith(this.domains.student)) return null;
-    
+
     const localPart = normalized.split("@")[0];
-    const parts = localPart.split("+");
-    
-    // Esperado: ["0000", "ra", "dig", "sp"]
-    if (parts.length !== 4 || parts[0] !== "0000") return null;
-    
-    const ra = parts[1];
-    const dig = parts[2];
-    
-    // Validar se ra e dig são números
-    if (!/^\d+$/.test(ra) || !/^\d$/.test(dig)) return null;
-    
-    return `${ra}.${dig}`;
+    const plusParts = localPart.split("+");
+
+    if (plusParts.length === 4 && plusParts[0] === "0000" && /^\d+$/.test(plusParts[1]) && /^\d$/.test(plusParts[2])) {
+      return `${plusParts[1]}.${plusParts[2]}`;
+    }
+
+    const compact = localPart.match(/^0000(\d{5,12})(\d)sp$/i);
+    if (compact) return `${compact[1]}.${compact[2]}`;
+
+    return null;
   },
 
   validateEmail(email, role) {
@@ -51,14 +49,6 @@ const PortalAuth = {
     if (!normalized.endsWith(domain) || normalized === domain) {
       const label = role === "teacher" ? "professor" : "aluno";
       throw new Error(`Use seu e-mail institucional @${label}.educacao.sp.gov.br.`);
-    }
-
-    // Validação específica para alunos: verificar formato do RA
-    if (role === "student") {
-      const raFormatted = this.extractRAFromEmail(normalized);
-      if (!raFormatted) {
-        throw new Error(`E-mail de aluno deve estar no formato: 0000+XXXXXX+D+SP@aluno.educacao.sp.gov.br (onde XXXXXX é o RA e D é o dígito verificador).`);
-      }
     }
 
     return normalized;
