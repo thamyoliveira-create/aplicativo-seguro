@@ -42,7 +42,7 @@ const PWAHelper = {
     });
 
     // 4. Sincronização em background
-    if ("sync" in registration) {
+    if (this.registration && "sync" in this.registration) {
       this.setupBackgroundSync();
     }
 

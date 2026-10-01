@@ -22,10 +22,10 @@ const SimuladosView = {
     if (!window.SimuladosData) {
       document.getElementById("app-root").innerHTML = `
         <main class="min-h-screen hero-mesh flex items-center justify-center p-6">
-          <section class="glass-card rounded-3xl p-8 max-w-xl text-center">
+          <section class="glass-card rounded-3xl p-8 max-w-xl text-center border border-slate-700">
             <h1 class="text-2xl font-black text-white">Dados dos simulados não carregados</h1>
             <p class="text-slate-300 mt-3">Recarregue a página para tentar novamente.</p>
-            <a href="#" class="inline-flex mt-6 px-5 py-3 rounded-2xl bg-brand-600 text-white font-bold">Voltar ao início</a>
+            <a href="#" class="inline-flex mt-6 px-5 py-3 rounded-2xl bg-brand-600 text-white font-bold shadow-glow-blue">Voltar ao início</a>
           </section>
         </main>`;
       return;
@@ -33,7 +33,12 @@ const SimuladosView = {
 
     const parts = window.location.hash.replace(/^#\/?/, "").split("/");
     if (parts[1] === "prova" && parts[2]) return this.renderProva(parts[2]);
-    if (parts[1] === "treino") return this.renderTreino();
+    if (parts[1] === "treino") {
+      if (parts[2] !== undefined && !isNaN(Number(parts[2]))) {
+        this.state.currentIndex = Math.max(0, Number(parts[2]));
+      }
+      return this.renderTreino();
+    }
     this.destroySecurity();
     this.renderCatalogo();
   },
@@ -111,7 +116,7 @@ const SimuladosView = {
       .map(q => q.componente))];
 
     root.innerHTML = `
-      <main class="min-h-screen hero-mesh text-slate-100 selection:bg-brand-600 selection:text-white">
+      <main class="min-h-screen hero-mesh text-slate-100 selection:bg-brand-600 selection:text-white pb-16">
         <header class="glass-nav sticky top-0 z-50 px-4 md:px-8 py-4">
           <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <a class="landing-logo" href="#"><span class="brand-stamp" aria-hidden="true">AS</span><b>Atividade Segura</b></a>
@@ -124,26 +129,29 @@ const SimuladosView = {
           </div>
         </header>
 
-        <section class="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-14">
+        <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-8 items-center">
             <div>
               <p class="eyebrow"><span></span>PROVÃO PAULISTA 2026</p>
-              <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight mt-4">Simulados oficiais<br><em class="text-brand-300 not-italic">com gabarito e análise.</em></h1>
-              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com cadernos completos da 1ª e 2ª série do Ensino Médio, organizados por disciplina, descritor, conteúdo do edital e taxa histórica de acerto.</p>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mt-4">Simulados oficiais<br><em class="text-brand-300 not-italic">questão por questão.</em></h1>
+              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com taxa histórica de acerto.</p>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
                 ${this.statCard(stats.total, "questões", "book-open-check")}
                 ${this.statCard("4", "cadernos", "files")}
                 ${this.statCard("2", "séries EM", "graduation-cap")}
-                ${this.statCard("A-E", "gabarito", "badge-check")}
+                ${this.statCard("1 por 1", "foco total", "layers")}
               </div>
             </div>
+
             <div class="glass-card rounded-[2rem] border border-white/10 p-5 md:p-6 shadow-card-hover">
               <div class="flex items-center justify-between gap-3 mb-5">
                 <div>
                   <p class="text-[11px] font-black tracking-[0.2em] text-brand-300 uppercase">Escolha um caderno</p>
-                  <h2 class="text-2xl font-black text-white mt-1">Modo simulado</h2>
+                  <h2 class="text-2xl font-black text-white mt-1">Modo Simulado Oficial</h2>
                 </div>
-                <i data-lucide="timer" class="w-8 h-8 text-brand-300"></i>
+                <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-300 border border-brand-500/30 flex items-center justify-center shadow-glow-blue">
+                  <i data-lucide="timer" class="w-6 h-6"></i>
+                </div>
               </div>
               <div class="grid gap-3">
                 ${configs.map(config => this.simuladoCard(config)).join("")}
@@ -151,38 +159,62 @@ const SimuladosView = {
             </div>
           </div>
 
-          <section class="mt-10 glass-card rounded-[2rem] border border-white/10 p-5 md:p-6">
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
+          <!-- Seção de Treino por Questão Única com Filtros -->
+          <section class="mt-12 glass-card rounded-[2rem] border border-white/10 p-5 md:p-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
               <div>
-                <p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Treino por filtro</p>
-                <h2 class="text-2xl font-black text-white mt-1">Banco de questões catalogado</h2>
-                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) encontradas.</p>
+                <p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Treino por questão única</p>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Banco de Questões Catalogado</h2>
+                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) filtradas. Clique no número ou card para resolver individualmente.</p>
               </div>
-              <a href="#simulados/treino" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold shadow-glow-emerald">
-                <i data-lucide="play-circle" class="w-4 h-4"></i> Treinar com esses filtros
-              </a>
+              <button type="button" id="btn-start-treino-first" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold shadow-glow-emerald transition-all">
+                <i data-lucide="play-circle" class="w-5 h-5"></i> Começar Treino na Q01
+              </button>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-5">
-              <label class="space-y-1"><span class="text-[11px] uppercase font-bold text-slate-400">Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm"><option value="1serie">1ª Série</option><option value="2serie">2ª Série</option></select></label>
-              <label class="space-y-1"><span class="text-[11px] uppercase font-bold text-slate-400">Dia</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm"><option value="1">Dia 1</option><option value="2">Dia 2</option></select></label>
-              <label class="space-y-1"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span><select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm"><option value="todos">Todos</option>${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}</select></label>
-              <label class="space-y-1"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span><select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm"><option value="todas">Todas</option><option>Fácil</option><option>Média</option><option>Desafio</option><option>Referência</option></select></label>
-              <label class="space-y-1"><span class="text-[11px] uppercase font-bold text-slate-400">Buscar</span><input id="sim-filter-busca" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm" placeholder="assunto, descritor..." value="${this.esc(this.state.busca)}"></label>
+            <!-- Filtros -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1serie">1ª Série EM</option><option value="2serie">2ª Série EM</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1">Dia 1</option><option value="2">Dia 2</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span><select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todos">Todos os componentes</option>${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}</select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span><select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todas">Todas as dificuldades</option><option>Fácil</option><option>Média</option><option>Desafio</option><option>Referência</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Buscar</span><input id="sim-filter-busca" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none" placeholder="assunto, descritor..." value="${this.esc(this.state.busca)}"></label>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-3 max-h-[34rem] overflow-auto pr-1">
-              ${questoes.slice(0, 80).map(q => this.questionPreview(q)).join("")}
+            <!-- Seletor Rápido de Questões (Pills 1..N) -->
+            <div class="mb-6 p-4 rounded-2xl bg-dark-950/70 border border-slate-800">
+              <p class="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-2.5 flex items-center justify-between">
+                <span>Ir Direto para uma Questão:</span>
+                <span class="text-xs text-brand-300 font-mono">${questoes.length} disponíveis</span>
+              </p>
+              <div class="flex items-center gap-1.5 flex-wrap max-h-36 overflow-y-auto py-1">
+                ${questoes.map((q, idx) => `
+                  <button
+                    type="button"
+                    data-open-single-question="${idx}"
+                    class="px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-slate-900 border border-slate-700 text-slate-300 hover:bg-brand-600 hover:border-brand-400 hover:text-white transition-all shadow-sm"
+                    title="Q${String(q.numero).padStart(2, '0')}: ${this.esc(q.assunto)}"
+                  >
+                    Q${String(q.numero).padStart(2, '0')}
+                  </button>
+                `).join("")}
+              </div>
             </div>
-            ${questoes.length > 80 ? `<p class="text-xs text-slate-400 mt-4">Mostrando 80 primeiras questões. Refine os filtros para ver um conjunto menor.</p>` : ""}
+
+            <!-- Lista de Questões com Ação de Abrir Unicamente -->
+            <div class="grid lg:grid-cols-2 gap-3 max-h-[36rem] overflow-auto pr-1">
+              ${questoes.slice(0, 60).map((q, idx) => this.questionPreview(q, idx)).join("")}
+            </div>
+            ${questoes.length > 60 ? `<p class="text-xs text-slate-400 mt-4">Mostrando 60 primeiras questões. Use os filtros para refinar o conjunto.</p>` : ""}
           </section>
 
-          <section class="mt-10 grid md:grid-cols-5 gap-4">
+          <!-- Downloads e Gabarito -->
+          <section class="mt-12 grid md:grid-cols-5 gap-4">
             ${configs.map(config => this.downloadCard(config)).join("")}
-            <article class="glass-card rounded-3xl border border-amber-500/20 p-5 flex flex-col gap-4">
-              <div class="w-11 h-11 rounded-2xl bg-amber-500/15 text-amber-300 flex items-center justify-center"><i data-lucide="key-round"></i></div>
+            <article class="glass-card rounded-3xl border border-amber-500/30 p-5 flex flex-col gap-4 bg-amber-950/10">
+              <div class="w-11 h-11 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30"><i data-lucide="key-round"></i></div>
               <div><h3 class="font-black text-white">Gabarito oficial</h3><p class="text-xs text-slate-400 mt-1">PDF consolidado com as respostas dos 4 cadernos.</p></div>
-              <a href="assets/simulados/Gabarito_Simulado_Provao_2026.pdf" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-200 border border-amber-500/25 text-xs font-bold text-center">Abrir gabarito</a>
+              <a href="assets/simulados/Gabarito_Simulado_Provao_2026.pdf" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/30 text-xs font-bold text-center transition-all">Abrir gabarito</a>
             </article>
           </section>
         </section>
@@ -201,34 +233,54 @@ const SimuladosView = {
   },
 
   simuladoCard(config) {
-    return `<article class="rounded-2xl border border-slate-700 bg-dark-950/65 p-4 hover:border-brand-500/50 transition-all">
+    return `<article class="rounded-2xl border border-slate-700 bg-dark-950/75 p-4 hover:border-brand-500/60 transition-all">
       <div class="flex items-start justify-between gap-3">
         <div><h3 class="font-black text-white">${this.esc(config.serie)} · Dia ${config.dia}</h3><p class="text-xs text-slate-400 mt-1 leading-relaxed">${this.esc(config.descricao)}</p></div>
-        <span class="px-2 py-1 rounded-lg bg-brand-500/10 text-brand-200 text-[11px] font-black border border-brand-500/20">${config.totalQuestoes}Q</span>
+        <span class="px-2.5 py-1 rounded-lg bg-brand-500/15 text-brand-200 text-[11px] font-black border border-brand-500/30">${config.totalQuestoes}Q</span>
       </div>
       <div class="flex flex-wrap gap-2 mt-4">
-        <a href="#simulados/prova/${config.id}" class="px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Iniciar completo</a>
-        <a href="${config.pdfUrl}" target="_blank" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10">Abrir PDF</a>
-        <button type="button" data-import-simulado="${config.id}" class="px-3 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-500/20">Importar</button>
+        <a href="#simulados/prova/${config.id}" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold shadow-glow-blue transition-all">Iniciar Prova Passo a Passo</a>
+        <a href="${config.pdfUrl}" target="_blank" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10 transition-all">Abrir PDF</a>
+        <button type="button" data-import-simulado="${config.id}" class="px-3 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-500/25 transition-all">Importar</button>
       </div>
     </article>`;
   },
 
   downloadCard(config) {
     return `<article class="glass-card rounded-3xl border border-white/10 p-5 flex flex-col gap-4">
-      <div class="w-11 h-11 rounded-2xl bg-brand-500/15 text-brand-300 flex items-center justify-center"><i data-lucide="file-text"></i></div>
+      <div class="w-11 h-11 rounded-2xl bg-brand-500/15 text-brand-300 flex items-center justify-center border border-brand-500/25"><i data-lucide="file-text"></i></div>
       <div><h3 class="font-black text-white">${this.esc(config.serie)} · Dia ${config.dia}</h3><p class="text-xs text-slate-400 mt-1">${config.totalQuestoes} questões · ${config.componentes.length} componentes.</p></div>
-      <a href="${config.pdfUrl}" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs font-bold text-center">Abrir / baixar PDF</a>
+      <a href="${config.pdfUrl}" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs font-bold text-center transition-all">Abrir / baixar PDF</a>
     </article>`;
   },
 
-  questionPreview(q) {
+  questionPreview(q, index) {
     const taxa = q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}% acerto`;
-    return `<article class="rounded-2xl border border-slate-800 bg-dark-950/65 p-4">
-      <div class="flex items-start justify-between gap-3"><div><p class="text-[11px] font-black tracking-wider text-brand-300 uppercase">Q${String(q.numero).padStart(2, "0")} · ${this.esc(q.componente)}</p><h3 class="font-black text-white mt-1 leading-snug">${this.esc(q.assunto)}</h3></div><span class="px-2 py-1 rounded-lg border text-[11px] font-bold ${this.dificuldadeClass(q.dificuldade)}">${q.dificuldade}</span></div>
-      <p class="text-xs text-slate-400 mt-3 leading-relaxed"><b>Edital:</b> ${this.esc(q.conteudoEdital)}</p>
-      <p class="text-xs text-slate-500 mt-2"><b>Descritor:</b> ${this.esc(q.descritor)}</p>
-      <div class="flex flex-wrap items-center gap-2 mt-4 text-[11px]"><span class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300">${taxa}</span><span class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300">Gabarito ${q.respostaCorreta}</span><a href="${q.pdfUrl}" target="_blank" class="px-2 py-1 rounded-lg bg-brand-500/10 text-brand-200 border border-brand-500/20">Ver no PDF</a></div>
+    return `<article class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+      <div>
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-[11px] font-black tracking-wider text-brand-300 uppercase">Q${String(q.numero).padStart(2, "0")} · ${this.esc(q.componente)}</p>
+            <h3 class="font-black text-white mt-1 leading-snug">${this.esc(q.assunto)}</h3>
+          </div>
+          <span class="px-2 py-1 rounded-lg border text-[11px] font-bold ${this.dificuldadeClass(q.dificuldade)} flex-shrink-0">${q.dificuldade}</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-2.5 leading-relaxed"><b>Edital:</b> ${this.esc(q.conteudoEdital)}</p>
+        <p class="text-xs text-slate-500 mt-1.5"><b>Descritor:</b> ${this.esc(q.descritor)}</p>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-2 mt-4 pt-3 border-t border-slate-800/80 text-[11px]">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-1 rounded-lg bg-slate-800/90 text-slate-300 font-mono">${taxa}</span>
+          <span class="px-2 py-1 rounded-lg bg-slate-800/90 text-slate-300 font-mono">Gabarito: ${q.respostaCorreta}</span>
+        </div>
+        <button
+          type="button"
+          data-open-single-question="${index}"
+          class="px-3 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all shadow-glow-blue inline-flex items-center gap-1"
+        >
+          <span>Resolver Questão</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+        </button>
+      </div>
     </article>`;
   },
 
@@ -240,6 +292,7 @@ const SimuladosView = {
       this.state.componente = document.getElementById("sim-filter-componente").value;
       this.state.dificuldade = document.getElementById("sim-filter-dificuldade").value;
       this.state.busca = document.getElementById("sim-filter-busca").value.trim();
+      this.state.currentIndex = 0;
       this.renderCatalogo();
     };
     ["sim-filter-serie", "sim-filter-dia", "sim-filter-componente", "sim-filter-dificuldade"].forEach(id => document.getElementById(id)?.addEventListener("change", update));
@@ -248,46 +301,287 @@ const SimuladosView = {
       this.searchTimer = setTimeout(update, 250);
     });
     document.querySelectorAll("[data-import-simulado]").forEach(btn => btn.onclick = () => this.importarSimulado(btn.dataset.importSimulado));
+
+    document.getElementById("btn-start-treino-first")?.addEventListener("click", () => {
+      this.state.currentIndex = 0;
+      window.location.hash = "#simulados/treino/0";
+    });
+
+    document.querySelectorAll("[data-open-single-question]").forEach(btn => {
+      btn.onclick = () => {
+        const idx = Number(btn.dataset.openSingleQuestion || 0);
+        this.state.currentIndex = idx;
+        window.location.hash = `#simulados/treino/${idx}`;
+      };
+    });
   },
+
+  // ============================================================
+  // TREINO POR QUESTÃO ÚNICA (PASSO A PASSO COM NAVEGADOR DE PÍLULAS)
+  // ============================================================
 
   renderTreino() {
     const questoes = this.getFilteredQuestions();
-    const q = questoes[this.state.currentIndex] || questoes[0];
     const root = document.getElementById("app-root");
-    if (!q) return this.renderCatalogo();
+
+    if (!questoes || questoes.length === 0) {
+      root.innerHTML = `
+        <main class="min-h-screen hero-mesh text-slate-100 flex items-center justify-center p-6">
+          <section class="glass-card rounded-3xl p-8 max-w-md w-full text-center border border-slate-700">
+            <div class="w-14 h-14 bg-amber-950/80 text-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-500/30">
+              <i data-lucide="filter-x" class="w-7 h-7"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2">Nenhuma questão encontrada</h2>
+            <p class="text-slate-400 text-xs mb-6">Ajuste os filtros de disciplina, dia ou dificuldade no catálogo.</p>
+            <a href="#simulados" class="inline-block px-6 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition-all shadow-glow-blue">
+              Voltar ao Catálogo
+            </a>
+          </section>
+        </main>`;
+      if (window.lucide) window.lucide.createIcons();
+      return;
+    }
+
+    if (this.state.currentIndex < 0) this.state.currentIndex = 0;
+    if (this.state.currentIndex >= questoes.length) this.state.currentIndex = questoes.length - 1;
+
+    const q = questoes[this.state.currentIndex];
+    const stats = JSON.parse(localStorage.getItem("simulados_provao_2026_stats") || "{}");
+    const answeredCount = questoes.filter(item => !!stats[item.id] && stats[item.id].attempts > 0).length;
+    const progressPct = Math.round((answeredCount / questoes.length) * 100);
+
     root.innerHTML = `
-      <main class="min-h-screen hero-mesh text-slate-100 p-4 md:p-8">
-        <section class="max-w-5xl mx-auto">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-6"><a href="#simulados" class="text-sm text-slate-300 hover:text-white inline-flex items-center gap-2"><i data-lucide="arrow-left"></i> Voltar aos filtros</a><div class="flex items-center gap-2">${this.cloudBadge()}<span class="text-xs font-bold text-slate-400">Questão ${this.state.currentIndex + 1} de ${questoes.length}</span></div></div>
-          <article class="glass-card rounded-[2rem] border border-white/10 p-5 md:p-8">
-            <div class="flex flex-wrap items-start justify-between gap-3"><div><p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Treino imediato</p><h1 class="text-3xl font-black text-white mt-2">Q${String(q.numero).padStart(2, "0")} · ${this.esc(q.componente)}</h1></div><span class="px-3 py-1 rounded-full border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">${q.dificuldade}</span></div>
-            <div class="mt-6 rounded-3xl border border-slate-800 bg-dark-950/70 p-5">
-              <h2 class="text-xl font-black text-white">${this.esc(q.assunto)}</h2>
-              <p class="text-slate-300 text-sm leading-relaxed mt-3"><b>Conteúdo do edital:</b> ${this.esc(q.conteudoEdital)}</p>
-              <p class="text-slate-400 text-sm leading-relaxed mt-2"><b>Descritor:</b> ${this.esc(q.descritor)}</p>
-              <p class="text-slate-500 text-xs mt-4">Consulte o enunciado completo e possíveis imagens no PDF oficial do caderno.</p>
-              <a href="${q.pdfUrl}" target="_blank" class="inline-flex mt-4 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold"><i data-lucide="external-link" class="w-4 h-4 mr-2"></i>Abrir caderno oficial</a>
+      <main class="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-brand-600 selection:text-white pb-6">
+
+        <!-- Header Fixo de Navegação -->
+        <header class="glass-nav sticky top-0 z-50 px-4 md:px-8 py-3 border-b border-slate-800">
+          <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <a href="#simulados" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold inline-flex items-center gap-1.5 transition-all border border-slate-700">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span>Filtros / Catálogo</span>
+              </a>
+              <div>
+                <h1 class="font-extrabold text-sm md:text-base text-white leading-tight">Treino de Questões</h1>
+                <p class="text-[11px] text-slate-400 font-mono">${this.state.serie === '1serie' ? '1ª Série EM' : '2ª Série EM'} · Dia ${this.state.dia} ${this.state.componente !== 'todos' ? '· ' + this.esc(this.state.componente) : ''}</p>
+              </div>
             </div>
-            <div class="grid sm:grid-cols-5 gap-3 mt-6">
-              ${["A", "B", "C", "D", "E"].map(opt => `<button type="button" data-treino-answer="${opt}" class="rounded-2xl border border-slate-700 bg-dark-950/70 hover:border-brand-400 px-4 py-4 font-black text-lg text-white">${opt}</button>`).join("")}
+
+            <div class="flex items-center gap-2.5">
+              ${this.cloudBadge()}
+              <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-slate-700 text-xs font-bold text-slate-200 font-mono">
+                Questão ${this.state.currentIndex + 1} de ${questoes.length}
+              </span>
             </div>
-            <div id="treino-feedback" class="mt-5"></div>
-            <div class="flex justify-between gap-3 mt-6"><button id="treino-prev" class="px-4 py-2 rounded-xl bg-white/5 text-slate-200 border border-white/10 text-sm font-bold">Anterior</button><button id="treino-next" class="px-4 py-2 rounded-xl bg-brand-600 text-white text-sm font-bold">Próxima</button></div>
+          </div>
+
+          <!-- Barra de Progresso Superior -->
+          <div class="max-w-5xl mx-auto mt-2.5">
+            <div class="w-full bg-dark-900 rounded-full h-1.5 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-1.5 rounded-full transition-all duration-300" style="width: ${progressPct}%;"></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Barra de Pílulas Numéricas para Navegação Rápida (1 por 1) -->
+        <div class="bg-dark-900/90 border-b border-slate-800/80 py-2.5 px-4 sticky top-[62px] z-40 backdrop-blur-md">
+          <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-thin" id="treino-nav-pills">
+              ${questoes.map((item, idx) => {
+                const isCurrent = idx === this.state.currentIndex;
+                const stat = stats[item.id];
+                const hasAttempt = !!stat && stat.attempts > 0;
+                const isCorrect = hasAttempt && stat.correct > 0;
+
+                let pillClass = "bg-dark-950 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800";
+                if (isCurrent) {
+                  pillClass = "bg-brand-600 text-white font-black ring-2 ring-brand-400 ring-offset-2 ring-offset-dark-950 shadow-glow-blue scale-105";
+                } else if (hasAttempt) {
+                  pillClass = isCorrect
+                    ? "bg-emerald-950 text-emerald-300 font-bold border border-emerald-500/40"
+                    : "bg-amber-950 text-amber-300 font-bold border border-amber-500/40";
+                }
+
+                return `
+                  <button
+                    type="button"
+                    data-treino-jump="${idx}"
+                    class="w-8.5 h-8.5 rounded-xl text-xs flex items-center justify-center transition-all flex-shrink-0 font-mono ${pillClass}"
+                    title="Q${String(item.numero).padStart(2, '0')} - ${this.esc(item.componente)}"
+                  >
+                    ${item.numero}
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div class="text-xs font-semibold text-slate-400 whitespace-nowrap hidden sm:block pl-2">
+              <span class="text-white font-bold">${answeredCount}</span>/${questoes.length} respondidas
+            </div>
+          </div>
+        </div>
+
+        <!-- Conteúdo da Questão Única -->
+        <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-1 flex flex-col justify-center">
+          <article class="glass-card rounded-3xl p-6 md:p-9 shadow-2xl border border-slate-700/70 transition-all">
+
+            <!-- Cabeçalho da Questão -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800 mb-6">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-3 py-1 rounded-xl bg-brand-950 text-brand-300 text-xs font-extrabold font-mono border border-brand-500/30">
+                  Questão ${q.numero} (${this.state.currentIndex + 1} de ${questoes.length})
+                </span>
+                <span class="px-3 py-1 rounded-xl bg-dark-900 text-slate-200 text-xs font-bold border border-slate-800">
+                  ${this.esc(q.componente)}
+                </span>
+                <span class="px-3 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
+                  ${q.dificuldade}
+                </span>
+              </div>
+              <a href="${q.pdfUrl}" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10 inline-flex items-center gap-1.5 transition-all">
+                <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i> <span>Caderno Oficial PDF</span>
+              </a>
+            </div>
+
+            <!-- Contexto e Descritores -->
+            <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-5 mb-6">
+              <h2 class="text-lg md:text-xl font-black text-white leading-snug">${this.esc(q.assunto)}</h2>
+              <div class="grid md:grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800/80 text-xs">
+                <p class="text-slate-300"><b class="text-slate-400">Conteúdo do Edital:</b> ${this.esc(q.conteudoEdital)}</p>
+                <p class="text-slate-400"><b class="text-slate-400">Descritor BNCC:</b> ${this.esc(q.descritor)}</p>
+              </div>
+              <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>Consulte o enunciado original completo e figuras no PDF oficial.</span>
+              </div>
+            </div>
+
+            <!-- Alternativas (A, B, C, D, E) -->
+            <div class="mb-6">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Escolha a Alternativa:</label>
+              <div class="grid sm:grid-cols-5 gap-3">
+                ${["A", "B", "C", "D", "E"].map(opt => {
+                  const stat = stats[q.id];
+                  const isSelected = stat?.lastAnswer === opt;
+                  const isCorrectAnswer = opt === q.respostaCorreta;
+
+                  let btnClass = "border-slate-800 bg-dark-950/70 text-slate-200 hover:border-brand-500/60 hover:bg-dark-900";
+                  if (stat?.lastAnswer) {
+                    if (isSelected && isCorrectAnswer) {
+                      btnClass = "border-emerald-500 bg-emerald-950/80 text-emerald-200 ring-2 ring-emerald-500/40 font-black shadow-glow-emerald";
+                    } else if (isSelected && !isCorrectAnswer) {
+                      btnClass = "border-rose-500 bg-rose-950/80 text-rose-200 ring-2 ring-rose-500/40 font-black";
+                    } else if (isCorrectAnswer) {
+                      btnClass = "border-emerald-500/50 bg-emerald-950/40 text-emerald-300 font-bold";
+                    }
+                  }
+
+                  return `
+                    <button
+                      type="button"
+                      data-treino-answer="${opt}"
+                      class="rounded-2xl border p-4.5 font-black text-xl flex flex-col items-center justify-center gap-1 transition-all duration-150 ${btnClass}"
+                    >
+                      <span>${opt}</span>
+                      ${stat?.lastAnswer ? `
+                        <span class="text-[10px] font-mono font-normal">
+                          ${isCorrectAnswer ? "✓ Correto" : isSelected ? "✗ Marcada" : ""}
+                        </span>
+                      ` : ""}
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+            </div>
+
+            <!-- Feedback Imediato -->
+            <div id="treino-feedback" class="mb-2">
+              ${stats[q.id]?.lastAnswer ? this.renderTreinoFeedbackHtml(q, stats[q.id].lastAnswer === q.respostaCorreta) : ""}
+            </div>
           </article>
-        </section>
+        </main>
+
+        <!-- Barra Inferior de Ações -->
+        <footer class="glass-nav border-t border-slate-800/90 py-3.5 px-4 md:px-8 sticky bottom-0 z-40">
+          <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <button
+              id="treino-prev"
+              class="px-4 py-2.5 rounded-xl border border-slate-700 text-slate-300 font-semibold text-xs md:text-sm hover:bg-dark-900 hover:text-white flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              ${this.state.currentIndex === 0 ? "disabled" : ""}
+            >
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              <span>Questão Anterior</span>
+            </button>
+
+            <button
+              id="treino-next"
+              class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs md:text-sm flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
+            >
+              <span>Próxima Questão</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </footer>
       </main>`;
 
-    document.querySelectorAll("[data-treino-answer]").forEach(btn => btn.onclick = () => this.answerTreino(q, btn.dataset.treinoAnswer));
-    document.getElementById("treino-prev").onclick = () => { this.state.currentIndex = Math.max(0, this.state.currentIndex - 1); this.renderTreino(); };
-    document.getElementById("treino-next").onclick = () => { this.state.currentIndex = Math.min(questoes.length - 1, this.state.currentIndex + 1); this.renderTreino(); };
+    document.querySelectorAll("[data-treino-answer]").forEach(btn => {
+      btn.onclick = () => this.answerTreino(q, btn.dataset.treinoAnswer);
+    });
+
+    document.querySelectorAll("[data-treino-jump]").forEach(btn => {
+      btn.onclick = () => {
+        this.state.currentIndex = Number(btn.dataset.treinoJump);
+        window.location.hash = `#simulados/treino/${this.state.currentIndex}`;
+        this.renderTreino();
+      };
+    });
+
+    const prevBtn = document.getElementById("treino-prev");
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        if (this.state.currentIndex > 0) {
+          this.state.currentIndex -= 1;
+          window.location.hash = `#simulados/treino/${this.state.currentIndex}`;
+          this.renderTreino();
+        }
+      };
+    }
+
+    const nextBtn = document.getElementById("treino-next");
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        if (this.state.currentIndex < questoes.length - 1) {
+          this.state.currentIndex += 1;
+          window.location.hash = `#simulados/treino/${this.state.currentIndex}`;
+          this.renderTreino();
+        }
+      };
+    }
+
     if (window.lucide) window.lucide.createIcons();
+  },
+
+  renderTreinoFeedbackHtml(q, correct) {
+    return `
+      <div class="rounded-2xl border ${correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-100" : "border-rose-500/30 bg-rose-500/10 text-rose-100"} p-4.5 animate-fade-in">
+        <div class="flex items-center gap-2 font-black text-sm md:text-base">
+          <i data-lucide="${correct ? 'check-circle-2' : 'alert-circle'}" class="w-5 h-5 ${correct ? 'text-emerald-400' : 'text-rose-400'}"></i>
+          <span>${correct ? "Parabéns, você acertou!" : "Quase lá!"}</span>
+        </div>
+        <p class="text-xs md:text-sm mt-2 leading-relaxed">
+          Gabarito oficial: alternativa <b class="text-white bg-slate-900 px-2 py-0.5 rounded border border-slate-700">${q.respostaCorreta}</b>.
+        </p>
+        <p class="text-xs mt-2 opacity-80 pt-2 border-t border-white/10 font-mono">
+          Taxa histórica de acerto na rede: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`} · Origem: ${this.esc(q.origem)}
+        </p>
+      </div>
+    `;
   },
 
   answerTreino(q, option) {
     const correct = option === q.respostaCorreta;
     const stats = this.savePracticeStat(q, correct, option);
-    const box = document.getElementById("treino-feedback");
-    box.innerHTML = `<div class="rounded-2xl border ${correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-100" : "border-rose-500/30 bg-rose-500/10 text-rose-100"} p-4"><b>${correct ? "Acertou!" : "Quase."}</b> Gabarito oficial: alternativa <b>${q.respostaCorreta}</b>.<p class="text-xs mt-2 opacity-80">Taxa histórica: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`}. Origem: ${this.esc(q.origem)}</p></div>`;
+    this.renderTreino();
+
     this.setCloudStatus("syncing", "Sincronizando treino na nuvem...");
     DB.sincronizarStatsTreino(stats)
       .then(() => this.setCloudStatus("synced", "Treino salvo na nuvem."))
@@ -306,36 +600,218 @@ const SimuladosView = {
     return stats;
   },
 
+  // ============================================================
+  // PROVA COMPLETA (QUESTÃO POR QUESTÃO COM CARTÃO-RESPOSTA DIGITAL)
+  // ============================================================
+
   renderProva(simuladoId) {
     const config = window.SimuladosData.getConfig(simuladoId);
     if (!config) return this.renderCatalogo();
     this.state.simuladoId = simuladoId;
     const questoes = window.SimuladosData.getQuestoesPorSimulado(simuladoId);
     if (!this.state.startedAt || this.currentSimuladoId !== simuladoId) this.startSession(config);
+
+    if (this.state.currentIndex < 0) this.state.currentIndex = 0;
+    if (this.state.currentIndex >= questoes.length) this.state.currentIndex = questoes.length - 1;
+
     const q = questoes[this.state.currentIndex] || questoes[0];
-    const answered = Object.keys(this.state.answers).length;
+    const answeredCount = Object.keys(this.state.answers).length;
+    const progressPct = Math.round((answeredCount / questoes.length) * 100);
 
     document.getElementById("app-root").innerHTML = `
-      <main class="min-h-screen bg-slate-950 text-slate-100">
-        <header class="glass-nav sticky top-0 z-50 px-4 py-3">
+      <main class="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-brand-600 selection:text-white">
+
+        <!-- Header Fixo de Navegação e Cronômetro -->
+        <header class="glass-nav sticky top-0 z-50 px-4 md:px-8 py-3 border-b border-slate-800">
           <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-            <div><a href="#simulados" class="text-xs text-slate-400 hover:text-white">← Sair</a><h1 class="font-black text-white text-sm md:text-base">${this.esc(config.titulo)}</h1></div>
-            <div class="flex items-center gap-3">${this.cloudBadge()}<span id="sim-timer" class="px-3 py-2 rounded-xl bg-dark-950 border border-slate-700 font-mono font-black text-brand-200">${this.formatTime(this.state.remainingSeconds)}</span><span class="text-xs text-slate-400">${answered}/${questoes.length}</span><button id="finish-simulado" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black">Finalizar</button></div>
+            <div class="flex items-center gap-3">
+              <a href="#simulados" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-all border border-slate-700 inline-flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Sair
+              </a>
+              <div>
+                <h1 class="font-black text-white text-sm md:text-base leading-tight">${this.esc(config.titulo)}</h1>
+                <p class="text-[11px] text-slate-400 font-mono">${config.serie} · Dia ${config.dia} · ${questoes.length} Questões</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              ${this.cloudBadge()}
+              <div class="px-3.5 py-1.5 rounded-xl bg-dark-900 border border-slate-700 font-mono font-black text-yellow-300 text-xs md:text-sm flex items-center gap-1.5 shadow-inner">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400"></i>
+                <span id="sim-timer">${this.formatTime(this.state.remainingSeconds)}</span>
+              </div>
+              <span class="text-xs text-slate-300 font-mono hidden sm:inline">
+                <b class="text-white">${answeredCount}</b>/${questoes.length}
+              </span>
+              <button id="finish-simulado" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black shadow-glow-emerald transition-all">
+                Finalizar Prova
+              </button>
+            </div>
+          </div>
+
+          <!-- Barra de Progresso Superior -->
+          <div class="max-w-7xl mx-auto mt-2.5">
+            <div class="w-full bg-dark-900 rounded-full h-1.5 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-1.5 rounded-full transition-all duration-300" style="width: ${progressPct}%;"></div>
+            </div>
           </div>
         </header>
-        <section class="max-w-7xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1fr_19rem] gap-5">
-          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden">
-            <div class="p-5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3"><div><p class="text-[11px] font-black text-brand-300 tracking-widest uppercase">Questão ${q.numero} · ${this.esc(q.componente)}</p><h2 class="text-xl font-black text-white mt-1">${this.esc(q.assunto)}</h2></div><a href="${config.pdfUrl}" target="_blank" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold">Abrir PDF</a></div>
-            <div class="grid xl:grid-cols-[1fr_.85fr] gap-0">
-              <div class="p-5 space-y-4">
-                <div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4"><p class="text-sm text-slate-300"><b>Use o PDF oficial para ler o enunciado completo.</b> Esta tela funciona como cartão-resposta digital e painel de análise pedagógica.</p><p class="text-xs text-slate-500 mt-3"><b>Edital:</b> ${this.esc(q.conteudoEdital)}</p><p class="text-xs text-slate-500 mt-2"><b>Descritor:</b> ${this.esc(q.descritor)}</p></div>
-                <div class="grid sm:grid-cols-5 gap-3">${["A", "B", "C", "D", "E"].map(opt => `<button type="button" data-answer="${opt}" class="rounded-2xl border ${this.state.answers[q.id] === opt ? "border-brand-400 bg-brand-600 text-white" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400"} px-4 py-5 font-black text-xl">${opt}</button>`).join("")}</div>
-                <div class="flex justify-between gap-3"><button id="sim-prev" class="px-4 py-2 rounded-xl bg-white/5 text-slate-200 border border-white/10 text-sm font-bold">Anterior</button><button id="sim-next" class="px-4 py-2 rounded-xl bg-brand-600 text-white text-sm font-bold">Próxima</button></div>
+
+        <!-- Barra de Navegação Numérica Superior (Pills 1..N) -->
+        <div class="bg-dark-900/90 border-b border-slate-800/80 py-2.5 px-4 sticky top-[62px] z-40 backdrop-blur-md">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-thin" id="prova-nav-pills">
+              ${questoes.map((item, idx) => {
+                const isCurrent = idx === this.state.currentIndex;
+                const hasAnswer = !!this.state.answers[item.id];
+
+                let pillClass = "bg-dark-950 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800";
+                if (isCurrent) {
+                  pillClass = "bg-brand-600 text-white font-black ring-2 ring-brand-400 ring-offset-2 ring-offset-dark-950 shadow-glow-blue scale-105";
+                } else if (hasAnswer) {
+                  pillClass = "bg-emerald-950 text-emerald-300 font-bold border border-emerald-500/40";
+                }
+
+                return `
+                  <button
+                    type="button"
+                    data-jump="${idx}"
+                    class="w-8.5 h-8.5 rounded-xl text-xs flex items-center justify-center transition-all flex-shrink-0 font-mono ${pillClass}"
+                    title="Q${String(item.numero).padStart(2, '0')}: ${this.esc(item.componente)}"
+                  >
+                    ${item.numero}
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div class="text-xs font-semibold text-slate-400 whitespace-nowrap hidden md:block pl-2">
+              <span class="text-white font-bold">${answeredCount}</span>/${questoes.length} respondidas (${progressPct}%)
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção Principal com Questão Ativa e PDF -->
+        <section class="max-w-7xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1fr_20rem] gap-5 flex-1 w-full">
+
+          <!-- Card da Questão Única Ativa -->
+          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p class="text-[11px] font-black text-brand-300 tracking-widest uppercase">
+                    Questão ${q.numero} de ${questoes.length} · ${this.esc(q.componente)}
+                  </p>
+                  <h2 class="text-lg md:text-xl font-black text-white mt-1">${this.esc(q.assunto)}</h2>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-lg border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
+                    ${q.dificuldade}
+                  </span>
+                  <a href="${config.pdfUrl}" target="_blank" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-200 transition-all">
+                    Abrir PDF
+                  </a>
+                </div>
               </div>
-              <div class="bg-dark-950/80 border-t xl:border-t-0 xl:border-l border-slate-800 min-h-[35rem]"><iframe src="${config.pdfUrl}#page=1" class="w-full h-[35rem]" title="PDF oficial do simulado"></iframe></div>
+
+              <div class="p-5 md:p-6 space-y-6">
+                <!-- Informações do Edital e Descritores -->
+                <div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4.5 text-xs">
+                  <p class="text-sm text-slate-300 leading-relaxed">
+                    <b>Leia o enunciado completo no caderno oficial em PDF ao lado.</b> Este painel funciona como seu cartão-resposta digital seguro e sincronizado.
+                  </p>
+                  <div class="mt-3 pt-3 border-t border-slate-800/80 grid sm:grid-cols-2 gap-2 text-slate-400">
+                    <p><b class="text-slate-300">Edital:</b> ${this.esc(q.conteudoEdital)}</p>
+                    <p><b class="text-slate-300">Descritor:</b> ${this.esc(q.descritor)}</p>
+                  </div>
+                </div>
+
+                <!-- Botões de Alternativa (A, B, C, D, E) -->
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                    Marque a Alternativa Escolhida:
+                  </label>
+                  <div class="grid sm:grid-cols-5 gap-3">
+                    ${["A", "B", "C", "D", "E"].map(opt => {
+                      const isSelected = this.state.answers[q.id] === opt;
+                      return `
+                        <button
+                          type="button"
+                          data-answer="${opt}"
+                          class="rounded-2xl border ${isSelected ? "border-brand-400 bg-brand-600 text-white shadow-glow-blue scale-105" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400 hover:bg-dark-900"} px-4 py-5 font-black text-xl transition-all duration-150 flex flex-col items-center justify-center gap-1"
+                        >
+                          <span>${opt}</span>
+                          ${isSelected ? `<span class="text-[10px] font-mono font-normal">Marcada</span>` : ""}
+                        </button>
+                      `;
+                    }).join("")}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Navegação Inferior na Questão -->
+            <div class="p-5 border-t border-slate-800 flex justify-between gap-3 bg-dark-950/40">
+              <button
+                id="sim-prev"
+                class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs md:text-sm font-bold inline-flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                ${this.state.currentIndex === 0 ? "disabled" : ""}
+              >
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                <span>Questão Anterior</span>
+              </button>
+
+              <button
+                id="sim-next"
+                class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs md:text-sm font-bold inline-flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
+              >
+                <span>Próxima Questão</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
             </div>
           </article>
-          <aside class="glass-card rounded-3xl border border-white/10 p-4 h-fit sticky top-24"><p class="text-[11px] uppercase tracking-wider font-black text-slate-400 mb-3">Cartão-resposta</p><div class="grid grid-cols-6 gap-2">${questoes.map((item, idx) => `<button type="button" data-jump="${idx}" class="h-9 rounded-xl text-xs font-black border ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white" : this.state.answers[item.id] ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-200" : "bg-dark-950 border-slate-700 text-slate-400"}">${item.numero}</button>`).join("")}</div><label class="mt-5 flex items-start gap-3 rounded-2xl border border-slate-800 bg-dark-950/70 p-3 text-xs text-slate-300"><input id="secure-toggle" type="checkbox" ${this.state.secureMode ? "checked" : ""} class="mt-1 accent-blue-500"><span><b class="text-white block">Modo seguro</b>Bloqueia cópia, botão direito e registra troca de aba.</span></label></aside>
+
+          <!-- Barra Lateral: Cartela de Respostas + PDF Embutido + Segurança -->
+          <aside class="space-y-4">
+            <!-- Grade Cartão-Resposta -->
+            <div class="glass-card rounded-3xl border border-white/10 p-5">
+              <div class="flex items-center justify-between mb-3">
+                <p class="text-[11px] uppercase tracking-wider font-black text-slate-400">Cartão-resposta digital</p>
+                <span class="text-[11px] font-mono font-bold text-brand-300">${answeredCount}/${questoes.length}</span>
+              </div>
+              <div class="grid grid-cols-6 gap-1.5 max-h-48 overflow-y-auto pr-1">
+                ${questoes.map((item, idx) => `
+                  <button
+                    type="button"
+                    data-jump="${idx}"
+                    class="h-8.5 rounded-xl text-xs font-mono font-black border transition-all ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue" : this.state.answers[item.id] ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-200" : "bg-dark-950 border-slate-700 text-slate-400 hover:text-white"}"
+                  >
+                    ${item.numero}
+                  </button>
+                `).join("")}
+              </div>
+
+              <!-- Modo Seguro -->
+              <label class="mt-4 flex items-start gap-3 rounded-2xl border border-slate-800 bg-dark-950/70 p-3 text-xs text-slate-300 cursor-pointer">
+                <input id="secure-toggle" type="checkbox" ${this.state.secureMode ? "checked" : ""} class="mt-1 accent-blue-500">
+                <span>
+                  <b class="text-white block">Ambiente Seguro Ativo</b>
+                  Bloqueia cópia, botão direito e monitora perda de foco.
+                </span>
+              </label>
+            </div>
+
+            <!-- PDF Embutido -->
+            <div class="glass-card rounded-3xl border border-white/10 overflow-hidden">
+              <div class="p-3 border-b border-slate-800 flex items-center justify-between text-xs bg-dark-950">
+                <span class="font-bold text-slate-300 flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i> Caderno Oficial</span>
+                <a href="${config.pdfUrl}" target="_blank" class="text-brand-300 hover:underline text-[11px]">Expandir ↗</a>
+              </div>
+              <div class="bg-dark-950/90 h-[22rem]">
+                <iframe src="${config.pdfUrl}#page=1" class="w-full h-full border-0" title="PDF oficial do simulado"></iframe>
+              </div>
+            </div>
+          </aside>
         </section>
       </main>`;
 
@@ -386,9 +862,31 @@ const SimuladosView = {
       this.scheduleCloudSync(config.id, "prova");
       this.renderProva(config.id);
     });
-    document.querySelectorAll("[data-jump]").forEach(btn => btn.onclick = () => { this.state.currentIndex = Number(btn.dataset.jump); this.renderProva(config.id); });
-    document.getElementById("sim-prev").onclick = () => { this.state.currentIndex = Math.max(0, this.state.currentIndex - 1); this.renderProva(config.id); };
-    document.getElementById("sim-next").onclick = () => { this.state.currentIndex = Math.min(questoes.length - 1, this.state.currentIndex + 1); this.renderProva(config.id); };
+    document.querySelectorAll("[data-jump]").forEach(btn => btn.onclick = () => {
+      this.state.currentIndex = Number(btn.dataset.jump);
+      this.renderProva(config.id);
+    });
+
+    const prevBtn = document.getElementById("sim-prev");
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        if (this.state.currentIndex > 0) {
+          this.state.currentIndex -= 1;
+          this.renderProva(config.id);
+        }
+      };
+    }
+
+    const nextBtn = document.getElementById("sim-next");
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        if (this.state.currentIndex < questoes.length - 1) {
+          this.state.currentIndex += 1;
+          this.renderProva(config.id);
+        }
+      };
+    }
+
     document.getElementById("finish-simulado").onclick = () => this.finishSimulado();
     document.getElementById("secure-toggle").onchange = (event) => this.toggleSecurity(event.target.checked, config);
   },
@@ -436,12 +934,57 @@ const SimuladosView = {
       completedAt: new Date().toISOString()
     };
     this.destroySecurity();
-    document.getElementById("app-root").innerHTML = `<main class="min-h-screen hero-mesh text-slate-100 p-4 md:p-8"><section class="max-w-4xl mx-auto glass-card rounded-[2rem] border border-white/10 p-6 md:p-8"><div class="flex flex-wrap items-center justify-between gap-3"><p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Resultado do simulado</p>${this.cloudBadge()}</div><h1 class="text-4xl font-black text-white mt-3">${percent}% de aproveitamento</h1><p class="text-slate-300 mt-2">Você acertou <b>${acertos}</b> de <b>${questoes.length}</b> questões.</p><p id="cloud-result-note" class="text-xs text-slate-400 mt-3">Salvando resultado...</p><div class="grid md:grid-cols-2 gap-3 mt-6">${Object.entries(porComponente).map(([comp, row]) => `<div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4"><b class="text-white">${this.esc(comp)}</b><p class="text-sm text-slate-400 mt-1">${row.acertos}/${row.total} acertos · ${Math.round((row.acertos / row.total) * 100)}%</p></div>`).join("")}</div><div class="flex flex-wrap gap-3 mt-8"><a href="#simulados" class="px-5 py-3 rounded-2xl bg-brand-600 text-white font-bold">Voltar aos simulados</a><button id="review-simulado" class="px-5 py-3 rounded-2xl bg-white/5 text-slate-200 border border-white/10 font-bold">Refazer</button></div></section></main>`;
+    document.getElementById("app-root").innerHTML = `
+      <main class="min-h-screen hero-mesh text-slate-100 p-4 md:p-8 flex items-center justify-center">
+        <section class="max-w-3xl w-full glass-card rounded-[2rem] border border-white/10 p-6 md:p-9 shadow-2xl">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Resultado Oficial</p>
+            ${this.cloudBadge()}
+          </div>
+          <h1 class="text-4xl md:text-5xl font-black text-white mt-3">${percent}% de aproveitamento</h1>
+          <p class="text-slate-300 text-base mt-2">Você acertou <b class="text-emerald-300">${acertos}</b> de <b class="text-white">${questoes.length}</b> questões.</p>
+          <p id="cloud-result-note" class="text-xs text-slate-400 mt-2 font-mono">Salvando resultado na nuvem...</p>
+
+          <div class="grid md:grid-cols-2 gap-3 mt-6">
+            ${Object.entries(porComponente).map(([comp, row]) => `
+              <div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4">
+                <b class="text-white text-sm block">${this.esc(comp)}</b>
+                <p class="text-xs text-slate-400 mt-1 font-mono">${row.acertos}/${row.total} acertos · ${Math.round((row.acertos / row.total) * 100)}%</p>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-8 pt-4 border-t border-slate-800">
+            <a href="#simulados" class="px-6 py-3 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-glow-blue transition-all">
+              Voltar aos Simulados
+            </a>
+            <button id="review-simulado" class="px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-bold text-sm transition-all">
+              Refazer Simulado
+            </button>
+          </div>
+        </section>
+      </main>`;
+
     this.setCloudStatus("syncing", "Salvando resultado na nuvem...");
     DB.salvarResultadoSimulado(resultado)
-      .then(() => { this.setCloudStatus("synced", "Resultado salvo na nuvem."); const note = document.getElementById("cloud-result-note"); if (note) note.textContent = "Resultado salvo na nuvem."; })
-      .catch((err) => { this.setCloudStatus("local", err.message || "Resultado salvo neste dispositivo."); const note = document.getElementById("cloud-result-note"); if (note) note.textContent = err.message || "Resultado salvo neste dispositivo."; });
-    document.getElementById("review-simulado").onclick = () => { localStorage.removeItem(`simulado_answers_${config.id}`); this.state.startedAt = null; window.location.hash = `#simulados/prova/${config.id}`; this.renderProva(config.id); };
+      .then(() => {
+        this.setCloudStatus("synced", "Resultado salvo na nuvem.");
+        const note = document.getElementById("cloud-result-note");
+        if (note) note.textContent = "Resultado salvo com sucesso na nuvem.";
+      })
+      .catch((err) => {
+        this.setCloudStatus("local", err.message || "Resultado salvo neste dispositivo.");
+        const note = document.getElementById("cloud-result-note");
+        if (note) note.textContent = err.message || "Resultado salvo neste dispositivo.";
+      });
+
+    document.getElementById("review-simulado").onclick = () => {
+      localStorage.removeItem(`simulado_answers_${config.id}`);
+      this.state.startedAt = null;
+      window.location.hash = `#simulados/prova/${config.id}`;
+      this.renderProva(config.id);
+    };
+
     if (window.lucide) window.lucide.createIcons();
   },
 
