@@ -473,7 +473,10 @@ const ProfessorDashboardView = {
       sessionStorage.removeItem("professor_escola");
       sessionStorage.removeItem("professor_email");
       sessionStorage.removeItem("professor_token");
-      window.location.hash = "#professor/login";
+      TeacherAuth.logout();
+      setTimeout(() => {
+        window.location.hash = "#";
+      }, 100);
     }
   },
 

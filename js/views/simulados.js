@@ -15,7 +15,8 @@ const SimuladosView = {
     secureMode: false,
     cloudStatus: "local",
     cloudMessage: "Salvo neste dispositivo",
-    cloudTimer: null
+    cloudTimer: null,
+    MIN_EXAM_MINUTES: 45
   },
 
   render(params = {}) {
@@ -119,22 +120,27 @@ const SimuladosView = {
   },
 
   scheduleCloudSync(simuladoId, mode = "prova") {
+    const identity = mode === "prova" ? this.getSimuladoIdentity(simuladoId) : null;
+    if (!identity?.studentId) {
+      this.setCloudStatus("local", "Identificação incompleta. Confirme nome e RA primeiro.");
+      return;
+    }
     clearTimeout(this.state.cloudTimer);
     this.setCloudStatus("syncing", "Salvando progresso na nuvem...");
     this.state.cloudTimer = setTimeout(async () => {
       try {
-        const identity = mode === "prova" ? this.getSimuladoIdentity(simuladoId) : null;
         await DB.salvarProgressoSimulado({
           simuladoId,
           mode,
           answers: this.state.answers,
           status: "draft",
-          studentName: identity?.studentName,
-          studentRA: identity?.studentRA
+          studentName: identity.studentName,
+          studentRA: identity.studentRA
         });
         this.setCloudStatus("synced", "Progresso salvo na nuvem.");
       } catch (err) {
-        this.setCloudStatus("local", err.message || "Salvo neste dispositivo.");
+        this.setCloudStatus("local", err.message || "Falha na nuvem; salvo neste dispositivo.");
+        console.error("Cloud sync error:", err);
       }
     }, 1500);
   },
@@ -794,6 +800,15 @@ const SimuladosView = {
     const allAnswered = answeredCount === questoes.length;
     const progressPct = Math.round((answeredCount / questoes.length) * 100);
 
+    // Tempo mínimo obrigatório antes de enviar a prova oficial
+    const minSecondsRequired = this.state.MIN_EXAM_MINUTES * 60;
+    const elapsedSeconds = this.state.startedAt
+      ? Math.floor((Date.now() - new Date(this.state.startedAt).getTime()) / 1000)
+      : 0;
+    const hasMetMinTime = elapsedSeconds >= minSecondsRequired;
+    const minTimeRemaining = Math.max(0, minSecondsRequired - elapsedSeconds);
+    const canSubmit = allAnswered && hasMetMinTime;
+
     document.getElementById("app-root").innerHTML = `
       <main class="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-brand-600 selection:text-white">
 
@@ -820,8 +835,11 @@ const SimuladosView = {
               <span class="text-xs text-slate-300 font-mono hidden sm:inline">
                 <b class="text-white">${answeredCount}</b>/${questoes.length}
               </span>
-              <button id="finish-simulado" class="px-4 py-2 rounded-xl ${allAnswered ? "bg-emerald-600 hover:bg-emerald-500 shadow-glow-emerald" : "bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed"} text-white text-xs font-black transition-all" ${allAnswered ? "" : "disabled"} title="${allAnswered ? "Enviar prova" : "Responda todas as questões para enviar"}">
-                ${allAnswered ? "Finalizar Prova" : `Faltam ${questoes.length - answeredCount}`}
+              ${!hasMetMinTime
+                ? `<span class="text-[10px] text-amber-300 font-mono bg-amber-950/40 px-2 py-1 rounded-md border border-amber-500/25" title="Tempo mínimo de ${this.state.MIN_EXAM_MINUTES} min">Min ${this.formatTime(minTimeRemaining)}</span>`
+                : ""}
+              <button id="finish-simulado" class="px-4 py-2 rounded-xl ${canSubmit ? "bg-emerald-600 hover:bg-emerald-500 shadow-glow-emerald" : "bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed"} text-white text-xs font-black transition-all" ${canSubmit ? "" : "disabled"} title="${canSubmit ? "Enviar prova" : (!hasMetMinTime ? `Aguardando tempo mínimo de ${this.state.MIN_EXAM_MINUTES} min` : "Responda todas as questões para enviar")}">
+                ${canSubmit ? "Finalizar Prova" : (!hasMetMinTime ? `Aguardar ${this.formatTime(minTimeRemaining)}` : `Faltam ${questoes.length - answeredCount}`)}
               </button>
             </div>
           </div>
@@ -831,6 +849,7 @@ const SimuladosView = {
             <div class="w-full bg-dark-900 rounded-full h-1.5 overflow-hidden border border-slate-800">
               <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-1.5 rounded-full transition-all duration-300" style="width: ${progressPct}%;"></div>
             </div>
+            ${!hasMetMinTime ? `<div class="mt-2 text-[11px] text-amber-300 font-mono flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5"></i> O botão de envio será liberado após ${this.formatTime(minTimeRemaining)} (${this.state.MIN_EXAM_MINUTES} min de prova).</div>` : ""}
           </div>
         </header>
 

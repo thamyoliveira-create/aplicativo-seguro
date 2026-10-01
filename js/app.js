@@ -36,6 +36,12 @@ const App = {
           window.scrollTo(0, 0);
           return;
         }
+        // Validate institutional email before allowing access to exam mode
+        if (!student.email || !student.email.endsWith('@aluno.educacao.sp.gov.br')) {
+          await AlunoLoginView.render({ redirect: `simulados/prova/${parts[2]}`, simuladoId: parts[2], modo: "simulado", emailError: "Apenas e-mails institucionais @aluno.educacao.sp.gov.br são permitidos." });
+          window.scrollTo(0, 0);
+          return;
+        }
       }
       await SimuladosView.render({ parts });
     } else if (parts[0] === "aluno") {
