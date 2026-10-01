@@ -127,7 +127,7 @@ service cloud.firestore {
         data.answersJson is string && data.answersJson.size() <= 500000 &&
         data.infractionsJson is string && data.infractionsJson.size() <= 120000 &&
         data.contentJson is string && data.contentJson.size() <= 700000 &&
-        data.status in ['submitted', 'graded'] &&
+        data.status in ['in_progress', 'submitted', 'graded'] &&
         (!('score' in data) || (data.score is number && data.score >= 0 && data.score <= 100)) &&
         data.startedAt is timestamp && data.submittedAt is timestamp && data.updatedAt is timestamp;
     }
@@ -215,7 +215,7 @@ service cloud.firestore {
       allow create: if isStudent() && validSubmission(request.resource.data) &&
         request.resource.data.studentId == request.auth.uid &&
         request.resource.data.studentEmail == request.auth.token.email &&
-        request.resource.data.status == 'submitted' &&
+        request.resource.data.status in ['in_progress', 'submitted'] &&
         !('score' in request.resource.data) &&
         recentTimestamp(request.resource.data.submittedAt) &&
         recentTimestamp(request.resource.data.updatedAt) &&
@@ -225,6 +225,17 @@ service cloud.firestore {
       allow read: if signedIn() &&
         ((isStudent() && resource.data.studentId == request.auth.uid) ||
          (isTeacher() && resource.data.teacherId == request.auth.uid));
+
+      // Aluno atualiza a própria prova enquanto está em andamento (infrações em tempo real e entrega final)
+      allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
+        resource.data.status == 'in_progress' &&
+        validSubmission(request.resource.data) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['answersJson', 'infractionsJson', 'contentJson', 'status', 'submittedAt', 'updatedAt']) &&
+        request.resource.data.status in ['in_progress', 'submitted'] &&
+        !('score' in request.resource.data) &&
+        recentTimestamp(request.resource.data.updatedAt) &&
+        ((request.resource.data.status == 'submitted' && recentTimestamp(request.resource.data.submittedAt)) ||
+         (request.resource.data.status == 'in_progress' && request.resource.data.submittedAt == resource.data.submittedAt));
 
       allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
         validSubmission(request.resource.data) &&
@@ -247,7 +258,7 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.updatedAt);
 
       allow read: if (isStudent() && resource.data.studentId == request.auth.uid) ||
-        (isTeacher() && resource.data.mode == 'prova' && resource.data.status == 'finished');
+        (isTeacher() && resource.data.mode == 'prova' && resource.data.status in ['finished', 'draft']);
 
       allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
         validSimuladoProgress(request.resource.data) &&
