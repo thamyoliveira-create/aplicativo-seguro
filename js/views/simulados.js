@@ -690,38 +690,49 @@ const SimuladosView = {
           </div>
         </div>
 
-        <!-- Seção Principal com Questão Ativa e PDF -->
-        <section class="max-w-7xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1fr_20rem] gap-5 flex-1 w-full">
+        <!-- Seção Principal com Questão Ativa em Foco Central -->
+        <section class="max-w-6xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1fr_18rem] gap-6 flex-1 w-full items-start">
 
-          <!-- Card da Questão Única Ativa -->
-          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col justify-between">
+          <!-- Card da Questão Única Ativa (Foco Total) -->
+          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col justify-between shadow-2xl">
             <div>
-              <div class="p-5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+              <div class="p-5 md:p-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <p class="text-[11px] font-black text-brand-300 tracking-widest uppercase">
                     Questão ${q.numero} de ${questoes.length} · ${this.esc(q.componente)}
                   </p>
-                  <h2 class="text-lg md:text-xl font-black text-white mt-1">${this.esc(q.assunto)}</h2>
+                  <h2 class="text-xl md:text-2xl font-black text-white mt-1 leading-snug">${this.esc(q.assunto)}</h2>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="px-2.5 py-1 rounded-lg border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
+                  <span class="px-3 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
                     ${q.dificuldade}
                   </span>
-                  <a href="${config.pdfUrl}" target="_blank" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-200 transition-all">
-                    Abrir PDF
+                  <a href="${config.pdfUrl}" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-brand-500/10 hover:bg-brand-500/20 text-brand-200 border border-brand-500/25 text-xs font-bold inline-flex items-center gap-1.5 transition-all" title="Abrir caderno oficial em nova aba">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i>
+                    <span>Caderno PDF ↗</span>
                   </a>
                 </div>
               </div>
 
-              <div class="p-5 md:p-6 space-y-6">
+              <div class="p-5 md:p-8 space-y-6">
                 <!-- Informações do Edital e Descritores -->
-                <div class="rounded-2xl border border-slate-800 bg-dark-950/70 p-4.5 text-xs">
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <b>Leia o enunciado completo no caderno oficial em PDF ao lado.</b> Este painel funciona como seu cartão-resposta digital seguro e sincronizado.
-                  </p>
-                  <div class="mt-3 pt-3 border-t border-slate-800/80 grid sm:grid-cols-2 gap-2 text-slate-400">
-                    <p><b class="text-slate-300">Edital:</b> ${this.esc(q.conteudoEdital)}</p>
-                    <p><b class="text-slate-300">Descritor:</b> ${this.esc(q.descritor)}</p>
+                <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-5 text-xs md:text-sm">
+                  <div class="grid sm:grid-cols-2 gap-3 text-slate-300">
+                    <div>
+                      <p class="text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1">Conteúdo do Edital</p>
+                      <p class="font-medium leading-relaxed">${this.esc(q.conteudoEdital)}</p>
+                    </div>
+                    <div>
+                      <p class="text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1">Descritor da Matriz BNCC</p>
+                      <p class="font-medium text-slate-400 leading-relaxed">${this.esc(q.descritor)}</p>
+                    </div>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-slate-400 text-xs flex-wrap gap-2">
+                    <span class="flex items-center gap-1.5">
+                      <i data-lucide="info" class="w-3.5 h-3.5 text-brand-400"></i>
+                      <span>Responda na grade abaixo. O progresso é salvo automaticamente.</span>
+                    </span>
+                    <span class="font-mono text-[11px] text-slate-500">Taxa de acerto: ${q.taxaAcerto == null ? 'sem dado' : `${q.taxaAcerto}%`}</span>
                   </div>
                 </div>
 
@@ -737,10 +748,12 @@ const SimuladosView = {
                         <button
                           type="button"
                           data-answer="${opt}"
-                          class="rounded-2xl border ${isSelected ? "border-brand-400 bg-brand-600 text-white shadow-glow-blue scale-105" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400 hover:bg-dark-900"} px-4 py-5 font-black text-xl transition-all duration-150 flex flex-col items-center justify-center gap-1"
+                          class="rounded-2xl border ${isSelected ? "border-brand-400 bg-brand-600 text-white shadow-glow-blue scale-105" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400 hover:bg-dark-900"} px-4 py-5 font-black text-2xl transition-all duration-150 flex flex-col items-center justify-center gap-1.5 cursor-pointer select-none"
                         >
                           <span>${opt}</span>
-                          ${isSelected ? `<span class="text-[10px] font-mono font-normal">Marcada</span>` : ""}
+                          <span class="text-[10px] font-mono font-normal tracking-wider ${isSelected ? 'opacity-100 text-white' : 'opacity-40 text-slate-400'}">
+                            ${isSelected ? "✓ Marcada" : "Opção " + opt}
+                          </span>
                         </button>
                       `;
                     }).join("")}
@@ -750,7 +763,7 @@ const SimuladosView = {
             </div>
 
             <!-- Botões de Navegação Inferior na Questão -->
-            <div class="p-5 border-t border-slate-800 flex justify-between gap-3 bg-dark-950/40">
+            <div class="p-5 md:p-6 border-t border-slate-800 flex justify-between gap-3 bg-dark-950/40">
               <button
                 id="sim-prev"
                 class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs md:text-sm font-bold inline-flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
@@ -771,20 +784,21 @@ const SimuladosView = {
             </div>
           </article>
 
-          <!-- Barra Lateral: Cartela de Respostas + PDF Embutido + Segurança -->
+          <!-- Barra Lateral: Cartela de Respostas + Segurança -->
           <aside class="space-y-4">
             <!-- Grade Cartão-Resposta -->
-            <div class="glass-card rounded-3xl border border-white/10 p-5">
-              <div class="flex items-center justify-between mb-3">
+            <div class="glass-card rounded-3xl border border-white/10 p-5 shadow-xl">
+              <div class="flex items-center justify-between mb-3.5">
                 <p class="text-[11px] uppercase tracking-wider font-black text-slate-400">Cartão-resposta digital</p>
-                <span class="text-[11px] font-mono font-bold text-brand-300">${answeredCount}/${questoes.length}</span>
+                <span class="text-xs font-mono font-bold text-brand-300 bg-brand-950 px-2 py-0.5 rounded-md border border-brand-500/30">${answeredCount}/${questoes.length}</span>
               </div>
-              <div class="grid grid-cols-6 gap-1.5 max-h-48 overflow-y-auto pr-1">
+              <div class="grid grid-cols-6 gap-1.5 max-h-72 overflow-y-auto pr-1 scrollbar-thin">
                 ${questoes.map((item, idx) => `
                   <button
                     type="button"
                     data-jump="${idx}"
-                    class="h-8.5 rounded-xl text-xs font-mono font-black border transition-all ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue" : this.state.answers[item.id] ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-200" : "bg-dark-950 border-slate-700 text-slate-400 hover:text-white"}"
+                    class="h-8.5 rounded-xl text-xs font-mono font-black border transition-all ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue scale-105" : this.state.answers[item.id] ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" : "bg-dark-950 border-slate-700 text-slate-400 hover:text-white hover:border-slate-500"}"
+                    title="Q${String(item.numero).padStart(2, '0')}: ${this.state.answers[item.id] ? 'Marcada ' + this.state.answers[item.id] : 'Pendente'}"
                   >
                     ${item.numero}
                   </button>
@@ -792,24 +806,28 @@ const SimuladosView = {
               </div>
 
               <!-- Modo Seguro -->
-              <label class="mt-4 flex items-start gap-3 rounded-2xl border border-slate-800 bg-dark-950/70 p-3 text-xs text-slate-300 cursor-pointer">
+              <label class="mt-4 flex items-start gap-3 rounded-2xl border border-slate-800 bg-dark-950/70 p-3 text-xs text-slate-300 cursor-pointer hover:border-slate-700 transition-all">
                 <input id="secure-toggle" type="checkbox" ${this.state.secureMode ? "checked" : ""} class="mt-1 accent-blue-500">
                 <span>
-                  <b class="text-white block">Ambiente Seguro Ativo</b>
+                  <b class="text-white block">Ambiente Blindado Ativo</b>
                   Bloqueia cópia, botão direito e monitora perda de foco.
                 </span>
               </label>
             </div>
 
-            <!-- PDF Embutido -->
-            <div class="glass-card rounded-3xl border border-white/10 overflow-hidden">
-              <div class="p-3 border-b border-slate-800 flex items-center justify-between text-xs bg-dark-950">
-                <span class="font-bold text-slate-300 flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i> Caderno Oficial</span>
-                <a href="${config.pdfUrl}" target="_blank" class="text-brand-300 hover:underline text-[11px]">Expandir ↗</a>
-              </div>
-              <div class="bg-dark-950/90 h-[22rem]">
-                <iframe src="${config.pdfUrl}#page=1" class="w-full h-full border-0" title="PDF oficial do simulado"></iframe>
-              </div>
+            <!-- Card de Apoio com Caderno Oficial PDF -->
+            <div class="glass-card rounded-3xl border border-white/10 p-5 text-xs text-slate-300">
+              <p class="font-bold text-white mb-1.5 flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-4 h-4 text-brand-400"></i>
+                <span>Caderno de Prova Oficial</span>
+              </p>
+              <p class="text-slate-400 text-[11px] leading-relaxed mb-3">
+                Quer conferir a diagramação original da VUNESP ou textos complementares?
+              </p>
+              <a href="${config.pdfUrl}" target="_blank" class="w-full px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold inline-flex items-center justify-center gap-2 text-xs transition-all">
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-brand-300"></i>
+                <span>Abrir PDF em nova aba</span>
+              </a>
             </div>
           </aside>
         </section>
