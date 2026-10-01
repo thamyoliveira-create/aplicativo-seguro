@@ -384,7 +384,7 @@ const SimuladosView = {
 
         <!-- Barra de Pílulas Numéricas para Navegação Rápida (1 por 1) -->
         <div class="bg-dark-900/90 border-b border-slate-800/80 py-2.5 px-4 sticky top-[62px] z-40 backdrop-blur-md">
-          <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
             <div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-thin" id="treino-nav-pills">
               ${questoes.map((item, idx) => {
                 const isCurrent = idx === this.state.currentIndex;
@@ -419,109 +419,165 @@ const SimuladosView = {
           </div>
         </div>
 
-        <!-- Conteúdo da Questão Única -->
-        <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-1 flex flex-col justify-center">
-          <article class="glass-card rounded-3xl p-6 md:p-9 shadow-2xl border border-slate-700/70 transition-all">
+        <!-- Conteúdo do Treino com Visualizador da Questão Oficial + Card de Resposta -->
+        <main class="max-w-7xl mx-auto w-full p-4 md:p-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-6 flex-1 items-start">
 
-            <!-- Cabeçalho da Questão -->
-            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800 mb-6">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="px-3 py-1 rounded-xl bg-brand-950 text-brand-300 text-xs font-extrabold font-mono border border-brand-500/30">
-                  Questão ${q.numero} (${this.state.currentIndex + 1} de ${questoes.length})
+          <!-- Coluna da Esquerda: Enunciado Oficial da Prova (Imagem Alta Resolução na Mesma Tela) -->
+          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
+            <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
+                  Página ${q.paginaPdf || 1}
                 </span>
-                <span class="px-3 py-1 rounded-xl bg-dark-900 text-slate-200 text-xs font-bold border border-slate-800">
-                  ${this.esc(q.componente)}
-                </span>
-                <span class="px-3 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
-                  ${q.dificuldade}
-                </span>
+                <span class="text-xs font-bold text-slate-200">Caderno Oficial · Questão ${q.numero}</span>
               </div>
-              <a href="${q.pdfUrl}" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10 inline-flex items-center gap-1.5 transition-all">
-                <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i> <span>Caderno Oficial PDF</span>
-              </a>
-            </div>
-
-            <!-- Contexto e Descritores -->
-            <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-5 mb-6">
-              <h2 class="text-lg md:text-xl font-black text-white leading-snug">${this.esc(q.assunto)}</h2>
-              <div class="grid md:grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800/80 text-xs">
-                <p class="text-slate-300"><b class="text-slate-400">Conteúdo do Edital:</b> ${this.esc(q.conteudoEdital)}</p>
-                <p class="text-slate-400"><b class="text-slate-400">Descritor BNCC:</b> ${this.esc(q.descritor)}</p>
-              </div>
-              <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
-                <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400"></i>
-                <span>Consulte o enunciado original completo e figuras no PDF oficial.</span>
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  id="btn-zoom-toggle"
+                  class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 inline-flex items-center gap-1 transition-all"
+                  title="Alternar tamanho da imagem"
+                >
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>
+                </button>
               </div>
             </div>
 
-            <!-- Alternativas (A, B, C, D, E) -->
-            <div class="mb-6">
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Escolha a Alternativa:</label>
-              <div class="grid sm:grid-cols-5 gap-3">
-                ${["A", "B", "C", "D", "E"].map(opt => {
-                  const stat = stats[q.id];
-                  const isSelected = stat?.lastAnswer === opt;
-                  const isCorrectAnswer = opt === q.respostaCorreta;
-
-                  let btnClass = "border-slate-800 bg-dark-950/70 text-slate-200 hover:border-brand-500/60 hover:bg-dark-900";
-                  if (stat?.lastAnswer) {
-                    if (isSelected && isCorrectAnswer) {
-                      btnClass = "border-emerald-500 bg-emerald-950/80 text-emerald-200 ring-2 ring-emerald-500/40 font-black shadow-glow-emerald";
-                    } else if (isSelected && !isCorrectAnswer) {
-                      btnClass = "border-rose-500 bg-rose-950/80 text-rose-200 ring-2 ring-rose-500/40 font-black";
-                    } else if (isCorrectAnswer) {
-                      btnClass = "border-emerald-500/50 bg-emerald-950/40 text-emerald-300 font-bold";
-                    }
-                  }
-
-                  return `
-                    <button
-                      type="button"
-                      data-treino-answer="${opt}"
-                      class="rounded-2xl border p-4.5 font-black text-xl flex flex-col items-center justify-center gap-1 transition-all duration-150 ${btnClass}"
-                    >
-                      <span>${opt}</span>
-                      ${stat?.lastAnswer ? `
-                        <span class="text-[10px] font-mono font-normal">
-                          ${isCorrectAnswer ? "✓ Correto" : isSelected ? "✗ Marcada" : ""}
-                        </span>
-                      ` : ""}
-                    </button>
-                  `;
-                }).join("")}
-              </div>
+            <!-- Área da Imagem Oficial da Questão (Sem sair da aba) -->
+            <div id="page-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
+              <img
+                id="page-img-el"
+                src="${q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
+                alt="Enunciado oficial da Questão ${q.numero} - Página ${q.paginaPdf || 1}"
+                class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
+                loading="eager"
+              />
             </div>
-
-            <!-- Feedback Imediato -->
-            <div id="treino-feedback" class="mb-2">
-              ${stats[q.id]?.lastAnswer ? this.renderTreinoFeedbackHtml(q, stats[q.id].lastAnswer === q.respostaCorreta) : ""}
+            <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
+              <span>Caderno Oficial VUNESP / SEDUC-SP</span>
+              <span>Use a barra de rolagem ou o botão de ampliar para ler detalhes</span>
             </div>
           </article>
-        </main>
 
-        <!-- Barra Inferior de Ações -->
-        <footer class="glass-nav border-t border-slate-800/90 py-3.5 px-4 md:px-8 sticky bottom-0 z-40">
-          <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <button
-              id="treino-prev"
-              class="px-4 py-2.5 rounded-xl border border-slate-700 text-slate-300 font-semibold text-xs md:text-sm hover:bg-dark-900 hover:text-white flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-              ${this.state.currentIndex === 0 ? "disabled" : ""}
-            >
-              <i data-lucide="chevron-left" class="w-4 h-4"></i>
-              <span>Questão Anterior</span>
-            </button>
+          <!-- Coluna da Direita: Card de Resolução, BNCC e Feedback -->
+          <div class="space-y-4">
+            <article class="glass-card rounded-3xl p-5 md:p-6 shadow-2xl border border-slate-700/70">
 
-            <button
-              id="treino-next"
-              class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs md:text-sm flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-              ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
-            >
-              <span>Próxima Questão</span>
-              <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </button>
+              <!-- Cabeçalho da Questão -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-3 py-1 rounded-xl bg-brand-950 text-brand-300 text-xs font-extrabold font-mono border border-brand-500/30">
+                    Questão ${q.numero} (${this.state.currentIndex + 1} de ${questoes.length})
+                  </span>
+                  <span class="px-2.5 py-1 rounded-xl bg-dark-900 text-slate-200 text-xs font-bold border border-slate-800">
+                    ${this.esc(q.componente)}
+                  </span>
+                  <span class="px-2.5 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
+                    ${q.dificuldade}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Contexto e Descritores -->
+              <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-4 text-xs mt-4">
+                <h2 class="text-base font-black text-white leading-snug mb-2">${this.esc(q.assunto)}</h2>
+                <div class="space-y-1.5 pt-2 border-t border-slate-800/80">
+                  <p class="text-slate-300"><b class="text-slate-400">Conteúdo do Edital:</b> ${this.esc(q.conteudoEdital)}</p>
+                  <p class="text-slate-400"><b class="text-slate-400">Descritor BNCC:</b> ${this.esc(q.descritor)}</p>
+                </div>
+              </div>
+
+              <!-- Alternativas (A, B, C, D, E) -->
+              <div class="mt-5">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Escolha a Alternativa:</label>
+                <div class="grid grid-cols-5 gap-2.5">
+                  ${["A", "B", "C", "D", "E"].map(opt => {
+                    const stat = stats[q.id];
+                    const isSelected = stat?.lastAnswer === opt;
+                    const isCorrectAnswer = opt === q.respostaCorreta;
+
+                    let btnClass = "border-slate-800 bg-dark-950/70 text-slate-200 hover:border-brand-500/60 hover:bg-dark-900";
+                    if (stat?.lastAnswer) {
+                      if (isSelected && isCorrectAnswer) {
+                        btnClass = "border-emerald-500 bg-emerald-950/80 text-emerald-200 ring-2 ring-emerald-500/40 font-black shadow-glow-emerald";
+                      } else if (isSelected && !isCorrectAnswer) {
+                        btnClass = "border-rose-500 bg-rose-950/80 text-rose-200 ring-2 ring-rose-500/40 font-black";
+                      } else if (isCorrectAnswer) {
+                        btnClass = "border-emerald-500/50 bg-emerald-950/40 text-emerald-300 font-bold";
+                      }
+                    }
+
+                    return `
+                      <button
+                        type="button"
+                        data-treino-answer="${opt}"
+                        class="rounded-2xl border p-3.5 font-black text-xl flex flex-col items-center justify-center gap-1 transition-all duration-150 ${btnClass}"
+                      >
+                        <span>${opt}</span>
+                        ${stat?.lastAnswer ? `
+                          <span class="text-[9px] font-mono font-normal">
+                            ${isCorrectAnswer ? "✓ Correto" : isSelected ? "✗ Marcada" : ""}
+                          </span>
+                        ` : ""}
+                      </button>
+                    `;
+                  }).join("")}
+                </div>
+              </div>
+
+              <!-- Feedback Imediato -->
+              <div id="treino-feedback" class="mt-4">
+                ${stats[q.id]?.lastAnswer ? this.renderTreinoFeedbackHtml(q, stats[q.id].lastAnswer === q.respostaCorreta) : ""}
+              </div>
+
+              <!-- Navegação Inferior -->
+              <div class="mt-6 pt-4 border-t border-slate-800 flex justify-between gap-3">
+                <button
+                  id="treino-prev"
+                  class="px-4 py-2.5 rounded-xl border border-slate-700 text-slate-300 font-semibold text-xs md:text-sm hover:bg-dark-900 hover:text-white flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  ${this.state.currentIndex === 0 ? "disabled" : ""}
+                >
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                  <span>Questão Anterior</span>
+                </button>
+
+                <button
+                  id="treino-next"
+                  class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs md:text-sm flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
+                >
+                  <span>Próxima Questão</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </article>
           </div>
-        </footer>
+        </main>
       </main>`;
+
+    // Zoom Toggle no Treino
+    let isZoomedTreino = false;
+    document.getElementById("btn-zoom-toggle")?.addEventListener("click", () => {
+      isZoomedTreino = !isZoomedTreino;
+      const imgEl = document.getElementById("page-img-el");
+      const containerEl = document.getElementById("page-img-container");
+      const btn = document.getElementById("btn-zoom-toggle");
+      if (imgEl && containerEl && btn) {
+        if (isZoomedTreino) {
+          imgEl.style.transform = "scale(1.4)";
+          imgEl.style.transformOrigin = "top center";
+          containerEl.classList.remove("max-h-[75vh]");
+          containerEl.classList.add("max-h-[88vh]");
+          btn.innerHTML = `<i data-lucide="zoom-out" class="w-3.5 h-3.5"></i> <span>Reduzir</span>`;
+        } else {
+          imgEl.style.transform = "scale(1)";
+          containerEl.classList.remove("max-h-[88vh]");
+          containerEl.classList.add("max-h-[75vh]");
+          btn.innerHTML = `<i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>`;
+        }
+        if (window.lucide) window.lucide.createIcons();
+      }
+    });
 
     document.querySelectorAll("[data-treino-answer]").forEach(btn => {
       btn.onclick = () => this.answerTreino(q, btn.dataset.treinoAnswer);
@@ -690,114 +746,127 @@ const SimuladosView = {
           </div>
         </div>
 
-        <!-- Seção Principal com Questão Ativa em Foco Central -->
-        <section class="max-w-6xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1fr_18rem] gap-6 flex-1 w-full items-start">
+        <!-- Seção Principal com Questão Oficial em Imagem + Card de Resolução e Cartão-Resposta -->
+        <section class="max-w-7xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-6 flex-1 w-full items-start">
 
-          <!-- Card da Questão Única Ativa (Foco Total) -->
-          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col justify-between shadow-2xl">
-            <div>
-              <div class="p-5 md:p-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <!-- Coluna da Esquerda: Enunciado Oficial da Questão (Caderno Original sem trocar de aba) -->
+          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
+            <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
+                  Página ${q.paginaPdf || 1}
+                </span>
+                <span class="text-xs font-bold text-slate-200">Caderno Oficial · Questão ${q.numero}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  id="btn-zoom-prova-toggle"
+                  class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 inline-flex items-center gap-1 transition-all"
+                  title="Alternar tamanho da imagem"
+                >
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Área da Imagem Oficial da Questão (Sem sair da aba) -->
+            <div id="prova-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
+              <img
+                id="prova-img-el"
+                src="${q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
+                alt="Caderno Oficial - Questão ${q.numero} (Página ${q.paginaPdf || 1})"
+                class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
+                loading="eager"
+              />
+            </div>
+            <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
+              <span>Caderno Oficial VUNESP / SEDUC-SP</span>
+              <span>Enunciado, textos e figuras oficiais na mesma tela</span>
+            </div>
+          </article>
+
+          <!-- Coluna da Direita: Card de Resposta e Cartão-Resposta Digital -->
+          <div class="space-y-4">
+
+            <!-- Card da Questão Ativa -->
+            <article class="glass-card rounded-3xl border border-white/10 p-5 md:p-6 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
                 <div>
                   <p class="text-[11px] font-black text-brand-300 tracking-widest uppercase">
                     Questão ${q.numero} de ${questoes.length} · ${this.esc(q.componente)}
                   </p>
-                  <h2 class="text-xl md:text-2xl font-black text-white mt-1 leading-snug">${this.esc(q.assunto)}</h2>
+                  <h2 class="text-base md:text-lg font-black text-white mt-1 leading-snug">${this.esc(q.assunto)}</h2>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-3 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
-                    ${q.dificuldade}
-                  </span>
-                  <a href="${config.pdfUrl}" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-brand-500/10 hover:bg-brand-500/20 text-brand-200 border border-brand-500/25 text-xs font-bold inline-flex items-center gap-1.5 transition-all" title="Abrir caderno oficial em nova aba">
-                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-400"></i>
-                    <span>Caderno PDF ↗</span>
-                  </a>
+                <span class="px-3 py-1 rounded-xl border text-xs font-bold ${this.dificuldadeClass(q.dificuldade)}">
+                  ${q.dificuldade}
+                </span>
+              </div>
+
+              <!-- Informações do Edital e Descritores -->
+              <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-3.5 text-xs mt-4">
+                <p class="text-slate-300 mb-1"><b class="text-slate-400">Edital:</b> ${this.esc(q.conteudoEdital)}</p>
+                <p class="text-slate-400"><b class="text-slate-400">Descritor BNCC:</b> ${this.esc(q.descritor)}</p>
+              </div>
+
+              <!-- Botões de Alternativa (A, B, C, D, E) -->
+              <div class="mt-5">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+                  Marque sua Alternativa:
+                </label>
+                <div class="grid grid-cols-5 gap-2.5">
+                  ${["A", "B", "C", "D", "E"].map(opt => {
+                    const isSelected = this.state.answers[q.id] === opt;
+                    return `
+                      <button
+                        type="button"
+                        data-answer="${opt}"
+                        class="rounded-2xl border ${isSelected ? "border-brand-400 bg-brand-600 text-white shadow-glow-blue scale-105" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400 hover:bg-dark-900"} p-3.5 font-black text-xl transition-all duration-150 flex flex-col items-center justify-center gap-1 cursor-pointer select-none"
+                      >
+                        <span>${opt}</span>
+                        <span class="text-[9px] font-mono font-normal tracking-wider ${isSelected ? 'opacity-100 text-white font-bold' : 'opacity-40 text-slate-400'}">
+                          ${isSelected ? "✓ Marcada" : "Opção " + opt}
+                        </span>
+                      </button>
+                    `;
+                  }).join("")}
                 </div>
               </div>
 
-              <div class="p-5 md:p-8 space-y-6">
-                <!-- Informações do Edital e Descritores -->
-                <div class="rounded-2xl border border-slate-800 bg-dark-950/80 p-5 text-xs md:text-sm">
-                  <div class="grid sm:grid-cols-2 gap-3 text-slate-300">
-                    <div>
-                      <p class="text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1">Conteúdo do Edital</p>
-                      <p class="font-medium leading-relaxed">${this.esc(q.conteudoEdital)}</p>
-                    </div>
-                    <div>
-                      <p class="text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1">Descritor da Matriz BNCC</p>
-                      <p class="font-medium text-slate-400 leading-relaxed">${this.esc(q.descritor)}</p>
-                    </div>
-                  </div>
-                  <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-slate-400 text-xs flex-wrap gap-2">
-                    <span class="flex items-center gap-1.5">
-                      <i data-lucide="info" class="w-3.5 h-3.5 text-brand-400"></i>
-                      <span>Responda na grade abaixo. O progresso é salvo automaticamente.</span>
-                    </span>
-                    <span class="font-mono text-[11px] text-slate-500">Taxa de acerto: ${q.taxaAcerto == null ? 'sem dado' : `${q.taxaAcerto}%`}</span>
-                  </div>
-                </div>
+              <!-- Botões de Navegação Inferior na Questão -->
+              <div class="mt-6 pt-4 border-t border-slate-800 flex justify-between gap-3">
+                <button
+                  id="sim-prev"
+                  class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs md:text-sm font-bold inline-flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  ${this.state.currentIndex === 0 ? "disabled" : ""}
+                >
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                  <span>Questão Anterior</span>
+                </button>
 
-                <!-- Botões de Alternativa (A, B, C, D, E) -->
-                <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                    Marque a Alternativa Escolhida:
-                  </label>
-                  <div class="grid sm:grid-cols-5 gap-3">
-                    ${["A", "B", "C", "D", "E"].map(opt => {
-                      const isSelected = this.state.answers[q.id] === opt;
-                      return `
-                        <button
-                          type="button"
-                          data-answer="${opt}"
-                          class="rounded-2xl border ${isSelected ? "border-brand-400 bg-brand-600 text-white shadow-glow-blue scale-105" : "border-slate-700 bg-dark-950/70 text-slate-200 hover:border-brand-400 hover:bg-dark-900"} px-4 py-5 font-black text-2xl transition-all duration-150 flex flex-col items-center justify-center gap-1.5 cursor-pointer select-none"
-                        >
-                          <span>${opt}</span>
-                          <span class="text-[10px] font-mono font-normal tracking-wider ${isSelected ? 'opacity-100 text-white' : 'opacity-40 text-slate-400'}">
-                            ${isSelected ? "✓ Marcada" : "Opção " + opt}
-                          </span>
-                        </button>
-                      `;
-                    }).join("")}
-                  </div>
-                </div>
+                <button
+                  id="sim-next"
+                  class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs md:text-sm font-bold inline-flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
+                >
+                  <span>Próxima Questão</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
               </div>
-            </div>
+            </article>
 
-            <!-- Botões de Navegação Inferior na Questão -->
-            <div class="p-5 md:p-6 border-t border-slate-800 flex justify-between gap-3 bg-dark-950/40">
-              <button
-                id="sim-prev"
-                class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs md:text-sm font-bold inline-flex items-center gap-1.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                ${this.state.currentIndex === 0 ? "disabled" : ""}
-              >
-                <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                <span>Questão Anterior</span>
-              </button>
-
-              <button
-                id="sim-next"
-                class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs md:text-sm font-bold inline-flex items-center gap-1.5 shadow-glow-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                ${this.state.currentIndex === questoes.length - 1 ? "disabled" : ""}
-              >
-                <span>Próxima Questão</span>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Barra Lateral: Cartela de Respostas + Segurança -->
-          <aside class="space-y-4">
-            <!-- Grade Cartão-Resposta -->
-            <div class="glass-card rounded-3xl border border-white/10 p-5 shadow-xl">
-              <div class="flex items-center justify-between mb-3.5">
+            <!-- Cartão-Resposta Digital Geral -->
+            <div class="glass-card rounded-3xl border border-white/10 p-4.5 shadow-xl">
+              <div class="flex items-center justify-between mb-3">
                 <p class="text-[11px] uppercase tracking-wider font-black text-slate-400">Cartão-resposta digital</p>
-                <span class="text-xs font-mono font-bold text-brand-300 bg-brand-950 px-2 py-0.5 rounded-md border border-brand-500/30">${answeredCount}/${questoes.length}</span>
+                <span class="text-xs font-mono font-bold text-brand-300 bg-brand-950 px-2.5 py-0.5 rounded-md border border-brand-500/30">${answeredCount}/${questoes.length} respondidas</span>
               </div>
-              <div class="grid grid-cols-6 gap-1.5 max-h-72 overflow-y-auto pr-1 scrollbar-thin">
+              <div class="grid grid-cols-6 sm:grid-cols-8 gap-1.5 max-h-48 overflow-y-auto pr-1 scrollbar-thin">
                 ${questoes.map((item, idx) => `
                   <button
                     type="button"
                     data-jump="${idx}"
-                    class="h-8.5 rounded-xl text-xs font-mono font-black border transition-all ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue scale-105" : this.state.answers[item.id] ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" : "bg-dark-950 border-slate-700 text-slate-400 hover:text-white hover:border-slate-500"}"
+                    class="h-8 rounded-xl text-xs font-mono font-black border transition-all ${idx === this.state.currentIndex ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue scale-105" : this.state.answers[item.id] ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" : "bg-dark-950 border-slate-700 text-slate-400 hover:text-white hover:border-slate-500"}"
                     title="Q${String(item.numero).padStart(2, '0')}: ${this.state.answers[item.id] ? 'Marcada ' + this.state.answers[item.id] : 'Pendente'}"
                   >
                     ${item.numero}
@@ -805,31 +874,13 @@ const SimuladosView = {
                 `).join("")}
               </div>
 
-              <!-- Modo Seguro -->
-              <label class="mt-4 flex items-start gap-3 rounded-2xl border border-slate-800 bg-dark-950/70 p-3 text-xs text-slate-300 cursor-pointer hover:border-slate-700 transition-all">
-                <input id="secure-toggle" type="checkbox" ${this.state.secureMode ? "checked" : ""} class="mt-1 accent-blue-500">
-                <span>
-                  <b class="text-white block">Ambiente Blindado Ativo</b>
-                  Bloqueia cópia, botão direito e monitora perda de foco.
-                </span>
-              </label>
+              <!-- Modo Seguro Status -->
+              <div class="mt-3.5 pt-3 border-t border-slate-800/80 flex items-center gap-2 text-xs text-emerald-400">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-300">Ambiente Seguro Blindado: Prova sem troca de abas.</span>
+              </div>
             </div>
-
-            <!-- Card de Apoio com Caderno Oficial PDF -->
-            <div class="glass-card rounded-3xl border border-white/10 p-5 text-xs text-slate-300">
-              <p class="font-bold text-white mb-1.5 flex items-center gap-1.5">
-                <i data-lucide="book-open" class="w-4 h-4 text-brand-400"></i>
-                <span>Caderno de Prova Oficial</span>
-              </p>
-              <p class="text-slate-400 text-[11px] leading-relaxed mb-3">
-                Quer conferir a diagramação original da VUNESP ou textos complementares?
-              </p>
-              <a href="${config.pdfUrl}" target="_blank" class="w-full px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold inline-flex items-center justify-center gap-2 text-xs transition-all">
-                <i data-lucide="external-link" class="w-3.5 h-3.5 text-brand-300"></i>
-                <span>Abrir PDF em nova aba</span>
-              </a>
-            </div>
-          </aside>
+          </div>
         </section>
       </main>`;
 
@@ -874,6 +925,30 @@ const SimuladosView = {
   },
 
   bindProvaEvents(config, questoes, q) {
+    // Zoom Toggle na Prova
+    let isZoomedProva = false;
+    document.getElementById("btn-zoom-prova-toggle")?.addEventListener("click", () => {
+      isZoomedProva = !isZoomedProva;
+      const imgEl = document.getElementById("prova-img-el");
+      const containerEl = document.getElementById("prova-img-container");
+      const btn = document.getElementById("btn-zoom-prova-toggle");
+      if (imgEl && containerEl && btn) {
+        if (isZoomedProva) {
+          imgEl.style.transform = "scale(1.4)";
+          imgEl.style.transformOrigin = "top center";
+          containerEl.classList.remove("max-h-[75vh]");
+          containerEl.classList.add("max-h-[88vh]");
+          btn.innerHTML = `<i data-lucide="zoom-out" class="w-3.5 h-3.5"></i> <span>Reduzir</span>`;
+        } else {
+          imgEl.style.transform = "scale(1)";
+          containerEl.classList.remove("max-h-[88vh]");
+          containerEl.classList.add("max-h-[75vh]");
+          btn.innerHTML = `<i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>`;
+        }
+        if (window.lucide) window.lucide.createIcons();
+      }
+    });
+
     document.querySelectorAll("[data-answer]").forEach(btn => btn.onclick = () => {
       this.state.answers[q.id] = btn.dataset.answer;
       localStorage.setItem(`simulado_answers_${config.id}`, JSON.stringify(this.state.answers));
@@ -905,8 +980,11 @@ const SimuladosView = {
       };
     }
 
-    document.getElementById("finish-simulado").onclick = () => this.finishSimulado();
-    document.getElementById("secure-toggle").onchange = (event) => this.toggleSecurity(event.target.checked, config);
+    const finishBtn = document.getElementById("finish-simulado");
+    if (finishBtn) finishBtn.onclick = () => this.finishSimulado();
+
+    const secureToggle = document.getElementById("secure-toggle");
+    if (secureToggle) secureToggle.onchange = (event) => this.toggleSecurity(event.target.checked, config);
   },
 
   toggleSecurity(enabled, config) {

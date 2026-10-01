@@ -3,7 +3,7 @@
  * Implementa cache inteligente e suporte offline
  */
 
-const CACHE_VERSION = "v2.8.0";
+const CACHE_VERSION = "v2.9.0";
 const CACHE_NAMES = {
   STATIC: `atividade-segura-static-${CACHE_VERSION}`,
   DYNAMIC: `atividade-segura-dynamic-${CACHE_VERSION}`,

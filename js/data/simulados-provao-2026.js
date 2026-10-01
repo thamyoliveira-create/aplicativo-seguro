@@ -121,7 +121,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p1.webp"
   },
   {
     "id": "provao2026_1s_d1_q02",
@@ -162,7 +164,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p1.webp"
   },
   {
     "id": "provao2026_1s_d1_q03",
@@ -203,7 +207,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_1s_d1_q04",
@@ -244,7 +250,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_1s_d1_q05",
@@ -285,7 +293,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_1s_d1_q06",
@@ -326,7 +336,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_1s_d1_q07",
@@ -367,7 +379,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_1s_d1_q08",
@@ -408,7 +422,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_1s_d1_q09",
@@ -449,7 +465,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_1s_d1_q10",
@@ -490,7 +508,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_1s_d1_q11",
@@ -531,7 +551,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_1s_d1_q12",
@@ -572,7 +594,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_1s_d1_q13",
@@ -613,7 +637,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_1s_d1_q14",
@@ -654,7 +680,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p5.webp"
   },
   {
     "id": "provao2026_1s_d1_q15",
@@ -695,7 +723,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p5.webp"
   },
   {
     "id": "provao2026_1s_d1_q16",
@@ -736,7 +766,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p5.webp"
   },
   {
     "id": "provao2026_1s_d1_q17",
@@ -777,7 +809,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_1s_d1_q18",
@@ -818,7 +852,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_1s_d1_q19",
@@ -859,7 +895,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_1s_d1_q20",
@@ -900,7 +938,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_1s_d1_q21",
@@ -941,7 +981,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p7.webp"
   },
   {
     "id": "provao2026_1s_d1_q22",
@@ -982,7 +1024,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p7.webp"
   },
   {
     "id": "provao2026_1s_d1_q23",
@@ -1023,7 +1067,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p7.webp"
   },
   {
     "id": "provao2026_1s_d1_q24",
@@ -1064,7 +1110,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_1s_d1_q25",
@@ -1105,7 +1153,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_1s_d1_q26",
@@ -1146,7 +1196,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_1s_d1_q27",
@@ -1187,7 +1239,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_1s_d1_q28",
@@ -1228,7 +1282,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_1s_d1_q29",
@@ -1269,7 +1325,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_1s_d1_q30",
@@ -1310,7 +1368,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_1s_d1_q31",
@@ -1351,7 +1411,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_1s_d1_q32",
@@ -1392,7 +1454,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_1s_d1_q33",
@@ -1433,7 +1497,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_1s_d1_q34",
@@ -1474,7 +1540,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_1s_d1_q35",
@@ -1515,7 +1583,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_1s_d1_q36",
@@ -1556,7 +1626,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_1s_d1_q37",
@@ -1597,7 +1669,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_1s_d1_q38",
@@ -1638,7 +1712,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_1s_d1_q39",
@@ -1679,7 +1755,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_1s_d1_q40",
@@ -1720,7 +1798,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_1s_d1_q41",
@@ -1761,7 +1841,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_1s_d1_q42",
@@ -1802,7 +1884,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_1s_d1_q43",
@@ -1843,7 +1927,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p13.webp"
   },
   {
     "id": "provao2026_1s_d1_q44",
@@ -1884,7 +1970,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p13.webp"
   },
   {
     "id": "provao2026_1s_d1_q45",
@@ -1925,7 +2013,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_1s_d1_q46",
@@ -1966,7 +2056,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_1s_d1_q47",
@@ -2007,7 +2099,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 15,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p15.webp"
   },
   {
     "id": "provao2026_1s_d1_q48",
@@ -2048,7 +2142,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 16,
+    "imagemPagina": "assets/simulados/pages/1serie_dia1_p16.webp"
   },
   {
     "id": "provao2026_1s_d2_q01",
@@ -2089,7 +2185,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_1s_d2_q02",
@@ -2130,7 +2228,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_1s_d2_q03",
@@ -2171,7 +2271,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_1s_d2_q04",
@@ -2212,7 +2314,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_1s_d2_q05",
@@ -2253,7 +2357,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_1s_d2_q06",
@@ -2294,7 +2400,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_1s_d2_q07",
@@ -2335,7 +2443,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_1s_d2_q08",
@@ -2376,7 +2486,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_1s_d2_q09",
@@ -2417,7 +2529,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_1s_d2_q10",
@@ -2458,7 +2572,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_1s_d2_q11",
@@ -2499,7 +2615,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_1s_d2_q12",
@@ -2540,7 +2658,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_1s_d2_q13",
@@ -2581,7 +2701,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_1s_d2_q14",
@@ -2622,7 +2744,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_1s_d2_q15",
@@ -2663,7 +2787,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_1s_d2_q16",
@@ -2704,7 +2830,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_1s_d2_q17",
@@ -2745,7 +2873,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_1s_d2_q18",
@@ -2786,7 +2916,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_1s_d2_q19",
@@ -2827,7 +2959,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_1s_d2_q20",
@@ -2868,7 +3002,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_1s_d2_q21",
@@ -2909,7 +3045,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_1s_d2_q22",
@@ -2950,7 +3088,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_1s_d2_q23",
@@ -2991,7 +3131,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_1s_d2_q24",
@@ -3032,7 +3174,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_1s_d2_q25",
@@ -3073,7 +3217,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_1s_d2_q26",
@@ -3114,7 +3260,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_1s_d2_q27",
@@ -3155,7 +3303,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_1s_d2_q28",
@@ -3196,7 +3346,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_1s_d2_q29",
@@ -3237,7 +3389,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_1s_d2_q30",
@@ -3278,7 +3432,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_1s_d2_q31",
@@ -3319,7 +3475,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p9.webp"
   },
   {
     "id": "provao2026_1s_d2_q32",
@@ -3360,7 +3518,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p9.webp"
   },
   {
     "id": "provao2026_1s_d2_q33",
@@ -3401,7 +3561,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p9.webp"
   },
   {
     "id": "provao2026_1s_d2_q34",
@@ -3442,7 +3604,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_1s_d2_q35",
@@ -3483,7 +3647,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_1s_d2_q36",
@@ -3524,7 +3690,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_1s_d2_q37",
@@ -3565,7 +3733,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_1s_d2_q38",
@@ -3606,7 +3776,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_1s_d2_q39",
@@ -3647,7 +3819,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_1s_d2_q40",
@@ -3688,7 +3862,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_1s_d2_q41",
@@ -3729,7 +3905,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_1s_d2_q42",
@@ -3770,7 +3948,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/1serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_2s_d1_q01",
@@ -3811,7 +3991,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p1.webp"
   },
   {
     "id": "provao2026_2s_d1_q02",
@@ -3852,7 +4034,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p1.webp"
   },
   {
     "id": "provao2026_2s_d1_q03",
@@ -3893,7 +4077,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_2s_d1_q04",
@@ -3934,7 +4120,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_2s_d1_q05",
@@ -3975,7 +4163,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_2s_d1_q06",
@@ -4016,7 +4206,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p2.webp"
   },
   {
     "id": "provao2026_2s_d1_q07",
@@ -4057,7 +4249,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_2s_d1_q08",
@@ -4098,7 +4292,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p3.webp"
   },
   {
     "id": "provao2026_2s_d1_q09",
@@ -4139,7 +4335,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_2s_d1_q10",
@@ -4180,7 +4378,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_2s_d1_q11",
@@ -4221,7 +4421,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p4.webp"
   },
   {
     "id": "provao2026_2s_d1_q12",
@@ -4262,7 +4464,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p5.webp"
   },
   {
     "id": "provao2026_2s_d1_q13",
@@ -4303,7 +4507,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p5.webp"
   },
   {
     "id": "provao2026_2s_d1_q14",
@@ -4344,7 +4550,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_2s_d1_q15",
@@ -4385,7 +4593,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_2s_d1_q16",
@@ -4426,7 +4636,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p6.webp"
   },
   {
     "id": "provao2026_2s_d1_q17",
@@ -4467,7 +4679,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p7.webp"
   },
   {
     "id": "provao2026_2s_d1_q18",
@@ -4508,7 +4722,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p7.webp"
   },
   {
     "id": "provao2026_2s_d1_q19",
@@ -4549,7 +4765,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_2s_d1_q20",
@@ -4590,7 +4808,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_2s_d1_q21",
@@ -4631,7 +4851,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p8.webp"
   },
   {
     "id": "provao2026_2s_d1_q22",
@@ -4672,7 +4894,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_2s_d1_q23",
@@ -4713,7 +4937,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_2s_d1_q24",
@@ -4754,7 +4980,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_2s_d1_q25",
@@ -4795,7 +5023,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p9.webp"
   },
   {
     "id": "provao2026_2s_d1_q26",
@@ -4836,7 +5066,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_2s_d1_q27",
@@ -4877,7 +5109,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_2s_d1_q28",
@@ -4918,7 +5152,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_2s_d1_q29",
@@ -4959,7 +5195,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p10.webp"
   },
   {
     "id": "provao2026_2s_d1_q30",
@@ -5000,7 +5238,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_2s_d1_q31",
@@ -5041,7 +5281,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_2s_d1_q32",
@@ -5082,7 +5324,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_2s_d1_q33",
@@ -5123,7 +5367,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p11.webp"
   },
   {
     "id": "provao2026_2s_d1_q34",
@@ -5164,7 +5410,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_2s_d1_q35",
@@ -5205,7 +5453,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_2s_d1_q36",
@@ -5246,7 +5496,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p12.webp"
   },
   {
     "id": "provao2026_2s_d1_q37",
@@ -5287,7 +5539,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p13.webp"
   },
   {
     "id": "provao2026_2s_d1_q38",
@@ -5328,7 +5582,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p13.webp"
   },
   {
     "id": "provao2026_2s_d1_q39",
@@ -5369,7 +5625,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_2s_d1_q40",
@@ -5410,7 +5668,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_2s_d1_q41",
@@ -5451,7 +5711,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_2s_d1_q42",
@@ -5492,7 +5754,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p14.webp"
   },
   {
     "id": "provao2026_2s_d1_q43",
@@ -5533,7 +5797,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 15,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p15.webp"
   },
   {
     "id": "provao2026_2s_d1_q44",
@@ -5574,7 +5840,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 15,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p15.webp"
   },
   {
     "id": "provao2026_2s_d1_q45",
@@ -5615,7 +5883,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 15,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p15.webp"
   },
   {
     "id": "provao2026_2s_d1_q46",
@@ -5656,7 +5926,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 16,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p16.webp"
   },
   {
     "id": "provao2026_2s_d1_q47",
@@ -5697,7 +5969,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 16,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p16.webp"
   },
   {
     "id": "provao2026_2s_d1_q48",
@@ -5738,7 +6012,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 16,
+    "imagemPagina": "assets/simulados/pages/2serie_dia1_p16.webp"
   },
   {
     "id": "provao2026_2s_d2_q01",
@@ -5779,7 +6055,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_2s_d2_q02",
@@ -5820,7 +6098,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p1.webp"
   },
   {
     "id": "provao2026_2s_d2_q03",
@@ -5861,7 +6141,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q04",
@@ -5902,7 +6184,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q05",
@@ -5943,7 +6227,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q06",
@@ -5984,7 +6270,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q07",
@@ -6025,7 +6313,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q08",
@@ -6066,7 +6356,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p2.webp"
   },
   {
     "id": "provao2026_2s_d2_q09",
@@ -6107,7 +6399,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_2s_d2_q10",
@@ -6148,7 +6442,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_2s_d2_q11",
@@ -6189,7 +6485,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_2s_d2_q12",
@@ -6230,7 +6528,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p3.webp"
   },
   {
     "id": "provao2026_2s_d2_q13",
@@ -6271,7 +6571,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_2s_d2_q14",
@@ -6312,7 +6614,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p4.webp"
   },
   {
     "id": "provao2026_2s_d2_q15",
@@ -6353,7 +6657,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_2s_d2_q16",
@@ -6394,7 +6700,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_2s_d2_q17",
@@ -6435,7 +6743,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p5.webp"
   },
   {
     "id": "provao2026_2s_d2_q18",
@@ -6476,7 +6786,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_2s_d2_q19",
@@ -6517,7 +6829,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_2s_d2_q20",
@@ -6558,7 +6872,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p6.webp"
   },
   {
     "id": "provao2026_2s_d2_q21",
@@ -6599,7 +6915,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_2s_d2_q22",
@@ -6640,7 +6958,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_2s_d2_q23",
@@ -6681,7 +7001,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_2s_d2_q24",
@@ -6722,7 +7044,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p7.webp"
   },
   {
     "id": "provao2026_2s_d2_q25",
@@ -6763,7 +7087,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_2s_d2_q26",
@@ -6804,7 +7130,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p8.webp"
   },
   {
     "id": "provao2026_2s_d2_q27",
@@ -6845,7 +7173,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p9.webp"
   },
   {
     "id": "provao2026_2s_d2_q28",
@@ -6886,7 +7216,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_2s_d2_q29",
@@ -6927,7 +7259,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_2s_d2_q30",
@@ -6968,7 +7302,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_2s_d2_q31",
@@ -7009,7 +7345,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p10.webp"
   },
   {
     "id": "provao2026_2s_d2_q32",
@@ -7050,7 +7388,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_2s_d2_q33",
@@ -7091,7 +7431,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p11.webp"
   },
   {
     "id": "provao2026_2s_d2_q34",
@@ -7132,7 +7474,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_2s_d2_q35",
@@ -7173,7 +7517,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_2s_d2_q36",
@@ -7214,7 +7560,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_2s_d2_q37",
@@ -7255,7 +7603,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p12.webp"
   },
   {
     "id": "provao2026_2s_d2_q38",
@@ -7296,7 +7646,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p13.webp"
   },
   {
     "id": "provao2026_2s_d2_q39",
@@ -7337,7 +7689,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p13.webp"
   },
   {
     "id": "provao2026_2s_d2_q40",
@@ -7378,7 +7732,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 13,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p13.webp"
   },
   {
     "id": "provao2026_2s_d2_q41",
@@ -7419,7 +7775,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p14.webp"
   },
   {
     "id": "provao2026_2s_d2_q42",
@@ -7460,7 +7818,9 @@ const SIMULADOS_QUESTOES = [
         "id": "E",
         "texto": "Alternativa E"
       }
-    ]
+    ],
+    "paginaPdf": 14,
+    "imagemPagina": "assets/simulados/pages/2serie_dia2_p14.webp"
   }
 ];
 
