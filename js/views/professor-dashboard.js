@@ -123,6 +123,22 @@ const ProfessorDashboardView = {
           </a>
 
           <!-- Resultados dos Simulados Oficiais -->
+          <section class="glass-card rounded-3xl p-6 md:p-8 mb-8 border border-amber-500/20">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+              <div>
+                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+                  <i data-lucide="hourglass" class="w-5 h-5 text-amber-400"></i>
+                  Começaram e ainda não finalizaram
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Simulados e avaliações abertos e não entregues, com as ocorrências de segurança até agora</p>
+              </div>
+              <button onclick="ProfessorDashboardView.loadData()" class="text-[11px] text-amber-300 font-bold bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/25">
+                <span id="stat-em-andamento">0</span> em andamento · Atualizar
+              </button>
+            </div>
+            <div id="lista-em-andamento" class="space-y-2 text-xs text-slate-400">Carregando...</div>
+          </section>
+
           <section class="glass-card rounded-3xl p-6 md:p-8 mb-8 border border-emerald-500/20">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
               <div>
@@ -480,6 +496,44 @@ const ProfessorDashboardView = {
     }
   },
 
+  async renderEmAndamento(atividades) {
+    const lista = document.getElementById("lista-em-andamento");
+    if (!lista) return;
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const hora = (iso) => iso ? new Date(iso).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "-";
+    const [subs, sims] = await Promise.all([
+      DB.getSubmissoes(null, true).then((l) => l.filter((s) => s.status === "in_progress")).catch(() => []),
+      DB.getSimuladosEmAndamento().catch(() => [])
+    ]);
+    const itens = [
+      ...subs.map((s) => ({
+        nome: s.alunoNome, ra: s.alunoRA, turma: s.turma,
+        prova: (atividades.find((a) => a.id === s.atividadeId) || {}).titulo || "Avaliação",
+        inicio: s.dataInicio, inf: window.resumoInfracoes(s.infracoes)
+      })),
+      ...sims.map((s) => ({
+        nome: s.studentName, ra: s.studentRA, turma: "",
+        prova: `Simulado ${s.simuladoId || ""}`.trim(),
+        inicio: s.startedAt || s.updatedAt, respondidas: Object.keys(s.answers || {}).length,
+        inf: { total: 0, texto: "" }
+      }))
+    ];
+    const stat = document.getElementById("stat-em-andamento");
+    if (stat) stat.innerText = itens.length;
+    if (!itens.length) { lista.innerHTML = `<p class="text-emerald-400">Ninguém com prova aberta no momento.</p>`; return; }
+    lista.innerHTML = itens.map((i) => `
+      <div class="p-3 rounded-2xl bg-dark-900 border ${i.inf.total ? "border-rose-500/30" : "border-slate-800"} flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div>
+          <div class="font-bold text-white text-sm">${esc(i.nome)}</div>
+          <div class="text-slate-400 font-mono text-[10px]">RA: ${esc(i.ra || "-")}${i.turma ? " · " + esc(i.turma) : ""} · ${esc(i.prova)}</div>
+        </div>
+        <div class="md:text-right">
+          <div class="text-[11px] text-slate-300">Começou: ${hora(i.inicio)}${i.respondidas !== undefined ? ` · ${i.respondidas} respondidas` : ""}</div>
+          <div class="text-[11px] font-bold ${i.inf.total ? "text-rose-400" : "text-emerald-400"}">${i.inf.total ? esc(i.inf.texto) : "Sem ocorrências"}</div>
+        </div>
+      </div>`).join("");
+  },
+
   async loadData() {
     try {
       const atividades = await DB.getAtividades();
@@ -492,6 +546,7 @@ const ProfessorDashboardView = {
       }
       this.atividades = atividades;
       this.submissoes = submissoes;
+      this.renderEmAndamento(atividades).catch((e) => console.warn("Erro ao carregar provas em andamento:", e));
       this.resultadosSimulados = resultadosSimulados;
 
       // Estatísticas
@@ -506,7 +561,7 @@ const ProfessorDashboardView = {
 
       let totalInf = 0;
       submissoes.forEach(s => {
-        if (s.infracoes?.totalTrocasAba) totalInf += s.infracoes.totalTrocasAba;
+        totalInf += window.resumoInfracoes(s.infracoes).total;
       });
       if (statInf) statInf.innerText = totalInf;
 
@@ -638,7 +693,7 @@ const ProfessorDashboardView = {
       if (tbody && submissoes.length > 0) {
         tbody.innerHTML = submissoes.slice(0, 10).map(s => {
           const ativ = atividades.find(a => a.id === s.atividadeId) || { titulo: "Avaliação" };
-          const trocas = s.infracoes?.totalTrocasAba || 0;
+          const trocas = window.resumoInfracoes(s.infracoes).total;
           const mins = Math.floor((s.tempoGastoSegundos || 0) / 60);
           const nota = s.notaFinal !== undefined ? `${s.notaFinal} / 10` : "Pendente";
 

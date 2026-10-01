@@ -176,13 +176,33 @@ const AlunoProvaView = {
     if (window.lucide) window.lucide.createIcons();
 
     // 4. Iniciar Motor de Segurança Blindado
+    // Registro "em andamento" no banco, para as infrações chegarem ao professor na hora
+    let submissaoDocId = null;
+    let syncTimer = null;
+    const sincronizarInfracoes = () => {
+      if (!submissaoDocId) return;
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(() => {
+        DB.atualizarInfracoes(submissaoDocId, window.securityEngine.infractions)
+          .catch((err) => console.warn("Erro sincronizando infração:", err));
+      }, 1500);
+    };
+    DB.iniciarSubmissao({
+      atividadeId: atividade.id,
+      alunoNome: aluno.nome,
+      alunoEmail: aluno.email,
+      alunoRA: aluno.ra,
+      turma: atividade.anoTurma,
+      dataInicio: new Date().toISOString(),
+      infracoes: window.securityEngine.infractions
+    }).then((id) => { submissaoDocId = id; sincronizarInfracoes(); })
+      .catch((err) => console.warn("Não foi possível iniciar o registro em tempo real:", err));
+
     window.securityEngine.init(
       aluno,
       atividade,
       submissaoId,
-      (infractions, latestItem) => {
-        console.log("Infração registrada:", latestItem);
-      }
+      () => sincronizarInfracoes()
     );
 
     // Solicitar tela cheia
@@ -420,6 +440,7 @@ const AlunoProvaView = {
 
       const submissaoFinal = {
         id: submissaoId,
+        docId: submissaoDocId,
         atividadeId: atividade.id,
         alunoNome: aluno.nome,
         alunoEmail: aluno.email,

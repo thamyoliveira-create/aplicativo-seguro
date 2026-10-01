@@ -30,7 +30,9 @@ const ProfessorAtividadeDetalhesView = {
 
     try {
       this.atividade = await DB.getAtividadePorId(atvId);
-      this.submissoes = await DB.getSubmissoes(atvId);
+      const todas = await DB.getSubmissoes(atvId, true);
+      this.emAndamento = todas.filter((s) => s.status === "in_progress");
+      this.submissoes = todas.filter((s) => s.status !== "in_progress");
     } catch (e) {
       console.warn("Erro ao carregar dados:", e);
     }
@@ -67,7 +69,7 @@ const ProfessorAtividadeDetalhesView = {
       ? (subs.reduce((acc, s) => acc + (s.correcao?.notaTotal || 0), 0) / totalSubs).toFixed(1)
       : "0.0";
 
-    const totalInf = subs.reduce((acc, s) => acc + (s.infracoes?.totalTrocasAba || 0), 0);
+    const totalInf = [...subs, ...(this.emAndamento || [])].reduce((acc, s) => acc + window.resumoInfracoes(s.infracoes).total, 0);
 
     root.innerHTML = `
       <div class="min-h-screen bg-dark-950 text-slate-100 flex flex-col font-sans selection:bg-brand-600 selection:text-white pb-16">
@@ -255,7 +257,7 @@ const ProfessorAtividadeDetalhesView = {
           </thead>
           <tbody class="divide-y divide-slate-800/60">
             ${subs.map((s, idx) => {
-              const trocas = s.infracoes?.totalTrocasAba || 0;
+              const trocas = window.resumoInfracoes(s.infracoes).total;
               const mins = Math.floor((s.tempoGastoSegundos || 0) / 60);
               const nota = s.correcao?.notaTotal !== undefined ? `${s.correcao.notaTotal} / 10` : "Não corrigida";
 
@@ -431,15 +433,19 @@ const ProfessorAtividadeDetalhesView = {
   },
 
   renderTabInfracoes(container) {
-    const subs = this.submissoes;
-    const withInf = subs.filter(s => (s.infracoes?.totalTrocasAba || 0) > 0);
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const todos = [
+      ...(this.emAndamento || []).map((s) => ({ ...s, _andamento: true })),
+      ...this.submissoes
+    ];
+    const withInf = todos.filter((s) => window.resumoInfracoes(s.infracoes).total > 0);
 
     if (withInf.length === 0) {
       container.innerHTML = `
         <div class="py-12 text-center text-emerald-400">
           <i data-lucide="shield-check" class="w-12 h-12 mx-auto mb-2 text-emerald-400"></i>
           <p class="font-bold text-base text-white">Nenhuma infração registrada!</p>
-          <p class="text-xs text-slate-400 mt-1">Todos os estudantes permaneceram no ambiente de prova com foco contínuo.</p>
+          <p class="text-xs text-slate-400 mt-1">Nenhum estudante tentou copiar, colar, usar o botão direito ou sair da prova.</p>
         </div>
       `;
       return;
@@ -447,20 +453,22 @@ const ProfessorAtividadeDetalhesView = {
 
     container.innerHTML = `
       <div class="space-y-3 text-xs">
-        ${withInf.map(s => `
-          <div class="p-4 rounded-2xl bg-dark-900 border border-rose-500/30 flex items-center justify-between">
+        ${withInf.map((s) => {
+          const r = window.resumoInfracoes(s.infracoes);
+          return `
+          <div class="p-4 rounded-2xl bg-dark-900 border border-rose-500/30 flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div>
-              <div class="font-bold text-white text-sm">${s.alunoNome}</div>
-              <div class="text-slate-400 font-mono text-[10px]">RA: ${s.alunoRA}</div>
+              <div class="font-bold text-white text-sm">${esc(s.alunoNome)} ${s._andamento ? '<span class="ml-1 px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 text-[10px] border border-amber-500/30">fazendo a prova agora</span>' : ""}</div>
+              <div class="text-slate-400 font-mono text-[10px]">RA: ${esc(s.alunoRA || "-")}</div>
             </div>
-            <div class="text-right">
-              <span class="px-3 py-1 rounded-full bg-rose-950 text-rose-400 font-bold border border-rose-500/30 text-xs">
-                ${s.infracoes.totalTrocasAba} trocas de aba
-              </span>
-              <div class="text-slate-500 text-[10px] mt-1">Tempo total fora: ${s.infracoes.tempoForaSegundos || 0}s</div>
+            <div class="md:text-right">
+              <div class="flex flex-wrap md:justify-end gap-1">
+                ${r.itens.map((i) => `<span class="px-2 py-0.5 rounded-full bg-rose-950 text-rose-300 font-bold border border-rose-500/30 text-[11px]">${i.n} ${i.rotulo}</span>`).join("")}
+              </div>
+              ${s.infracoes?.tempoForaSegundos ? `<div class="text-slate-500 text-[10px] mt-1">Tempo total fora da prova: ${s.infracoes.tempoForaSegundos}s</div>` : ""}
             </div>
-          </div>
-        `).join("")}
+          </div>`;
+        }).join("")}
       </div>
     `;
   },
@@ -512,8 +520,8 @@ const ProfessorAtividadeDetalhesView = {
           </div>
           <div class="text-right">
             <div class="text-slate-400 text-[11px] uppercase font-bold">Ocorrências de Segurança</div>
-            <div class="text-sm font-bold ${(s.infracoes?.totalTrocasAba || 0) > 0 ? "text-amber-400" : "text-emerald-400"}">
-              ${s.infracoes?.totalTrocasAba || 0} trocas de aba
+            <div class="text-sm font-bold ${window.resumoInfracoes(s.infracoes).total > 0 ? "text-amber-400" : "text-emerald-400"}">
+              ${window.resumoInfracoes(s.infracoes).texto || "Nenhuma ocorrência"}
             </div>
           </div>
         </div>
