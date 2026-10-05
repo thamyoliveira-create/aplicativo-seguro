@@ -21,9 +21,63 @@ const PortalAuth = {
   },
 
   /**
-   * Tenta extrair o RA do e-mail institucional do aluno quando ele segue
-   * algum padrão reconhecível. A SEDUC pode variar o formato do login, então
-   * esta informação é auxiliar: o domínio institucional é a validação principal.
+   * Converte RA e Dígito informados pelo aluno no e-mail institucional oficial
+   * Padrão SEDUC-SP: 0000<ra><dig>sp@aluno.educacao.sp.gov.br
+   */
+  raToEmail(ra, dig = "", uf = "sp") {
+    const rawRa = String(ra || "").trim();
+    if (!rawRa) throw new Error("Informe o RA do aluno.");
+
+    // Se o aluno digitou/colou o e-mail completo, utiliza diretamente
+    if (rawRa.includes("@")) {
+      return this.normalizeEmail(rawRa);
+    }
+
+    let cleanRa = "";
+    let cleanDig = String(dig || "").trim().toLowerCase();
+    let cleanUf = String(uf || "sp").trim().toLowerCase();
+
+    // Trata se o aluno digitou RA com separador no mesmo campo (ex: 000112790615-X ou 112790615-5/SP)
+    const separatedMatch = rawRa.match(/^0*(\d{5,12})[-_/\s]+([0-9a-zA-Z])(?:[-_/\s]*([a-zA-Z]{2}))?$/i);
+    if (separatedMatch) {
+      cleanRa = separatedMatch[1];
+      cleanDig = separatedMatch[2].toLowerCase();
+      cleanUf = (separatedMatch[3] || cleanUf || "sp").toLowerCase();
+    } else {
+      cleanRa = rawRa.replace(/\D/g, "").replace(/^0+/, "");
+      if (!cleanDig) {
+        throw new Error("Informe o dígito do RA (ex: 5 ou X).");
+      }
+    }
+
+    if (!cleanRa) throw new Error("Número de RA inválido.");
+    if (!cleanDig) throw new Error("Informe o dígito do RA.");
+
+    return `0000${cleanRa}${cleanDig}${cleanUf}@aluno.educacao.sp.gov.br`;
+  },
+
+  /**
+   * Formata o RA para exibição padronizada na prova e marca d'água (ex: 112790615-X/SP)
+   */
+  formatRA(ra, dig = "", uf = "SP") {
+    const rawRa = String(ra || "").trim();
+    if (rawRa.includes("@")) {
+      const extracted = this.extractRAFromEmail(rawRa);
+      return extracted ? `${extracted.replace(".", "-")}/SP` : rawRa;
+    }
+
+    const separatedMatch = rawRa.match(/^0*(\d{5,12})[-_/\s]+([0-9a-zA-Z])(?:[-_/\s]*([a-zA-Z]{2}))?$/i);
+    if (separatedMatch) {
+      return `${separatedMatch[1]}-${separatedMatch[2].toUpperCase()}/${(separatedMatch[3] || uf).toUpperCase()}`;
+    }
+
+    const cleanRa = rawRa.replace(/\D/g, "").replace(/^0+/, "");
+    const cleanDig = String(dig || "").trim().toUpperCase();
+    return cleanDig ? `${cleanRa}-${cleanDig}/${uf.toUpperCase()}` : cleanRa;
+  },
+
+  /**
+   * Tenta extrair o RA do e-mail institucional do aluno
    */
   extractRAFromEmail(email) {
     const normalized = this.normalizeEmail(email);
@@ -36,8 +90,8 @@ const PortalAuth = {
       return `${plusParts[1]}.${plusParts[2]}`;
     }
 
-    const compact = localPart.match(/^0000(\d{5,12})(\d)sp$/i);
-    if (compact) return `${compact[1]}.${compact[2]}`;
+    const compact = localPart.match(/^0000(\d{5,12})([0-9a-zA-Z])sp$/i);
+    if (compact) return `${compact[1]}.${compact[2].toUpperCase()}`;
 
     return null;
   },
@@ -45,7 +99,7 @@ const PortalAuth = {
   validateEmail(email, role) {
     const normalized = this.normalizeEmail(email);
     const domain = this.domains[role];
-    
+
     if (!normalized.endsWith(domain) || normalized === domain) {
       const label = role === "teacher" ? "professor" : "aluno";
       throw new Error(`Use seu e-mail institucional @${label}.educacao.sp.gov.br.`);
@@ -88,9 +142,9 @@ const PortalAuth = {
       });
     }
 
-    return existing.exists() ? existing.data() : { 
-      email: user.email, 
-      displayName: name, 
+    return existing.exists() ? existing.data() : {
+      email: user.email,
+      displayName: name,
       role,
       studentRA: studentRA
     };
@@ -220,6 +274,10 @@ const StudentAuth = {
   },
   login(email, password) {
     return PortalAuth.login({ email, password, role: "student" }).then((user) => (this.user = user));
+  },
+  loginWithRA(ra, dig, password) {
+    const email = PortalAuth.raToEmail(ra, dig);
+    return this.login(email, password);
   },
   register(email, password, displayName) {
     return PortalAuth.register({ email, password, displayName, role: "student" });

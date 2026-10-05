@@ -665,6 +665,40 @@ body {
   font-family: inherit;
 }
 .auth-input input::placeholder { color: #64748b; }
+
+.ra-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ra-input-row .ra-main {
+  flex: 1;
+}
+.ra-input-row .ra-dig {
+  width: 76px;
+  flex-shrink: 0;
+}
+.ra-input-row .ra-dig input {
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.ra-input-row .ra-uf {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  user-select: none;
+}
 .auth-field-note { margin-top: 8px; color: #64748b; font-size: 10px; line-height: 1.5; }
 .auth-field-note strong { color: #94a3b8; }
 

@@ -30,3 +30,4 @@ logs/
 
 # Dados locais / seed (podem conter PII) - nunca versionar
 /data/*.json
+.vercel
