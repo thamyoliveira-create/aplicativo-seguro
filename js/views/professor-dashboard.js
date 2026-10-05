@@ -148,9 +148,19 @@ const ProfessorDashboardView = {
                 </h3>
                 <p class="text-xs text-slate-400 mt-0.5">Resultados salvos com login institucional, nome e RA do estudante</p>
               </div>
-              <span class="text-[11px] text-emerald-300 font-mono bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/25">
-                <span id="stat-simulados-finalizados">0</span> finalizados
-              </span>
+              <div class="flex items-center gap-2.5">
+                <span class="text-[11px] text-emerald-300 font-mono bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/25">
+                  <span id="stat-simulados-finalizados">0</span> finalizados
+                </span>
+                <button
+                  onclick="ProfessorDashboardView.exportarResultadosSimuladosCSV()"
+                  class="px-3.5 py-1.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm"
+                  title="Exportar dados dos simulados em CSV"
+                >
+                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span>Exportar Planilha (.csv)</span>
+                </button>
+              </div>
             </div>
             <div class="overflow-x-auto">
               <table class="w-full text-left text-xs">
@@ -752,6 +762,79 @@ const ProfessorDashboardView = {
       console.error("Erro ao excluir atividade:", error);
       alert(`Não foi possível excluir a atividade: ${error.message}`);
     }
+  },
+
+  sanitizeCsv(val) {
+    if (val === null || val === undefined) return '""';
+    let str = String(val);
+    if (/^[=+\-@]/.test(str)) {
+      str = "'" + str;
+    }
+    str = str.replace(/"/g, '""');
+    return `"${str}"`;
+  },
+
+  downloadCsv(csvContent, filename) {
+    const blob = new Blob(["﻿" + csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  },
+
+  exportarResultadosSimuladosCSV() {
+    const list = this.resultadosSimulados || [];
+    if (list.length === 0) {
+      alert("Nenhum resultado de simulado registrado para exportar.");
+      return;
+    }
+
+    const headers = [
+      "Estudante",
+      "RA",
+      "E-mail Institucional",
+      "Simulado / Caderno",
+      "Acertos",
+      "Total de Questões",
+      "Aproveitamento (%)",
+      "Data de Início",
+      "Data de Conclusão"
+    ];
+
+    const rows = [headers.map(h => this.sanitizeCsv(h)).join(";")];
+
+    list.forEach(row => {
+      const result = row.result || {};
+      const config = window.SimuladosData?.getConfig?.(row.simuladoId);
+      const score = result.score ?? 0;
+      const acertos = result.totalAcertos ?? Object.keys(row.answers || {}).length;
+      const total = result.totalQuestoes ?? "—";
+      const inicio = row.startedAt ? new Date(row.startedAt).toLocaleString("pt-BR") : "—";
+      const finalizado = row.finishedAt ? new Date(row.finishedAt).toLocaleString("pt-BR") : "—";
+
+      const csvRow = [
+        this.sanitizeCsv(row.studentName || "Aluno"),
+        this.sanitizeCsv(row.studentRA || "—"),
+        this.sanitizeCsv(row.studentEmail || "—"),
+        this.sanitizeCsv(config?.titulo || row.simuladoId || "Simulado Provão Paulista"),
+        this.sanitizeCsv(acertos),
+        this.sanitizeCsv(total),
+        this.sanitizeCsv(`${score}%`),
+        this.sanitizeCsv(inicio),
+        this.sanitizeCsv(finalizado)
+      ];
+
+      rows.push(csvRow.join(";"));
+    });
+
+    const csvContent = rows.join("\r\n");
+    const dateStamp = new Date().toISOString().split("T")[0];
+    const filename = `relatorio_simulados_provao_paulista_${dateStamp}.csv`;
+    this.downloadCsv(csvContent, filename);
   }
 };
 

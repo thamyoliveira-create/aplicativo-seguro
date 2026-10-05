@@ -115,14 +115,24 @@ const ProfessorAtividadeDetalhesView = {
                 </p>
               </div>
 
-              <!-- Botão Copiar Link -->
-              <button
-                onclick="ProfessorAtividadeDetalhesView.copiarCodigo('${atv.codigo}')"
-                class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold text-xs md:text-sm flex items-center justify-center gap-2 shadow-glow-blue transition-all border border-white/10"
-              >
-                <i data-lucide="copy" class="w-4 h-4"></i>
-                <span>Copiar PIN para Alunos</span>
-              </button>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <button
+                  onclick="ProfessorAtividadeDetalhesView.gerarAtaImpressao()"
+                  class="px-5 py-3.5 rounded-2xl bg-dark-900 hover:bg-dark-850 text-slate-200 hover:text-white font-extrabold text-xs md:text-sm flex items-center justify-center gap-2 border border-slate-700 transition-all"
+                  title="Gerar visão limpa para impressão ou salvar em PDF"
+                >
+                  <i data-lucide="printer" class="w-4 h-4 text-cyan-400"></i>
+                  <span>Ata / PDF</span>
+                </button>
+
+                <button
+                  onclick="ProfessorAtividadeDetalhesView.copiarCodigo('${atv.codigo}')"
+                  class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold text-xs md:text-sm flex items-center justify-center gap-2 shadow-glow-blue transition-all border border-white/10"
+                >
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                  <span>Copiar PIN para Alunos</span>
+                </button>
+              </div>
             </div>
 
             <!-- Mini Dashboard da Prova -->
@@ -149,20 +159,29 @@ const ProfessorAtividadeDetalhesView = {
           </div>
 
           <!-- Abas de Navegação -->
-          <div class="flex items-center gap-2 border-b border-slate-800 pb-1 text-xs font-bold">
+          <div class="flex items-center gap-2 border-b border-slate-800 pb-1 text-xs font-bold overflow-x-auto">
             <button
               id="tab-btn-submissoes"
               onclick="ProfessorAtividadeDetalhesView.switchTab('submissoes')"
-              class="px-4.5 py-2.5 rounded-xl border border-brand-500/40 text-white flex items-center gap-2 transition-all bg-brand-950/60 shadow-glow-blue"
+              class="px-4.5 py-2.5 rounded-xl border border-brand-500/40 text-white flex items-center gap-2 transition-all bg-brand-950/60 shadow-glow-blue whitespace-nowrap"
             >
               <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
               <span>Respostas dos Alunos (${totalSubs})</span>
             </button>
 
             <button
+              id="tab-btn-diagnostico"
+              onclick="ProfessorAtividadeDetalhesView.switchTab('diagnostico')"
+              class="px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all whitespace-nowrap"
+            >
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-cyan-400"></i>
+              <span>Diagnóstico por Questão</span>
+            </button>
+
+            <button
               id="tab-btn-gabarito"
               onclick="ProfessorAtividadeDetalhesView.switchTab('gabarito')"
-              class="px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all"
+              class="px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all whitespace-nowrap"
             >
               <i data-lucide="check-square" class="w-4 h-4"></i>
               <span>Gabarito Pedagógico</span>
@@ -171,7 +190,7 @@ const ProfessorAtividadeDetalhesView = {
             <button
               id="tab-btn-infracoes"
               onclick="ProfessorAtividadeDetalhesView.switchTab('infracoes')"
-              class="px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all"
+              class="px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all whitespace-nowrap"
             >
               <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400"></i>
               <span>Log de Abas & Ocorrências (${totalInf})</span>
@@ -200,13 +219,13 @@ const ProfessorAtividadeDetalhesView = {
   switchTab(tab) {
     this.activeTab = tab;
 
-    ["submissoes", "gabarito", "infracoes"].forEach(t => {
+    ["submissoes", "diagnostico", "gabarito", "infracoes"].forEach(t => {
       const btn = document.getElementById(`tab-btn-${t}`);
       if (btn) {
         if (t === tab) {
-          btn.className = "px-4.5 py-2.5 rounded-xl border border-brand-500/40 text-white flex items-center gap-2 transition-all bg-brand-950/60 shadow-glow-blue";
+          btn.className = "px-4.5 py-2.5 rounded-xl border border-brand-500/40 text-white flex items-center gap-2 transition-all bg-brand-950/60 shadow-glow-blue whitespace-nowrap";
         } else {
-          btn.className = "px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all";
+          btn.className = "px-4.5 py-2.5 rounded-xl text-slate-400 hover:text-white flex items-center gap-2 transition-all whitespace-nowrap";
         }
       }
     });
@@ -220,6 +239,8 @@ const ProfessorAtividadeDetalhesView = {
 
     if (this.activeTab === "submissoes") {
       this.renderTabSubmissoes(container);
+    } else if (this.activeTab === "diagnostico") {
+      this.renderTabDiagnostico(container);
     } else if (this.activeTab === "gabarito") {
       this.renderTabGabarito(container);
     } else if (this.activeTab === "infracoes") {
@@ -227,6 +248,220 @@ const ProfessorAtividadeDetalhesView = {
     }
 
     if (window.lucide) window.lucide.createIcons();
+  },
+
+  renderTabDiagnostico(container) {
+    const atv = this.atividade || {};
+    const subs = this.submissoes || [];
+    const questoes = atv.questoes || [];
+
+    if (subs.length === 0) {
+      container.innerHTML = `
+        <div class="py-12 text-center text-slate-400">
+          <i data-lucide="bar-chart-3" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
+          <p class="font-bold text-white text-base">Nenhum dado pedagógico disponível ainda.</p>
+          <p class="text-xs text-slate-400 mt-1">O diagnóstico por questão será calculado automaticamente assim que os alunos enviarem as respostas.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Cálculos estatísticos
+    const totalSubs = subs.length;
+    const mediaNotasNum = subs.reduce((acc, s) => acc + (Number(s.correcao?.notaTotal ?? s.notaFinal ?? 0)), 0) / totalSubs;
+    const mediaNotas = mediaNotasNum.toFixed(1);
+
+    let nivelProficiencia = { rotulo: "Abaixo do Básico", cor: "text-rose-400", bg: "bg-rose-950/60", border: "border-rose-500/30", icon: "alert-octagon" };
+    if (mediaNotasNum >= 8.5) {
+      nivelProficiencia = { rotulo: "Avançado", cor: "text-emerald-300", bg: "bg-emerald-950/60", border: "border-emerald-500/30", icon: "award" };
+    } else if (mediaNotasNum >= 7.0) {
+      nivelProficiencia = { rotulo: "Adequado", cor: "text-blue-300", bg: "bg-blue-950/60", border: "border-blue-500/30", icon: "check-circle-2" };
+    } else if (mediaNotasNum >= 5.0) {
+      nivelProficiencia = { rotulo: "Básico", cor: "text-amber-300", bg: "bg-amber-950/60", border: "border-amber-500/30", icon: "alert-triangle" };
+    }
+
+    const analiseQuestoes = questoes.map((q, idx) => {
+      const isDiss = q.tipo === "dissertativa";
+      let acertos = 0;
+      let somaNotas = 0;
+      const distratores = {};
+
+      if (!isDiss) {
+        (q.alternativas || []).forEach(a => {
+          distratores[String(a.id).toUpperCase()] = 0;
+        });
+      }
+
+      subs.forEach(s => {
+        const resp = s.respostas ? String(s.respostas[q.id] || "").trim().toUpperCase() : "";
+        if (!isDiss) {
+          if (resp === String(q.correta || "A").trim().toUpperCase()) {
+            acertos++;
+          }
+          if (resp && distratores[resp] !== undefined) {
+            distratores[resp]++;
+          } else if (resp) {
+            distratores[resp] = (distratores[resp] || 0) + 1;
+          }
+        } else {
+          const itemNota = Number(s.correcao?.detalhes?.[q.id]?.nota ?? (s.correcao ? 0 : (q.peso || 1)));
+          somaNotas += itemNota;
+          if (itemNota >= (q.peso || 1) * 0.6) acertos++;
+        }
+      });
+
+      const taxaAcertoPct = Math.round((acertos / totalSubs) * 100);
+      const taxaErroPct = 100 - taxaAcertoPct;
+
+      return {
+        idx,
+        questao: q,
+        isDiss,
+        acertos,
+        taxaAcertoPct,
+        taxaErroPct,
+        distratores,
+        mediaPontos: isDiss ? (somaNotas / totalSubs).toFixed(1) : null
+      };
+    });
+
+    const sortedByAcerto = [...analiseQuestoes].sort((a, b) => b.taxaAcertoPct - a.taxaAcertoPct);
+    const topAcerto = sortedByAcerto[0];
+    const topErro = sortedByAcerto[sortedByAcerto.length - 1];
+
+    container.innerHTML = `
+      <div class="space-y-6">
+        <!-- Cabeçalho do Diagnóstico -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-lg font-black text-white flex items-center gap-2">
+              <i data-lucide="bar-chart-2" class="w-5 h-5 text-cyan-400"></i>
+              Diagnóstico Pedagógico da Turma
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">Taxa de acerto por item, análise de distratores e pontos para intervenção pedagógica</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-xl ${nivelProficiencia.bg} ${nivelProficiencia.cor} ${nivelProficiencia.border} border text-xs font-bold flex items-center gap-1.5">
+              <i data-lucide="${nivelProficiencia.icon}" class="w-4 h-4"></i>
+              <span>Nível da Turma: ${nivelProficiencia.rotulo} (${mediaNotas}/10)</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Indicadores Rápidos -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          <div class="bg-dark-900/80 p-4 rounded-2xl border border-slate-800 space-y-1">
+            <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Aproveitamento Médio</span>
+            <div class="text-2xl font-black text-white">${mediaNotas} <span class="text-xs font-normal text-slate-400">/ 10.0</span></div>
+            <p class="text-[11px] text-slate-400">Baseado em ${totalSubs} avaliação(ões) entregue(s)</p>
+          </div>
+
+          <div class="bg-dark-900/80 p-4 rounded-2xl border border-emerald-500/20 space-y-1">
+            <span class="text-[11px] text-emerald-400 font-bold uppercase tracking-wider">Maior Domínio</span>
+            <div class="text-xl font-black text-emerald-300">Questão ${topAcerto ? topAcerto.idx + 1 : "—"} (${topAcerto ? topAcerto.taxaAcertoPct : 0}% de acerto)</div>
+            <p class="text-[11px] text-slate-400 line-clamp-1">${topAcerto?.questao?.enunciado || "Conteúdo assimilado pela maioria"}</p>
+          </div>
+
+          <div class="bg-dark-900/80 p-4 rounded-2xl border border-rose-500/20 space-y-1">
+            <span class="text-[11px] text-rose-400 font-bold uppercase tracking-wider">Ponto de Intervenção</span>
+            <div class="text-xl font-black text-rose-300">Questão ${topErro ? topErro.idx + 1 : "—"} (${topErro ? topErro.taxaErroPct : 0}% de erro)</div>
+            <p class="text-[11px] text-slate-400 line-clamp-1">${topErro?.questao?.enunciado || "Requer retomada pedagógica"}</p>
+          </div>
+        </div>
+
+        <!-- Lista Questão a Questão com Barras e Distratores -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="list-checks" class="w-4 h-4 text-brand-400"></i>
+            Desempenho Detalhado por Item da Prova
+          </h3>
+
+          ${analiseQuestoes.map(item => {
+            const q = item.questao;
+            const barColor = item.taxaAcertoPct >= 70 ? "from-emerald-500 to-teal-400" : (item.taxaAcertoPct >= 50 ? "from-amber-500 to-yellow-400" : "from-rose-500 to-red-400");
+            const badgeColor = item.taxaAcertoPct >= 70 ? "bg-emerald-950 text-emerald-300 border-emerald-500/30" : (item.taxaAcertoPct >= 50 ? "bg-amber-950 text-amber-300 border-amber-500/30" : "bg-rose-950 text-rose-300 border-rose-500/30");
+
+            return `
+              <div class="p-5 rounded-2xl bg-dark-900/70 border border-slate-800 space-y-3.5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div class="flex items-center gap-2.5 flex-wrap">
+                    <span class="px-2.5 py-1 rounded-xl bg-dark-950 text-white font-bold text-xs border border-slate-700">
+                      Questão ${item.idx + 1}
+                    </span>
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase">
+                      ${item.isDiss ? "Dissertativa" : "Múltipla Escolha"}
+                    </span>
+                    ${q.habilidadeBNCC ? `
+                      <span class="px-2 py-0.5 rounded-md bg-brand-950 text-brand-300 border border-brand-500/30 text-[10px] font-mono">
+                        ${q.habilidadeBNCC}
+                      </span>
+                    ` : ""}
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full border text-xs font-black ${badgeColor}">
+                      ${item.taxaAcertoPct}% de acerto (${item.acertos}/${totalSubs} alunos)
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Barra de Taxa de Acerto -->
+                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                  <div class="bg-gradient-to-r ${barColor} h-2 rounded-full transition-all duration-500" style="width: ${item.taxaAcertoPct}%;"></div>
+                </div>
+
+                <!-- Enunciado -->
+                <p class="text-xs text-slate-300 font-medium leading-relaxed">${q.enunciado}</p>
+
+                <!-- Mapa de Distratores (Múltipla Escolha) -->
+                ${!item.isDiss && Array.isArray(q.alternativas) ? `
+                  <div class="pt-2 border-t border-slate-800/80 space-y-2">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Distribuição das Respostas da Turma:</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+                      ${q.alternativas.map(alt => {
+                        const altId = String(alt.id).toUpperCase();
+                        const isGabarito = altId === String(q.correta || "A").toUpperCase();
+                        const count = item.distratores[altId] || 0;
+                        const pct = totalSubs > 0 ? Math.round((count / totalSubs) * 100) : 0;
+                        const borderStyle = isGabarito ? "border-emerald-500/50 bg-emerald-950/40 text-emerald-200" : (count > 0 ? "border-slate-700 bg-dark-950/60 text-slate-300" : "border-slate-800/50 bg-dark-950/30 text-slate-500");
+
+                        return `
+                          <div class="p-2.5 rounded-xl border ${borderStyle} text-xs flex items-center justify-between">
+                            <div class="truncate mr-2">
+                              <strong class="font-bold">${altId})</strong>
+                              <span class="text-[11px] truncate">${isGabarito ? "✓ Gabarito" : ""}</span>
+                            </div>
+                            <div class="text-right font-mono font-bold text-[11px] whitespace-nowrap">
+                              ${count} (${pct}%)
+                            </div>
+                          </div>
+                        `;
+                      }).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+
+                ${item.isDiss ? `
+                  <div class="pt-2 border-t border-slate-800/80 text-xs text-purple-300 flex items-center justify-between">
+                    <span><strong>Média obtida:</strong> ${item.mediaPontos} / ${q.peso || 1} pts</span>
+                    <span><strong>Critério:</strong> ${q.respostaEsperada ? "Definido" : "Critério Geral"}</span>
+                  </div>
+                ` : ""}
+
+                ${item.taxaAcertoPct < 50 ? `
+                  <div class="p-3 rounded-xl bg-rose-950/40 border border-rose-500/25 text-rose-300 text-[11px] flex items-start gap-2">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0 text-rose-400 mt-0.5"></i>
+                    <div>
+                      <strong>Sugestão Pedagógica:</strong> Mais da metade da turma errou este item. Recomendada intervenção e retomada do descritor/conteúdo com atividades de reforço.
+                    </div>
+                  </div>
+                ` : ""}
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `;
   },
 
   renderTabSubmissoes(container) {
@@ -243,6 +478,22 @@ const ProfessorAtividadeDetalhesView = {
     }
 
     container.innerHTML = `
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+        <div>
+          <h3 class="font-bold text-white text-sm">Respostas Recebidas (${subs.length})</h3>
+          <p class="text-[11px] text-slate-400">Listagem de notas, tempo de permanência e ocorrências</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            onclick="ProfessorAtividadeDetalhesView.exportarPlanilhaCSV()"
+            class="px-3.5 py-2 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
+            title="Baixar notas e respostas em formato CSV (compatível com Excel e SED)"
+          >
+            <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
+            <span>Exportar Planilha (.csv)</span>
+          </button>
+        </div>
+      </div>
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs">
           <thead>
@@ -559,6 +810,242 @@ const ProfessorAtividadeDetalhesView = {
   copiarCodigo(codigo) {
     navigator.clipboard.writeText(codigo);
     alert(`Código "${codigo}" copiado! Passe aos alunos para que acessem a prova.`);
+  },
+
+  sanitizeCsv(val) {
+    if (val === null || val === undefined) return '""';
+    let str = String(val);
+    if (/^[=+\-@]/.test(str)) {
+      str = "'" + str;
+    }
+    str = str.replace(/"/g, '""');
+    return `"${str}"`;
+  },
+
+  downloadCsv(csvContent, filename) {
+    const blob = new Blob(["﻿" + csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  },
+
+  exportarPlanilhaCSV() {
+    const subs = this.submissoes || [];
+    const atv = this.atividade || {};
+    if (subs.length === 0) {
+      alert("Nenhuma submissão registrada para exportar.");
+      return;
+    }
+
+    const questoes = atv.questoes || [];
+    const headers = [
+      "Estudante",
+      "RA",
+      "E-mail Institucional",
+      "Data de Envio",
+      "Horário de Envio",
+      "Tempo de Prova (min)",
+      "Trocas de Aba",
+      "Tempo Fora da Aba (seg)",
+      "Nota Final (0 a 10)",
+      "Status da Correção"
+    ];
+
+    questoes.forEach((q, idx) => {
+      const label = q.tipo === "dissertativa" ? "Dissertativa" : "Objetiva";
+      headers.push(`Questão ${idx + 1} (${label})`);
+    });
+
+    const rows = [headers.map(h => this.sanitizeCsv(h)).join(";")];
+
+    subs.forEach(s => {
+      const trocas = s.infracoes?.totalTrocasAba || 0;
+      const tempoFora = s.infracoes?.tempoForaSegundos || 0;
+      const mins = Math.floor((s.tempoGastoSegundos || 0) / 60);
+      const nota = s.correcao?.notaTotal !== undefined ? s.correcao.notaTotal : (s.notaFinal !== undefined ? s.notaFinal : "Não corrigida");
+      const statusCorrecao = s.correcao ? "Corrigida com IA" : "Pendente";
+      const dataEnvioObj = s.dataEnvio ? new Date(s.dataEnvio) : null;
+      const dataStr = dataEnvioObj ? dataEnvioObj.toLocaleDateString("pt-BR") : "—";
+      const horaStr = dataEnvioObj ? dataEnvioObj.toLocaleTimeString("pt-BR") : "—";
+
+      const row = [
+        this.sanitizeCsv(s.alunoNome || "Aluno"),
+        this.sanitizeCsv(s.alunoRA || "—"),
+        this.sanitizeCsv(s.alunoEmail || "—"),
+        this.sanitizeCsv(dataStr),
+        this.sanitizeCsv(horaStr),
+        this.sanitizeCsv(mins),
+        this.sanitizeCsv(trocas),
+        this.sanitizeCsv(tempoFora),
+        this.sanitizeCsv(nota),
+        this.sanitizeCsv(statusCorrecao)
+      ];
+
+      questoes.forEach(q => {
+        const resp = s.respostas ? s.respostas[q.id] : "";
+        row.push(this.sanitizeCsv(resp || "Sem resposta"));
+      });
+
+      rows.push(row.join(";"));
+    });
+
+    const csvContent = rows.join("\r\n");
+    const safeTitle = (atv.titulo || "avaliacao").replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 30);
+    const dateStamp = new Date().toISOString().split("T")[0];
+    const filename = `relatorio_${atv.codigo || "prova"}_${safeTitle}_${dateStamp}.csv`;
+    this.downloadCsv(csvContent, filename);
+  },
+
+  gerarAtaImpressao() {
+    const atv = this.atividade || {};
+    const subs = this.submissoes || [];
+    const totalSubs = subs.length;
+    const mediaNotasNum = totalSubs > 0
+      ? subs.reduce((acc, s) => acc + (Number(s.correcao?.notaTotal ?? s.notaFinal ?? 0)), 0) / totalSubs
+      : 0;
+    const mediaNotas = mediaNotasNum.toFixed(1);
+    const totalInf = subs.reduce((acc, s) => acc + (s.infracoes?.totalTrocasAba || 0), 0);
+    const profNome = sessionStorage.getItem("professor_nome") || localStorage.getItem("professor_nome") || atv.professorNome || "Professor(a)";
+    const escola = sessionStorage.getItem("professor_escola") || localStorage.getItem("professor_escola") || atv.escola || "Unidade Escolar";
+    const hoje = new Date().toLocaleDateString("pt-BR");
+
+    const linhas = subs.map((s, idx) => {
+      const nota = s.correcao?.notaTotal !== undefined ? s.correcao.notaTotal : (s.notaFinal !== undefined ? s.notaFinal : "Pendente");
+      const mins = Math.floor((s.tempoGastoSegundos || 0) / 60);
+      const trocas = s.infracoes?.totalTrocasAba || 0;
+      const dataEnvio = s.dataEnvio ? new Date(s.dataEnvio).toLocaleString("pt-BR") : "—";
+      return `
+        <tr>
+          <td>${idx + 1}</td>
+          <td>${this.escape(s.alunoNome || "Aluno")}</td>
+          <td>${this.escape(s.alunoRA || "—")}</td>
+          <td>${this.escape(String(nota))}</td>
+          <td>${mins} min</td>
+          <td>${trocas}</td>
+          <td>${this.escape(dataEnvio)}</td>
+        </tr>
+      `;
+    }).join("");
+
+    const ataHtml = `
+      <!doctype html>
+      <html lang="pt-BR">
+      <head>
+        <meta charset="utf-8">
+        <title>Ata de Avaliação - ${this.escape(atv.titulo || "Atividade Segura")}</title>
+        <style>
+          @page { size: A4; margin: 18mm 14mm; }
+          * { box-sizing: border-box; }
+          body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; background: #ffffff; }
+          .sheet { max-width: 960px; margin: 0 auto; padding: 24px; }
+          header { border-bottom: 3px solid #1d4ed8; padding-bottom: 14px; margin-bottom: 18px; display: flex; justify-content: space-between; gap: 20px; }
+          .brand { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #1d4ed8; font-weight: 800; }
+          h1 { font-size: 22px; margin: 5px 0 4px; color: #0f172a; }
+          .meta { font-size: 12px; color: #475569; line-height: 1.5; }
+          .stamp { border: 1px solid #cbd5e1; border-radius: 12px; padding: 10px 14px; text-align: right; font-size: 11px; min-width: 170px; }
+          .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0; }
+          .card { border: 1px solid #cbd5e1; border-radius: 12px; padding: 10px; background: #f8fafc; }
+          .label { font-size: 10px; text-transform: uppercase; color: #64748b; font-weight: 800; letter-spacing: 0.08em; }
+          .value { font-size: 20px; font-weight: 900; color: #0f172a; margin-top: 4px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 11px; }
+          th { background: #e2e8f0; color: #0f172a; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+          th, td { border: 1px solid #cbd5e1; padding: 7px 8px; vertical-align: top; }
+          tbody tr:nth-child(even) { background: #f8fafc; }
+          .observacoes { margin-top: 18px; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; min-height: 76px; }
+          .assinaturas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 42px; font-size: 12px; }
+          .linha { border-top: 1px solid #334155; padding-top: 8px; text-align: center; }
+          .print-actions { position: sticky; top: 0; background: #0f172a; color: white; padding: 12px 18px; display: flex; justify-content: center; gap: 10px; }
+          .print-actions button { border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 800; cursor: pointer; }
+          .primary { background: #2563eb; color: white; }
+          .secondary { background: #334155; color: white; }
+          @media print {
+            .print-actions { display: none; }
+            .sheet { padding: 0; max-width: none; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="print-actions">
+          <button class="primary" onclick="window.print()">Imprimir / Salvar em PDF</button>
+          <button class="secondary" onclick="window.close()">Fechar</button>
+        </div>
+        <main class="sheet">
+          <header>
+            <div>
+              <div class="brand">Atividade Segura • Relatório Oficial</div>
+              <h1>Ata de Avaliação</h1>
+              <div class="meta">
+                <strong>Escola:</strong> ${this.escape(escola)}<br>
+                <strong>Professor(a):</strong> ${this.escape(profNome)}<br>
+                <strong>Atividade:</strong> ${this.escape(atv.titulo || "Avaliação")}<br>
+                <strong>Turma/Ano:</strong> ${this.escape(atv.anoTurma || "—")} • <strong>Disciplina:</strong> ${this.escape(atv.disciplina || "—")}
+              </div>
+            </div>
+            <div class="stamp">
+              <strong>Código:</strong> ${this.escape(atv.codigo || "—")}<br>
+              <strong>Data:</strong> ${hoje}<br>
+              <strong>Questões:</strong> ${(atv.questoes || []).length}<br>
+              <strong>Tempo limite:</strong> ${atv.tempoLimiteMinutos || 45} min
+            </div>
+          </header>
+
+          <section class="stats">
+            <div class="card"><div class="label">Entregas</div><div class="value">${totalSubs}</div></div>
+            <div class="card"><div class="label">Média Geral</div><div class="value">${mediaNotas}</div></div>
+            <div class="card"><div class="label">Trocas de Aba</div><div class="value">${totalInf}</div></div>
+            <div class="card"><div class="label">Status</div><div class="value">Registrado</div></div>
+          </section>
+
+          <section>
+            <h2 style="font-size:15px;margin:0 0 8px;color:#0f172a;">Relação de Estudantes e Resultados</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nº</th>
+                  <th>Estudante</th>
+                  <th>RA</th>
+                  <th>Nota</th>
+                  <th>Tempo</th>
+                  <th>Abas</th>
+                  <th>Envio</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${linhas || `<tr><td colspan="7" style="text-align:center;color:#64748b;">Nenhuma entrega registrada até o momento.</td></tr>`}
+              </tbody>
+            </table>
+          </section>
+
+          <section class="observacoes">
+            <strong>Observações pedagógicas:</strong><br>
+            ________________________________________________________________________________________________<br><br>
+            ________________________________________________________________________________________________
+          </section>
+
+          <section class="assinaturas">
+            <div class="linha">Assinatura do(a) Professor(a)</div>
+            <div class="linha">Coordenação / Gestão Escolar</div>
+          </section>
+        </main>
+      </body>
+      </html>
+    `;
+
+    const win = window.open("", "_blank");
+    if (!win) {
+      alert("O navegador bloqueou a janela de impressão. Permita pop-ups para gerar a ata.");
+      return;
+    }
+    win.document.open();
+    win.document.write(ataHtml);
+    win.document.close();
+    win.focus();
   }
 };
 
