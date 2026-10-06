@@ -192,6 +192,27 @@ const PortalAuth = {
     }
   },
 
+  async resendVerificationEmail(email, password, role) {
+    const F = await this.api();
+    const normalized = this.validateEmail(email, role);
+    if (!password) throw new Error("Informe a senha para reenviar a verificação.");
+
+    try {
+      const credential = await F.signInWithEmailAndPassword(F.auth, normalized, password);
+      if (credential.user.emailVerified) {
+        await F.signOut(F.auth);
+        return { verified: true, email: normalized };
+      }
+      await F.sendEmailVerification(credential.user, {
+        url: `${window.location.origin}${window.location.pathname}#${role === "teacher" ? "professor" : "aluno"}`
+      });
+      await F.signOut(F.auth);
+      return { verified: false, email: normalized };
+    } catch (error) {
+      throw this.friendlyError(error);
+    }
+  },
+
   async login({ email, password, role }) {
     const F = await this.api();
     const normalized = this.validateEmail(email, role);
@@ -202,7 +223,9 @@ const PortalAuth = {
 
       if (!credential.user.emailVerified) {
         await F.signOut(F.auth);
-        throw new Error("Sua conta ainda não foi confirmada. Abra a mensagem de verificação enviada no primeiro cadastro.");
+        const unverifiedError = new Error("EMAIL_NOT_VERIFIED");
+        unverifiedError.code = "auth/unverified-email";
+        throw unverifiedError;
       }
 
       if (this.roleFromEmail(credential.user.email) !== role) {
@@ -212,6 +235,9 @@ const PortalAuth = {
 
       return await this.identity();
     } catch (error) {
+      if (error?.message === "EMAIL_NOT_VERIFIED" || error?.code === "auth/unverified-email") {
+        throw error;
+      }
       if (error?.message?.startsWith("Confirme") || error?.message?.startsWith("Esta conta")) throw error;
       throw this.friendlyError(error);
     }
@@ -256,6 +282,9 @@ const TeacherAuth = {
   register(email, password, displayName) {
     return PortalAuth.register({ email, password, displayName, role: "teacher" });
   },
+  resendVerification(email, password) {
+    return PortalAuth.resendVerificationEmail(email, password, "teacher");
+  },
   resetPassword(email) {
     return PortalAuth.resetPassword(email, "teacher");
   },
@@ -281,6 +310,9 @@ const StudentAuth = {
   },
   register(email, password, displayName) {
     return PortalAuth.register({ email, password, displayName, role: "student" });
+  },
+  resendVerification(email, password) {
+    return PortalAuth.resendVerificationEmail(email, password, "student");
   },
   resetPassword(email) {
     return PortalAuth.resetPassword(email, "student");

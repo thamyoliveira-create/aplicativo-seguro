@@ -759,6 +759,92 @@ body {
 .auth-error { color: #f87171; }
 .auth-success { color: #34d399; }
 
+/* Painel de confirmação / verificação de e-mail */
+.auth-feedback-panel {
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  animation: fadeIn 0.25s ease-out;
+}
+.auth-feedback-panel.success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #a7f3d0;
+}
+.auth-feedback-panel.warning {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fde68a;
+}
+.auth-feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 13px;
+}
+.auth-feedback-panel.success .auth-feedback-header { color: #34d399; }
+.auth-feedback-panel.warning .auth-feedback-header { color: #fbbf24; }
+.auth-feedback-panel p {
+  margin: 0;
+  color: #cbd5e1;
+}
+.auth-feedback-panel p strong {
+  color: #ffffff;
+}
+.auth-feedback-tips {
+  margin-top: 4px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 11px;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.auth-feedback-tips span {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.auth-feedback-tips svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #fbbf24;
+}
+.auth-feedback-panel button.resend-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.auth-feedback-panel button.resend-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.auth-feedback-panel button.resend-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 .auth-submit {
   width: 100%;
   min-height: 50px;
