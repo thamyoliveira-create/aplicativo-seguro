@@ -151,7 +151,7 @@ const SimuladosView = {
     const stats = window.SimuladosData.getEstatisticas();
     const questoes = this.getFilteredQuestions();
     const componentes = [...new Set(window.SIMULADOS_QUESTOES
-      .filter(q => q.serieSlug === this.state.serie && String(q.dia) === String(this.state.dia))
+      .filter(q => (!this.state.serie || q.serieSlug === this.state.serie) && (!this.state.dia || String(q.dia) === String(this.state.dia)))
       .map(q => q.componente))];
 
     root.innerHTML = `
@@ -171,13 +171,13 @@ const SimuladosView = {
         <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-8 items-center">
             <div>
-              <p class="eyebrow"><span></span>PROVÃO PAULISTA 2026</p>
+              <p class="eyebrow"><span></span>PROVÃO PAULISTA &amp; ENEM 2026</p>
               <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mt-4">Simulados oficiais<br><em class="text-brand-300 not-italic">questão por questão.</em></h1>
-              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com taxa histórica de acerto.</p>
+              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com taxa histórica de acerto e resoluções comentadas passo a passo.</p>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
                 ${this.statCard(stats.total, "questões", "book-open-check")}
-                ${this.statCard("4", "cadernos", "files")}
-                ${this.statCard("2", "séries EM", "graduation-cap")}
+                ${this.statCard(configs.length, "cadernos", "files")}
+                ${this.statCard(Object.keys(stats.porSerie || {}).length || 3, "séries EM", "graduation-cap")}
                 ${this.statCard("1 por 1", "foco total", "layers")}
               </div>
             </div>
@@ -192,7 +192,7 @@ const SimuladosView = {
                   <i data-lucide="timer" class="w-6 h-6"></i>
                 </div>
               </div>
-              <div class="grid gap-3">
+              <div class="grid gap-3 max-h-[28rem] overflow-y-auto pr-1 scrollbar-thin">
                 ${configs.map(config => this.simuladoCard(config)).join("")}
               </div>
             </div>
@@ -204,7 +204,7 @@ const SimuladosView = {
               <div>
                 <p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Treino por questão única</p>
                 <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Banco de Questões Catalogado</h2>
-                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) filtradas. Clique no número ou card para resolver individualmente.</p>
+                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) filtradas. Clique no número ou card para resolver individualmente com resolução comentada.</p>
               </div>
               <button type="button" id="btn-start-treino-first" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold shadow-glow-emerald transition-all">
                 <i data-lucide="play-circle" class="w-5 h-5"></i> Começar Treino na Q01
@@ -213,7 +213,7 @@ const SimuladosView = {
 
             <!-- Filtros -->
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1serie">1ª Série EM</option><option value="2serie">2ª Série EM</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1serie">1ª Série EM (Provão)</option><option value="2serie">2ª Série EM (Provão)</option><option value="3serie">3ª Série EM (ENEM)</option></select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1">Dia 1</option><option value="2">Dia 2</option></select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span><select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todos">Todos os componentes</option>${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}</select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span><select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todas">Todas as dificuldades</option><option>Fácil</option><option>Média</option><option>Desafio</option><option>Referência</option></select></label>
@@ -248,11 +248,11 @@ const SimuladosView = {
           </section>
 
           <!-- Downloads e Gabarito -->
-          <section class="mt-12 grid md:grid-cols-5 gap-4">
+          <section class="mt-12 grid md:grid-cols-3 lg:grid-cols-5 gap-4">
             ${configs.map(config => this.downloadCard(config)).join("")}
             <article class="glass-card rounded-3xl border border-amber-500/30 p-5 flex flex-col gap-4 bg-amber-950/10">
               <div class="w-11 h-11 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30"><i data-lucide="key-round"></i></div>
-              <div><h3 class="font-black text-white">Gabarito oficial</h3><p class="text-xs text-slate-400 mt-1">PDF consolidado com as respostas dos 4 cadernos.</p></div>
+              <div><h3 class="font-black text-white">Gabarito oficial</h3><p class="text-xs text-slate-400 mt-1">PDF consolidado com as respostas dos cadernos oficiais.</p></div>
               <a href="assets/simulados/Gabarito_Simulado_Provao_2026.pdf" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/30 text-xs font-bold text-center transition-all">Abrir gabarito</a>
             </article>
           </section>
@@ -355,6 +355,104 @@ const SimuladosView = {
     });
   },
 
+  renderQuestionLeftContent(q, mode = "treino") {
+    const zoomBtnId = mode === "prova" ? "btn-zoom-prova-toggle" : "btn-zoom-toggle";
+    const imgContainerId = mode === "prova" ? "prova-img-container" : "page-img-container";
+    const imgElId = mode === "prova" ? "prova-img-el" : "page-img-el";
+
+    if (q.enunciado) {
+      return `
+        <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
+          <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
+                ${this.esc(q.origem || 'ENEM')}
+              </span>
+              <span class="text-xs font-bold text-slate-200">Questão ${q.numero} · ${this.esc(q.componente)}</span>
+            </div>
+            <span class="text-[11px] font-mono text-slate-400 font-medium">Texto Oficial Formatado</span>
+          </div>
+
+          <div class="p-4 md:p-6 space-y-4 max-h-[75vh] overflow-y-auto scrollbar-thin text-slate-100">
+            ${q.textoApoio ? `
+              <div class="p-4 rounded-2xl bg-dark-900/90 border border-slate-800 text-slate-200 text-sm md:text-base leading-relaxed italic whitespace-pre-line shadow-inner border-l-4 border-l-brand-500">
+                ${this.esc(q.textoApoio)}
+              </div>
+            ` : ""}
+
+            <div class="text-white text-sm md:text-base font-medium leading-relaxed bg-slate-900/40 p-4 rounded-2xl border border-slate-800/80">
+              ${this.esc(q.enunciado)}
+            </div>
+
+            ${Array.isArray(q.alternativas) ? `
+              <div class="space-y-2 pt-2">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Alternativas do Caderno:</p>
+                ${q.alternativas.map(alt => `
+                  <div class="p-3 rounded-xl bg-dark-900/60 border border-slate-800/70 text-xs md:text-sm text-slate-300 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-lg bg-slate-800 text-brand-300 font-mono font-bold text-xs flex items-center justify-center flex-shrink-0 border border-slate-700 mt-0.5">${alt.id}</span>
+                    <span class="leading-snug text-slate-200">${this.esc(alt.texto)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : q.alternativas && typeof q.alternativas === 'object' ? `
+              <div class="space-y-2 pt-2">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Alternativas do Caderno:</p>
+                ${['A', 'B', 'C', 'D', 'E'].map(letra => q.alternativas[letra] ? `
+                  <div class="p-3 rounded-xl bg-dark-900/60 border border-slate-800/70 text-xs md:text-sm text-slate-300 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-lg bg-slate-800 text-brand-300 font-mono font-bold text-xs flex items-center justify-center flex-shrink-0 border border-slate-700 mt-0.5">${letra}</span>
+                    <span class="leading-snug text-slate-200">${this.esc(q.alternativas[letra])}</span>
+                  </div>
+                ` : '').join('')}
+              </div>
+            ` : ""}
+          </div>
+
+          <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
+            <span>Caderno Oficial ENEM / INEP</span>
+            <span>Habilidade BNCC: ${this.esc(q.descritor || q.habilidadeBncc || "Matriz de Referência")}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
+        <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
+              Página ${q.paginaPdf || 1}
+            </span>
+            <span class="text-xs font-bold text-slate-200">Caderno Oficial · Questão ${q.numero}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              id="${zoomBtnId}"
+              class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 inline-flex items-center gap-1 transition-all"
+              title="Alternar tamanho da imagem"
+            >
+              <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="${imgContainerId}" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
+          <img
+            id="${imgElId}"
+            src="${q.imagemQuestao || q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
+            alt="Enunciado oficial da Questão ${q.numero} - Página ${q.paginaPdf || 1}"
+            class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
+            loading="eager"
+          />
+        </div>
+        <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
+          <span>Caderno Oficial VUNESP / SEDUC-SP</span>
+          <span>Use a barra de rolagem ou o botão de ampliar para ler detalhes</span>
+        </div>
+      </article>
+    `;
+  },
+
   // ============================================================
   // TREINO POR QUESTÃO ÚNICA (PASSO A PASSO COM NAVEGADOR DE PÍLULAS)
   // ============================================================
@@ -401,7 +499,7 @@ const SimuladosView = {
               </a>
               <div>
                 <h1 class="font-extrabold text-sm md:text-base text-white leading-tight">Treino de Questões</h1>
-                <p class="text-[11px] text-slate-400 font-mono">${this.state.serie === '1serie' ? '1ª Série EM' : '2ª Série EM'} · Dia ${this.state.dia} ${this.state.componente !== 'todos' ? '· ' + this.esc(this.state.componente) : ''}</p>
+                <p class="text-[11px] text-slate-400 font-mono">${this.state.serie === '1serie' ? '1ª Série EM' : this.state.serie === '2serie' ? '2ª Série EM' : '3ª Série EM (ENEM)'} · Dia ${this.state.dia} ${this.state.componente !== 'todos' ? '· ' + this.esc(this.state.componente) : ''}</p>
               </div>
             </div>
 
@@ -461,42 +559,8 @@ const SimuladosView = {
         <!-- Conteúdo do Treino com Visualizador da Questão Oficial + Card de Resposta -->
         <main class="max-w-7xl mx-auto w-full p-4 md:p-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-6 flex-1 items-start">
 
-          <!-- Coluna da Esquerda: Enunciado Oficial da Prova (Imagem Alta Resolução na Mesma Tela) -->
-          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
-            <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
-                  Página ${q.paginaPdf || 1}
-                </span>
-                <span class="text-xs font-bold text-slate-200">Caderno Oficial · Questão ${q.numero}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  id="btn-zoom-toggle"
-                  class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 inline-flex items-center gap-1 transition-all"
-                  title="Alternar tamanho da imagem"
-                >
-                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Área da Imagem Oficial da Questão (Sem sair da aba) -->
-            <div id="page-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
-              <img
-                id="page-img-el"
-                src="${q.imagemQuestao || q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
-                alt="Enunciado oficial da Questão ${q.numero} - Página ${q.paginaPdf || 1}"
-                class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
-                loading="eager"
-              />
-            </div>
-            <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
-              <span>Caderno Oficial VUNESP / SEDUC-SP</span>
-              <span>Use a barra de rolagem ou o botão de ampliar para ler detalhes</span>
-            </div>
-          </article>
+          <!-- Coluna da Esquerda: Enunciado Oficial da Prova (Texto Formatado ou Imagem Oficial) -->
+          ${this.renderQuestionLeftContent(q, "treino")}
 
           <!-- Coluna da Direita: Card de Resolução, BNCC e Feedback -->
           <div class="space-y-4">
@@ -657,16 +721,26 @@ const SimuladosView = {
 
   renderTreinoFeedbackHtml(q, correct) {
     return `
-      <div class="rounded-2xl border ${correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-100" : "border-rose-500/30 bg-rose-500/10 text-rose-100"} p-4.5 animate-fade-in">
+      <div class="rounded-2xl border ${correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-100" : "border-rose-500/30 bg-rose-500/10 text-rose-100"} p-4.5 animate-fade-in space-y-3">
         <div class="flex items-center gap-2 font-black text-sm md:text-base">
           <i data-lucide="${correct ? 'check-circle-2' : 'alert-circle'}" class="w-5 h-5 ${correct ? 'text-emerald-400' : 'text-rose-400'}"></i>
           <span>${correct ? "Parabéns, você acertou!" : "Quase lá!"}</span>
         </div>
-        <p class="text-xs md:text-sm mt-2 leading-relaxed">
+        <p class="text-xs md:text-sm leading-relaxed">
           Gabarito oficial: alternativa <b class="text-white bg-slate-900 px-2 py-0.5 rounded border border-slate-700">${q.respostaCorreta}</b>.
         </p>
-        <p class="text-xs mt-2 opacity-80 pt-2 border-t border-white/10 font-mono">
-          Taxa histórica de acerto na rede: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`} · Origem: ${this.esc(q.origem)}
+        ${q.resolucaoComentada ? `
+          <div class="p-3.5 rounded-xl bg-dark-950/90 border border-slate-700/80 text-xs md:text-sm text-slate-200 shadow-sm space-y-1.5">
+            <div class="flex items-center gap-1.5 font-bold text-brand-300 uppercase tracking-wider text-[11px]">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Resolução Comentada & Análise Pedagógica</span>
+            </div>
+            <p class="leading-relaxed text-slate-300 whitespace-pre-line">${this.esc(q.resolucaoComentada)}</p>
+            ${q.habilidadeBncc ? `<p class="text-[11px] text-slate-400 font-mono pt-1 border-t border-slate-800"><b>Habilidade BNCC:</b> ${this.esc(q.habilidadeBncc)}</p>` : ''}
+          </div>
+        ` : ''}
+        <p class="text-xs opacity-80 pt-1 border-t border-white/10 font-mono">
+          Taxa histórica de acerto na rede: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`} · Origem: ${this.esc(q.origem || 'Caderno Oficial')}
         </p>
       </div>
     `;
@@ -887,45 +961,13 @@ const SimuladosView = {
           </div>
         </div>
 
-        <!-- Seção Principal com Questão Oficial em Imagem + Card de Resolução e Cartão-Resposta -->
+        <!-- Seção Principal com Questão Oficial em Imagem/Texto + Card de Resolução e Cartão-Resposta -->
         <section class="max-w-7xl mx-auto p-4 md:p-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-6 flex-1 w-full items-start">
 
-          <!-- Coluna da Esquerda: Enunciado Oficial da Questão (Caderno Original sem trocar de aba) -->
-          <article class="glass-card rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl bg-dark-950/80">
-            <div class="p-3.5 px-4 border-b border-slate-800 flex items-center justify-between bg-dark-900/80">
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">
-                  Página ${q.paginaPdf || 1}
-                </span>
-                <span class="text-xs font-bold text-slate-200">Caderno Oficial · Questão ${q.numero}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  id="btn-zoom-prova-toggle"
-                  class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 inline-flex items-center gap-1 transition-all"
-                  title="Alternar tamanho da imagem"
-                >
-                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> <span>Ampliar</span>
-                </button>
-              </div>
-            </div>
+          <!-- Coluna da Esquerda: Enunciado Oficial da Questão (Texto Formatado ou Caderno Original) -->
+          ${this.renderQuestionLeftContent(q, "prova")}
 
-            <!-- Área da Imagem Oficial da Questão (Sem sair da aba) -->
-            <div id="prova-img-container" class="p-2 md:p-4 max-h-[75vh] overflow-y-auto scrollbar-thin bg-slate-900/60 flex justify-center items-start">
-              <img
-                id="prova-img-el"
-                src="${q.imagemQuestao || q.imagemPagina || `assets/simulados/pages/${q.simuladoId}_p${q.paginaPdf || 1}.webp`}"
-                alt="Caderno Oficial - Questão ${q.numero} (Página ${q.paginaPdf || 1})"
-                class="w-full h-auto rounded-xl shadow-lg border border-slate-800 object-contain bg-white select-none transition-transform duration-200"
-                loading="eager"
-              />
-            </div>
-            <div class="p-2.5 px-4 border-t border-slate-800/80 bg-dark-950/60 flex items-center justify-between text-[11px] text-slate-400">
-              <span>Caderno Oficial VUNESP / SEDUC-SP</span>
-              <span>Enunciado, textos e figuras oficiais na mesma tela</span>
-            </div>
-          </article>
+          <!-- Coluna da Direita: Card de Resposta e Cartão-Resposta Digital -->
 
           <!-- Coluna da Direita: Card de Resposta e Cartão-Resposta Digital -->
           <div class="space-y-4">
@@ -1281,17 +1323,35 @@ const SimuladosView = {
           embaralharQuestoes: false,
           embaralharAlternativas: false
         },
-        questoes: questoes.map(q => ({
-          id: q.id,
-          tipo: "multipla_escolha",
-          enunciado: `Questão ${q.numero} do ${config.titulo}. Consulte o caderno PDF oficial para ler o enunciado completo. Assunto: ${q.assunto}`,
-          textoApoio: `PDF oficial: ${config.pdfUrl}\nComponente: ${q.componente}\nConteúdo do edital: ${q.conteudoEdital}\nDescritor: ${q.descritor}`,
-          habilidadeBNCC: q.descritor,
-          peso: 1,
-          correta: q.respostaCorreta,
-          justificativa: `Gabarito oficial: alternativa ${q.respostaCorreta}. Taxa histórica de acerto: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`}.`,
-          alternativas: q.alternativas.map(a => ({ ...a, correta: a.id === q.respostaCorreta }))
-        }))
+        questoes: questoes.map(q => {
+          let alts = [];
+          if (Array.isArray(q.alternativas)) {
+            alts = q.alternativas.map(a => ({ ...a, correta: a.id === q.respostaCorreta }));
+          } else if (q.alternativas && typeof q.alternativas === 'object') {
+            alts = Object.entries(q.alternativas).map(([letra, texto]) => ({
+              id: letra,
+              texto: typeof texto === 'string' ? texto : `Alternativa ${letra}`,
+              correta: letra === q.respostaCorreta
+            }));
+          } else {
+            alts = ['A', 'B', 'C', 'D', 'E'].map(letra => ({
+              id: letra,
+              texto: `Alternativa ${letra}`,
+              correta: letra === q.respostaCorreta
+            }));
+          }
+          return {
+            id: q.id,
+            tipo: "multipla_escolha",
+            enunciado: q.enunciado || `Questão ${q.numero} do ${config.titulo}. Consulte o caderno oficial para ler o enunciado completo. Assunto: ${q.assunto}`,
+            textoApoio: q.textoApoio || `PDF oficial: ${config.pdfUrl || ''}\nComponente: ${q.componente}\nConteúdo do edital: ${q.conteudoEdital || ''}\nDescritor: ${q.descritor || ''}`,
+            habilidadeBNCC: q.descritor || q.habilidadeBncc || "",
+            peso: 1,
+            correta: q.respostaCorreta,
+            justificativa: q.resolucaoComentada || `Gabarito oficial: alternativa ${q.respostaCorreta}. Taxa histórica de acerto: ${q.taxaAcerto == null ? "sem dado" : `${q.taxaAcerto}%`}.`,
+            alternativas: alts
+          };
+        })
       };
       await DB.salvarAtividade(atividade);
       alert(`Simulado importado como rascunho. Código: ${codigo}`);

@@ -145,7 +145,7 @@ service cloud.firestore {
         data.studentEmail is string && data.studentEmail == request.auth.token.email && data.studentEmail.size() <= 254 &&
         validShortString(data.studentName, 2, 120) &&
         validShortString(data.studentRA, 2, 40) &&
-        data.simuladoId in ['1serie_dia1', '1serie_dia2', '2serie_dia1', '2serie_dia2', 'treino'] &&
+        data.simuladoId in ['1serie_dia1', '1serie_dia2', '2serie_dia1', '2serie_dia2', '3serie_dia1', '3serie_dia2', 'enem_dia1', 'enem_dia2', 'treino'] &&
         data.mode in ['prova', 'treino'] &&
         data.answersJson is string && data.answersJson.size() <= 200000 &&
         data.statsJson is string && data.statsJson.size() <= 200000 &&
