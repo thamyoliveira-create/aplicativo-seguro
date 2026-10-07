@@ -139,6 +139,25 @@ const ProfessorDashboardView = {
             </div>
           </section>
 
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+              <div>
+                <h3 class="text-base font-black text-white">Relatório por sala</h3>
+                <p class="text-xs text-slate-500 mt-1">Quem entregou, quem está fazendo e quem ainda não começou. As listas de alunos ficam só neste computador.</p>
+              </div>
+              <div class="flex flex-wrap gap-2 items-center">
+                <label class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold cursor-pointer">
+                  Carregar listas das salas (CSV)
+                  <input id="rel-salas-arquivos" type="file" accept=".csv" multiple class="hidden" onchange="ProfessorDashboardView.carregarListasSalas(this.files)">
+                </label>
+                <select id="rel-salas-prova" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white max-w-[260px]"></select>
+                <button onclick="ProfessorDashboardView.gerarRelatorioSalas()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Gerar relatório</button>
+              </div>
+            </div>
+            <p id="rel-salas-info" class="text-[11px] text-slate-400 mt-3"></p>
+            <div id="rel-salas-resultado" class="mt-4 space-y-3 text-xs"></div>
+          </section>
+
           <section class="grid lg:grid-cols-2 gap-6">
             <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
               <div class="flex items-center justify-between gap-3 mb-4">
@@ -435,6 +454,91 @@ const ProfessorDashboardView = {
     } catch (_) {}
   },
 
+  // ===== Relatório por sala =====
+  lerListasSalas() {
+    try { return JSON.parse(localStorage.getItem("relatorio_salas") || "{}"); } catch (_) { return {}; }
+  },
+
+  async carregarListasSalas(files) {
+    const salas = this.lerListasSalas();
+    for (const file of files) {
+      const sala = file.name.replace(/\.csv$/i, "").trim();
+      const texto = (await file.text()).replace(/^﻿/, "");
+      const linhas = texto.split(/\r?\n/).filter((l) => l.trim());
+      const cab = linhas.shift().split(",").map((c) => c.replace(/"/g, "").trim().toLowerCase());
+      const iNome = cab.indexOf("nome"), iEmail = cab.indexOf("email"), iRa = cab.indexOf("ra");
+      salas[sala] = linhas.map((l) => {
+        const c = (l.match(/("([^"]*)"|[^,]*)(,|$)/g) || []).map((x) => x.replace(/,$/, "").replace(/^"|"$/g, "").trim());
+        return { nome: c[iNome] || "", ra: c[iRa] || "", email: String(c[iEmail] || "").toLowerCase() };
+      }).filter((a) => a.email || a.ra);
+    }
+    try { localStorage.setItem("relatorio_salas", JSON.stringify(salas)); } catch (_) {}
+    this.prepararRelatorioSalas();
+  },
+
+  prepararRelatorioSalas() {
+    const sel = document.getElementById("rel-salas-prova");
+    const info = document.getElementById("rel-salas-info");
+    if (!sel) return;
+    const sims = (window.SimuladosData?.getAllConfigs() || []).map((c) => `<option value="sim:${c.id}">${c.titulo || c.id}</option>`);
+    const atvs = (this.atividades || []).map((a) => `<option value="atv:${a.id}">Atividade: ${String(a.titulo || a.id).replace(/</g, "")}</option>`);
+    const atual = sel.value;
+    sel.innerHTML = [...sims, ...atvs].join("");
+    if (atual) sel.value = atual;
+    const salas = this.lerListasSalas();
+    const nomes = Object.keys(salas).sort();
+    if (info) info.innerText = nomes.length
+      ? `Salas carregadas: ${nomes.map((n) => `${n} (${salas[n].length})`).join(" · ")}`
+      : "Nenhuma sala carregada. Clique em \"Carregar listas das salas\" e escolha os arquivos 1A.csv, 1B.csv... da pasta cadastro-alunos.";
+  },
+
+  async gerarRelatorioSalas() {
+    const out = document.getElementById("rel-salas-resultado");
+    const prova = document.getElementById("rel-salas-prova").value;
+    const salas = this.lerListasSalas();
+    if (!Object.keys(salas).length) { out.innerHTML = `<p class="text-amber-300">Carregue as listas das salas primeiro.</p>`; return; }
+    out.innerHTML = `<p class="text-slate-400">Buscando entregas...</p>`;
+    const status = {}; // email -> "entregou" | "fazendo"
+    try {
+      const [tipo, id] = prova.split(/:(.*)/s);
+      if (tipo === "sim") {
+        const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
+        and.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "fazendo"; });
+        fin.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "entregou"; });
+      } else {
+        const subs = await DB.getSubmissoes(id, true);
+        subs.forEach((s) => {
+          const e = String(s.alunoEmail).toLowerCase();
+          if (s.status === "in_progress") { if (!status[e]) status[e] = "fazendo"; } else status[e] = "entregou";
+        });
+      }
+    } catch (e) {
+      out.innerHTML = `<p class="text-rose-400">Erro ao buscar entregas: ${String(e.message || e).replace(/</g, "")}</p>`; return;
+    }
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    out.innerHTML = Object.keys(salas).sort().map((sala) => {
+      const alunos = salas[sala];
+      const ent = alunos.filter((a) => status[a.email] === "entregou");
+      const faz = alunos.filter((a) => status[a.email] === "fazendo");
+      const nao = alunos.filter((a) => !status[a.email]);
+      const lista = (arr, cor) => arr.length ? arr.map((a) => `<span class="inline-block px-2 py-0.5 m-0.5 rounded-lg ${cor}">${esc(a.nome)}</span>`).join("") : `<span class="text-slate-500">ninguém</span>`;
+      return `<details class="rounded-2xl bg-dark-900 border border-slate-800 p-3" ${nao.length ? "" : ""}>
+        <summary class="cursor-pointer flex flex-wrap items-center gap-3">
+          <span class="font-black text-white text-sm">${esc(sala)}</span>
+          <span class="text-emerald-400 font-bold">${ent.length} entregaram</span>
+          <span class="text-amber-300 font-bold">${faz.length} fazendo</span>
+          <span class="text-rose-400 font-bold">${nao.length} não começaram</span>
+          <span class="text-slate-500">de ${alunos.length}</span>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <div><div class="text-rose-400 font-bold mb-1">Não começaram</div>${lista(nao, "bg-rose-950/50 text-rose-200")}</div>
+          <div><div class="text-amber-300 font-bold mb-1">Fazendo agora</div>${lista(faz, "bg-amber-950/50 text-amber-200")}</div>
+          <div><div class="text-emerald-400 font-bold mb-1">Entregaram</div>${lista(ent, "bg-emerald-950/50 text-emerald-200")}</div>
+        </div>
+      </details>`;
+    }).join("");
+  },
+
   pararEmAndamento() {
     if (this._pararEscuta) this._pararEscuta();
     clearInterval(this._relogioAndamento);
@@ -492,6 +596,7 @@ const ProfessorDashboardView = {
         console.warn("Erro ao carregar resultados dos simulados:", simError);
       }
       this.atividades = atividades;
+      this.prepararRelatorioSalas();
       this.submissoes = submissoes;
       this.mostrarContagemSeries();
       this.renderEmAndamento(atividades).catch((e) => console.warn("Erro ao carregar provas em andamento:", e));
