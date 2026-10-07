@@ -16,7 +16,7 @@ const SimuladosView = {
     cloudStatus: "local",
     cloudMessage: "Salvo neste dispositivo",
     cloudTimer: null,
-    MIN_EXAM_MINUTES: 30
+    MIN_EXAM_MINUTES: 0
   },
   studentProgressMap: {},
   progressLoaded: false,
