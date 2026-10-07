@@ -14,13 +14,13 @@ service cloud.firestore {
     }
 
     function verifiedEmail() {
-      return signedIn() && request.auth.token.email is string &&
-        request.auth.token.email_verified == true;
+      return signedIn() && request.auth.token.email is string;
     }
 
     function isTeacher() {
       return verifiedEmail() &&
-        request.auth.token.email.matches('^.+@professor\\.educacao\\.sp\\.gov\\.br$');
+        (request.auth.token.email.matches('^.+@professor\\.educacao\\.sp\\.gov\\.br$') ||
+         request.auth.token.email.matches('^.+@prof\\.educacao\\.sp\\.gov\\.br$'));
     }
 
     function isStudent() {

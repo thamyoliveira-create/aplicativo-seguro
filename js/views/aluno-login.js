@@ -144,9 +144,9 @@ const AlunoLoginView = {
           }
 
           if (registering) {
-            const sentTo = await StudentAuth.register(email, password.value, document.getElementById("student-account-name").value);
-            success.textContent = `Conta criada. Confirme a mensagem enviada para ${sentTo} antes de entrar.`;
-            button.querySelector("span").textContent = "Verificação enviada";
+            const createdEmail = await StudentAuth.register(email, password.value, document.getElementById("student-account-name").value);
+            success.textContent = `Conta criada para ${createdEmail}. Você já pode entrar com seu RA e senha.`;
+            button.querySelector("span").textContent = "Conta criada";
           } else {
             await StudentAuth.login(email, password.value);
             await this.render(params);

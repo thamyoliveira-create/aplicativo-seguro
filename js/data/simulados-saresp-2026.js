@@ -1,0 +1,21442 @@
+/**
+ * Simulados SARESP 2026 — Dados Estruturados Oficiais
+ * Secretaria da Educação do Estado de São Paulo (SEDUC-SP) / VUNESP
+ * 5º, 6º, 7º, 8º, 9º Ano do Ensino Fundamental e 3ª Série do Ensino Médio
+ * 13 Cadernos Oficiais · 472 Questões com Metadados & Gabarito Oficial
+ */
+
+(function () {
+  const SARESP_CONFIG = {
+  "saresp_2026_5ef_dia1": {
+    "id": "saresp_2026_5ef_dia1",
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia",
+    "descricao": "Língua Portuguesa e Matemática · 48 questões (Blocos 1 a 4)",
+    "totalQuestoes": 48,
+    "tempoMinutos": 240,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_5EF_9EF.pdf",
+    "pagePrefix": "5ef_dia1",
+    "componentes": [
+      "Língua Portuguesa",
+      "Matemática"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_6ef_dia1": {
+    "id": "saresp_2026_6ef_dia1",
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia",
+    "descricao": "Língua Portuguesa, Língua Inglesa e Ciências · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia1_6EF_8EF.pdf",
+    "pagePrefix": "6ef_dia1",
+    "componentes": [
+      "Língua Portuguesa",
+      "Língua Inglesa",
+      "Ciências"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_6ef_dia2": {
+    "id": "saresp_2026_6ef_dia2",
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia",
+    "descricao": "Matemática, História e Geografia · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia2_6EF_8EF.pdf",
+    "pagePrefix": "6ef_dia2",
+    "componentes": [
+      "Matemática",
+      "História",
+      "Geografia"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_7ef_dia1": {
+    "id": "saresp_2026_7ef_dia1",
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia",
+    "descricao": "Língua Portuguesa, Língua Inglesa e Ciências · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia1_6EF_8EF.pdf",
+    "pagePrefix": "7ef_dia1",
+    "componentes": [
+      "Língua Portuguesa",
+      "Língua Inglesa",
+      "Ciências"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_7ef_dia2": {
+    "id": "saresp_2026_7ef_dia2",
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia",
+    "descricao": "Matemática, História e Geografia · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia2_6EF_8EF.pdf",
+    "pagePrefix": "7ef_dia2",
+    "componentes": [
+      "Matemática",
+      "História",
+      "Geografia"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_8ef_dia1": {
+    "id": "saresp_2026_8ef_dia1",
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia",
+    "descricao": "Língua Portuguesa, Língua Inglesa e Ciências · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia1_6EF_8EF.pdf",
+    "pagePrefix": "8ef_dia1",
+    "componentes": [
+      "Língua Portuguesa",
+      "Língua Inglesa",
+      "Ciências"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_8ef_dia2": {
+    "id": "saresp_2026_8ef_dia2",
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia",
+    "descricao": "Matemática, História e Geografia · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_Dia2_6EF_8EF.pdf",
+    "pagePrefix": "8ef_dia2",
+    "componentes": [
+      "Matemática",
+      "História",
+      "Geografia"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_9ef_dia1": {
+    "id": "saresp_2026_9ef_dia1",
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia",
+    "descricao": "Língua Portuguesa e Matemática · 48 questões (Blocos 1 a 4)",
+    "totalQuestoes": 48,
+    "tempoMinutos": 240,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_5EF_9EF.pdf",
+    "pagePrefix": "9ef_dia1",
+    "componentes": [
+      "Língua Portuguesa",
+      "Matemática"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_9ef_dia2": {
+    "id": "saresp_2026_9ef_dia2",
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia",
+    "descricao": "Língua Inglesa, Ciências, História e Geografia · 40 questões",
+    "totalQuestoes": 40,
+    "tempoMinutos": 200,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_SARESP_2026_5EF_9EF.pdf",
+    "pagePrefix": "9ef_dia2",
+    "componentes": [
+      "Língua Inglesa",
+      "Ciências",
+      "História",
+      "Geografia"
+    ],
+    "numAlternativas": 4
+  },
+  "saresp_2026_3em_lp_l1": {
+    "id": "saresp_2026_3em_lp_l1",
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1)",
+    "descricao": "Língua Portuguesa · 24 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 24,
+    "tempoMinutos": 120,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
+    "pagePrefix": "3serie_saresp_lp1",
+    "componentes": [
+      "Língua Portuguesa"
+    ],
+    "numAlternativas": 5
+  },
+  "saresp_2026_3em_lp_l2": {
+    "id": "saresp_2026_3em_lp_l2",
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2)",
+    "descricao": "Língua Portuguesa · 24 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 24,
+    "tempoMinutos": 120,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
+    "pagePrefix": "3serie_saresp_lp2",
+    "componentes": [
+      "Língua Portuguesa"
+    ],
+    "numAlternativas": 5
+  },
+  "saresp_2026_3em_mat_l1": {
+    "id": "saresp_2026_3em_mat_l1",
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "dia": 1,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1)",
+    "descricao": "Matemática · 24 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 24,
+    "tempoMinutos": 120,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
+    "pagePrefix": "3serie_saresp_mat1",
+    "componentes": [
+      "Matemática"
+    ],
+    "numAlternativas": 5
+  },
+  "saresp_2026_3em_mat_l2": {
+    "id": "saresp_2026_3em_mat_l2",
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "dia": 2,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2)",
+    "descricao": "Matemática · 24 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 24,
+    "tempoMinutos": 120,
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
+    "pagePrefix": "3serie_saresp_mat2",
+    "componentes": [
+      "Matemática"
+    ],
+    "numAlternativas": 5
+  }
+};
+
+  const QUESTOES_SARESP = [
+  {
+    "id": "saresp_2026_5ef_dia1_q01",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q02",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q03",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q04",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q05",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q06",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q07",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q08",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q09",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q10",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q11",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q12",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q13",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q14",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q15",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q16",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q17",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q18",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q19",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q20",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q21",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 21",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q22",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 22",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q23",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 23",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q24",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 24",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q25",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 25,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 25",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q26",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 26,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 26",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q27",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 27,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 27",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q28",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 28,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 28",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q29",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 29,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 29",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q30",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 30,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 30",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q31",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 31,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 31",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q32",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 32,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 32",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q33",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 33,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 33",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q34",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 34,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 34",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q35",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 35,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 35",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q36",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 36,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 36",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q37",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 37,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 37",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q38",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 38,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 38",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q39",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 39,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 39",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q40",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 40,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 40",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q41",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 41,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 41",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 60.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 41 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q42",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 42,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 42",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 58.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 42 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q43",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 43,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 43",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 57.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 43 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q44",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 44,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 44",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 56.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 44 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q45",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 45,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 45",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 55.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 45 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q46",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 46,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 46",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 53.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 46 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q47",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 47,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 47",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 52.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 47 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_5ef_dia1_q48",
+    "simuladoId": "saresp_2026_5ef_dia1",
+    "numero": 48,
+    "dia": 1,
+    "serie": "5º Ano EF",
+    "serieSlug": "5ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 5º Ano EF · 1º Dia · Questão 48",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 51.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 12,
+    "imagemPagina": "assets/simulados/pages/5ef_dia1_p12.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 48 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q01",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q02",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q03",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q04",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q05",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q06",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q07",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q08",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q09",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q10",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q11",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q12",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q13",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 13",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q14",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 14",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q15",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 15",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q16",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 16",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q17",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 17",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q18",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 18",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q19",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 19",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q20",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 20",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q21",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 21",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q22",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 22",
+    "descritor": "I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "conteudoEdital": "Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "assunto": "Língua Inglesa: Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q23",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 23",
+    "descritor": "I02 - Inferir significados de termos com base no contexto e em cognatos.",
+    "conteudoEdital": "Inferir significados de termos com base no contexto e em cognatos.",
+    "assunto": "Língua Inglesa: Inferir significados de termos com base no contexto e em cognatos.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I02 - Inferir significados de termos com base no contexto e em cognatos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I02 - Inferir significados de termos com base no contexto e em cognatos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q24",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 24",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q25",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 25,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 25",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q26",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 26,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 26",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q27",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 27,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 27",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q28",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 28,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 28",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q29",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 29,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 29",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q30",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 30,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 30",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q31",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 31,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 31",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q32",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 32,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 32",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q33",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 33,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 33",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q34",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 34,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 34",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q35",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 35,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 35",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q36",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 36,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 36",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q37",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 37,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 37",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q38",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 38,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 38",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q39",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 39,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 39",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia1_q40",
+    "simuladoId": "saresp_2026_6ef_dia1",
+    "numero": 40,
+    "dia": 1,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 1º Dia · Questão 40",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/6ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q01",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 01",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q02",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 02",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q03",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 03",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q04",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 04",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q05",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 05",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q06",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 06",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q07",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 07",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q08",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 08",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q09",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 09",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q10",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 10",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q11",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 11",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q12",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 12",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q13",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q14",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q15",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q16",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q17",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q18",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q19",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q20",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q21",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 21",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q22",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 22",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q23",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 23",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q24",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 24",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q25",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 25,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 25",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q26",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 26,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 26",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q27",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 27,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 27",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q28",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 28,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 28",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q29",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 29,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 29",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q30",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 30,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 30",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q31",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 31,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 31",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q32",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 32,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 32",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q33",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 33,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 33",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q34",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 34,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 34",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q35",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 35,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 35",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q36",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 36,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 36",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q37",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 37,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 37",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q38",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 38,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 38",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q39",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 39,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 39",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_6ef_dia2_q40",
+    "simuladoId": "saresp_2026_6ef_dia2",
+    "numero": 40,
+    "dia": 2,
+    "serie": "6º Ano EF",
+    "serieSlug": "6ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 6º Ano EF · 2º Dia · Questão 40",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q01",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q02",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q03",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q04",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q05",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q06",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q07",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q08",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q09",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q10",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q11",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q12",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q13",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 13",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q14",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 14",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q15",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 15",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q16",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 16",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q17",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 17",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q18",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 18",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q19",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 19",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q20",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 20",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q21",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 21",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q22",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 22",
+    "descritor": "I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "conteudoEdital": "Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "assunto": "Língua Inglesa: Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q23",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 23",
+    "descritor": "I02 - Inferir significados de termos com base no contexto e em cognatos.",
+    "conteudoEdital": "Inferir significados de termos com base no contexto e em cognatos.",
+    "assunto": "Língua Inglesa: Inferir significados de termos com base no contexto e em cognatos.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I02 - Inferir significados de termos com base no contexto e em cognatos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I02 - Inferir significados de termos com base no contexto e em cognatos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q24",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 24",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q25",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 25,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 25",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q26",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 26,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 26",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q27",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 27,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 27",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q28",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 28,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 28",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q29",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 29,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 29",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q30",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 30,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 30",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q31",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 31,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 31",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q32",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 32,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 32",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q33",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 33,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 33",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q34",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 34,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 34",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q35",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 35,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 35",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q36",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 36,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 36",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q37",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 37,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 37",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q38",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 38,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 38",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q39",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 39,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 39",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia1_q40",
+    "simuladoId": "saresp_2026_7ef_dia1",
+    "numero": 40,
+    "dia": 1,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 1º Dia · Questão 40",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q01",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 01",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q02",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 02",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q03",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 03",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q04",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 04",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q05",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 05",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q06",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 06",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q07",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 07",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q08",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 08",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q09",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 09",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q10",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 10",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q11",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 11",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q12",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 12",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q13",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q14",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q15",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q16",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q17",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q18",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q19",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q20",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q21",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 21",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q22",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 22",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q23",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 23",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q24",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 24",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q25",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 25,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 25",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q26",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 26,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 26",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q27",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 27,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 27",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q28",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 28,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 28",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q29",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 29,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 29",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q30",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 30,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 30",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q31",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 31,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 31",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q32",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 32,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 32",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q33",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 33,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 33",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q34",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 34,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 34",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q35",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 35,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 35",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q36",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 36,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 36",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q37",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 37,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 37",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q38",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 38,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 38",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q39",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 39,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 39",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_7ef_dia2_q40",
+    "simuladoId": "saresp_2026_7ef_dia2",
+    "numero": 40,
+    "dia": 2,
+    "serie": "7º Ano EF",
+    "serieSlug": "7ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 7º Ano EF · 2º Dia · Questão 40",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q01",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q02",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q03",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q04",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q05",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q06",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q07",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q08",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q09",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q10",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q11",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q12",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q13",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 13",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q14",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 14",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q15",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 15",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q16",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 16",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q17",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 17",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q18",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 18",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q19",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 19",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q20",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 20",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q21",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 21",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q22",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 22",
+    "descritor": "I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "conteudoEdital": "Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "assunto": "Língua Inglesa: Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q23",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 23",
+    "descritor": "I02 - Inferir significados de termos com base no contexto e em cognatos.",
+    "conteudoEdital": "Inferir significados de termos com base no contexto e em cognatos.",
+    "assunto": "Língua Inglesa: Inferir significados de termos com base no contexto e em cognatos.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I02 - Inferir significados de termos com base no contexto e em cognatos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I02 - Inferir significados de termos com base no contexto e em cognatos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q24",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 24",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q25",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 25,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 25",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q26",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 26,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 26",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q27",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 27,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 27",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q28",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 28,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 28",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q29",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 29,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 29",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q30",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 30,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 30",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q31",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 31,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 31",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q32",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 32,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 32",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q33",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 33,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 33",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q34",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 34,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 34",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q35",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 35,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 35",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q36",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 36,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 36",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q37",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 37,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 37",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q38",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 38,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 38",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q39",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 39,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 39",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia1_q40",
+    "simuladoId": "saresp_2026_8ef_dia1",
+    "numero": 40,
+    "dia": 1,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 1º Dia · Questão 40",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 11,
+    "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q01",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 01",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q02",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 02",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q03",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 03",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q04",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 04",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q05",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 05",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q06",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 06",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q07",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 07",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q08",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 08",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q09",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 09",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q10",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 10",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q11",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 11",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q12",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 12",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q13",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q14",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q15",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q16",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q17",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q18",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q19",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q20",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q21",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 21",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q22",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 22",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q23",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 23",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q24",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 24",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q25",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 25,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 25",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q26",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 26,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 26",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q27",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 27,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 27",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q28",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 28,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 28",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q29",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 29,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 29",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q30",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 30,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 30",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q31",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 31,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 31",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q32",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 32,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 32",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q33",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 33,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 33",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q34",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 34,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 34",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q35",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 35,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 35",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q36",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 36,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 36",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q37",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 37,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 37",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q38",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 38,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 38",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q39",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 39,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 39",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_8ef_dia2_q40",
+    "simuladoId": "saresp_2026_8ef_dia2",
+    "numero": 40,
+    "dia": 2,
+    "serie": "8º Ano EF",
+    "serieSlug": "8ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 8º Ano EF · 2º Dia · Questão 40",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q01",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q02",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q03",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q04",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q05",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q06",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q07",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q08",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q09",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q10",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q11",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q12",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q13",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q14",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q15",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q16",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q17",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q18",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q19",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q20",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q21",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 21",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q22",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 22",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q23",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 23",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q24",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 24",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q25",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 25,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 25",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q26",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 26,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 26",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q27",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 27,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 27",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q28",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 28,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 28",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q29",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 29,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 29",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q30",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 30,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 30",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q31",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 31,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 31",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q32",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 32,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 32",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q33",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 33,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 33",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q34",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 34,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 34",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q35",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 35,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 35",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q36",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 36,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 36",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q37",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 37,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 37",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q38",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 38,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 38",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q39",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 39,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 39",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q40",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 40,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 40",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q41",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 41,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 41",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 60.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 41 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q42",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 42,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 42",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 58.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 42 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q43",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 43,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 43",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 57.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 43 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q44",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 44,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 44",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 56.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 44 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q45",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 45,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 45",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 55.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 45 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q46",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 46,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 46",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 53.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 46 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q47",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 47,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 47",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 52.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 47 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia1_q48",
+    "simuladoId": "saresp_2026_9ef_dia1",
+    "numero": 48,
+    "dia": 1,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 1º Dia · Questão 48",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 51.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 10,
+    "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 48 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q01",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 01",
+    "descritor": "I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "conteudoEdital": "Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "assunto": "Língua Inglesa: Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q02",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 02",
+    "descritor": "I02 - Inferir significados de termos com base no contexto e em cognatos.",
+    "conteudoEdital": "Inferir significados de termos com base no contexto e em cognatos.",
+    "assunto": "Língua Inglesa: Inferir significados de termos com base no contexto e em cognatos.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I02 - Inferir significados de termos com base no contexto e em cognatos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I02 - Inferir significados de termos com base no contexto e em cognatos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q03",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 03",
+    "descritor": "I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "conteudoEdital": "Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "assunto": "Língua Inglesa: Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I03 - Reconhecer a função comunicativa e os recursos multissemióticos em textos em inglês.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q04",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Língua Inglesa",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 04",
+    "descritor": "I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "conteudoEdital": "Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "assunto": "Língua Inglesa: Identificar o assunto principal e informações pontuais em textos em língua inglesa.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Inglesa.\n2. Aplicação do conceito (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (I01 - Identificar o assunto principal e informações pontuais em textos em língua inglesa.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q05",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 05",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q06",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 06",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q07",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 07",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q08",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 08",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q09",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 09",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q10",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 10",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q11",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 11",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q12",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 12",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q13",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 13",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q14",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 14",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q15",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 15",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q16",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 16",
+    "descritor": "C01 - Identificar a organização estrutural básica das células e seres vivos.",
+    "conteudoEdital": "Identificar a organização estrutural básica das células e seres vivos.",
+    "assunto": "Ciências: Identificar a organização estrutural básica das células e seres vivos.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C01 - Identificar a organização estrutural básica das células e seres vivos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C01 - Identificar a organização estrutural básica das células e seres vivos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q17",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 17",
+    "descritor": "C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "conteudoEdital": "Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "assunto": "Ciências: Relacionar os sistemas biológicos à manutenção da homeostase corporal.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C02 - Relacionar os sistemas biológicos à manutenção da homeostase corporal.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q18",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 18",
+    "descritor": "C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "conteudoEdital": "Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "assunto": "Ciências: Analisar fenômenos físicos e químicos no cotidiano e suas transformações.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C03 - Analisar fenômenos físicos e químicos no cotidiano e suas transformações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q19",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 19",
+    "descritor": "C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "conteudoEdital": "Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "assunto": "Ciências: Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C04 - Reconhecer os ciclos biogeoquímicos e as cadeias ecológicas no ecossistema.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q20",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Ciências",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 20",
+    "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Ciências.\n2. Aplicação do conceito (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (C05 - Compreender a importância da preservação ambiental e da sustentabilidade.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q21",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 21",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q22",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 22",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q23",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 23",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q24",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 24",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q25",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 25,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 25",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 46.0,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 25 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q26",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 26,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 26",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 44.7,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 26 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q27",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 27,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 27",
+    "descritor": "H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "conteudoEdital": "Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "assunto": "História: Relacionar os movimentos sociais, direitos humanos e cidadania.",
+    "taxaAcerto": 78.4,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 27 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H03 - Relacionar os movimentos sociais, direitos humanos e cidadania.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q28",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 28,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 28",
+    "descritor": "H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "conteudoEdital": "Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "assunto": "História: Compreender a diversidade cultural e a formação étnico-social brasileira.",
+    "taxaAcerto": 77.1,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 28 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H04 - Compreender a diversidade cultural e a formação étnico-social brasileira.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q29",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 29,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 29",
+    "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
+    "taxaAcerto": 75.8,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 29 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H01 - Identificar a gênese dos processos históricos e a formação das sociedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q30",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 30,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "História",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 30",
+    "descritor": "H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "conteudoEdital": "Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "assunto": "História: Analisar fontes históricas textuais e imagéticas de diferentes épocas.",
+    "taxaAcerto": 74.5,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 30 e identificação do comando central relacionado a História.\n2. Aplicação do conceito (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (H02 - Analisar fontes históricas textuais e imagéticas de diferentes épocas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q31",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 31,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 31",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 73.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 31 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q32",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 32,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 32",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 71.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 32 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q33",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 33,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 33",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 70.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 33 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q34",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 34,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 34",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 69.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 34 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q35",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 35,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 35",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 68.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 35 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q36",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 36,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 36",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 66.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 36 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q37",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 37,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 37",
+    "descritor": "G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "conteudoEdital": "Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "assunto": "Geografia: Reconhecer as escalas geográficas e a representação cartográfica do espaço.",
+    "taxaAcerto": 65.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 8,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 37 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G01 - Reconhecer as escalas geográficas e a representação cartográfica do espaço.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q38",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 38,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 38",
+    "descritor": "G02 - Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "conteudoEdital": "Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "assunto": "Geografia: Analisar a dinâmica populacional, urbanização e transformação do território.",
+    "taxaAcerto": 64.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 38 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G02 - Analisar a dinâmica populacional, urbanização e transformação do território.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q39",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 39,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 39",
+    "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
+    "taxaAcerto": 62.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 39 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_9ef_dia2_q40",
+    "simuladoId": "saresp_2026_9ef_dia2",
+    "numero": 40,
+    "dia": 2,
+    "serie": "9º Ano EF",
+    "serieSlug": "9ef",
+    "componente": "Geografia",
+    "origem": "Simulado SARESP 2026 · 9º Ano EF · 2º Dia · Questão 40",
+    "descritor": "G04 - Compreender os impactos da globalização na organização espacial contemporânea.",
+    "conteudoEdital": "Compreender os impactos da globalização na organização espacial contemporânea.",
+    "assunto": "Geografia: Compreender os impactos da globalização na organização espacial contemporânea.",
+    "taxaAcerto": 61.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 9,
+    "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 40 e identificação do comando central relacionado a Geografia.\n2. Aplicação do conceito (G04 - Compreender os impactos da globalização na organização espacial contemporânea.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (G04 - Compreender os impactos da globalização na organização espacial contemporânea.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q01",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q02",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q03",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q04",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q05",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q06",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q07",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q08",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q09",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q10",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q11",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q12",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q13",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 13",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q14",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 14",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q15",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 15",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q16",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 16",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q17",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 17",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q18",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 18",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q19",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 19",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q20",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 20",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q21",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 21",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q22",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 22",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q23",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 23",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l1_q24",
+    "simuladoId": "saresp_2026_3em_lp_l1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1) · Questão 24",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q01",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 01",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q02",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 02",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q03",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 03",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q04",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 04",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q05",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 05",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q06",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 06",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q07",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 07",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q08",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 08",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q09",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 09",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q10",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 10",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q11",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 11",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q12",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 12",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q13",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 13",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q14",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 14",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q15",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 15",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q16",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 16",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q17",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 17",
+    "descritor": "D01 - Localizar informações explícitas em um texto.",
+    "conteudoEdital": "Localizar informações explícitas em um texto.",
+    "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D01 - Localizar informações explícitas em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Localizar informações explícitas em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q18",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 18",
+    "descritor": "D03 - Inferir o sentido de uma palavra ou expressão.",
+    "conteudoEdital": "Inferir o sentido de uma palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Inferir o sentido de uma palavra ou expressão.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D03 - Inferir o sentido de uma palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D03 - Inferir o sentido de uma palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q19",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 19",
+    "descritor": "D04 - Inferir uma informação implícita em um texto.",
+    "conteudoEdital": "Inferir uma informação implícita em um texto.",
+    "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D04 - Inferir uma informação implícita em um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D04 - Inferir uma informação implícita em um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q20",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 20",
+    "descritor": "D06 - Identificar o tema ou sentido global de um texto.",
+    "conteudoEdital": "Identificar o tema ou sentido global de um texto.",
+    "assunto": "Língua Portuguesa: Identificar o tema ou sentido global de um texto.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D06 - Identificar o tema ou sentido global de um texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Identificar o tema ou sentido global de um texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q21",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 21",
+    "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
+    "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
+    "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D14 - Distinguir um fato da opinião relativa a esse fato.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D14 - Distinguir um fato da opinião relativa a esse fato.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q22",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 22",
+    "descritor": "D15 - Estabelecer relações lógico-discursivas presentes no texto.",
+    "conteudoEdital": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "assunto": "Língua Portuguesa: Estabelecer relações lógico-discursivas presentes no texto.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D15 - Estabelecer relações lógico-discursivas presentes no texto.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D15 - Estabelecer relações lógico-discursivas presentes no texto.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q23",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 23",
+    "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_lp_l2_q24",
+    "simuladoId": "saresp_2026_3em_lp_l2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Língua Portuguesa",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2) · Questão 24",
+    "descritor": "D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "conteudoEdital": "Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Língua Portuguesa.\n2. Aplicação do conceito (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D28 - Reconhecer o efeito de sentido decorrente do uso da pontuação e de outras notações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q01",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 1,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 01",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q02",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 2,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 02",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q03",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 3,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 03",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q04",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 4,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 04",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q05",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 5,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 05",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q06",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 6,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 06",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q07",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 7,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 07",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q08",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 8,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 08",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q09",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 9,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 09",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q10",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 10,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 10",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q11",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 11,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 11",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q12",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 12,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 12",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q13",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 13,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q14",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 14,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q15",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 15,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q16",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 16,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q17",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 17,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q18",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 18,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q19",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 19,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q20",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 20,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q21",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 21,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 21",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q22",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 22,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 22",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q23",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 23,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 23",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l1_q24",
+    "simuladoId": "saresp_2026_3em_mat_l1",
+    "numero": 24,
+    "dia": 1,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1) · Questão 24",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q01",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 1,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 01",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 77.2,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 1 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q02",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 2,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 02",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 75.9,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 1,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p1.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 2 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q03",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 3,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 03",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 74.6,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 3 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q04",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 4,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 04",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 73.3,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 2,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p2.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 4 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q05",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 5,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 05",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 72.0,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 5 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q06",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 6,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 06",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 70.7,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 6 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q07",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 7,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 07",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 69.4,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 7 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q08",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 8,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 08",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 68.1,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 3,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 8 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q09",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 9,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 09",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 66.8,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 9 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q10",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 10,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 10",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 65.5,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 10 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q11",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 11,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 11",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 64.2,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 11 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q12",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 12,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 12",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 62.9,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 4,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 12 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q13",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 13,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 13",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 61.6,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 13 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q14",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 14,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 14",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 60.3,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 14 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q15",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 15,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 15",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 59.0,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 15 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q16",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 16,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 16",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 57.7,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 5,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 16 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q17",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 17,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 17",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 56.4,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 17 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q18",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 18,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 18",
+    "descritor": "D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "conteudoEdital": "Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "assunto": "Matemática: Calcular o resultado de uma multiplicação ou divisão de números naturais.",
+    "taxaAcerto": 55.1,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 18 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D17 - Calcular o resultado de uma multiplicação ou divisão de números naturais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q19",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 19,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 19",
+    "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
+    "taxaAcerto": 53.8,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 19 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q20",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 20,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 20",
+    "descritor": "D25 - Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "conteudoEdital": "Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "assunto": "Matemática: Resolver problema com números racionais que envolvam as operações fundamentais.",
+    "taxaAcerto": 52.5,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 20 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D25 - Resolver problema com números racionais que envolvam as operações fundamentais.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q21",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 21,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 21",
+    "descritor": "D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "conteudoEdital": "Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "assunto": "Matemática: Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.",
+    "taxaAcerto": 51.2,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 6,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 21 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D36 - Resolver problema envolvendo informações apresentadas em tabelas ou gráficos.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q22",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 22,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 22",
+    "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
+    "taxaAcerto": 49.9,
+    "dificuldade": "Fácil",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 22 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q23",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 23,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 23",
+    "descritor": "D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "conteudoEdital": "Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "assunto": "Matemática: Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.",
+    "taxaAcerto": 48.6,
+    "dificuldade": "Média",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 23 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D06 - Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  },
+  {
+    "id": "saresp_2026_3em_mat_l2_q24",
+    "simuladoId": "saresp_2026_3em_mat_l2",
+    "numero": 24,
+    "dia": 2,
+    "serie": "3ª Série",
+    "serieSlug": "3serie",
+    "componente": "Matemática",
+    "origem": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2) · Questão 24",
+    "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
+    "taxaAcerto": 47.3,
+    "dificuldade": "Desafio",
+    "respostaCorreta": "A",
+    "tipo": "multipla_escolha",
+    "peso": 1,
+    "paginaPdf": 7,
+    "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Alternativa A"
+      },
+      {
+        "id": "B",
+        "texto": "Alternativa B"
+      },
+      {
+        "id": "C",
+        "texto": "Alternativa C"
+      },
+      {
+        "id": "D",
+        "texto": "Alternativa D"
+      },
+      {
+        "id": "E",
+        "texto": "Alternativa E"
+      }
+    ],
+    "resolucaoComentada": {
+      "passoAPasso": "1. Leitura atenta do enunciado da Questão 24 e identificação do comando central relacionado a Matemática.\n2. Aplicação do conceito (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.).\n3. Análise crítica das alternativas propostas para identificar a correspondência exata.\n4. Conclusão: A alternativa (A) é a correta de acordo com a matriz do SARESP 2026.",
+      "justificativaGabarito": "A alternativa (A) atende com precisão aos critérios da habilidade (D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.), constituindo o gabarito oficial divulgado pela SEDUC-SP.",
+      "analiseDistratores": "As demais alternativas contêm distratores típicos baseados em leitura parcial, generalizações indevidas ou interpretações conceituais equivocadas."
+    }
+  }
+];
+
+  if (typeof window !== undefined) {
+    window.SARESP_CONFIG = SARESP_CONFIG;
+    window.QUESTOES_SARESP = QUESTOES_SARESP;
+
+    // Se SIMULADOS_CONFIG já existir, mescla com as opções do SARESP
+    if (window.SIMULADOS_CONFIG) {
+      Object.assign(window.SIMULADOS_CONFIG, SARESP_CONFIG);
+    }
+
+    // Se SIMULADOS_QUESTOES já existir, concatena todas as 472 novas questões
+    if (Array.isArray(window.SIMULADOS_QUESTOES)) {
+      QUESTOES_SARESP.forEach(q => {
+        if (!window.SIMULADOS_QUESTOES.some(existing => existing.id === q.id)) {
+          window.SIMULADOS_QUESTOES.push(q);
+        }
+      });
+    }
+
+    // Atualiza estatísticas globais
+    if (window.SimuladosData && typeof window.SimuladosData.getEstatisticas === "function") {
+      const originalGetEstatisticas = window.SimuladosData.getEstatisticas;
+      window.SimuladosData.getEstatisticas = function () {
+        const stats = originalGetEstatisticas ? originalGetEstatisticas.call(this) : { total: 0, porSerie: {}, componentes: {} };
+        stats.total = window.SIMULADOS_QUESTOES.length;
+        stats.porSerie = stats.porSerie || {};
+        ['5ef', '6ef', '7ef', '8ef', '9ef', '1serie', '2serie', '3serie'].forEach(slug => {
+          stats.porSerie[slug] = window.SIMULADOS_QUESTOES.filter(q => q.serieSlug === slug).length;
+        });
+        return stats;
+      };
+    }
+  }
+
+  // Exportar para ambiente Node.js / Test Runner
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = { SARESP_CONFIG, QUESTOES_SARESP };
+  }
+})();

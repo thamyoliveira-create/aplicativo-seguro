@@ -12,7 +12,7 @@ const ProfessorLoginView = {
           <div class="auth-brand"><span><i data-lucide="shield-check"></i></span><b>Atividade Segura</b></div>
           <p class="auth-kicker">PAINEL DOCENTE</p>
           <h1 id="teacher-login-title">Planeje com profundidade. Acompanhe com clareza.</h1>
-          <p>O domínio institucional e a confirmação do e-mail definem o acesso docente. Contas de alunos não recebem permissão para consultar atividades, gabaritos ou entregas da professora.</p>
+          <p>O domínio institucional define o acesso docente. Contas de alunos não recebem permissão para consultar atividades, gabaritos ou entregas da professora.</p>
           <div class="auth-proof"><i data-lucide="database-zap"></i><span><b>Firebase Authentication + Firestore</b><small>As regras do banco conferem identidade e domínio em cada leitura ou alteração.</small></span></div>
         </section>
 
@@ -71,13 +71,12 @@ const ProfessorLoginView = {
       feedbackContainer.innerHTML = `
         <div class="auth-feedback-panel success">
           <div class="auth-feedback-header">
-            <i data-lucide="mail-check"></i>
-            <span>E-mail de confirmação enviado!</span>
+            <i data-lucide="badge-check"></i>
+            <span>Conta docente criada!</span>
           </div>
-          <p>Enviamos um link de validação para <strong>${email}</strong>.</p>
+          <p>O acesso para <strong>${email}</strong> já está liberado. Não é necessário confirmar por e-mail.</p>
           <div class="auth-feedback-tips">
-            <span><i data-lucide="alert-triangle"></i><strong>Atenção:</strong> Verifique sua <b>Caixa de Entrada</b> e também a pasta de <b>Spam / Lixo Eletrônico</b> ou a aba <b>Outros</b>.</span>
-            <span><i data-lucide="check-circle-2"></i>Após clicar no link do e-mail, volte nesta tela e acerte seu login na aba <b>Entrar</b>.</span>
+            <span><i data-lucide="check-circle-2"></i>Agora volte para a aba <b>Entrar</b> e acesse com o e-mail e senha cadastrados.</span>
           </div>
           <button type="button" class="resend-btn" id="teacher-go-login">
             <i data-lucide="arrow-right"></i> Ir para a aba Entrar
@@ -97,49 +96,6 @@ const ProfessorLoginView = {
       }
     };
 
-    const showUnverifiedWarning = (email, pwd) => {
-      feedbackContainer.innerHTML = `
-        <div class="auth-feedback-panel warning">
-          <div class="auth-feedback-header">
-            <i data-lucide="shield-alert"></i>
-            <span>Confirmação de e-mail pendente</span>
-          </div>
-          <p>Sua conta institucional ainda não foi ativada pelo link de verificação enviado para <strong>${email}</strong>.</p>
-          <div class="auth-feedback-tips">
-            <span><i data-lucide="info"></i>Procure pelo e-mail com o assunto de verificação na <b>Caixa de Entrada</b> ou na pasta de <b>Spam/Lixo Eletrônico</b>.</span>
-            <span><i data-lucide="mail"></i>Não recebeu o e-mail ou o link expirou? Clique abaixo para reenviar:</span>
-          </div>
-          <button type="button" class="resend-btn" id="teacher-resend-btn">
-            <i data-lucide="send"></i> Reenviar e-mail de confirmação agora
-          </button>
-          <span id="teacher-resend-status" style="font-size:11px; margin-top:4px;"></span>
-        </div>
-      `;
-      if (window.lucide) window.lucide.createIcons();
-
-      const resendBtn = document.getElementById("teacher-resend-btn");
-      const resendStatus = document.getElementById("teacher-resend-status");
-      if (resendBtn) {
-        resendBtn.onclick = async () => {
-          resendBtn.disabled = true;
-          resendBtn.innerHTML = `<i data-lucide="loader-2"></i> Reenviando…`;
-          if (window.lucide) window.lucide.createIcons();
-          try {
-            await TeacherAuth.resendVerification(email, pwd);
-            resendStatus.style.color = "#34d399";
-            resendStatus.textContent = "✅ Novo e-mail de confirmação enviado com sucesso! Verifique sua caixa de entrada e Spam.";
-            resendBtn.style.display = "none";
-          } catch (err) {
-            resendStatus.style.color = "#f87171";
-            resendStatus.textContent = `❌ ${err.message}`;
-            resendBtn.disabled = false;
-            resendBtn.innerHTML = `<i data-lucide="send"></i> Tentar reenviar novamente`;
-            if (window.lucide) window.lucide.createIcons();
-          }
-        };
-      }
-    };
-
     document.getElementById("teacher-login-form").onsubmit = async (event) => {
       event.preventDefault();
       const button = event.currentTarget.querySelector(".auth-submit");
@@ -155,9 +111,9 @@ const ProfessorLoginView = {
 
       try {
         if (registering) {
-          const sentTo = await TeacherAuth.register(email, pwd, document.getElementById("teacher-name").value);
-          showRegistrationSuccess(sentTo);
-          button.querySelector("span").textContent = "Verificação enviada";
+          const createdEmail = await TeacherAuth.register(email, pwd, document.getElementById("teacher-name").value);
+          showRegistrationSuccess(createdEmail);
+          button.querySelector("span").textContent = "Conta criada";
           button.disabled = false;
         } else {
           await TeacherAuth.login(email, pwd);
@@ -165,11 +121,7 @@ const ProfessorLoginView = {
           await App.handleRoute();
         }
       } catch (err) {
-        if (err?.message === "EMAIL_NOT_VERIFIED" || err?.code === "auth/unverified-email") {
-          showUnverifiedWarning(email, pwd);
-        } else {
-          error.textContent = err.message;
-        }
+        error.textContent = err.message;
         button.disabled = false;
         button.querySelector("span").textContent = registering ? "Criar conta docente" : "Entrar com segurança";
       }

@@ -1,7 +1,7 @@
 const PortalAuth = {
   domains: {
-    teacher: "@professor.educacao.sp.gov.br",
-    student: "@aluno.educacao.sp.gov.br"
+    teacher: ["@professor.educacao.sp.gov.br", "@prof.educacao.sp.gov.br"],
+    student: ["@aluno.educacao.sp.gov.br"]
   },
 
   async api() {
@@ -15,9 +15,13 @@ const PortalAuth = {
 
   roleFromEmail(email) {
     const normalized = this.normalizeEmail(email);
-    if (normalized.endsWith(this.domains.teacher)) return "teacher";
-    if (normalized.endsWith(this.domains.student)) return "student";
+    if (this.domains.teacher.some((domain) => normalized.endsWith(domain))) return "teacher";
+    if (this.domains.student.some((domain) => normalized.endsWith(domain))) return "student";
     return null;
+  },
+
+  canBypassEmailVerification(email, role) {
+    return ["teacher", "student"].includes(role) && this.roleFromEmail(email) === role;
   },
 
   /**
@@ -81,7 +85,7 @@ const PortalAuth = {
    */
   extractRAFromEmail(email) {
     const normalized = this.normalizeEmail(email);
-    if (!normalized.endsWith(this.domains.student)) return null;
+    if (!this.domains.student.some((domain) => normalized.endsWith(domain))) return null;
 
     const localPart = normalized.split("@")[0];
     const plusParts = localPart.split("+");
@@ -98,11 +102,11 @@ const PortalAuth = {
 
   validateEmail(email, role) {
     const normalized = this.normalizeEmail(email);
-    const domain = this.domains[role];
+    const domains = this.domains[role] || [];
 
-    if (!normalized.endsWith(domain) || normalized === domain) {
-      const label = role === "teacher" ? "professor" : "aluno";
-      throw new Error(`Use seu e-mail institucional @${label}.educacao.sp.gov.br.`);
+    if (!domains.some((domain) => normalized.endsWith(domain) && normalized !== domain)) {
+      const expected = role === "teacher" ? "@professor.educacao.sp.gov.br ou @prof.educacao.sp.gov.br" : "@aluno.educacao.sp.gov.br";
+      throw new Error(`Use seu e-mail institucional ${expected}.`);
     }
 
     return normalized;
@@ -156,7 +160,6 @@ const PortalAuth = {
     if (!user) return null;
 
     await user.reload();
-    if (!user.emailVerified) return null;
 
     const role = this.roleFromEmail(user.email);
     if (!role) return null;
@@ -182,32 +185,8 @@ const PortalAuth = {
     try {
       const credential = await F.createUserWithEmailAndPassword(F.auth, normalized, password);
       await F.updateProfile(credential.user, { displayName: String(displayName).trim().slice(0, 100) });
-      await F.sendEmailVerification(credential.user, {
-        url: `${window.location.origin}${window.location.pathname}#${role === "teacher" ? "professor" : "aluno"}`
-      });
-      await F.signOut(F.auth);
+      await this.ensureProfile(credential.user, role, displayName);
       return normalized;
-    } catch (error) {
-      throw this.friendlyError(error);
-    }
-  },
-
-  async resendVerificationEmail(email, password, role) {
-    const F = await this.api();
-    const normalized = this.validateEmail(email, role);
-    if (!password) throw new Error("Informe a senha para reenviar a verificação.");
-
-    try {
-      const credential = await F.signInWithEmailAndPassword(F.auth, normalized, password);
-      if (credential.user.emailVerified) {
-        await F.signOut(F.auth);
-        return { verified: true, email: normalized };
-      }
-      await F.sendEmailVerification(credential.user, {
-        url: `${window.location.origin}${window.location.pathname}#${role === "teacher" ? "professor" : "aluno"}`
-      });
-      await F.signOut(F.auth);
-      return { verified: false, email: normalized };
     } catch (error) {
       throw this.friendlyError(error);
     }
@@ -221,13 +200,6 @@ const PortalAuth = {
       const credential = await F.signInWithEmailAndPassword(F.auth, normalized, password);
       await credential.user.reload();
 
-      if (!credential.user.emailVerified) {
-        await F.signOut(F.auth);
-        const unverifiedError = new Error("EMAIL_NOT_VERIFIED");
-        unverifiedError.code = "auth/unverified-email";
-        throw unverifiedError;
-      }
-
       if (this.roleFromEmail(credential.user.email) !== role) {
         await F.signOut(F.auth);
         throw new Error("Esta conta não pertence ao perfil selecionado.");
@@ -235,10 +207,7 @@ const PortalAuth = {
 
       return await this.identity();
     } catch (error) {
-      if (error?.message === "EMAIL_NOT_VERIFIED" || error?.code === "auth/unverified-email") {
-        throw error;
-      }
-      if (error?.message?.startsWith("Confirme") || error?.message?.startsWith("Esta conta")) throw error;
+      if (error?.message?.startsWith("Esta conta")) throw error;
       throw this.friendlyError(error);
     }
   },
@@ -282,9 +251,6 @@ const TeacherAuth = {
   register(email, password, displayName) {
     return PortalAuth.register({ email, password, displayName, role: "teacher" });
   },
-  resendVerification(email, password) {
-    return PortalAuth.resendVerificationEmail(email, password, "teacher");
-  },
   resetPassword(email) {
     return PortalAuth.resetPassword(email, "teacher");
   },
@@ -310,9 +276,6 @@ const StudentAuth = {
   },
   register(email, password, displayName) {
     return PortalAuth.register({ email, password, displayName, role: "student" });
-  },
-  resendVerification(email, password) {
-    return PortalAuth.resendVerificationEmail(email, password, "student");
   },
   resetPassword(email) {
     return PortalAuth.resetPassword(email, "student");

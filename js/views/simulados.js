@@ -171,13 +171,13 @@ const SimuladosView = {
         <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-8 items-center">
             <div>
-              <p class="eyebrow"><span></span>PROVÃO PAULISTA &amp; ENEM 2026</p>
+              <p class="eyebrow"><span></span>PROVÃO PAULISTA, SARESP &amp; ENEM 2026</p>
               <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mt-4">Simulados oficiais<br><em class="text-brand-300 not-italic">questão por questão.</em></h1>
-              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com taxa histórica de acerto e resoluções comentadas passo a passo.</p>
+              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com cadernos do Ensino Fundamental e Ensino Médio.</p>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
                 ${this.statCard(stats.total, "questões", "book-open-check")}
                 ${this.statCard(configs.length, "cadernos", "files")}
-                ${this.statCard(Object.keys(stats.porSerie || {}).length || 3, "séries EM", "graduation-cap")}
+                ${this.statCard(Object.keys(stats.porSerie || {}).length || 8, "anos/séries", "graduation-cap")}
                 ${this.statCard("1 por 1", "foco total", "layers")}
               </div>
             </div>
@@ -213,8 +213,8 @@ const SimuladosView = {
 
             <!-- Filtros -->
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1serie">1ª Série EM (Provão)</option><option value="2serie">2ª Série EM (Provão)</option><option value="3serie">3ª Série EM (ENEM)</option></select></label>
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1">Dia 1</option><option value="2">Dia 2</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Ano/Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="5ef">5º Ano EF (SARESP)</option><option value="6ef">6º Ano EF (SARESP)</option><option value="7ef">7º Ano EF (SARESP)</option><option value="8ef">8º Ano EF (SARESP)</option><option value="9ef">9º Ano EF (SARESP)</option><option value="1serie">1ª Série EM (Provão)</option><option value="2serie">2ª Série EM (Provão)</option><option value="3serie">3ª Série EM (ENEM/SARESP)</option></select></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia/Lista</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1">Dia 1 / Lista 1</option><option value="2">Dia 2 / Lista 2</option></select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span><select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todos">Todos os componentes</option>${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}</select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span><select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todas">Todas as dificuldades</option><option>Fácil</option><option>Média</option><option>Desafio</option><option>Referência</option></select></label>
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Buscar</span><input id="sim-filter-busca" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none" placeholder="assunto, descritor..." value="${this.esc(this.state.busca)}"></label>
@@ -327,7 +327,10 @@ const SimuladosView = {
     const update = () => {
       this.state.serie = document.getElementById("sim-filter-serie").value;
       this.state.dia = document.getElementById("sim-filter-dia").value;
-      this.state.simuladoId = `${this.state.serie}_dia${this.state.dia}`;
+      const selectedConfig = window.SimuladosData.getAllConfigs().find(config =>
+        config.serieSlug === this.state.serie && String(config.dia) === String(this.state.dia)
+      );
+      this.state.simuladoId = selectedConfig?.id || `${this.state.serie}_dia${this.state.dia}`;
       this.state.componente = document.getElementById("sim-filter-componente").value;
       this.state.dificuldade = document.getElementById("sim-filter-dificuldade").value;
       this.state.busca = document.getElementById("sim-filter-busca").value.trim();

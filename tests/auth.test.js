@@ -11,8 +11,8 @@ import assert from "node:assert";
 // Implementação isolada das funções de validação e conversão do PortalAuth
 const PortalAuthHelper = {
   domains: {
-    teacher: "@professor.educacao.sp.gov.br",
-    student: "@aluno.educacao.sp.gov.br"
+    teacher: ["@professor.educacao.sp.gov.br", "@prof.educacao.sp.gov.br"],
+    student: ["@aluno.educacao.sp.gov.br"]
   },
 
   normalizeEmail(email) {
@@ -21,9 +21,13 @@ const PortalAuthHelper = {
 
   roleFromEmail(email) {
     const normalized = this.normalizeEmail(email);
-    if (normalized.endsWith(this.domains.teacher)) return "teacher";
-    if (normalized.endsWith(this.domains.student)) return "student";
+    if (this.domains.teacher.some((domain) => normalized.endsWith(domain))) return "teacher";
+    if (this.domains.student.some((domain) => normalized.endsWith(domain))) return "student";
     return null;
+  },
+
+  canBypassEmailVerification(email, role) {
+    return ["teacher", "student"].includes(role) && this.roleFromEmail(email) === role;
   },
 
   raToEmail(ra, dig = "", uf = "sp") {
@@ -75,7 +79,7 @@ const PortalAuthHelper = {
 
   extractRAFromEmail(email) {
     const normalized = this.normalizeEmail(email);
-    if (!normalized.endsWith(this.domains.student)) return null;
+    if (!this.domains.student.some((domain) => normalized.endsWith(domain))) return null;
 
     const localPart = normalized.split("@")[0];
     const plusParts = localPart.split("+");
@@ -159,8 +163,9 @@ describe("PortalAuth - Formatação e Extração de RA", () => {
 });
 
 describe("PortalAuth - Identificação de Perfil por Domínio", () => {
-  it("deve identificar professor pelo domínio @professor.educacao.sp.gov.br", () => {
+  it("deve identificar professor pelos domínios institucionais autorizados", () => {
     assert.strictEqual(PortalAuthHelper.roleFromEmail("tamiris@professor.educacao.sp.gov.br"), "teacher");
+    assert.strictEqual(PortalAuthHelper.roleFromEmail("tamiris@prof.educacao.sp.gov.br"), "teacher");
   });
 
   it("deve identificar aluno pelo domínio @aluno.educacao.sp.gov.br", () => {
@@ -170,5 +175,28 @@ describe("PortalAuth - Identificação de Perfil por Domínio", () => {
   it("deve rejeitar domínios externos não institucionais", () => {
     assert.strictEqual(PortalAuthHelper.roleFromEmail("usuario@gmail.com"), null);
     assert.strictEqual(PortalAuthHelper.roleFromEmail("usuario@hotmail.com"), null);
+  });
+
+  it("deve dispensar confirmação de e-mail para domínios institucionais no perfil correto", () => {
+    assert.strictEqual(
+      PortalAuthHelper.canBypassEmailVerification("erikariva@professor.educacao.sp.gov.br", "teacher"),
+      true
+    );
+    assert.strictEqual(
+      PortalAuthHelper.canBypassEmailVerification("amanda@prof.educacao.sp.gov.br", "teacher"),
+      true
+    );
+    assert.strictEqual(
+      PortalAuthHelper.canBypassEmailVerification("0000112790615xsp@aluno.educacao.sp.gov.br", "student"),
+      true
+    );
+    assert.strictEqual(
+      PortalAuthHelper.canBypassEmailVerification("usuario@gmail.com", "teacher"),
+      false
+    );
+    assert.strictEqual(
+      PortalAuthHelper.canBypassEmailVerification("erikariva@professor.educacao.sp.gov.br", "student"),
+      false
+    );
   });
 });

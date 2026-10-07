@@ -12,312 +12,197 @@ const ProfessorDashboardView = {
     const profEmail = sessionStorage.getItem("professor_email") || localStorage.getItem("professor_email") || "";
     
     root.innerHTML = `
-      <div class="teacher-editorial min-h-screen text-slate-100 flex flex-col selection:bg-brand-600 selection:text-white">
-        
-        <!-- Topo da Professora -->
-        <header class="glass-nav sticky top-0 z-50 py-3.5 px-4 md:px-8">
-          <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-3.5">
-              <div class="teacher-brand-stamp" aria-hidden="true">AS</div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <h1 class="font-black text-base md:text-lg text-white tracking-tight">${profNome}</h1>
-                  <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    Docente
-                  </span>
-                </div>
-                <p class="text-[11px] text-slate-400 font-mono flex items-center gap-1.5 mt-0.5">
-                  <i data-lucide="school" class="w-3.5 h-3.5 text-brand-400"></i>
-                  <span>${profEscola}</span>
-                  ${profEmail ? `<span class="text-slate-600">•</span><span>${profEmail}</span>` : ""}
-                </p>
-              </div>
+      <div class="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-brand-600 selection:text-white">
+        <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/95 backdrop-blur px-4 md:px-8 py-3">
+          <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+            <div class="min-w-0">
+              <p class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-black">Painel docente</p>
+              <h1 class="text-lg md:text-xl font-black text-white truncate">${profNome}</h1>
+              <p class="text-[11px] text-slate-500 truncate">${profEscola}${profEmail ? ` · ${profEmail}` : ""}</p>
             </div>
 
-            <div class="flex items-center gap-3">
-              <a href="#simulados" class="teacher-secondary-action px-3.5 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-200 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-emerald-500/30 transition-all">
-                <i data-lucide="book-open-check" class="w-3.5 h-3.5 text-emerald-300"></i>
-                <span class="hidden sm:inline">Provão 2026</span>
+            <div class="flex items-center gap-2">
+              <a href="#professor/nova-atividade" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs md:text-sm inline-flex items-center gap-2 transition-colors">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Nova atividade</span>
               </a>
-              <a href="#professor/configuracoes" class="teacher-secondary-action px-3.5 py-2 rounded-xl bg-dark-900 hover:bg-dark-850 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-slate-700 transition-all">
-                <i data-lucide="settings" class="w-3.5 h-3.5 text-slate-400"></i>
-                <span class="hidden sm:inline">Configurações & IA</span>
+              <a href="#simulados" class="hidden sm:inline-flex px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-semibold items-center gap-1.5 transition-colors">
+                <i data-lucide="book-open-check" class="w-3.5 h-3.5"></i>
+                Simulados
               </a>
-              <a href="#professor/nova-atividade" class="teacher-primary-action px-4 py-2 rounded-xl text-white font-extrabold text-xs md:text-sm flex items-center gap-2 transition-all">
-                <i data-lucide="sparkles" class="w-4 h-4 text-yellow-300"></i>
-                <span>+ Criar com IA</span>
+              <a href="#professor/configuracoes" class="hidden sm:inline-flex p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-colors" title="Configurações">
+                <i data-lucide="settings" class="w-4 h-4"></i>
               </a>
-              <button
-                onclick="ProfessorDashboardView.encerrarSessao()"
-                class="p-2 rounded-xl bg-rose-950/60 hover:bg-rose-900/80 text-rose-300 hover:text-white border border-rose-500/30 transition-colors"
-                title="Sair do Painel"
-              >
+              <button onclick="ProfessorDashboardView.encerrarSessao()" class="p-2 rounded-xl bg-slate-900 hover:bg-rose-950/80 text-slate-400 hover:text-rose-200 border border-slate-800 hover:border-rose-500/30 transition-colors" title="Sair">
                 <i data-lucide="log-out" class="w-4 h-4"></i>
               </button>
             </div>
           </div>
         </header>
 
-        <!-- Conteúdo Principal -->
-        <main class="max-w-6xl mx-auto w-full p-4 md:p-8 flex-1">
-          <!-- Métricas Resumidas -->
-          <div id="metrics-cards" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
-              <div class="w-12 h-12 rounded-xl bg-brand-950/80 text-brand-400 border border-brand-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <span class="dash-metric-mark">01</span>
-              </div>
-              <div>
-                <div class="text-2xl font-black text-white" id="stat-atividades">0</div>
-                <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider">Atividades Ativas</div>
-              </div>
+        <main class="max-w-6xl mx-auto w-full p-4 md:p-8 flex-1 space-y-6">
+          <section class="grid grid-cols-2 md:grid-cols-4 gap-3" aria-label="Resumo do painel">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
+              <div class="text-2xl font-black text-white" id="stat-atividades">0</div>
+              <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wide mt-1">Atividades</div>
             </div>
-
-            <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
-              <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <span class="dash-metric-mark">02</span>
-              </div>
-              <div>
-                <div class="text-2xl font-black text-white" id="stat-submissoes">0</div>
-                <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider">Provas Entregues</div>
-              </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
+              <div class="text-2xl font-black text-white" id="stat-submissoes">0</div>
+              <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wide mt-1">Entregas</div>
             </div>
-
-            <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
-              <div class="w-12 h-12 rounded-xl bg-amber-950/80 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <span class="dash-metric-mark">03</span>
-              </div>
-              <div>
-                <div class="text-2xl font-black text-white" id="stat-infracoes">0</div>
-                <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider">Trocas de Aba</div>
-              </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
+              <div class="text-2xl font-black text-white" id="stat-simulados-finalizados">0</div>
+              <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wide mt-1">Simulados</div>
             </div>
-
-            <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center gap-4 feature-card">
-              <div class="w-12 h-12 rounded-xl bg-purple-950/80 text-purple-400 border border-purple-500/30 flex items-center justify-center font-bold flex-shrink-0">
-                <span class="dash-metric-mark">04</span>
-              </div>
-              <div>
-                <div class="text-2xl font-black text-white">Gemini 3.7</div>
-                <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider">IA Pedagógica</div>
-              </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
+              <div class="text-2xl font-black text-white" id="stat-infracoes">0</div>
+              <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wide mt-1">Ocorrências</div>
             </div>
-          </div>
-
-          <!-- Banco Oficial de Simulados -->
-          <a href="#simulados" class="block teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 relative overflow-hidden border border-emerald-500/20 hover:border-emerald-400/50 transition-all feature-card">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div class="flex items-start gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="book-open-check" class="w-7 h-7"></i>
-                </div>
-                <div>
-                  <p class="text-[10px] uppercase tracking-[0.22em] font-black text-emerald-300">Banco Oficial</p>
-                  <h2 class="text-xl font-black text-white mt-1">Simulados Provão Paulista 2026</h2>
-                  <p class="text-sm text-slate-400 mt-2 max-w-3xl">Importe cadernos completos da 1ª e 2ª série ou selecione questões por disciplina, descritor, conteúdo do edital e taxa de acerto histórica.</p>
-                </div>
-              </div>
-              <span class="px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold inline-flex items-center gap-2">
-                Abrir simulados <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </span>
-            </div>
-          </a>
-
-          <!-- Resultados dos Simulados Oficiais -->
-          <section class="glass-card rounded-3xl p-6 md:p-8 mb-8 border border-amber-500/20">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
-              <div>
-                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
-                  <i data-lucide="hourglass" class="w-5 h-5 text-amber-400"></i>
-                  Começaram e ainda não finalizaram
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Simulados e avaliações abertos e não entregues, com as ocorrências de segurança até agora</p>
-              </div>
-              <button onclick="ProfessorDashboardView.loadData()" class="text-[11px] text-amber-300 font-bold bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/25">
-                <span id="stat-em-andamento">0</span> em andamento · Atualizar
-              </button>
-            </div>
-            <div id="lista-em-andamento" class="space-y-2 text-xs text-slate-400">Carregando...</div>
           </section>
 
-          <section class="glass-card rounded-3xl p-6 md:p-8 mb-8 border border-emerald-500/20">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
-                  <i data-lucide="clipboard-check" class="w-5 h-5 text-emerald-400"></i>
-                  Quem fez o Simulado Provão
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Resultados salvos com login institucional, nome e RA do estudante</p>
+                <h2 class="text-base md:text-lg font-black text-white">Ações rápidas</h2>
+                <p class="text-xs text-slate-500 mt-1">Crie atividades, acompanhe simulados e exporte relatórios quando precisar.</p>
               </div>
-              <div class="flex items-center gap-2.5">
-                <span class="text-[11px] text-emerald-300 font-mono bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/25">
-                  <span id="stat-simulados-finalizados">0</span> finalizados
-                </span>
-                <button
-                  onclick="ProfessorDashboardView.exportarResultadosSimuladosCSV()"
-                  class="px-3.5 py-1.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm"
-                  title="Exportar dados dos simulados em CSV"
-                >
-                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-emerald-400"></i>
-                  <span>Exportar Planilha (.csv)</span>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full md:w-auto">
+                <a href="#professor/nova-atividade" class="px-4 py-3 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition-colors">
+                  <i data-lucide="plus" class="w-4 h-4"></i> Criar atividade
+                </a>
+                <a href="#simulados" class="px-4 py-3 rounded-2xl bg-slate-950 hover:bg-slate-900 text-slate-200 border border-slate-800 font-bold text-xs inline-flex items-center justify-center gap-2 transition-colors">
+                  <i data-lucide="book-open-check" class="w-4 h-4"></i> Simulados
+                </a>
+                <button onclick="ProfessorDashboardView.exportarResultadosSimuladosCSV()" class="px-4 py-3 rounded-2xl bg-slate-950 hover:bg-slate-900 text-slate-200 border border-slate-800 font-bold text-xs inline-flex items-center justify-center gap-2 transition-colors">
+                  <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Exportar CSV
                 </button>
               </div>
             </div>
+
+            <details class="mt-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+              <summary class="cursor-pointer list-none flex items-center justify-between gap-3 text-sm font-bold text-slate-200">
+                <span class="inline-flex items-center gap-2"><i data-lucide="upload-cloud" class="w-4 h-4 text-brand-400"></i> Criar atividade a partir de arquivo</span>
+                <span class="text-[11px] text-slate-500 font-medium">Word, PDF, Excel, PPTX, TXT</span>
+              </summary>
+
+              <div class="mt-4 space-y-4">
+                <fieldset class="grid sm:grid-cols-2 gap-3" aria-label="Como usar o arquivo">
+                  <label class="cursor-pointer rounded-2xl border border-slate-800 bg-slate-900/70 p-4 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/30">
+                    <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="importar" checked class="mt-1 accent-blue-500"><span><strong class="block text-sm text-white">Manter como está</strong><small class="block mt-1 text-slate-500 leading-relaxed">Importa as questões do arquivo sem mudar o tipo.</small></span></span>
+                  </label>
+                  <label class="cursor-pointer rounded-2xl border border-slate-800 bg-slate-900/70 p-4 has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-950/30">
+                    <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="gerar" class="mt-1 accent-emerald-500"><span><strong class="block text-sm text-white">Criar uma prova nova</strong><small class="block mt-1 text-slate-500 leading-relaxed">Gera questões a partir do assunto do arquivo.</small></span></span>
+                  </label>
+                </fieldset>
+
+                <div id="dash-upload-dropzone" class="relative overflow-hidden border border-dashed border-slate-700 hover:border-brand-500 bg-slate-950/70 hover:bg-slate-900 rounded-2xl p-6 text-center cursor-pointer transition-all space-y-2">
+                  <input type="file" id="dash-file-input" accept=".docx,.doc,.pdf,.xlsx,.xls,.pptx,.txt,.csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" title="Clique ou arraste um arquivo para criar a avaliação" />
+                  <i data-lucide="upload-cloud" class="w-8 h-8 text-brand-400 mx-auto pointer-events-none"></i>
+                  <p class="text-sm font-bold text-white pointer-events-none">Solte o arquivo aqui ou clique para selecionar</p>
+                  <p class="text-xs text-slate-500 pointer-events-none">Formatos aceitos: Word, PDF, Excel, PPTX, TXT ou CSV</p>
+                  <button type="button" id="dash-btn-pick-file" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-200 font-bold text-xs inline-flex items-center gap-1.5 pointer-events-none">
+                    <i data-lucide="folder-open" class="w-4 h-4"></i> Escolher arquivo
+                  </button>
+                </div>
+
+                <div id="dash-upload-status-box" class="hidden space-y-3 p-5 bg-slate-950 rounded-2xl border border-slate-800 text-xs">
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span id="dash-format-badge" class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase bg-brand-950 text-brand-300 border border-brand-500/30">DOCX</span>
+                      <span id="dash-file-name" class="font-bold text-white truncate max-w-[220px] sm:max-w-md">arquivo.docx</span>
+                      <span id="dash-file-size" class="text-slate-500 text-[11px] font-mono shrink-0">(0 KB)</span>
+                    </div>
+                    <span id="dash-status-indicator" class="text-[11px] text-brand-300 font-semibold flex items-center gap-1.5 shrink-0">
+                      <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span> Lendo...
+                    </span>
+                  </div>
+                  <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div id="dash-progress-bar" class="bg-brand-500 h-2 rounded-full transition-all duration-300" style="width: 15%;"></div></div>
+                  <p id="dash-status-detail" class="text-[11px] text-slate-500 font-mono text-center">Extraindo texto...</p>
+                </div>
+              </div>
+            </details>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+              <div>
+                <h2 class="text-base md:text-lg font-black text-white">Atividades</h2>
+                <p class="text-xs text-slate-500 mt-1">Códigos, entregas e acesso aos relatórios.</p>
+              </div>
+              <a href="#professor/nova-atividade" class="text-xs font-bold text-brand-400 hover:text-brand-300 inline-flex items-center gap-1">Nova atividade <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+            </div>
+            <div id="atividades-list" class="space-y-2">
+              <div class="py-10 text-center text-slate-500 text-sm">
+                <div class="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                Carregando atividades...
+              </div>
+            </div>
+          </section>
+
+          <section class="grid lg:grid-cols-2 gap-6">
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <div>
+                  <h3 class="text-base font-black text-white">Em andamento</h3>
+                  <p class="text-xs text-slate-500 mt-1">Provas abertas agora.</p>
+                </div>
+                <button onclick="ProfessorDashboardView.loadData()" class="text-[11px] text-slate-300 font-bold bg-slate-950 px-3 py-1 rounded-full border border-slate-800">
+                  <span id="stat-em-andamento">0</span> · Atualizar
+                </button>
+              </div>
+              <div id="lista-em-andamento" class="space-y-2 text-xs text-slate-400">Carregando...</div>
+            </div>
+
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+              <div class="mb-4">
+                <h3 class="text-base font-black text-white">Entregas recentes</h3>
+                <p class="text-xs text-slate-500 mt-1">Últimas respostas enviadas pelos estudantes.</p>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead>
+                    <tr class="border-b border-slate-800 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                      <th class="py-3 pr-3">Estudante</th>
+                      <th class="py-3 px-3">Atividade</th>
+                      <th class="py-3 px-3">Status</th>
+                      <th class="py-3 pl-3 text-right">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="submissoes-tbody" class="divide-y divide-slate-800/60">
+                    <tr><td colspan="4" class="py-8 text-center text-slate-500">Nenhuma entrega registrada ainda.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+              <div>
+                <h3 class="text-base font-black text-white">Resultados dos simulados</h3>
+                <p class="text-xs text-slate-500 mt-1">Lista compacta dos simulados finalizados.</p>
+              </div>
+              <button onclick="ProfessorDashboardView.exportarResultadosSimuladosCSV()" class="px-3.5 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 text-slate-200 border border-slate-800 text-xs font-bold transition-colors inline-flex items-center gap-1.5">
+                <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Exportar CSV
+              </button>
+            </div>
             <div class="overflow-x-auto">
               <table class="w-full text-left text-xs">
                 <thead>
-                  <tr class="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
-                    <th class="py-3 px-3">Estudante & RA</th>
-                    <th class="py-3 px-3">E-mail</th>
+                  <tr class="border-b border-slate-800 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                    <th class="py-3 px-3">Estudante</th>
                     <th class="py-3 px-3">Simulado</th>
                     <th class="py-3 px-3">Acertos</th>
                     <th class="py-3 px-3">Nota</th>
-                    <th class="py-3 px-3">Finalizado em</th>
+                    <th class="py-3 px-3">Finalizado</th>
                   </tr>
                 </thead>
                 <tbody id="simulados-results-tbody" class="divide-y divide-slate-800/60">
-                  <tr><td colspan="6" class="py-8 text-center text-slate-500">Nenhum simulado finalizado ainda.</td></tr>
+                  <tr><td colspan="5" class="py-8 text-center text-slate-500">Nenhum simulado finalizado ainda.</td></tr>
                 </tbody>
               </table>
             </div>
           </section>
-
-          <!-- Caixa de Upload Direto para Criar Atividade -->
-          <div class="teacher-upload-card glass-card rounded-3xl p-6 md:p-8 mb-8 space-y-4 relative overflow-hidden">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
-              <div class="flex items-center gap-3">
-                <div class="teacher-file-mark" aria-hidden="true">//</div>
-                <div>
-                  <h2 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
-                    <span>Criar Atividade Direto de um Arquivo</span>
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold uppercase">IA Gemini 3.7</span>
-                  </h2>
-                  <p class="text-xs text-slate-400">Arraste seu Word (.docx), PDF, Excel (.xlsx) ou PowerPoint (.pptx) para transformar direto em avaliação pronta</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="px-2 py-0.5 rounded-md bg-red-950/70 border border-red-500/30 text-red-300 text-[10px] font-bold font-mono">PDF</span>
-                <span class="px-2 py-0.5 rounded-md bg-blue-950/70 border border-blue-500/30 text-blue-300 text-[10px] font-bold font-mono">Word .docx</span>
-                <span class="px-2 py-0.5 rounded-md bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold font-mono">Excel .xlsx</span>
-                <span class="px-2 py-0.5 rounded-md bg-orange-950/70 border border-orange-500/30 text-orange-300 text-[10px] font-bold font-mono">PPTX</span>
-              </div>
-            </div>
-
-            <fieldset class="mb-4 grid sm:grid-cols-2 gap-3" aria-label="Como usar o arquivo">
-              <label class="cursor-pointer rounded-2xl border border-slate-700 bg-dark-950/70 p-4 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40">
-                <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="importar" checked class="mt-1 accent-blue-500"><span><strong class="block text-sm text-white">Manter como está</strong><small class="block mt-1 text-slate-400 leading-relaxed">Importa as questões do arquivo sem mudar o tipo. Subitens “a, b, c” continuam sendo partes da mesma questão.</small></span></span>
-              </label>
-              <label class="cursor-pointer rounded-2xl border border-slate-700 bg-dark-950/70 p-4 has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-950/30">
-                <span class="flex gap-3"><input type="radio" name="dash-file-mode" value="gerar" class="mt-1 accent-emerald-500"><span><strong class="block text-sm text-white">Criar uma prova nova</strong><small class="block mt-1 text-slate-400 leading-relaxed">Usa o assunto como base e gera 4 questões objetivas + 2 dissertativas contextualizadas.</small></span></span>
-              </label>
-            </fieldset>
-
-            <!-- Área Aberta de Drag & Drop -->
-            <div
-              id="dash-upload-dropzone"
-              class="relative overflow-hidden border-2 border-dashed border-slate-700 hover:border-brand-500 bg-dark-950/60 hover:bg-dark-900/90 rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all space-y-3"
-            >
-              <input
-                type="file"
-                id="dash-file-input"
-                accept=".docx,.doc,.pdf,.xlsx,.xls,.pptx,.txt,.csv"
-                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
-                title="Clique ou arraste um arquivo para criar a avaliação"
-              />
-              <div class="w-12 h-12 rounded-2xl bg-brand-950 text-brand-400 border border-brand-500/30 flex items-center justify-center mx-auto shadow-glow-blue pointer-events-none">
-                <i data-lucide="upload-cloud" class="w-6 h-6"></i>
-              </div>
-              <div class="pointer-events-none">
-                <p class="text-sm font-bold text-white">Solte o arquivo aqui ou clique para selecionar</p>
-                <p class="text-xs text-slate-400 mt-1">Word (.docx/.doc), PDF, Excel (.xlsx), PPTX ou Texto (.txt/.csv)</p>
-              </div>
-              <button
-                type="button"
-                id="dash-btn-pick-file"
-                class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs shadow-glow-blue transition-all inline-flex items-center gap-1.5 mt-1 pointer-events-none"
-              >
-                <i data-lucide="folder-open" class="w-4 h-4"></i>
-                <span>Escolher Arquivo do Computador</span>
-              </button>
-            </div>
-
-            <!-- Box de Processamento em Tempo Real -->
-            <div id="dash-upload-status-box" class="hidden space-y-3 p-5 bg-dark-950 rounded-2xl border border-slate-800 text-xs">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <span id="dash-format-badge" class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase bg-brand-950 text-brand-300 border border-brand-500/30">DOCX</span>
-                  <span id="dash-file-name" class="font-bold text-white truncate max-w-[220px] sm:max-w-md">arquivo.docx</span>
-                  <span id="dash-file-size" class="text-slate-400 text-[11px] font-mono">(0 KB)</span>
-                </div>
-                <span id="dash-status-indicator" class="text-[11px] text-brand-300 font-semibold flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-                  Lendo documento...
-                </span>
-              </div>
-              <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                <div id="dash-progress-bar" class="bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 h-2 rounded-full transition-all duration-300" style="width: 15%;"></div>
-              </div>
-              <p id="dash-status-detail" class="text-[11px] text-slate-400 font-mono text-center">Extraindo texto das páginas/slides no navegador...</p>
-            </div>
-          </div>
-
-          <!-- Seção de Atividades Avaliativas -->
-          <div class="flex items-center justify-between mb-5">
-            <div>
-              <h2 class="text-lg md:text-xl font-extrabold text-white flex items-center gap-2">
-                <i data-lucide="layers" class="w-5 h-5 text-brand-400"></i>
-                Suas Avaliações e Provas Blindadas
-              </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Gerencie questões, códigos de acesso e relatórios de alunos</p>
-            </div>
-            <a href="#professor/nova-atividade" class="text-xs font-bold text-brand-400 hover:text-brand-300 flex items-center gap-1 transition-colors">
-              <span>Nova Prova Manual</span>
-              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-
-          <!-- Lista de Atividades -->
-          <div id="atividades-list" class="grid grid-cols-1 md:grid-cols-2 gap-4.5 mb-10">
-            <div class="col-span-full py-12 text-center text-slate-500 text-sm">
-              <div class="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-              Carregando avaliações...
-            </div>
-          </div>
-
-          <!-- Submissões Recentes e Ocorrências -->
-          <div class="glass-card rounded-3xl p-6 md:p-8 border border-slate-800">
-            <div class="flex items-center justify-between mb-5">
-              <div>
-                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
-                  <i data-lucide="history" class="w-5 h-5 text-emerald-400"></i>
-                  Entregas Recentes dos Estudantes
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Acompanhamento ao vivo de respostas e incidentes de aba</p>
-              </div>
-              <span class="text-[11px] text-slate-400 font-mono bg-dark-900 px-3 py-1 rounded-full border border-slate-800">
-                Sincronização em Tempo Real
-              </span>
-            </div>
-
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
-                <thead>
-                  <tr class="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
-                    <th class="py-3 px-3">Estudante & RA</th>
-                    <th class="py-3 px-3">Atividade</th>
-                    <th class="py-3 px-3">Tempo Gasto</th>
-                    <th class="py-3 px-3">Segurança / Abas</th>
-                    <th class="py-3 px-3">Nota / Status</th>
-                    <th class="py-3 px-3 text-right">Ações</th>
-                  </tr>
-                </thead>
-                <tbody id="submissoes-tbody" class="divide-y divide-slate-800/60">
-                  <tr>
-                    <td colspan="6" class="py-8 text-center text-slate-500">Nenhuma submissão registrada ainda.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </main>
       </div>
     `;
@@ -580,12 +465,12 @@ const ProfessorDashboardView = {
       if (listEl) {
         if (atividades.length === 0) {
           listEl.innerHTML = `
-            <div class="col-span-full py-12 text-center text-slate-400 glass-card rounded-3xl border border-slate-800">
-              <i data-lucide="book-open" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
-              <p class="font-bold text-white text-base">Nenhuma atividade cadastrada ainda.</p>
-              <p class="text-xs text-slate-400 mt-1 mb-4">Crie sua primeira prova blindada com auxílio da IA Gemini.</p>
-              <a href="#professor/nova-atividade" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-glow-blue">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> Criar Prova com IA
+            <div class="py-12 text-center text-slate-500 rounded-2xl border border-slate-800 bg-slate-950/50">
+              <i data-lucide="book-open" class="w-10 h-10 text-slate-700 mx-auto mb-3"></i>
+              <p class="font-bold text-white text-sm">Nenhuma atividade cadastrada ainda.</p>
+              <p class="text-xs text-slate-500 mt-1 mb-4">Crie sua primeira avaliação para começar.</p>
+              <a href="#professor/nova-atividade" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition-colors inline-flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i> Criar atividade
               </a>
             </div>
           `;
@@ -595,74 +480,32 @@ const ProfessorDashboardView = {
             const submissoesCount = submissoes.filter(s => s.atividadeId === a.id).length;
 
             return `
-              <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between feature-card">
-                <div>
-                  <div class="flex items-start justify-between gap-2 mb-3">
-                    <span class="px-2.5 py-1 rounded-xl bg-brand-950 text-brand-300 font-mono font-bold text-xs border border-brand-500/30">
-                      ${a.codigo}
-                    </span>
-                    <span class="text-[11px] text-slate-400 font-semibold bg-dark-900 px-2.5 py-1 rounded-xl border border-slate-800">
-                      ${a.anoTurma} • ${a.disciplina}
-                    </span>
+              <div class="rounded-2xl border border-slate-800 bg-slate-950/55 hover:bg-slate-950/80 p-4 transition-colors">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded-lg bg-slate-900 text-brand-300 font-mono font-bold text-[11px] border border-slate-800">${a.codigo}</span>
+                      <span class="text-[11px] text-slate-500">${a.anoTurma || "Turma"} · ${a.disciplina || "Geral"}</span>
+                    </div>
+                    <h3 class="text-sm md:text-base font-bold text-white truncate">${a.titulo}</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">${questoesTotal} questões · ${submissoesCount} entregas</p>
                   </div>
 
-                  <h3 class="text-base font-bold text-white mb-2 leading-snug">${a.titulo}</h3>
-                  <p class="text-xs text-slate-400 line-clamp-2 mb-4">${a.descricao || "Avaliação com questões objetivas e dissertativas alinhadas à BNCC."}</p>
-                </div>
-
-                <div class="border-t border-slate-800/80 pt-4 space-y-3 text-xs">
-                  <div class="flex items-center gap-3 text-slate-400 font-medium">
-                    <span class="flex items-center gap-1">
-                      <i data-lucide="help-circle" class="w-3.5 h-3.5 text-brand-400"></i>
-                      ${questoesTotal} questões
-                    </span>
-                    <span class="flex items-center gap-1">
-                      <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-                      ${submissoesCount} entregas
-                    </span>
-                  </div>
-
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button
-                      onclick="ProfessorDashboardView.copiarCodigo('${a.codigo}')"
-                      class="px-3 py-1.5 rounded-xl bg-dark-900 hover:bg-dark-800 text-slate-300 hover:text-white border border-slate-700 font-bold transition-all text-xs flex items-center gap-1"
-                      title="Copiar código para passar aos alunos"
-                    >
-                      <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                      <span>Copiar PIN</span>
+                  <div class="flex flex-wrap items-center gap-2 shrink-0">
+                    <button onclick="ProfessorDashboardView.copiarCodigo('${a.codigo}')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 font-bold transition-colors text-xs inline-flex items-center gap-1" title="Copiar código">
+                      <i data-lucide="copy" class="w-3.5 h-3.5"></i> Código
                     </button>
-
-                    <a
-                      href="#professor/atividade/${a.id}/visualizar"
-                      class="px-3.5 py-1.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 font-bold transition-all text-xs flex items-center gap-1"
-                    >
-                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                      <span>Visualizar</span>
+                    <a href="#professor/atividade/${a.id}/visualizar" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 font-bold transition-colors text-xs inline-flex items-center gap-1">
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i> Ver
                     </a>
-
-                    <a
-                      href="#professor/atividade/${a.id}/editar"
-                      class="px-3.5 py-1.5 rounded-xl bg-amber-950 hover:bg-amber-900 text-amber-300 border border-amber-500/30 font-bold transition-all text-xs flex items-center gap-1"
-                    >
-                      <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
-                      <span>Editar</span>
+                    <a href="#professor/atividade/${a.id}/editar" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 font-bold transition-colors text-xs inline-flex items-center gap-1">
+                      <i data-lucide="pencil" class="w-3.5 h-3.5"></i> Editar
                     </a>
-
-                    <a
-                      href="#professor/atividade/${a.id}"
-                      class="px-3.5 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all text-xs flex items-center gap-1 shadow-glow-blue"
-                    >
-                      <span>Resultados</span>
-                      <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    <a href="#professor/atividade/${a.id}" class="px-3 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-colors text-xs inline-flex items-center gap-1">
+                      Resultados <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
-
-                    <button
-                      onclick="ProfessorDashboardView.excluirAtividade('${a.id}')"
-                      class="px-3 py-1.5 rounded-xl bg-rose-950 hover:bg-rose-900 text-rose-300 border border-rose-500/30 font-bold transition-all text-xs flex items-center gap-1"
-                      title="Excluir atividade"
-                    >
+                    <button onclick="ProfessorDashboardView.excluirAtividade('${a.id}')" class="p-1.5 rounded-xl bg-slate-900 hover:bg-rose-950 text-slate-500 hover:text-rose-300 border border-slate-800 hover:border-rose-500/30 transition-colors" title="Excluir atividade">
                       <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                      <span>Excluir</span>
                     </button>
                   </div>
                 </div>
@@ -683,16 +526,15 @@ const ProfessorDashboardView = {
           const total = result.totalQuestoes ?? "—";
           const finalizado = row.finishedAt ? new Date(row.finishedAt).toLocaleString("pt-BR") : "—";
           return `
-            <tr class="hover:bg-dark-900/60 transition-colors">
+            <tr class="hover:bg-slate-950/70 transition-colors">
               <td class="py-3.5 px-3">
                 <div class="font-bold text-white">${row.studentName || "Aluno"}</div>
-                <div class="text-[10px] text-slate-400 font-mono">RA ${row.studentRA || "—"}</div>
+                <div class="text-[10px] text-slate-500 font-mono">RA ${row.studentRA || "—"}</div>
               </td>
-              <td class="py-3.5 px-3 text-slate-400 font-mono max-w-[190px] truncate">${row.studentEmail || "—"}</td>
-              <td class="py-3.5 px-3 text-slate-300 max-w-[220px] truncate">${config?.titulo || row.simuladoId}</td>
+              <td class="py-3.5 px-3 text-slate-300 max-w-[240px] truncate">${config?.titulo || row.simuladoId}</td>
               <td class="py-3.5 px-3 text-slate-300 font-mono">${acertos}/${total}</td>
               <td class="py-3.5 px-3"><span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-black">${score}%</span></td>
-              <td class="py-3.5 px-3 text-slate-400 font-mono">${finalizado}</td>
+              <td class="py-3.5 px-3 text-slate-500 font-mono">${finalizado}</td>
             </tr>
           `;
         }).join("");
@@ -708,25 +550,19 @@ const ProfessorDashboardView = {
           const nota = s.notaFinal !== undefined ? `${s.notaFinal} / 10` : "Pendente";
 
           return `
-            <tr class="hover:bg-dark-900/60 transition-colors">
-              <td class="py-3.5 px-3">
+            <tr class="hover:bg-slate-950/70 transition-colors">
+              <td class="py-3.5 pr-3">
                 <div class="font-bold text-white">${s.alunoNome}</div>
-                <div class="text-[10px] text-slate-400 font-mono">${s.alunoRA}</div>
+                <div class="text-[10px] text-slate-500 font-mono">${s.alunoRA} · ${mins} min</div>
               </td>
               <td class="py-3.5 px-3 text-slate-300 max-w-[180px] truncate">${ativ.titulo}</td>
-              <td class="py-3.5 px-3 text-slate-400 font-mono">${mins} min</td>
               <td class="py-3.5 px-3">
                 <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${trocas === 0 ? "bg-emerald-950 text-emerald-400 border border-emerald-500/30" : "bg-rose-950 text-rose-400 border border-rose-500/30"}">
-                  ${trocas === 0 ? "Nenhuma troca" : `${trocas} trocas de aba`}
+                  ${s.notaFinal !== undefined ? nota : (trocas === 0 ? "Pendente" : `${trocas} trocas`)}
                 </span>
               </td>
-              <td class="py-3.5 px-3 font-bold ${s.notaFinal !== undefined ? "text-emerald-400" : "text-amber-400"}">
-                ${nota}
-              </td>
-              <td class="py-3.5 px-3 text-right">
-                <a href="#professor/atividade/${s.atividadeId}" class="text-brand-400 hover:text-brand-300 font-bold hover:underline">
-                  Corrigir com IA →
-                </a>
+              <td class="py-3.5 pl-3 text-right">
+                <a href="#professor/atividade/${s.atividadeId}" class="text-brand-400 hover:text-brand-300 font-bold hover:underline">Abrir →</a>
               </td>
             </tr>
           `;
