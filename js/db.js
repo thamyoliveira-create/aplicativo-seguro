@@ -64,7 +64,8 @@ const DB = {
       nota: row.score ?? null,
       status: row.status,
       dataEnvio: this.toIso(row.submittedAt),
-      dataInicio: this.toIso(row.startedAt)
+      dataInicio: this.toIso(row.startedAt),
+      ultimaAtividade: this.toIso(row.updatedAt)
     };
   },
 
@@ -373,7 +374,9 @@ const DB = {
     const normalizedName = String(studentName || result?.studentName || fallbackName).trim().slice(0, 120);
     const normalizedRA = String(studentRA || result?.studentRA || student.studentRA || "TREINO").trim().slice(0, 40);
     const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
-        let current = null;
+    // Doc ainda não existe na 1ª resposta: a regra de leitura nega (resource == null),
+    // então tratamos erro de permissão como "não existe" e seguimos para criar.
+    let current = null;
     try { current = await F.getDoc(ref); } catch (err) { if (err?.code !== "permission-denied") throw err; }
     const startedAt = current?.exists() ? current.data().startedAt : F.serverTimestamp();
     const finished = status === "finished";
@@ -406,7 +409,8 @@ const DB = {
     const normalizedMode = mode === "treino" ? "treino" : "prova";
     const normalizedSimulado = normalizedMode === "treino" ? "treino" : String(simuladoId || "").slice(0, 40);
     const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
-    const snap = await F.getDoc(ref);
+    let snap;
+    try { snap = await F.getDoc(ref); } catch (err) { if (err?.code === "permission-denied") return null; throw err; }
     if (!snap.exists()) return null;
 
     return this.mapSimuladoProgress(snap);
@@ -443,6 +447,31 @@ const DB = {
       studentName: payload.studentName,
       studentRA: payload.studentRA
     });
+  },
+
+  // Escuta ao vivo (onSnapshot) das provas abertas e simulados em andamento.
+  // Retorna uma função para cancelar a escuta.
+  async ouvirEmAndamento(callback) {
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+    const estado = { subs: [], sims: [] };
+    const emitir = () => callback({ subs: estado.subs, sims: estado.sims });
+    const unsubA = F.onSnapshot(
+      F.query(F.collection(F.db, "submissions"), F.where("status", "==", "in_progress")),
+      (snap) => { estado.subs = snap.docs.map((d) => this.mapSubmission(d)).filter(Boolean); emitir(); },
+      (err) => console.warn("Escuta de provas em andamento falhou:", err)
+    );
+    const unsubB = F.onSnapshot(
+      F.query(F.collection(F.db, "simuladoProgress"), F.where("status", "==", "draft")),
+      (snap) => {
+        estado.sims = snap.docs.map((d) => this.mapSimuladoProgress(d))
+          .filter((item) => item && (item.mode === "prova" || !item.mode));
+        emitir();
+      },
+      (err) => console.warn("Escuta de simulados em andamento falhou:", err)
+    );
+    return () => { unsubA(); unsubB(); };
   },
 
   async getSimuladosEmAndamento() {
