@@ -8005,12 +8005,16 @@ const SIMULADOS_QUESTOES = [
 ];
 
 const SimuladosData = {
+  // Simulados escondidos dos alunos (ENEM 3ª série retirado a pedido da professora)
+  OCULTOS: ["3serie_dia1", "3serie_dia2"],
+
   getConfig(simuladoId) {
+    if (this.OCULTOS.includes(simuladoId)) return null;
     return SIMULADOS_CONFIG[simuladoId] || null;
   },
 
   getAllConfigs() {
-    return Object.values(SIMULADOS_CONFIG);
+    return Object.values(SIMULADOS_CONFIG).filter((c) => !this.OCULTOS.includes(c.id));
   },
 
   getQuestoesPorSimulado(simuladoId) {
