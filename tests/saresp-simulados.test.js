@@ -84,6 +84,8 @@ describe('Simulados SARESP 2026 (Ensino Fundamental e 3ª Série EM)', () => {
       assert.ok(Number.isInteger(q.paginaPdf) && q.paginaPdf > 0, `${q.id} deve ter página PDF válida`);
       assert.ok(q.imagemPagina.endsWith(`_p${q.paginaPdf}.webp`), `${q.id} deve apontar para imagem da página`);
       assert.ok(q.imagemPagina.startsWith('assets/simulados/pages/'), `${q.id} deve usar pasta de páginas renderizadas`);
+      assert.ok(q.imagemQuestao.endsWith(`${q.id}.webp`), `${q.id} deve apontar para imagem recortada da questão`);
+      assert.ok(q.imagemQuestao.startsWith('assets/simulados/questions/'), `${q.id} deve usar pasta de questões recortadas`);
       assert.ok(q.pdfUrl.endsWith('.pdf'), `${q.id} deve manter PDF oficial associado`);
     });
   });

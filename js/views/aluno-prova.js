@@ -323,6 +323,20 @@ const AlunoProvaView = {
         `;
       }
 
+      // Enunciado oficial recortado (quando a questão vem de simulado PDF)
+      if (q.imagemQuestao || q.imagemPagina) {
+        html += `
+          <div class="mb-6 rounded-2xl border border-slate-800 bg-white overflow-hidden shadow-lg">
+            <img
+              src="${q.imagemQuestao || q.imagemPagina}"
+              alt="Questão ${questaoAtualIndex + 1} do caderno oficial"
+              class="w-full h-auto object-contain select-none"
+              loading="eager"
+            />
+          </div>
+        `;
+      }
+
       // Enunciado
       html += `
         <div class="text-sm md:text-base font-bold text-white mb-6 leading-relaxed">

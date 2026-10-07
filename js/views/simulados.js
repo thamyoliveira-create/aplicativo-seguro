@@ -1346,8 +1346,10 @@ const SimuladosView = {
           return {
             id: q.id,
             tipo: "multipla_escolha",
-            enunciado: q.enunciado || `Questão ${q.numero} do ${config.titulo}. Consulte o caderno oficial para ler o enunciado completo. Assunto: ${q.assunto}`,
+            enunciado: q.enunciado || `Questão ${q.numero} do ${config.titulo}. Consulte a imagem oficial recortada da questão. Assunto: ${q.assunto}`,
             textoApoio: q.textoApoio || `PDF oficial: ${config.pdfUrl || ''}\nComponente: ${q.componente}\nConteúdo do edital: ${q.conteudoEdital || ''}\nDescritor: ${q.descritor || ''}`,
+            imagemQuestao: q.imagemQuestao || "",
+            imagemPagina: q.imagemPagina || "",
             habilidadeBNCC: q.descritor || q.habilidadeBncc || "",
             peso: 1,
             correta: q.respostaCorreta,

@@ -267,6 +267,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -311,6 +312,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -355,6 +357,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -399,6 +402,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -443,6 +447,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -487,6 +492,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -531,6 +537,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -575,6 +582,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -619,6 +627,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -663,6 +672,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -707,6 +717,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -751,6 +762,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -795,6 +807,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -839,6 +852,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -883,6 +897,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -927,6 +942,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -971,6 +987,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1015,6 +1032,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1059,6 +1077,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1103,6 +1122,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1147,6 +1167,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1191,6 +1212,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1235,6 +1257,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1279,6 +1302,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1323,6 +1347,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1367,6 +1392,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1411,6 +1437,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1455,6 +1482,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1499,6 +1527,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1543,6 +1572,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1587,6 +1617,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1631,6 +1662,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1675,6 +1707,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1719,6 +1752,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1763,6 +1797,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1807,6 +1842,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1851,6 +1887,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1895,6 +1932,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1939,6 +1977,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -1983,6 +2022,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2027,6 +2067,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q41.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2071,6 +2112,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q42.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2115,6 +2157,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q43.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2159,6 +2202,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q44.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2203,6 +2247,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q45.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2247,6 +2292,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q46.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2291,6 +2337,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q47.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2335,6 +2382,7 @@
     "peso": 1,
     "paginaPdf": 12,
     "imagemPagina": "assets/simulados/pages/5ef_dia1_p12.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_5ef_dia1_q48.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_5EF.pdf",
     "alternativas": [
       {
@@ -2379,6 +2427,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2423,6 +2472,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2467,6 +2517,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2511,6 +2562,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2555,6 +2607,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2599,6 +2652,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2643,6 +2697,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2687,6 +2742,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2731,6 +2787,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2775,6 +2832,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2819,6 +2877,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2863,6 +2922,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2907,6 +2967,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2951,6 +3012,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -2995,6 +3057,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3039,6 +3102,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3083,6 +3147,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3127,6 +3192,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3171,6 +3237,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3215,6 +3282,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3259,6 +3327,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3303,6 +3372,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3347,6 +3417,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3391,6 +3462,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3435,6 +3507,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3479,6 +3552,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3523,6 +3597,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3567,6 +3642,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3611,6 +3687,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3655,6 +3732,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3699,6 +3777,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3743,6 +3822,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3787,6 +3867,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3831,6 +3912,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3875,6 +3957,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3919,6 +4002,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -3963,6 +4047,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -4007,6 +4092,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -4051,6 +4137,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -4095,6 +4182,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/6ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia1_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_6EF.pdf",
     "alternativas": [
       {
@@ -4139,6 +4227,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4183,6 +4272,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4227,6 +4317,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4271,6 +4362,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4315,6 +4407,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4359,6 +4452,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4403,6 +4497,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4447,6 +4542,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4491,6 +4587,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4535,6 +4632,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4579,6 +4677,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4623,6 +4722,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4667,6 +4767,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4711,6 +4812,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4755,6 +4857,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4799,6 +4902,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4843,6 +4947,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4887,6 +4992,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4931,6 +5037,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -4975,6 +5082,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5019,6 +5127,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5063,6 +5172,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5107,6 +5217,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5151,6 +5262,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5195,6 +5307,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5239,6 +5352,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5283,6 +5397,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5327,6 +5442,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5371,6 +5487,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5415,6 +5532,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5459,6 +5577,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5503,6 +5622,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5547,6 +5667,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5591,6 +5712,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5635,6 +5757,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5679,6 +5802,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5723,6 +5847,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5767,6 +5892,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5811,6 +5937,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5855,6 +5982,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/6ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_6ef_dia2_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_6EF.pdf",
     "alternativas": [
       {
@@ -5899,6 +6027,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -5943,6 +6072,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -5987,6 +6117,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6031,6 +6162,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6075,6 +6207,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6119,6 +6252,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6163,6 +6297,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6207,6 +6342,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6251,6 +6387,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6295,6 +6432,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6339,6 +6477,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6383,6 +6522,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6427,6 +6567,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6471,6 +6612,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6515,6 +6657,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6559,6 +6702,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6603,6 +6747,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6647,6 +6792,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6691,6 +6837,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6735,6 +6882,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6779,6 +6927,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6823,6 +6972,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6867,6 +7017,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6911,6 +7062,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6955,6 +7107,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -6999,6 +7152,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7043,6 +7197,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7087,6 +7242,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7131,6 +7287,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7175,6 +7332,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7219,6 +7377,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7263,6 +7422,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7307,6 +7467,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7351,6 +7512,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7395,6 +7557,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7439,6 +7602,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7483,6 +7647,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7527,6 +7692,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7571,6 +7737,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7615,6 +7782,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/7ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia1_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_7EF.pdf",
     "alternativas": [
       {
@@ -7659,6 +7827,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7703,6 +7872,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7747,6 +7917,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7791,6 +7962,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7835,6 +8007,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7879,6 +8052,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7923,6 +8097,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -7967,6 +8142,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8011,6 +8187,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8055,6 +8232,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8099,6 +8277,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8143,6 +8322,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8187,6 +8367,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8231,6 +8412,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8275,6 +8457,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8319,6 +8502,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8363,6 +8547,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8407,6 +8592,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8451,6 +8637,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8495,6 +8682,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8539,6 +8727,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8583,6 +8772,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8627,6 +8817,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8671,6 +8862,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8715,6 +8907,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8759,6 +8952,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8803,6 +8997,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8847,6 +9042,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8891,6 +9087,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8935,6 +9132,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -8979,6 +9177,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9023,6 +9222,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9067,6 +9267,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9111,6 +9312,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9155,6 +9357,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9199,6 +9402,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9243,6 +9447,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9287,6 +9492,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9331,6 +9537,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9375,6 +9582,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/7ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_7ef_dia2_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_7EF.pdf",
     "alternativas": [
       {
@@ -9419,6 +9627,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9463,6 +9672,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9507,6 +9717,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9551,6 +9762,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9595,6 +9807,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9639,6 +9852,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9683,6 +9897,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9727,6 +9942,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9771,6 +9987,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9815,6 +10032,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9859,6 +10077,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9903,6 +10122,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9947,6 +10167,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -9991,6 +10212,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10035,6 +10257,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10079,6 +10302,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10123,6 +10347,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10167,6 +10392,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10211,6 +10437,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10255,6 +10482,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10299,6 +10527,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10343,6 +10572,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10387,6 +10617,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10431,6 +10662,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10475,6 +10707,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10519,6 +10752,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10563,6 +10797,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10607,6 +10842,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10651,6 +10887,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10695,6 +10932,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10739,6 +10977,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10783,6 +11022,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10827,6 +11067,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10871,6 +11112,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10915,6 +11157,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -10959,6 +11202,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -11003,6 +11247,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -11047,6 +11292,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -11091,6 +11337,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -11135,6 +11382,7 @@
     "peso": 1,
     "paginaPdf": 11,
     "imagemPagina": "assets/simulados/pages/8ef_dia1_p11.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia1_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_8EF.pdf",
     "alternativas": [
       {
@@ -11179,6 +11427,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11223,6 +11472,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11267,6 +11517,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11311,6 +11562,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11355,6 +11607,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11399,6 +11652,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11443,6 +11697,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11487,6 +11742,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11531,6 +11787,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11575,6 +11832,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11619,6 +11877,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11663,6 +11922,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11707,6 +11967,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11751,6 +12012,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11795,6 +12057,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11839,6 +12102,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11883,6 +12147,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11927,6 +12192,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -11971,6 +12237,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12015,6 +12282,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12059,6 +12327,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12103,6 +12372,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12147,6 +12417,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12191,6 +12462,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12235,6 +12507,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12279,6 +12552,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12323,6 +12597,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12367,6 +12642,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12411,6 +12687,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12455,6 +12732,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12499,6 +12777,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12543,6 +12822,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12587,6 +12867,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12631,6 +12912,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12675,6 +12957,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12719,6 +13002,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12763,6 +13047,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12807,6 +13092,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12851,6 +13137,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12895,6 +13182,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/8ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_8ef_dia2_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_8EF.pdf",
     "alternativas": [
       {
@@ -12939,6 +13227,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -12983,6 +13272,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13027,6 +13317,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13071,6 +13362,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13115,6 +13407,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13159,6 +13452,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13203,6 +13497,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13247,6 +13542,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13291,6 +13587,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13335,6 +13632,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13379,6 +13677,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13423,6 +13722,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13467,6 +13767,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13511,6 +13812,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13555,6 +13857,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13599,6 +13902,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13643,6 +13947,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13687,6 +13992,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13731,6 +14037,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13775,6 +14082,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13819,6 +14127,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13863,6 +14172,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13907,6 +14217,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13951,6 +14262,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -13995,6 +14307,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14039,6 +14352,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14083,6 +14397,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14127,6 +14442,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14171,6 +14487,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14215,6 +14532,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14259,6 +14577,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14303,6 +14622,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14347,6 +14667,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14391,6 +14712,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14435,6 +14757,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14479,6 +14802,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14523,6 +14847,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14567,6 +14892,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14611,6 +14937,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14655,6 +14982,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14699,6 +15027,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q41.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14743,6 +15072,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q42.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14787,6 +15117,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q43.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14831,6 +15162,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q44.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14875,6 +15207,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q45.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14919,6 +15252,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q46.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -14963,6 +15297,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q47.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -15007,6 +15342,7 @@
     "peso": 1,
     "paginaPdf": 10,
     "imagemPagina": "assets/simulados/pages/9ef_dia1_p10.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia1_q48.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia1_9EF.pdf",
     "alternativas": [
       {
@@ -15051,6 +15387,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15095,6 +15432,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15139,6 +15477,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15183,6 +15522,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15227,6 +15567,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15271,6 +15612,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15315,6 +15657,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15359,6 +15702,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15403,6 +15747,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15447,6 +15792,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15491,6 +15837,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15535,6 +15882,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15579,6 +15927,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15623,6 +15972,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15667,6 +16017,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15711,6 +16062,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15755,6 +16107,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15799,6 +16152,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15843,6 +16197,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15887,6 +16242,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15931,6 +16287,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -15975,6 +16332,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16019,6 +16377,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16063,6 +16422,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16107,6 +16467,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q25.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16151,6 +16512,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q26.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16195,6 +16557,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q27.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16239,6 +16602,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q28.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16283,6 +16647,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q29.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16327,6 +16692,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q30.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16371,6 +16737,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q31.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16415,6 +16782,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q32.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16459,6 +16827,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q33.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16503,6 +16872,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q34.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16547,6 +16917,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q35.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16591,6 +16962,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q36.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16635,6 +17007,7 @@
     "peso": 1,
     "paginaPdf": 8,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p8.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q37.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16679,6 +17052,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q38.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16723,6 +17097,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q39.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16767,6 +17142,7 @@
     "peso": 1,
     "paginaPdf": 9,
     "imagemPagina": "assets/simulados/pages/9ef_dia2_p9.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_9ef_dia2_q40.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_2026_Dia2_9EF.pdf",
     "alternativas": [
       {
@@ -16811,6 +17187,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -16859,6 +17236,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -16907,6 +17285,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -16955,6 +17334,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17003,6 +17383,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17051,6 +17432,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17099,6 +17481,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17147,6 +17530,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17195,6 +17579,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17243,6 +17628,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17291,6 +17677,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17339,6 +17726,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17387,6 +17775,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17435,6 +17824,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17483,6 +17873,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17531,6 +17922,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17579,6 +17971,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17627,6 +18020,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17675,6 +18069,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17723,6 +18118,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17771,6 +18167,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17819,6 +18216,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17867,6 +18265,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17915,6 +18314,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp1_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "alternativas": [
       {
@@ -17963,6 +18363,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18011,6 +18412,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18059,6 +18461,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18107,6 +18510,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18155,6 +18559,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18203,6 +18608,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18251,6 +18657,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18299,6 +18706,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18347,6 +18755,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18395,6 +18804,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18443,6 +18853,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18491,6 +18902,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18539,6 +18951,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18587,6 +19000,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18635,6 +19049,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18683,6 +19098,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18731,6 +19147,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18779,6 +19196,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18827,6 +19245,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18875,6 +19294,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18923,6 +19343,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -18971,6 +19392,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -19019,6 +19441,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -19067,6 +19490,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_lp2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_lp_l2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
     "alternativas": [
       {
@@ -19115,6 +19539,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19163,6 +19588,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19211,6 +19637,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19259,6 +19686,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19307,6 +19735,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19355,6 +19784,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19403,6 +19833,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19451,6 +19882,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19499,6 +19931,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19547,6 +19980,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19595,6 +20029,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19643,6 +20078,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19691,6 +20127,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19739,6 +20176,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19787,6 +20225,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19835,6 +20274,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19883,6 +20323,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19931,6 +20372,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -19979,6 +20421,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20027,6 +20470,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20075,6 +20519,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20123,6 +20568,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20171,6 +20617,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20219,6 +20666,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat1_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l1_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "alternativas": [
       {
@@ -20267,6 +20715,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q01.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20315,6 +20764,7 @@
     "peso": 1,
     "paginaPdf": 1,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p1.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q02.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20363,6 +20813,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q03.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20411,6 +20862,7 @@
     "peso": 1,
     "paginaPdf": 2,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p2.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q04.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20459,6 +20911,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q05.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20507,6 +20960,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q06.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20555,6 +21009,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q07.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20603,6 +21058,7 @@
     "peso": 1,
     "paginaPdf": 3,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p3.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q08.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20651,6 +21107,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q09.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20699,6 +21156,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q10.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20747,6 +21205,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q11.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20795,6 +21254,7 @@
     "peso": 1,
     "paginaPdf": 4,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p4.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q12.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20843,6 +21303,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q13.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20891,6 +21352,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q14.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20939,6 +21401,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q15.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -20987,6 +21450,7 @@
     "peso": 1,
     "paginaPdf": 5,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p5.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q16.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21035,6 +21499,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q17.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21083,6 +21548,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q18.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21131,6 +21597,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q19.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21179,6 +21646,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q20.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21227,6 +21695,7 @@
     "peso": 1,
     "paginaPdf": 6,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p6.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q21.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21275,6 +21744,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q22.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21323,6 +21793,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q23.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
@@ -21371,6 +21842,7 @@
     "peso": 1,
     "paginaPdf": 7,
     "imagemPagina": "assets/simulados/pages/3serie_saresp_mat2_p7.webp",
+    "imagemQuestao": "assets/simulados/questions/saresp_2026_3em_mat_l2_q24.webp",
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
     "alternativas": [
       {
