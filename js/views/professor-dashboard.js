@@ -139,21 +139,6 @@ const ProfessorDashboardView = {
             </div>
           </section>
 
-          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
-            <h3 class="text-base font-black text-white">Séries dos alunos</h3>
-            <p class="text-xs text-slate-500 mt-1">Cole os RAs (com dígito, um por linha). Cada aluno só verá os simulados da série dele.</p>
-            <div class="grid md:grid-cols-[180px_1fr_auto] gap-3 mt-4 items-start">
-              <select id="serie-alunos-select" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white">
-                <option value="1serie">1ª Série EM</option><option value="2serie">2ª Série EM</option><option value="3serie">3ª Série EM</option>
-                <option value="9ef">9º Ano EF</option><option value="8ef">8º Ano EF</option><option value="7ef">7º Ano EF</option>
-                <option value="6ef">6º Ano EF</option><option value="5ef">5º Ano EF</option>
-              </select>
-              <textarea id="serie-alunos-ras" rows="3" placeholder="123456789-0" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono"></textarea>
-              <button onclick="ProfessorDashboardView.salvarSeriesAlunos()" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Salvar RAs</button>
-            </div>
-            <p id="serie-alunos-status" class="text-[11px] text-slate-400 mt-3"></p>
-          </section>
-
           <section class="grid lg:grid-cols-2 gap-6">
             <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
               <div class="flex items-center justify-between gap-3 mb-4">
@@ -435,7 +420,6 @@ const ProfessorDashboardView = {
       const r = await DB.salvarSeriesAlunos(serie, ras);
       document.getElementById("serie-alunos-ras").value = r.invalidos.join("\n");
       status.innerText = `${r.salvos} aluno(s) salvos.` + (r.invalidos.length ? ` ${r.invalidos.length} RA(s) inválidos ficaram na caixa para corrigir.` : "");
-      this.mostrarContagemSeries();
     } catch (e) {
       status.innerText = "Erro ao salvar: " + (e.message || e);
     }
