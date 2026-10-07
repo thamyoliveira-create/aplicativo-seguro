@@ -474,6 +474,48 @@ const DB = {
     return () => { unsubA(); unsubB(); };
   },
 
+  // ===== Série de cada aluno (lista de RAs cadastrada pela professora) =====
+  async getSerieAluno() {
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) return null;
+    try {
+      const snap = await F.getDoc(F.doc(F.db, "studentSeries", PortalAuth.normalizeEmail(student.email)));
+      return snap.exists() ? snap.data().serie : null;
+    } catch (err) {
+      if (err?.code === "permission-denied") return null;
+      throw err;
+    }
+  },
+
+  async salvarSeriesAlunos(serie, linhas) {
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+    const emails = new Set();
+    const invalidos = [];
+    String(linhas || "").split(/[\n;,]+/).map((l) => l.trim()).filter(Boolean).forEach((linha) => {
+      try { emails.add(PortalAuth.raToEmail(linha)); } catch (_) { invalidos.push(linha); }
+    });
+    const lista = [...emails];
+    for (let i = 0; i < lista.length; i += 400) {
+      const batch = F.writeBatch(F.db);
+      lista.slice(i, i + 400).forEach((email) => batch.set(F.doc(F.db, "studentSeries", email), {
+        serie, teacherId: teacher.id, updatedAt: F.serverTimestamp()
+      }));
+      await batch.commit();
+    }
+    return { salvos: lista.length, invalidos };
+  },
+
+  async contarSeriesAlunos() {
+    const F = await this.api();
+    const result = await F.getDocs(F.collection(F.db, "studentSeries"));
+    const contagem = {};
+    result.docs.forEach((d) => { const s = d.data().serie; contagem[s] = (contagem[s] || 0) + 1; });
+    return contagem;
+  },
+
   async getSimuladosEmAndamento() {
     const F = await this.api();
     const teacher = TeacherAuth.user || await TeacherAuth.session();
