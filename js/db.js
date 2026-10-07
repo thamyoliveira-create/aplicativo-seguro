@@ -479,6 +479,16 @@ const DB = {
     const F = await this.api();
     const student = StudentAuth.user || await StudentAuth.session();
     if (!student) return null;
+    // 1) Lista fixa publicada com o site (js/data/series-alunos.js)
+    try {
+      if (window.SERIES_ALUNOS && window.crypto?.subtle) {
+        const email = PortalAuth.normalizeEmail(student.email);
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(email));
+        const hash = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 20);
+        if (window.SERIES_ALUNOS[hash]) return window.SERIES_ALUNOS[hash];
+      }
+    } catch (_) {}
+    // 2) Cadastro feito pelo painel (Firestore)
     try {
       const snap = await F.getDoc(F.doc(F.db, "studentSeries", PortalAuth.normalizeEmail(student.email)));
       return snap.exists() ? snap.data().serie : null;
