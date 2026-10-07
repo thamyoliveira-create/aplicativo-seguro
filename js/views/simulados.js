@@ -145,6 +145,15 @@ const SimuladosView = {
       return;
     }
 
+    // Descobre a série do aluno (professora vê tudo)
+    if (this.serieTravada === undefined) {
+      this.serieTravada = null;
+      this.resolverSerieAluno().then((serie) => {
+        this.serieTravada = serie;
+        if (serie) this.render(params);
+      });
+    }
+
     // Carrega progresso do aluno caso ainda não tenha sido carregado
     if (!this.progressLoaded && !this.loadingProgress) {
       this.loadStudentProgress().then(() => {
@@ -165,6 +174,32 @@ const SimuladosView = {
     }
     this.destroySecurity();
     this.renderCatalogo();
+  },
+
+  async resolverSerieAluno() {
+    try {
+      const teacher = TeacherAuth.user || await TeacherAuth.session();
+      if (teacher) return null;
+    } catch (_) {}
+    try {
+      const student = StudentAuth.user || await StudentAuth.session();
+      if (!student) return null;
+      return (await DB.getSerieAluno()) || "pendente";
+    } catch (err) {
+      console.warn("Não foi possível verificar a série do aluno:", err);
+      return null;
+    }
+  },
+
+  renderSeriePendente() {
+    document.getElementById("app-root").innerHTML = `
+      <main class="min-h-screen hero-mesh flex items-center justify-center p-6">
+        <section class="glass-card rounded-3xl p-8 max-w-xl text-center border border-slate-700">
+          <h1 class="text-2xl font-black text-white">Sua série ainda não foi liberada</h1>
+          <p class="text-slate-300 mt-3">Peça para a professora cadastrar o seu RA. Depois, recarregue esta página.</p>
+          <a href="#" class="inline-flex mt-6 px-5 py-3 rounded-2xl bg-brand-600 text-white font-bold shadow-glow-blue">Voltar ao início</a>
+        </section>
+      </main>`;
   },
 
   esc(value) {
@@ -199,8 +234,15 @@ const SimuladosView = {
   },
 
   getSeriesList() {
+    const todas = this._todasSeries();
+    if (this.serieTravada === "pendente") return [];
+    if (this.serieTravada) return todas.filter((s) => s.id === this.serieTravada);
+    return todas;
+  },
+
+  _todasSeries() {
     return [
-      { id: "3serie", label: "3ª Série EM", badge: "ENEM & SARESP", desc: "4 Listas de Exercícios + ENEM", icon: "sparkles", featured: true },
+      { id: "3serie", label: "3ª Série EM", badge: "SARESP", desc: "Simulados SARESP", icon: "sparkles", featured: true },
       { id: "1serie", label: "1ª Série EM", badge: "Provão Paulista", desc: "Cadernos Oficiais Dia 1 e 2", icon: "graduation-cap" },
       { id: "2serie", label: "2ª Série EM", badge: "Provão Paulista", desc: "Cadernos Oficiais Dia 1 e 2", icon: "graduation-cap" },
       { id: "9ef", label: "9º Ano EF", badge: "SARESP 2026", desc: "Cadernos Oficiais Dia 1 e 2", icon: "book-open" },
@@ -283,6 +325,8 @@ const SimuladosView = {
   },
 
   renderCatalogo() {
+    if (this.serieTravada === "pendente") return this.renderSeriePendente();
+    if (this.serieTravada) this.state.serie = this.serieTravada;
     const root = document.getElementById("app-root");
     const configs = window.SimuladosData.getAllConfigs();
     const stats = window.SimuladosData.getEstatisticas();
@@ -333,7 +377,7 @@ const SimuladosView = {
         <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <!-- Cabeçalho Principal -->
           <div class="mb-8">
-            <p class="eyebrow"><span></span>PROVÃO PAULISTA, SARESP &amp; ENEM 2026</p>
+            <p class="eyebrow"><span></span>PROVÃO PAULISTA &amp; SARESP 2026</p>
             <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight mt-2">
               Escolha seu <em class="text-brand-300 not-italic">Ano ou Série</em>
             </h1>
@@ -534,7 +578,7 @@ const SimuladosView = {
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
               <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Ano/Série</span>
                 <select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none">
-                  <option value="3serie">3ª Série EM (ENEM/SARESP)</option>
+                  <option value="3serie">3ª Série EM (SARESP)</option>
                   <option value="1serie">1ª Série EM (Provão)</option>
                   <option value="2serie">2ª Série EM (Provão)</option>
                   <option value="9ef">9º Ano EF (SARESP)</option>
@@ -609,6 +653,7 @@ const SimuladosView = {
       </main>`;
 
     document.getElementById("sim-filter-serie").value = this.state.serie;
+    if (this.serieTravada) document.getElementById("sim-filter-serie").disabled = true;
     document.getElementById("sim-filter-dia").value = this.state.dia;
     document.getElementById("sim-filter-componente").value = this.state.componente;
     document.getElementById("sim-filter-dificuldade").value = this.state.dificuldade;
@@ -1326,6 +1371,9 @@ const SimuladosView = {
     if (!config) return this.renderCatalogo();
     const student = StudentAuth.user || await StudentAuth.session();
     if (!student) return this.renderLoginRequired(simuladoId, config);
+    if (this.serieTravada === undefined || this.serieTravada === null) this.serieTravada = await this.resolverSerieAluno();
+    if (this.serieTravada === "pendente") return this.renderSeriePendente();
+    if (this.serieTravada && config.serieSlug !== this.serieTravada) { window.location.hash = "#simulados"; return; }
 
     this.state.simuladoId = simuladoId;
     const identity = this.getSimuladoIdentity(simuladoId);
