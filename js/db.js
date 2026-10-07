@@ -373,8 +373,9 @@ const DB = {
     const normalizedName = String(studentName || result?.studentName || fallbackName).trim().slice(0, 120);
     const normalizedRA = String(studentRA || result?.studentRA || student.studentRA || "TREINO").trim().slice(0, 40);
     const ref = F.doc(F.db, "simuladoProgress", this.simuladoProgressId(student.id, normalizedSimulado, normalizedMode));
-    const current = await F.getDoc(ref);
-    const startedAt = current.exists() ? current.data().startedAt : F.serverTimestamp();
+        let current = null;
+    try { current = await F.getDoc(ref); } catch (err) { if (err?.code !== "permission-denied") throw err; }
+    const startedAt = current?.exists() ? current.data().startedAt : F.serverTimestamp();
     const finished = status === "finished";
 
     await F.setDoc(ref, {
