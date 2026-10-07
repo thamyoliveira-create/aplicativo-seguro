@@ -1693,7 +1693,7 @@ const SimuladosView = {
       const keyStarted = `simulado_started_${config.id}`;
       const savedStarted = localStorage.getItem(keyStarted) || this.state.startedAt || new Date().toISOString();
       const tempoGastoSegundos = Math.max(0, Math.floor((Date.now() - new Date(savedStarted).getTime()) / 1000));
-      const tempoMinimoSegundos = 30 * 60; // 30 minutos
+      const tempoMinimoSegundos = 0; // sem tempo mínimo
 
       if (tempoGastoSegundos < tempoMinimoSegundos) {
         const minutosGastos = Math.floor(tempoGastoSegundos / 60);

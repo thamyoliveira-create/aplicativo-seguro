@@ -391,35 +391,62 @@ const ProfessorDashboardView = {
     }
   },
 
+  // Considera "online" quem deu sinal de vida recentemente (aluno fecha a aba = some da lista)
+  LIMITE_ONLINE_PROVA_MS: 3 * 60 * 1000,
+  LIMITE_ONLINE_SIMULADO_MS: 20 * 60 * 1000,
+
   async renderEmAndamento(atividades) {
+    this._atividadesAndamento = atividades;
+    if (this._pararEscuta) return this.desenharEmAndamento();
+    try {
+      this._pararEscuta = await DB.ouvirEmAndamento((dados) => {
+        this._dadosAndamento = dados;
+        this.desenharEmAndamento();
+      });
+      // Redesenha a cada 30s para tirar da lista quem ficou inativo
+      this._relogioAndamento = setInterval(() => this.desenharEmAndamento(), 30000);
+    } catch (e) {
+      console.warn("Erro ao iniciar escuta ao vivo:", e);
+    }
+  },
+
+  pararEmAndamento() {
+    if (this._pararEscuta) this._pararEscuta();
+    clearInterval(this._relogioAndamento);
+    this._pararEscuta = null;
+    this._relogioAndamento = null;
+  },
+
+  desenharEmAndamento() {
     const lista = document.getElementById("lista-em-andamento");
-    if (!lista) return;
+    if (!lista) { this.pararEmAndamento(); return; } // saiu do painel
+    if (!this._dadosAndamento) return;
+    const atividades = this._atividadesAndamento || [];
+    const { subs, sims } = this._dadosAndamento;
+    const agora = Date.now();
+    const recente = (iso, limite) => iso && (agora - new Date(iso).getTime()) <= limite;
     const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     const hora = (iso) => iso ? new Date(iso).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "-";
-    const [subs, sims] = await Promise.all([
-      DB.getSubmissoes(null, true).then((l) => l.filter((s) => s.status === "in_progress")).catch(() => []),
-      DB.getSimuladosEmAndamento().catch(() => [])
-    ]);
     const itens = [
-      ...subs.map((s) => ({
+      ...subs.filter((s) => recente(s.ultimaAtividade || s.dataInicio, this.LIMITE_ONLINE_PROVA_MS)).map((s) => ({
         nome: s.alunoNome, ra: s.alunoRA, turma: s.turma,
         prova: (atividades.find((a) => a.id === s.atividadeId) || {}).titulo || "Avaliação",
         inicio: s.dataInicio, inf: window.resumoInfracoes(s.infracoes)
       })),
-      ...sims.map((s) => ({
+      ...sims.filter((s) => recente(s.updatedAt || s.startedAt, this.LIMITE_ONLINE_SIMULADO_MS)).map((s) => ({
         nome: s.studentName, ra: s.studentRA, turma: "",
         prova: `Simulado ${s.simuladoId || ""}`.trim(),
         inicio: s.startedAt || s.updatedAt, respondidas: Object.keys(s.answers || {}).length,
         inf: { total: 0, texto: "" }
       }))
-    ];
+    ].sort((a, b) => String(b.inicio || "").localeCompare(String(a.inicio || "")));
     const stat = document.getElementById("stat-em-andamento");
     if (stat) stat.innerText = itens.length;
     if (!itens.length) { lista.innerHTML = `<p class="text-emerald-400">Ninguém com prova aberta no momento.</p>`; return; }
     lista.innerHTML = itens.map((i) => `
       <div class="p-3 rounded-2xl bg-dark-900 border ${i.inf.total ? "border-rose-500/30" : "border-slate-800"} flex flex-col md:flex-row md:items-center justify-between gap-2">
         <div>
-          <div class="font-bold text-white text-sm">${esc(i.nome)}</div>
+          <div class="font-bold text-white text-sm"><span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span>${esc(i.nome)}</div>
           <div class="text-slate-400 font-mono text-[10px]">RA: ${esc(i.ra || "-")}${i.turma ? " · " + esc(i.turma) : ""} · ${esc(i.prova)}</div>
         </div>
         <div class="md:text-right">

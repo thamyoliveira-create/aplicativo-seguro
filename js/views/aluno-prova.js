@@ -432,6 +432,10 @@ const AlunoProvaView = {
       tempoRestanteSegundos = Math.max(0, Math.ceil((prazoFinalMs - agoraTimer) / 1000));
       tempoGastoSegundos = Math.min(tempoTotalSegundos, Math.max(0, Math.floor((agoraTimer - inicioProvaMs) / 1000)));
       if (tempoGastoSegundos % 10 === 0) salvarRascunhoAtual();
+      // Sinal de vida para o painel do professor (mostra quem está online agora)
+      if (tempoGastoSegundos % 45 === 0 && submissaoDocId) {
+        DB.atualizarInfracoes(submissaoDocId, window.securityEngine.infractions).catch(() => {});
+      }
       const timerEl = document.getElementById("exam-timer");
       if (timerEl) {
         const mins = Math.floor(tempoRestanteSegundos / 60);
@@ -470,7 +474,7 @@ const AlunoProvaView = {
 
     async function finalizarProva({ autoSubmit = false } = {}) {
       if (!autoSubmit) {
-        const tempoMinimoSegundos = 30 * 60; // 30 minutos
+        const tempoMinimoSegundos = 0; // sem tempo mínimo
         if (tempoGastoSegundos < tempoMinimoSegundos) {
           const minutosGastos = Math.floor(tempoGastoSegundos / 60);
           const confirmRapido = confirm(`Não acha que foi rápido demais? Melhor revisar.\n\nVocê realizou apenas ${minutosGastos} minuto(s) de avaliação. O tempo mínimo recomendado é de 30 minutos.\n\nDeseja realmente entregar agora ou prefere revisar suas respostas?`);
