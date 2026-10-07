@@ -60,17 +60,37 @@ const AlunoProvaView = {
       return;
     }
 
-    const submissaoId = `sub-${aluno.ra.replace(/[^0-9]/g, "")}-${Date.now().toString().slice(-4)}`;
     const draft = DB.obterRascunhoAluno(atividade.id);
+    const submissaoId = draft?.submissaoId || `sub-${aluno.ra.replace(/[^0-9]/g, "")}-${Date.now().toString().slice(-4)}`;
     let respostas = (draft && draft.respostas) || {};
-    let questaoAtualIndex = 0;
-    let tempoRestanteSegundos = (atividade.tempoLimiteMinutos || 45) * 60;
-    let tempoGastoSegundos = 0;
+    let questaoAtualIndex = Number.isInteger(draft?.questaoAtualIndex) ? draft.questaoAtualIndex : 0;
+    const tempoTotalSegundos = (atividade.tempoLimiteMinutos || 45) * 60;
+    const agora = Date.now();
+    const draftStartedAt = draft?.startedAt ? Date.parse(draft.startedAt) : null;
+    const draftDeadlineAt = draft?.deadlineAt ? Date.parse(draft.deadlineAt) : null;
+    const inicioProvaMs = Number.isFinite(draftStartedAt) ? draftStartedAt : agora;
+    const prazoFinalMs = Number.isFinite(draftDeadlineAt) ? draftDeadlineAt : inicioProvaMs + (tempoTotalSegundos * 1000);
+    let tempoRestanteSegundos = Math.max(0, Math.ceil((prazoFinalMs - agora) / 1000));
+    let tempoGastoSegundos = Math.min(tempoTotalSegundos, Math.max(0, Math.floor((agora - inicioProvaMs) / 1000)));
 
     let questoes = [...(atividade.questoes || [])];
-    if (atividade.configuracoesSeguranca?.embaralharQuestoes && !draft) {
+    if (Array.isArray(draft?.questaoOrder) && draft.questaoOrder.length) {
+      const orderMap = new Map(draft.questaoOrder.map((id, idx) => [id, idx]));
+      questoes = questoes.sort((a, b) => (orderMap.get(a.id) ?? 9999) - (orderMap.get(b.id) ?? 9999));
+    } else if (atividade.configuracoesSeguranca?.embaralharQuestoes) {
       questoes = questoes.sort(() => Math.random() - 0.5);
     }
+    const questaoOrder = questoes.map(q => q.id);
+
+    const salvarRascunhoAtual = () => DB.salvarRascunhoAluno(atividade.id, respostas, submissaoId, {
+      questaoAtualIndex,
+      startedAt: new Date(inicioProvaMs).toISOString(),
+      deadlineAt: new Date(prazoFinalMs).toISOString(),
+      tempoGastoSegundos,
+      tempoRestanteSegundos,
+      questaoOrder
+    });
+    salvarRascunhoAtual();
 
     // 3. Renderizar Estrutura da Prova
     root.innerHTML = `
@@ -93,7 +113,7 @@ const AlunoProvaView = {
               <!-- Cronômetro -->
               <div id="exam-timer-box" class="bg-dark-900 px-3.5 py-1.5 rounded-xl border border-slate-700 flex items-center gap-2 shadow-inner">
                 <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400"></i>
-                <span id="exam-timer" class="font-mono font-extrabold text-xs md:text-sm text-yellow-300">45:00</span>
+                <span id="exam-timer" class="font-mono font-extrabold text-xs md:text-sm text-yellow-300">${String(Math.floor(tempoRestanteSegundos / 60)).padStart(2, "0")}:${String(tempoRestanteSegundos % 60).padStart(2, "0")}</span>
               </div>
 
               <!-- Aluno Chip -->
@@ -363,12 +383,13 @@ const AlunoProvaView = {
 
     AlunoProvaView.goToQuestion = (idx) => {
       questaoAtualIndex = idx;
+      salvarRascunhoAtual();
       renderCurrentQuestion();
     };
 
     AlunoProvaView.selectOption = (questaoId, altId) => {
       respostas[questaoId] = altId;
-      DB.salvarRascunhoAluno(atividade.id, respostas, submissaoId);
+      salvarRascunhoAtual();
       renderCurrentQuestion();
       showSavePulse();
     };
@@ -377,7 +398,7 @@ const AlunoProvaView = {
       respostas[questaoId] = text;
       const counter = document.getElementById("char-counter");
       if (counter) counter.innerText = `${text.length} caracteres`;
-      DB.salvarRascunhoAluno(atividade.id, respostas, submissaoId);
+      salvarRascunhoAtual();
       showSavePulse();
     };
 
@@ -393,8 +414,10 @@ const AlunoProvaView = {
 
     // Cronômetro
     const timerInterval = setInterval(() => {
-      tempoRestanteSegundos--;
-      tempoGastoSegundos++;
+      const agoraTimer = Date.now();
+      tempoRestanteSegundos = Math.max(0, Math.ceil((prazoFinalMs - agoraTimer) / 1000));
+      tempoGastoSegundos = Math.min(tempoTotalSegundos, Math.max(0, Math.floor((agoraTimer - inicioProvaMs) / 1000)));
+      if (tempoGastoSegundos % 10 === 0) salvarRascunhoAtual();
       const timerEl = document.getElementById("exam-timer");
       if (timerEl) {
         const mins = Math.floor(tempoRestanteSegundos / 60);
@@ -410,7 +433,7 @@ const AlunoProvaView = {
       if (tempoRestanteSegundos <= 0) {
         clearInterval(timerInterval);
         alert("Tempo limite esgotado! Sua avaliação será enviada automaticamente.");
-        finalizarProva();
+        finalizarProva({ autoSubmit: true });
       }
     }, 1000);
 
@@ -418,6 +441,7 @@ const AlunoProvaView = {
     document.getElementById("btn-prev-question").onclick = () => {
       if (questaoAtualIndex > 0) {
         questaoAtualIndex--;
+        salvarRascunhoAtual();
         renderCurrentQuestion();
       }
     };
@@ -425,16 +449,20 @@ const AlunoProvaView = {
     document.getElementById("btn-next-question").onclick = () => {
       if (questaoAtualIndex < questoes.length - 1) {
         questaoAtualIndex++;
+        salvarRascunhoAtual();
         renderCurrentQuestion();
       }
     };
 
-    async function finalizarProva() {
+    async function finalizarProva({ autoSubmit = false } = {}) {
       clearInterval(timerInterval);
 
       const answeredTotal = Object.keys(respostas).filter(k => !!respostas[k] && String(respostas[k]).trim().length > 0).length;
       const confirmMsg = `Você respondeu ${answeredTotal} de ${questoes.length} questões. Deseja enviar definitivamente a sua avaliação?`;
-      if (!confirm(confirmMsg)) return;
+      if (!autoSubmit && !confirm(confirmMsg)) {
+        salvarRascunhoAtual();
+        return;
+      }
 
       window.securityEngine.destroy();
 

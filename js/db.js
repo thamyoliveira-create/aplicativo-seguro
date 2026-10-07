@@ -437,10 +437,11 @@ const DB = {
     });
   },
 
-  salvarRascunhoAluno(atividadeId, respostas, submissaoId) {
+  salvarRascunhoAluno(atividadeId, respostas, submissaoId, extra = {}) {
     localStorage.setItem(`draft_aluno_${atividadeId}`, JSON.stringify({
       submissaoId,
       respostas,
+      ...extra,
       ultimoSalvamento: new Date().toISOString()
     }));
   },
