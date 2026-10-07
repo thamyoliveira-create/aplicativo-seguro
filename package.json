@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.html",
   "scripts": {
-    "test": "vitest",
+    "test": "node --test tests/*.test.js",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",

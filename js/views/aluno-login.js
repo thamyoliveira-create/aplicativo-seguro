@@ -179,8 +179,8 @@ const AlunoLoginView = {
       return;
     }
 
-    if (params.redirect && String(params.redirect).startsWith("simulados/prova/")) {
-      window.location.hash = `#${params.redirect}`;
+    if (params.redirect) {
+      window.location.hash = `#${String(params.redirect).replace(/^#/, "")}`;
       return;
     }
 

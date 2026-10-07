@@ -469,14 +469,26 @@ const AlunoProvaView = {
     };
 
     async function finalizarProva({ autoSubmit = false } = {}) {
-      clearInterval(timerInterval);
+      if (!autoSubmit) {
+        const tempoMinimoSegundos = 30 * 60; // 30 minutos
+        if (tempoGastoSegundos < tempoMinimoSegundos) {
+          const minutosGastos = Math.floor(tempoGastoSegundos / 60);
+          const confirmRapido = confirm(`Não acha que foi rápido demais? Melhor revisar.\n\nVocê realizou apenas ${minutosGastos} minuto(s) de avaliação. O tempo mínimo recomendado é de 30 minutos.\n\nDeseja realmente entregar agora ou prefere revisar suas respostas?`);
+          if (!confirmRapido) {
+            salvarRascunhoAtual();
+            return;
+          }
+        }
 
-      const answeredTotal = Object.keys(respostas).filter(k => !!respostas[k] && String(respostas[k]).trim().length > 0).length;
-      const confirmMsg = `Você respondeu ${answeredTotal} de ${questoes.length} questões. Deseja enviar definitivamente a sua avaliação?`;
-      if (!autoSubmit && !confirm(confirmMsg)) {
-        salvarRascunhoAtual();
-        return;
+        const answeredTotal = Object.keys(respostas).filter(k => !!respostas[k] && String(respostas[k]).trim().length > 0).length;
+        const confirmMsg = `Você respondeu ${answeredTotal} de ${questoes.length} questões. Deseja enviar definitivamente a sua avaliação?`;
+        if (!confirm(confirmMsg)) {
+          salvarRascunhoAtual();
+          return;
+        }
       }
+
+      clearInterval(timerInterval);
 
       window.securityEngine.destroy();
 

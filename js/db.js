@@ -73,13 +73,24 @@ const DB = {
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou.");
 
-    const q = F.query(
-      F.collection(F.db, "activities"),
-      F.where("teacherId", "==", teacher.id),
-      F.orderBy("createdAt", "desc")
-    );
-    const result = await F.getDocs(q);
-    return result.docs.map((item) => this.mapActivity(item));
+    try {
+      const q = F.query(
+        F.collection(F.db, "activities"),
+        F.orderBy("createdAt", "desc")
+      );
+      const result = await F.getDocs(q);
+      return result.docs.map((item) => this.mapActivity(item));
+    } catch (err) {
+      console.warn("Tentando fallback de atividades:", err);
+      const qFallback = F.query(
+        F.collection(F.db, "activities"),
+        F.where("teacherId", "==", teacher.id)
+      );
+      const result = await F.getDocs(qFallback);
+      return result.docs
+        .map((item) => this.mapActivity(item))
+        .sort((a, b) => String(b._createdAt || "").localeCompare(String(a._createdAt || "")));
+    }
   },
 
   async getAtividadePorId(id) {
@@ -205,13 +216,28 @@ const DB = {
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou.");
 
-    const filters = [F.where("teacherId", "==", teacher.id)];
-    if (atividadeId) filters.push(F.where("activityId", "==", atividadeId));
-    filters.push(F.orderBy("submittedAt", "desc"));
+    try {
+      const filters = [];
+      if (atividadeId) filters.push(F.where("activityId", "==", atividadeId));
+      const q = filters.length > 0
+        ? F.query(F.collection(F.db, "submissions"), ...filters)
+        : F.query(F.collection(F.db, "submissions"));
 
-    const result = await F.getDocs(F.query(F.collection(F.db, "submissions"), ...filters));
-    const todas = result.docs.map((item) => this.mapSubmission(item));
-    return incluirEmAndamento ? todas : todas.filter((s) => s.status !== "in_progress");
+      const result = await F.getDocs(q);
+      const todas = result.docs
+        .map((item) => this.mapSubmission(item))
+        .sort((a, b) => String(b.dataEnvio || b.dataInicio || "").localeCompare(String(a.dataEnvio || a.dataInicio || "")));
+      return incluirEmAndamento ? todas : todas.filter((s) => s.status !== "in_progress");
+    } catch (err) {
+      console.warn("Erro ao buscar submissões gerais, usando fallback por professor:", err);
+      const filters = [F.where("teacherId", "==", teacher.id)];
+      if (atividadeId) filters.push(F.where("activityId", "==", atividadeId));
+      const result = await F.getDocs(F.query(F.collection(F.db, "submissions"), ...filters));
+      const todas = result.docs
+        .map((item) => this.mapSubmission(item))
+        .sort((a, b) => String(b.dataEnvio || b.dataInicio || "").localeCompare(String(a.dataEnvio || a.dataInicio || "")));
+      return incluirEmAndamento ? todas : todas.filter((s) => s.status !== "in_progress");
+    }
   },
 
   // Cria o registro da prova assim que o aluno começa, para as infrações chegarem ao professor na hora
@@ -385,6 +411,26 @@ const DB = {
     return this.mapSimuladoProgress(snap);
   },
 
+  async obterTodosProgressosAluno() {
+    const F = await this.api();
+    const student = StudentAuth.user || await StudentAuth.session();
+    if (!student) return [];
+
+    try {
+      const q = F.query(
+        F.collection(F.db, "simuladoProgress"),
+        F.where("studentId", "==", student.id)
+      );
+      const snap = await F.getDocs(q);
+      return snap.docs
+        .map(doc => this.mapSimuladoProgress(doc))
+        .filter(item => item && (item.mode === "prova" || !item.mode));
+    } catch (err) {
+      console.warn("Erro ao buscar progressos do aluno:", err);
+      return [];
+    }
+  },
+
   async salvarResultadoSimulado(payload = {}) {
     return this.salvarProgressoSimulado({
       simuladoId: payload.simuladoId,
@@ -402,13 +448,19 @@ const DB = {
     const F = await this.api();
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou.");
-    const result = await F.getDocs(F.query(
-      F.collection(F.db, "simuladoProgress"),
-      F.where("mode", "==", "prova"),
-      F.where("status", "==", "draft")
-    ));
-    return result.docs.map((item) => this.mapSimuladoProgress(item))
-      .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
+    try {
+      const result = await F.getDocs(F.query(
+        F.collection(F.db, "simuladoProgress"),
+        F.where("status", "==", "draft")
+      ));
+      return result.docs
+        .map((item) => this.mapSimuladoProgress(item))
+        .filter((item) => item && (item.mode === "prova" || !item.mode))
+        .sort((a, b) => String(b.updatedAt || b.startedAt || "").localeCompare(String(a.updatedAt || a.startedAt || "")));
+    } catch (err) {
+      console.warn("Erro ao buscar simulados em andamento:", err);
+      return [];
+    }
   },
 
   async getResultadosSimulados() {
@@ -416,14 +468,19 @@ const DB = {
     const teacher = TeacherAuth.user || await TeacherAuth.session();
     if (!teacher) throw new Error("Sua sessão docente expirou.");
 
-    const result = await F.getDocs(F.query(
-      F.collection(F.db, "simuladoProgress"),
-      F.where("mode", "==", "prova"),
-      F.where("status", "==", "finished")
-    ));
-    return result.docs
-      .map((item) => this.mapSimuladoProgress(item))
-      .sort((a, b) => String(b.finishedAt || b.updatedAt || "").localeCompare(String(a.finishedAt || a.updatedAt || "")));
+    try {
+      const result = await F.getDocs(F.query(
+        F.collection(F.db, "simuladoProgress"),
+        F.where("status", "==", "finished")
+      ));
+      return result.docs
+        .map((item) => this.mapSimuladoProgress(item))
+        .filter((item) => item && (item.mode === "prova" || !item.mode))
+        .sort((a, b) => String(b.finishedAt || b.updatedAt || "").localeCompare(String(a.finishedAt || a.updatedAt || "")));
+    } catch (err) {
+      console.warn("Erro ao buscar resultados de simulados:", err);
+      return [];
+    }
   },
 
   async sincronizarStatsTreino(stats = {}) {

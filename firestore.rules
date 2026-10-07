@@ -19,13 +19,12 @@ service cloud.firestore {
 
     function isTeacher() {
       return verifiedEmail() &&
-        (request.auth.token.email.matches('^.+@professor\\.educacao\\.sp\\.gov\\.br$') ||
-         request.auth.token.email.matches('^.+@prof\\.educacao\\.sp\\.gov\\.br$'));
+        (request.auth.token.email.matches('(?i)^.+@(professor|prof)\\.educacao\\.sp\\.gov\\.br$'));
     }
 
     function isStudent() {
       return verifiedEmail() &&
-        request.auth.token.email.matches('^.+@aluno\\.educacao\\.sp\\.gov\\.br$');
+        request.auth.token.email.matches('(?i)^.+@aluno\\.educacao\\.sp\\.gov\\.br$');
     }
 
     function recentTimestamp(value) {
@@ -145,7 +144,7 @@ service cloud.firestore {
         data.studentEmail is string && data.studentEmail == request.auth.token.email && data.studentEmail.size() <= 254 &&
         validShortString(data.studentName, 2, 120) &&
         validShortString(data.studentRA, 2, 40) &&
-        data.simuladoId in ['1serie_dia1', '1serie_dia2', '2serie_dia1', '2serie_dia2', '3serie_dia1', '3serie_dia2', 'enem_dia1', 'enem_dia2', 'treino'] &&
+        validShortString(data.simuladoId, 1, 64) && data.simuladoId.matches('^[a-zA-Z0-9_-]{1,64}$') &&
         data.mode in ['prova', 'treino'] &&
         data.answersJson is string && data.answersJson.size() <= 200000 &&
         data.statsJson is string && data.statsJson.size() <= 200000 &&
@@ -179,15 +178,15 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.createdAt) &&
         recentTimestamp(request.resource.data.updatedAt);
 
-      allow read: if isTeacher() && resource.data.teacherId == request.auth.uid;
+      allow read: if isTeacher();
 
-      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+      allow update: if isTeacher() &&
         validActivity(request.resource.data) &&
         request.resource.data.teacherId == resource.data.teacherId &&
         request.resource.data.createdAt == resource.data.createdAt &&
         recentTimestamp(request.resource.data.updatedAt);
 
-      allow delete: if isTeacher() && resource.data.teacherId == request.auth.uid;
+      allow delete: if isTeacher() && (resource.data.teacherId == request.auth.uid || isTeacher());
     }
 
     match /activityCodes/{code} {
@@ -196,11 +195,10 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.updatedAt) &&
         getAfter(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.teacherId == request.auth.uid;
 
-      allow get: if (isTeacher() && resource.data.teacherId == request.auth.uid) ||
-        (isStudent() && resource.data.status == 'published');
-      allow list: if false;
+      allow get: if isTeacher() || (isStudent() && resource.data.status == 'published');
+      allow list: if isTeacher();
 
-      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+      allow update: if isTeacher() &&
         validActivityCode(request.resource.data, code) &&
         request.resource.data.teacherId == resource.data.teacherId &&
         request.resource.data.activityId == resource.data.activityId &&
@@ -208,7 +206,7 @@ service cloud.firestore {
         request.resource.data.createdAt == resource.data.createdAt &&
         recentTimestamp(request.resource.data.updatedAt);
 
-      allow delete: if isTeacher() && resource.data.teacherId == request.auth.uid;
+      allow delete: if isTeacher();
     }
 
     match /submissions/{submissionId} {
@@ -223,8 +221,7 @@ service cloud.firestore {
         get(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.status == 'published';
 
       allow read: if signedIn() &&
-        ((isStudent() && resource.data.studentId == request.auth.uid) ||
-         (isTeacher() && resource.data.teacherId == request.auth.uid));
+        ((isStudent() && resource.data.studentId == request.auth.uid) || isTeacher());
 
       // Aluno atualiza a própria prova enquanto está em andamento (infrações em tempo real e entrega final)
       allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
@@ -237,7 +234,7 @@ service cloud.firestore {
         ((request.resource.data.status == 'submitted' && recentTimestamp(request.resource.data.submittedAt)) ||
          (request.resource.data.status == 'in_progress' && request.resource.data.submittedAt == resource.data.submittedAt));
 
-      allow update: if isTeacher() && resource.data.teacherId == request.auth.uid &&
+      allow update: if isTeacher() &&
         validSubmission(request.resource.data) &&
         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'score', 'contentJson', 'updatedAt']) &&
         request.resource.data.activityId == resource.data.activityId &&
@@ -257,8 +254,7 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.startedAt) &&
         recentTimestamp(request.resource.data.updatedAt);
 
-      allow read: if (isStudent() && resource.data.studentId == request.auth.uid) ||
-        (isTeacher() && resource.data.mode == 'prova' && resource.data.status in ['finished', 'draft']);
+      allow read: if (isStudent() && resource.data.studentId == request.auth.uid) || isTeacher();
 
       allow update: if isStudent() && resource.data.studentId == request.auth.uid &&
         validSimuladoProgress(request.resource.data) &&

@@ -29,19 +29,17 @@ const App = {
     } else if (hash === "acesso") {
       await HomeView.renderAccess();
     } else if (parts[0] === "simulados") {
-      if (parts[1] === "prova" && parts[2]) {
-        const student = await StudentAuth.session();
-        if (!student) {
-          await AlunoLoginView.render({ redirect: `simulados/prova/${parts[2]}`, simuladoId: parts[2], modo: "simulado" });
-          window.scrollTo(0, 0);
-          return;
-        }
-        // Validate institutional email before allowing access to exam mode
-        if (!student.email || !student.email.endsWith('@aluno.educacao.sp.gov.br')) {
-          await AlunoLoginView.render({ redirect: `simulados/prova/${parts[2]}`, simuladoId: parts[2], modo: "simulado", emailError: "Apenas e-mails institucionais @aluno.educacao.sp.gov.br são permitidos." });
-          window.scrollTo(0, 0);
-          return;
-        }
+      const student = await StudentAuth.session();
+      const teacher = await TeacherAuth.session();
+      if (!student && !teacher) {
+        await AlunoLoginView.render({ redirect: hash || "simulados", modo: "simulado" });
+        window.scrollTo(0, 0);
+        return;
+      }
+      if (student && (!student.email || !student.email.endsWith('@aluno.educacao.sp.gov.br'))) {
+        await AlunoLoginView.render({ redirect: hash || "simulados", modo: "simulado", emailError: "Apenas contas institucionais @aluno.educacao.sp.gov.br são permitidas." });
+        window.scrollTo(0, 0);
+        return;
       }
       await SimuladosView.render({ parts });
     } else if (parts[0] === "aluno") {

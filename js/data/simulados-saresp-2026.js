@@ -1,8 +1,8 @@
 /**
  * Simulados SARESP 2026 — Dados Estruturados Oficiais
  * Secretaria da Educação do Estado de São Paulo (SEDUC-SP) / VUNESP
- * 5º, 6º, 7º, 8º, 9º Ano do Ensino Fundamental e 3ª Série do Ensino Médio
- * 13 Cadernos Oficiais · 472 Questões com Metadados & Gabarito Oficial
+ * 5º, 6º, 7º, 8º, 9º Ano do Ensino Fundamental e 3ª Série do Ensino Médio (Listas Unificadas de 48Q)
+ * 11 Cadernos Oficiais · 472 Questões com Metadados & Gabarito Oficial
  */
 
 (function () {
@@ -177,69 +177,35 @@
     ],
     "numAlternativas": 4
   },
-  "saresp_2026_3em_lp_l1": {
-    "id": "saresp_2026_3em_lp_l1",
+  "saresp_2026_3em_lp": {
+    "id": "saresp_2026_3em_lp",
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "dia": 1,
-    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 1)",
-    "descricao": "Língua Portuguesa · 24 questões oficiais preparatórias SARESP e ENEM",
-    "totalQuestoes": 24,
-    "tempoMinutos": 120,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (48Q)",
+    "descricao": "Língua Portuguesa (Listas 1 e 2 unificadas) · 48 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 48,
+    "tempoMinutos": 240,
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista1.pdf",
     "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
-    "pagePrefix": "3serie_saresp_lp1",
+    "pagePrefix": "3serie_saresp_lp",
     "componentes": [
       "Língua Portuguesa"
     ],
     "numAlternativas": 5
   },
-  "saresp_2026_3em_lp_l2": {
-    "id": "saresp_2026_3em_lp_l2",
+  "saresp_2026_3em_mat": {
+    "id": "saresp_2026_3em_mat",
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "dia": 2,
-    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Língua Portuguesa (Lista 2)",
-    "descricao": "Língua Portuguesa · 24 questões oficiais preparatórias SARESP e ENEM",
-    "totalQuestoes": 24,
-    "tempoMinutos": 120,
-    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_LP_Lista2.pdf",
-    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
-    "pagePrefix": "3serie_saresp_lp2",
-    "componentes": [
-      "Língua Portuguesa"
-    ],
-    "numAlternativas": 5
-  },
-  "saresp_2026_3em_mat_l1": {
-    "id": "saresp_2026_3em_mat_l1",
-    "serie": "3ª Série",
-    "serieSlug": "3serie",
-    "dia": 1,
-    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 1)",
-    "descricao": "Matemática · 24 questões oficiais preparatórias SARESP e ENEM",
-    "totalQuestoes": 24,
-    "tempoMinutos": 120,
+    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Matemática (48Q)",
+    "descricao": "Matemática (Listas 1 e 2 unificadas) · 48 questões oficiais preparatórias SARESP e ENEM",
+    "totalQuestoes": 48,
+    "tempoMinutos": 240,
     "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista1.pdf",
     "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
-    "pagePrefix": "3serie_saresp_mat1",
-    "componentes": [
-      "Matemática"
-    ],
-    "numAlternativas": 5
-  },
-  "saresp_2026_3em_mat_l2": {
-    "id": "saresp_2026_3em_mat_l2",
-    "serie": "3ª Série",
-    "serieSlug": "3serie",
-    "dia": 2,
-    "titulo": "Simulado SARESP 2026 · 3ª Série EM · Matemática (Lista 2)",
-    "descricao": "Matemática · 24 questões oficiais preparatórias SARESP e ENEM",
-    "totalQuestoes": 24,
-    "tempoMinutos": 120,
-    "pdfUrl": "assets/simulados/Simulado_SARESP_3EM_MAT_Lista2.pdf",
-    "gabaritoPdfUrl": "assets/simulados/Gabarito_Simulado_3EM.pdf",
-    "pagePrefix": "3serie_saresp_mat2",
+    "pagePrefix": "3serie_saresp_mat",
     "componentes": [
       "Matemática"
     ],
@@ -440,7 +406,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -890,7 +856,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -1340,7 +1306,7 @@
     "descritor": "D01 - Localizar informações explícitas em um texto.",
     "conteudoEdital": "Localizar informações explícitas em um texto.",
     "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -1790,7 +1756,7 @@
     "descritor": "D04 - Inferir uma informação implícita em um texto.",
     "conteudoEdital": "Inferir uma informação implícita em um texto.",
     "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -2240,7 +2206,7 @@
     "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
     "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
     "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
-    "taxaAcerto": 55.0,
+    "taxaAcerto": 55,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -2600,7 +2566,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -3050,7 +3016,7 @@
     "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -3500,7 +3466,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -3950,7 +3916,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -4400,7 +4366,7 @@
     "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -4850,7 +4816,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -5300,7 +5266,7 @@
     "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
     "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
     "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -5750,7 +5716,7 @@
     "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -6200,7 +6166,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -6650,7 +6616,7 @@
     "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -7100,7 +7066,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -7550,7 +7516,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -8000,7 +7966,7 @@
     "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -8450,7 +8416,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -8900,7 +8866,7 @@
     "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
     "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
     "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -9350,7 +9316,7 @@
     "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -9800,7 +9766,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -10250,7 +10216,7 @@
     "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -10700,7 +10666,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -11150,7 +11116,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -11600,7 +11566,7 @@
     "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -12050,7 +12016,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -12500,7 +12466,7 @@
     "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
     "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
     "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -12950,7 +12916,7 @@
     "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -13400,7 +13366,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -13850,7 +13816,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -14300,7 +14266,7 @@
     "descritor": "D01 - Localizar informações explícitas em um texto.",
     "conteudoEdital": "Localizar informações explícitas em um texto.",
     "assunto": "Língua Portuguesa: Localizar informações explícitas em um texto.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -14750,7 +14716,7 @@
     "descritor": "D04 - Inferir uma informação implícita em um texto.",
     "conteudoEdital": "Inferir uma informação implícita em um texto.",
     "assunto": "Língua Portuguesa: Inferir uma informação implícita em um texto.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -15200,7 +15166,7 @@
     "descritor": "D12 - Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
     "conteudoEdital": "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
     "assunto": "Matemática: Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas.",
-    "taxaAcerto": 55.0,
+    "taxaAcerto": 55,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -15560,7 +15526,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -16010,7 +15976,7 @@
     "descritor": "C05 - Compreender a importância da preservação ambiental e da sustentabilidade.",
     "conteudoEdital": "Compreender a importância da preservação ambiental e da sustentabilidade.",
     "assunto": "Ciências: Compreender a importância da preservação ambiental e da sustentabilidade.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -16460,7 +16426,7 @@
     "descritor": "H01 - Identificar a gênese dos processos históricos e a formação das sociedades.",
     "conteudoEdital": "Identificar a gênese dos processos históricos e a formação das sociedades.",
     "assunto": "História: Identificar a gênese dos processos históricos e a formação das sociedades.",
-    "taxaAcerto": 46.0,
+    "taxaAcerto": 46,
     "dificuldade": "Fácil",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -16910,7 +16876,7 @@
     "descritor": "G03 - Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "conteudoEdital": "Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
     "assunto": "Geografia: Relacionar os aspectos físicos, relevo, hidrografia e climatologia regional.",
-    "taxaAcerto": 68.0,
+    "taxaAcerto": 68,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -17169,8 +17135,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q01",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q01",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 1,
     "dia": 1,
     "serie": "3ª Série",
@@ -17218,8 +17184,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q02",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q02",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 2,
     "dia": 1,
     "serie": "3ª Série",
@@ -17267,8 +17233,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q03",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q03",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 3,
     "dia": 1,
     "serie": "3ª Série",
@@ -17316,8 +17282,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q04",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q04",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 4,
     "dia": 1,
     "serie": "3ª Série",
@@ -17365,8 +17331,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q05",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q05",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 5,
     "dia": 1,
     "serie": "3ª Série",
@@ -17376,7 +17342,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -17414,8 +17380,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q06",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q06",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 6,
     "dia": 1,
     "serie": "3ª Série",
@@ -17463,8 +17429,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q07",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q07",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 7,
     "dia": 1,
     "serie": "3ª Série",
@@ -17512,8 +17478,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q08",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q08",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 8,
     "dia": 1,
     "serie": "3ª Série",
@@ -17561,8 +17527,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q09",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q09",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 9,
     "dia": 1,
     "serie": "3ª Série",
@@ -17610,8 +17576,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q10",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q10",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 10,
     "dia": 1,
     "serie": "3ª Série",
@@ -17659,8 +17625,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q11",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q11",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 11,
     "dia": 1,
     "serie": "3ª Série",
@@ -17708,8 +17674,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q12",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q12",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 12,
     "dia": 1,
     "serie": "3ª Série",
@@ -17757,8 +17723,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q13",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q13",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 13,
     "dia": 1,
     "serie": "3ª Série",
@@ -17806,8 +17772,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q14",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q14",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 14,
     "dia": 1,
     "serie": "3ª Série",
@@ -17855,8 +17821,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q15",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q15",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 15,
     "dia": 1,
     "serie": "3ª Série",
@@ -17866,7 +17832,7 @@
     "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -17904,8 +17870,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q16",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q16",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 16,
     "dia": 1,
     "serie": "3ª Série",
@@ -17953,8 +17919,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q17",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q17",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 17,
     "dia": 1,
     "serie": "3ª Série",
@@ -18002,8 +17968,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q18",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q18",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 18,
     "dia": 1,
     "serie": "3ª Série",
@@ -18051,8 +18017,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q19",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q19",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 19,
     "dia": 1,
     "serie": "3ª Série",
@@ -18100,8 +18066,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q20",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q20",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 20,
     "dia": 1,
     "serie": "3ª Série",
@@ -18149,8 +18115,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q21",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q21",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 21,
     "dia": 1,
     "serie": "3ª Série",
@@ -18198,8 +18164,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q22",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q22",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 22,
     "dia": 1,
     "serie": "3ª Série",
@@ -18247,8 +18213,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q23",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q23",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 23,
     "dia": 1,
     "serie": "3ª Série",
@@ -18296,8 +18262,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l1_q24",
-    "simuladoId": "saresp_2026_3em_lp_l1",
+    "id": "saresp_2026_3em_lp_q24",
+    "simuladoId": "saresp_2026_3em_lp",
     "numero": 24,
     "dia": 1,
     "serie": "3ª Série",
@@ -18345,10 +18311,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q01",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 1,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q25",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 25,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18394,10 +18360,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q02",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 2,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q26",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 26,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18443,10 +18409,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q03",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 3,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q27",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 27,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18492,10 +18458,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q04",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 4,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q28",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 28,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18541,10 +18507,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q05",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 5,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q29",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 29,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18552,7 +18518,7 @@
     "descritor": "D14 - Distinguir um fato da opinião relativa a esse fato.",
     "conteudoEdital": "Distinguir um fato da opinião relativa a esse fato.",
     "assunto": "Língua Portuguesa: Distinguir um fato da opinião relativa a esse fato.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -18590,10 +18556,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q06",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 6,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q30",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 30,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18639,10 +18605,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q07",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 7,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q31",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 31,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18688,10 +18654,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q08",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 8,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q32",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 32,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18737,10 +18703,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q09",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 9,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q33",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 33,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18786,10 +18752,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q10",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 10,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q34",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 34,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18835,10 +18801,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q11",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 11,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q35",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 35,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18884,10 +18850,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q12",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 12,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q36",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 36,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18933,10 +18899,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q13",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 13,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q37",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 37,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -18982,10 +18948,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q14",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 14,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q38",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 38,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19031,10 +18997,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q15",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 15,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q39",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 39,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19042,7 +19008,7 @@
     "descritor": "D19 - Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "conteudoEdital": "Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
     "assunto": "Língua Portuguesa: Reconhecer o efeito de sentido decorrente da escolha de uma determinada palavra ou expressão.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -19080,10 +19046,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q16",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 16,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q40",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 40,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19129,10 +19095,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q17",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 17,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q41",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 41,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19178,10 +19144,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q18",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 18,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q42",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 42,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19227,10 +19193,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q19",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 19,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q43",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 43,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19276,10 +19242,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q20",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 20,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q44",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 44,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19325,10 +19291,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q21",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 21,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q45",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 45,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19374,10 +19340,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q22",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 22,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q46",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 46,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19423,10 +19389,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q23",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 23,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q47",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 47,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19472,10 +19438,10 @@
     }
   },
   {
-    "id": "saresp_2026_3em_lp_l2_q24",
-    "simuladoId": "saresp_2026_3em_lp_l2",
-    "numero": 24,
-    "dia": 2,
+    "id": "saresp_2026_3em_lp_q48",
+    "simuladoId": "saresp_2026_3em_lp",
+    "numero": 48,
+    "dia": 1,
     "serie": "3ª Série",
     "serieSlug": "3serie",
     "componente": "Língua Portuguesa",
@@ -19521,8 +19487,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q01",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q01",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 1,
     "dia": 1,
     "serie": "3ª Série",
@@ -19570,8 +19536,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q02",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q02",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 2,
     "dia": 1,
     "serie": "3ª Série",
@@ -19619,8 +19585,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q03",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q03",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 3,
     "dia": 1,
     "serie": "3ª Série",
@@ -19668,8 +19634,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q04",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q04",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 4,
     "dia": 1,
     "serie": "3ª Série",
@@ -19717,8 +19683,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q05",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q05",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 5,
     "dia": 1,
     "serie": "3ª Série",
@@ -19728,7 +19694,7 @@
     "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -19766,8 +19732,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q06",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q06",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 6,
     "dia": 1,
     "serie": "3ª Série",
@@ -19815,8 +19781,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q07",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q07",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 7,
     "dia": 1,
     "serie": "3ª Série",
@@ -19864,8 +19830,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q08",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q08",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 8,
     "dia": 1,
     "serie": "3ª Série",
@@ -19913,8 +19879,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q09",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q09",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 9,
     "dia": 1,
     "serie": "3ª Série",
@@ -19962,8 +19928,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q10",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q10",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 10,
     "dia": 1,
     "serie": "3ª Série",
@@ -20011,8 +19977,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q11",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q11",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 11,
     "dia": 1,
     "serie": "3ª Série",
@@ -20060,8 +20026,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q12",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q12",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 12,
     "dia": 1,
     "serie": "3ª Série",
@@ -20109,8 +20075,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q13",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q13",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 13,
     "dia": 1,
     "serie": "3ª Série",
@@ -20158,8 +20124,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q14",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q14",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 14,
     "dia": 1,
     "serie": "3ª Série",
@@ -20207,8 +20173,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q15",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q15",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 15,
     "dia": 1,
     "serie": "3ª Série",
@@ -20218,7 +20184,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -20256,8 +20222,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q16",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q16",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 16,
     "dia": 1,
     "serie": "3ª Série",
@@ -20305,8 +20271,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q17",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q17",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 17,
     "dia": 1,
     "serie": "3ª Série",
@@ -20354,8 +20320,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q18",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q18",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 18,
     "dia": 1,
     "serie": "3ª Série",
@@ -20403,8 +20369,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q19",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q19",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 19,
     "dia": 1,
     "serie": "3ª Série",
@@ -20452,8 +20418,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q20",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q20",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 20,
     "dia": 1,
     "serie": "3ª Série",
@@ -20501,8 +20467,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q21",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q21",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 21,
     "dia": 1,
     "serie": "3ª Série",
@@ -20550,8 +20516,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q22",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q22",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 22,
     "dia": 1,
     "serie": "3ª Série",
@@ -20599,8 +20565,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q23",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q23",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 23,
     "dia": 1,
     "serie": "3ª Série",
@@ -20648,8 +20614,8 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l1_q24",
-    "simuladoId": "saresp_2026_3em_mat_l1",
+    "id": "saresp_2026_3em_mat_q24",
+    "simuladoId": "saresp_2026_3em_mat",
     "numero": 24,
     "dia": 1,
     "serie": "3ª Série",
@@ -20697,9 +20663,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q01",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 1,
+    "id": "saresp_2026_3em_mat_q25",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 25,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20746,9 +20712,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q02",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 2,
+    "id": "saresp_2026_3em_mat_q26",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 26,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20795,9 +20761,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q03",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 3,
+    "id": "saresp_2026_3em_mat_q27",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 27,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20844,9 +20810,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q04",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 4,
+    "id": "saresp_2026_3em_mat_q28",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 28,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20893,9 +20859,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q05",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 5,
+    "id": "saresp_2026_3em_mat_q29",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 29,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20904,7 +20870,7 @@
     "descritor": "D19 - Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "conteudoEdital": "Resolver problema com números naturais envolvendo diferentes significados das operações.",
     "assunto": "Matemática: Resolver problema com números naturais envolvendo diferentes significados das operações.",
-    "taxaAcerto": 72.0,
+    "taxaAcerto": 72,
     "dificuldade": "Média",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -20942,9 +20908,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q06",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 6,
+    "id": "saresp_2026_3em_mat_q30",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 30,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -20991,9 +20957,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q07",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 7,
+    "id": "saresp_2026_3em_mat_q31",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 31,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21040,9 +21006,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q08",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 8,
+    "id": "saresp_2026_3em_mat_q32",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 32,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21089,9 +21055,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q09",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 9,
+    "id": "saresp_2026_3em_mat_q33",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 33,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21138,9 +21104,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q10",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 10,
+    "id": "saresp_2026_3em_mat_q34",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 34,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21187,9 +21153,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q11",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 11,
+    "id": "saresp_2026_3em_mat_q35",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 35,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21236,9 +21202,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q12",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 12,
+    "id": "saresp_2026_3em_mat_q36",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 36,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21285,9 +21251,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q13",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 13,
+    "id": "saresp_2026_3em_mat_q37",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 37,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21334,9 +21300,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q14",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 14,
+    "id": "saresp_2026_3em_mat_q38",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 38,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21383,9 +21349,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q15",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 15,
+    "id": "saresp_2026_3em_mat_q39",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 39,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21394,7 +21360,7 @@
     "descritor": "D01 - Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "conteudoEdital": "Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
     "assunto": "Matemática: Identificar figuras geométricas tridimensionais reconhecendo suas propriedades.",
-    "taxaAcerto": 59.0,
+    "taxaAcerto": 59,
     "dificuldade": "Desafio",
     "respostaCorreta": "A",
     "tipo": "multipla_escolha",
@@ -21432,9 +21398,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q16",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 16,
+    "id": "saresp_2026_3em_mat_q40",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 40,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21481,9 +21447,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q17",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 17,
+    "id": "saresp_2026_3em_mat_q41",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 41,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21530,9 +21496,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q18",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 18,
+    "id": "saresp_2026_3em_mat_q42",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 42,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21579,9 +21545,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q19",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 19,
+    "id": "saresp_2026_3em_mat_q43",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 43,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21628,9 +21594,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q20",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 20,
+    "id": "saresp_2026_3em_mat_q44",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 44,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21677,9 +21643,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q21",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 21,
+    "id": "saresp_2026_3em_mat_q45",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 45,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21726,9 +21692,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q22",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 22,
+    "id": "saresp_2026_3em_mat_q46",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 46,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21775,9 +21741,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q23",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 23,
+    "id": "saresp_2026_3em_mat_q47",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 47,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21824,9 +21790,9 @@
     }
   },
   {
-    "id": "saresp_2026_3em_mat_l2_q24",
-    "simuladoId": "saresp_2026_3em_mat_l2",
-    "numero": 24,
+    "id": "saresp_2026_3em_mat_q48",
+    "simuladoId": "saresp_2026_3em_mat",
+    "numero": 48,
     "dia": 2,
     "serie": "3ª Série",
     "serieSlug": "3serie",
@@ -21874,16 +21840,21 @@
   }
 ];
 
-  if (typeof window !== undefined) {
+  if (typeof window !== "undefined") {
     window.SARESP_CONFIG = SARESP_CONFIG;
     window.QUESTOES_SARESP = QUESTOES_SARESP;
 
     // Se SIMULADOS_CONFIG já existir, mescla com as opções do SARESP
     if (window.SIMULADOS_CONFIG) {
       Object.assign(window.SIMULADOS_CONFIG, SARESP_CONFIG);
+      // Aliases para compatibilidade retroativa com links de listas separadas
+      window.SIMULADOS_CONFIG["saresp_2026_3em_lp_l1"] = SARESP_CONFIG["saresp_2026_3em_lp"];
+      window.SIMULADOS_CONFIG["saresp_2026_3em_lp_l2"] = SARESP_CONFIG["saresp_2026_3em_lp"];
+      window.SIMULADOS_CONFIG["saresp_2026_3em_mat_l1"] = SARESP_CONFIG["saresp_2026_3em_mat"];
+      window.SIMULADOS_CONFIG["saresp_2026_3em_mat_l2"] = SARESP_CONFIG["saresp_2026_3em_mat"];
     }
 
-    // Se SIMULADOS_QUESTOES já existir, concatena todas as 472 novas questões
+    // Se SIMULADOS_QUESTOES já existir, concatena todas as 472 questões
     if (Array.isArray(window.SIMULADOS_QUESTOES)) {
       QUESTOES_SARESP.forEach(q => {
         if (!window.SIMULADOS_QUESTOES.some(existing => existing.id === q.id)) {
@@ -21899,7 +21870,7 @@
         const stats = originalGetEstatisticas ? originalGetEstatisticas.call(this) : { total: 0, porSerie: {}, componentes: {} };
         stats.total = window.SIMULADOS_QUESTOES.length;
         stats.porSerie = stats.porSerie || {};
-        ['5ef', '6ef', '7ef', '8ef', '9ef', '1serie', '2serie', '3serie'].forEach(slug => {
+        ["5ef", "6ef", "7ef", "8ef", "9ef", "1serie", "2serie", "3serie"].forEach(slug => {
           stats.porSerie[slug] = window.SIMULADOS_QUESTOES.filter(q => q.serieSlug === slug).length;
         });
         return stats;

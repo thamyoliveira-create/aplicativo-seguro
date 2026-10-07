@@ -1,7 +1,7 @@
 const SimuladosView = {
   state: {
-    simuladoId: "1serie_dia1",
-    serie: "1serie",
+    simuladoId: "saresp_2026_3em_lp_l1",
+    serie: "3serie",
     dia: "1",
     componente: "todos",
     dificuldade: "todas",
@@ -16,7 +16,120 @@ const SimuladosView = {
     cloudStatus: "local",
     cloudMessage: "Salvo neste dispositivo",
     cloudTimer: null,
-    MIN_EXAM_MINUTES: 45
+    MIN_EXAM_MINUTES: 30
+  },
+  studentProgressMap: {},
+  progressLoaded: false,
+  loadingProgress: false,
+
+  async loadStudentProgress() {
+    if (this.loadingProgress) return;
+    this.loadingProgress = true;
+
+    // 1. Carregamento local síncrono instantâneo
+    if (window.SimuladosData) {
+      const configs = window.SimuladosData.getAllConfigs();
+      configs.forEach(c => {
+        const savedRes = localStorage.getItem(`simulado_result_${c.id}`);
+        if (savedRes) {
+          try {
+            const res = JSON.parse(savedRes);
+            this.studentProgressMap[c.id] = {
+              status: "finished",
+              score: res.score,
+              totalAcertos: res.totalAcertos,
+              totalQuestoes: res.totalQuestoes || c.totalQuestoes,
+              completedAt: res.completedAt
+            };
+          } catch (_) {}
+        } else {
+          const savedAns = localStorage.getItem(`simulado_answers_${c.id}`);
+          if (savedAns) {
+            try {
+              const ans = JSON.parse(savedAns);
+              const count = Object.keys(ans).filter(k => !!ans[k]).length;
+              if (count > 0) {
+                this.studentProgressMap[c.id] = {
+                  status: "draft",
+                  answersCount: count,
+                  totalQuestoes: c.totalQuestoes
+                };
+              }
+            } catch (_) {}
+          }
+        }
+      });
+    }
+
+    // 2. Consulta assíncrona na nuvem (Firebase)
+    try {
+      if (typeof DB !== "undefined" && DB.obterTodosProgressosAluno) {
+        const progressosNuvem = await DB.obterTodosProgressosAluno();
+        if (Array.isArray(progressosNuvem)) {
+          progressosNuvem.forEach(p => {
+            if (!p.simuladoId) return;
+            if (p.status === "finished") {
+              const score = p.result?.score ?? (p.result?.totalAcertos != null && p.result?.totalQuestoes ? Math.round((p.result.totalAcertos / p.result.totalQuestoes) * 100) : 100);
+              this.studentProgressMap[p.simuladoId] = {
+                status: "finished",
+                score,
+                totalAcertos: p.result?.totalAcertos ?? null,
+                totalQuestoes: p.result?.totalQuestoes ?? null,
+                completedAt: p.finishedAt || p.updatedAt
+              };
+            } else if (p.status === "draft" && (!this.studentProgressMap[p.simuladoId] || this.studentProgressMap[p.simuladoId].status !== "finished")) {
+              const answersCount = Object.keys(p.answers || {}).length;
+              if (answersCount > 0) {
+                this.studentProgressMap[p.simuladoId] = {
+                  status: "draft",
+                  answersCount,
+                  totalQuestoes: p.result?.totalQuestoes || null
+                };
+              }
+            }
+          });
+        }
+      }
+    } catch (e) {
+      console.warn("Aviso ao carregar progresso da nuvem:", e);
+    } finally {
+      this.progressLoaded = true;
+      this.loadingProgress = false;
+    }
+  },
+
+  getSimuladoStatus(simuladoId) {
+    // Verifica cache em memória
+    if (this.studentProgressMap[simuladoId]) {
+      return this.studentProgressMap[simuladoId];
+    }
+    // Fallback para localStorage
+    try {
+      const savedRes = localStorage.getItem(`simulado_result_${simuladoId}`);
+      if (savedRes) {
+        const res = JSON.parse(savedRes);
+        const data = {
+          status: "finished",
+          score: res.score,
+          totalAcertos: res.totalAcertos,
+          totalQuestoes: res.totalQuestoes,
+          completedAt: res.completedAt
+        };
+        this.studentProgressMap[simuladoId] = data;
+        return data;
+      }
+      const savedAns = localStorage.getItem(`simulado_answers_${simuladoId}`);
+      if (savedAns) {
+        const ans = JSON.parse(savedAns);
+        const count = Object.keys(ans).filter(k => !!ans[k]).length;
+        if (count > 0) {
+          const data = { status: "draft", answersCount: count };
+          this.studentProgressMap[simuladoId] = data;
+          return data;
+        }
+      }
+    } catch (_) {}
+    return { status: "not_started" };
   },
 
   render(params = {}) {
@@ -30,6 +143,16 @@ const SimuladosView = {
           </section>
         </main>`;
       return;
+    }
+
+    // Carrega progresso do aluno caso ainda não tenha sido carregado
+    if (!this.progressLoaded && !this.loadingProgress) {
+      this.loadStudentProgress().then(() => {
+        const parts = window.location.hash.replace(/^#\/?/, "").split("/");
+        if (!parts[1] || parts[1] === "catalogo") {
+          this.renderCatalogo();
+        }
+      });
     }
 
     const parts = window.location.hash.replace(/^#\/?/, "").split("/");
@@ -75,13 +198,27 @@ const SimuladosView = {
     return identity;
   },
 
+  getSeriesList() {
+    return [
+      { id: "3serie", label: "3ª Série EM", badge: "ENEM & SARESP", desc: "4 Listas de Exercícios + ENEM", icon: "sparkles", featured: true },
+      { id: "1serie", label: "1ª Série EM", badge: "Provão Paulista", desc: "Cadernos Oficiais Dia 1 e 2", icon: "graduation-cap" },
+      { id: "2serie", label: "2ª Série EM", badge: "Provão Paulista", desc: "Cadernos Oficiais Dia 1 e 2", icon: "graduation-cap" },
+      { id: "9ef", label: "9º Ano EF", badge: "SARESP 2026", desc: "Cadernos Oficiais Dia 1 e 2", icon: "book-open" },
+      { id: "8ef", label: "8º Ano EF", badge: "SARESP 2026", desc: "Cadernos Oficiais Dia 1 e 2", icon: "book-open" },
+      { id: "7ef", label: "7º Ano EF", badge: "SARESP 2026", desc: "Cadernos Oficiais Dia 1 e 2", icon: "book-open" },
+      { id: "6ef", label: "6º Ano EF", badge: "SARESP 2026", desc: "Cadernos Oficiais Dia 1 e 2", icon: "book-open" },
+      { id: "5ef", label: "5º Ano EF", badge: "SARESP 2026", desc: "Caderno Oficial Dia 1", icon: "book-open" },
+      { id: "todos", label: "Todas as Séries", badge: "Geral", desc: "Todos os Cadernos", icon: "layers" }
+    ];
+  },
+
   getSelectedConfig() {
     return window.SimuladosData.getConfig(this.state.simuladoId) || window.SimuladosData.getAllConfigs()[0];
   },
 
   getFilteredQuestions() {
     return window.SimuladosData.getQuestoesPorFiltro({
-      serie: this.state.serie,
+      serie: this.state.serie === "todos" ? null : this.state.serie,
       dia: this.state.dia,
       componente: this.state.componente,
       dificuldade: this.state.dificuldade,
@@ -149,10 +286,35 @@ const SimuladosView = {
     const root = document.getElementById("app-root");
     const configs = window.SimuladosData.getAllConfigs();
     const stats = window.SimuladosData.getEstatisticas();
+    const seriesList = this.getSeriesList();
+    const activeSerie = this.state.serie || "3serie";
+    const visibleConfigs = activeSerie === "todos"
+      ? configs
+      : configs.filter(c => c.serieSlug === activeSerie);
+
+    // Garante que o simulado selecionado pertença à série ativa
+    if (!visibleConfigs.some(c => c.id === this.state.simuladoId) && visibleConfigs.length > 0) {
+      this.state.simuladoId = visibleConfigs[0].id;
+    }
+
     const questoes = this.getFilteredQuestions();
     const componentes = [...new Set(window.SIMULADOS_QUESTOES
-      .filter(q => (!this.state.serie || q.serieSlug === this.state.serie) && (!this.state.dia || String(q.dia) === String(this.state.dia)))
+      .filter(q => (activeSerie === "todos" || q.serieSlug === activeSerie) && (!this.state.dia || String(q.dia) === String(this.state.dia)))
       .map(q => q.componente))];
+
+    const currentSerieInfo = seriesList.find(s => s.id === activeSerie) || seriesList[0];
+
+    // Métricas de progresso do estudante na série ativa
+    const totalCadernos = visibleConfigs.length;
+    let totalRealizados = 0;
+    let totalEmAndamento = 0;
+    let totalPendentes = 0;
+    visibleConfigs.forEach(c => {
+      const prog = this.getSimuladoStatus(c.id);
+      if (prog.status === "finished") totalRealizados++;
+      else if (prog.status === "draft") totalEmAndamento++;
+      else totalPendentes++;
+    });
 
     root.innerHTML = `
       <main class="min-h-screen hero-mesh text-slate-100 selection:bg-brand-600 selection:text-white pb-16">
@@ -169,31 +331,188 @@ const SimuladosView = {
         </header>
 
         <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
-          <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-8 items-center">
-            <div>
-              <p class="eyebrow"><span></span>PROVÃO PAULISTA, SARESP &amp; ENEM 2026</p>
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mt-4">Simulados oficiais<br><em class="text-brand-300 not-italic">questão por questão.</em></h1>
-              <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-2xl">Treine com foco total: veja cada questão individualmente, navegue diretamente pelo número e confira o gabarito oficial com cadernos do Ensino Fundamental e Ensino Médio.</p>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-                ${this.statCard(stats.total, "questões", "book-open-check")}
-                ${this.statCard(configs.length, "cadernos", "files")}
-                ${this.statCard(Object.keys(stats.porSerie || {}).length || 8, "anos/séries", "graduation-cap")}
-                ${this.statCard("1 por 1", "foco total", "layers")}
+          <!-- Cabeçalho Principal -->
+          <div class="mb-8">
+            <p class="eyebrow"><span></span>PROVÃO PAULISTA, SARESP &amp; ENEM 2026</p>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight mt-2">
+              Escolha seu <em class="text-brand-300 not-italic">Ano ou Série</em>
+            </h1>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed mt-2 max-w-3xl">
+              Acesse diretamente os cadernos e listas de exercícios da sua turma sem precisar rolar toda a página. Acompanhe abaixo quais avaliações você já realizou e quais ainda faltam.
+            </p>
+          </div>
+
+          <!-- PAINEL CENTRAL DE ESCOLHA DIRETA (PASSO 1: SÉRIE / PASSO 2: SIMULADO) -->
+          <div class="glass-card rounded-[2rem] border border-brand-500/30 bg-gradient-to-br from-dark-900 via-dark-950 to-slate-950 p-6 md:p-8 mb-8 shadow-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-300 border border-brand-500/30 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="check-square" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-widest text-brand-300">Acesso Direto à Avaliação</p>
+                  <h2 class="text-xl md:text-2xl font-black text-white">Escolha a Série e o Simulado para Iniciar</h2>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-300 text-xs font-bold font-mono border border-emerald-500/30">
+                  ${totalRealizados} de ${totalCadernos} Realizados
+                </span>
               </div>
             </div>
 
-            <div class="glass-card rounded-[2rem] border border-white/10 p-5 md:p-6 shadow-card-hover">
-              <div class="flex items-center justify-between gap-3 mb-5">
-                <div>
-                  <p class="text-[11px] font-black tracking-[0.2em] text-brand-300 uppercase">Escolha um caderno</p>
-                  <h2 class="text-2xl font-black text-white mt-1">Modo Simulado Oficial</h2>
+            <!-- Formulário de Seleção em 2 Etapas -->
+            <div class="grid md:grid-cols-2 gap-5 items-end">
+              <!-- Etapa 1: Selecionar Série -->
+              <div>
+                <label for="main-select-serie" class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-600 text-white inline-flex items-center justify-center text-[10px] font-mono">1</span>
+                  <span>Ano ou Série do Estudante:</span>
+                </label>
+                <select id="main-select-serie" class="w-full bg-dark-950 border-2 border-slate-700 rounded-2xl px-4 py-3.5 text-sm font-bold text-white focus:border-brand-500 focus:outline-none transition-all shadow-inner">
+                  ${seriesList.map(s => `
+                    <option value="${s.id}" ${s.id === activeSerie ? 'selected' : ''}>
+                      ${s.label} — ${s.desc}
+                    </option>
+                  `).join("")}
+                </select>
+              </div>
+
+              <!-- Etapa 2: Selecionar Caderno/Simulado -->
+              <div>
+                <label for="main-select-caderno" class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-600 text-white inline-flex items-center justify-center text-[10px] font-mono">2</span>
+                  <span>Caderno ou Lista de Exercícios:</span>
+                </label>
+                <select id="main-select-caderno" class="w-full bg-dark-950 border-2 border-slate-700 rounded-2xl px-4 py-3.5 text-sm font-bold text-white focus:border-brand-500 focus:outline-none transition-all shadow-inner">
+                  ${visibleConfigs.map(c => {
+                    const prog = this.getSimuladoStatus(c.id);
+                    const statusTag = prog.status === 'finished'
+                      ? `[✓ REALIZADO - ${prog.score}%]`
+                      : prog.status === 'draft'
+                      ? `[⏳ EM ANDAMENTO]`
+                      : `[⚪ PENDENTE]`;
+                    return `
+                      <option value="${c.id}" ${c.id === this.state.simuladoId ? 'selected' : ''}>
+                        ${statusTag} ${c.titulo || c.descricao} (${c.totalQuestoes}Q)
+                      </option>
+                    `;
+                  }).join("")}
+                </select>
+              </div>
+            </div>
+
+            <!-- Barra de Ação Imediata & Status da Série -->
+            <div class="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <!-- Resumo do Progresso com Barra Visual -->
+              <div class="w-full sm:w-auto">
+                <div class="flex items-center gap-2 text-xs font-bold">
+                  <span class="text-slate-300">${currentSerieInfo.label}:</span>
+                  <span class="text-emerald-300 font-mono font-black">${totalRealizados} feito(s)</span>
+                  <span class="text-slate-500">·</span>
+                  <span class="text-amber-300 font-mono font-black">${totalPendentes} pendente(s)</span>
+                  <span class="text-slate-400">(${totalCadernos} cadernos no total)</span>
                 </div>
-                <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-300 border border-brand-500/30 flex items-center justify-center shadow-glow-blue">
-                  <i data-lucide="timer" class="w-6 h-6"></i>
+                <div class="w-full sm:w-72 bg-slate-900 rounded-full h-2 mt-2 border border-slate-800 overflow-hidden">
+                  <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-2 rounded-full transition-all duration-300" style="width: ${totalCadernos > 0 ? Math.round((totalRealizados / totalCadernos) * 100) : 0}%;"></div>
                 </div>
               </div>
-              <div class="grid gap-3 max-h-[28rem] overflow-y-auto pr-1 scrollbar-thin">
-                ${configs.map(config => this.simuladoCard(config)).join("")}
+
+              <!-- Botão de Iniciar Diretamente -->
+              <button
+                type="button"
+                id="btn-iniciar-caderno-selecionado"
+                class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-extrabold text-sm shadow-glow-blue transition-all inline-flex items-center justify-center gap-2"
+              >
+                <i data-lucide="play" class="w-4 h-4"></i>
+                <span>Iniciar Simulado Selecionado</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Seletor Rápido de Séries em Tabs / Chips (com 3ª Série em destaque) -->
+          <div class="glass-card rounded-2xl border border-white/10 p-3 md:p-4 mb-8">
+            <p class="text-[11px] font-black tracking-wider text-slate-400 uppercase mb-3 px-1 flex items-center justify-between">
+              <span>Navegar por Série / Ano Escolar:</span>
+              <span class="text-xs font-mono text-brand-300 font-bold">${currentSerieInfo.label}</span>
+            </p>
+            <div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-thin">
+              ${seriesList.map(s => {
+                const isActive = s.id === activeSerie;
+                const isFeatured = s.featured;
+                return `
+                  <button
+                    type="button"
+                    data-select-serie="${s.id}"
+                    class="px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex-shrink-0 flex items-center gap-2 border ${
+                      isActive
+                        ? "bg-brand-600 border-brand-400 text-white shadow-glow-blue scale-105"
+                        : isFeatured
+                        ? "bg-purple-950/60 border-purple-500/40 text-purple-200 hover:bg-purple-900/60 hover:text-white"
+                        : "bg-dark-950 border-slate-800 text-slate-300 hover:bg-slate-800 hover:text-white"
+                    }"
+                  >
+                    <i data-lucide="${s.icon}" class="w-4 h-4 ${isActive ? 'text-white' : isFeatured ? 'text-purple-300' : 'text-slate-400'}"></i>
+                    <span>${s.label}</span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded-md font-mono ${
+                      isActive
+                        ? 'bg-white/20 text-white'
+                        : isFeatured
+                        ? 'bg-purple-500/20 text-purple-300'
+                        : 'bg-slate-800 text-slate-400'
+                    }">${s.badge}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+
+          <!-- Seção de Cadernos da Série Selecionada -->
+          <div class="grid lg:grid-cols-[1fr_300px] gap-6 items-start">
+            <div class="glass-card rounded-[2rem] border border-white/10 p-5 md:p-7 shadow-card-hover">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-5 pb-4 border-b border-slate-800">
+                <div>
+                  <p class="text-[11px] font-black tracking-[0.2em] text-brand-300 uppercase">${currentSerieInfo.label} · ${currentSerieInfo.badge}</p>
+                  <h2 class="text-2xl font-black text-white mt-1">Cadernos e Listas Oficiais</h2>
+                  <p class="text-xs text-slate-400 mt-1">${visibleConfigs.length} caderno(s) disponível(is) para esta série.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1.5 rounded-xl bg-brand-500/15 text-brand-300 text-xs font-bold font-mono border border-brand-500/30">
+                    ${visibleConfigs.reduce((acc, c) => acc + (c.totalQuestoes || 0), 0)} Questões Totais
+                  </span>
+                </div>
+              </div>
+
+              <!-- Grid dos Cadernos da Série com Status Individual -->
+              <div class="grid md:grid-cols-2 gap-4">
+                ${visibleConfigs.length > 0
+                  ? visibleConfigs.map(config => this.simuladoCard(config)).join("")
+                  : `<p class="text-slate-400 text-sm col-span-2 py-8 text-center">Nenhum caderno encontrado para esta série.</p>`
+                }
+              </div>
+            </div>
+
+            <!-- Painel Lateral de Estatísticas e Métricas -->
+            <div class="space-y-4">
+              <div class="glass-card rounded-2xl border border-white/10 p-5 space-y-3">
+                <p class="text-[11px] font-black uppercase tracking-wider text-slate-400">Resumo da Plataforma</p>
+                <div class="grid grid-cols-2 gap-2">
+                  ${this.statCard(stats.total, "questões", "book-open-check")}
+                  ${this.statCard(configs.length, "cadernos", "files")}
+                  ${this.statCard(Object.keys(stats.porSerie || {}).length || 8, "anos/séries", "graduation-cap")}
+                  ${this.statCard("1 por 1", "foco total", "layers")}
+                </div>
+              </div>
+
+              <div class="glass-card rounded-2xl border border-brand-500/20 bg-brand-950/20 p-4 text-xs text-slate-300 space-y-2">
+                <div class="flex items-center gap-2 text-brand-300 font-bold">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                  <span>Ambiente Oficial Blindado</span>
+                </div>
+                <p class="text-slate-400 text-[11px] leading-relaxed">
+                  As avaliações possuem temporizador contínuo (mínimo de 30 minutos), gravação instantânea na nuvem e controle anti-fraude.
+                </p>
               </div>
             </div>
           </div>
@@ -203,21 +522,53 @@ const SimuladosView = {
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
               <div>
                 <p class="text-[11px] font-black tracking-[0.2em] text-emerald-300 uppercase">Treino por questão única</p>
-                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Banco de Questões Catalogado</h2>
-                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) filtradas. Clique no número ou card para resolver individualmente com resolução comentada.</p>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Banco de Questões: ${currentSerieInfo.label}</h2>
+                <p class="text-sm text-slate-400 mt-1">${questoes.length} questão(ões) filtradas. Resolva individualmente com resolução comentada.</p>
               </div>
               <button type="button" id="btn-start-treino-first" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold shadow-glow-emerald transition-all">
                 <i data-lucide="play-circle" class="w-5 h-5"></i> Começar Treino na Q01
               </button>
             </div>
 
-            <!-- Filtros -->
+            <!-- Filtros de Treino -->
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Ano/Série</span><select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="5ef">5º Ano EF (SARESP)</option><option value="6ef">6º Ano EF (SARESP)</option><option value="7ef">7º Ano EF (SARESP)</option><option value="8ef">8º Ano EF (SARESP)</option><option value="9ef">9º Ano EF (SARESP)</option><option value="1serie">1ª Série EM (Provão)</option><option value="2serie">2ª Série EM (Provão)</option><option value="3serie">3ª Série EM (ENEM/SARESP)</option></select></label>
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia/Lista</span><select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="1">Dia 1 / Lista 1</option><option value="2">Dia 2 / Lista 2</option></select></label>
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span><select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todos">Todos os componentes</option>${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}</select></label>
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span><select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none"><option value="todas">Todas as dificuldades</option><option>Fácil</option><option>Média</option><option>Desafio</option><option>Referência</option></select></label>
-              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Buscar</span><input id="sim-filter-busca" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none" placeholder="assunto, descritor..." value="${this.esc(this.state.busca)}"></label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Ano/Série</span>
+                <select id="sim-filter-serie" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none">
+                  <option value="3serie">3ª Série EM (ENEM/SARESP)</option>
+                  <option value="1serie">1ª Série EM (Provão)</option>
+                  <option value="2serie">2ª Série EM (Provão)</option>
+                  <option value="9ef">9º Ano EF (SARESP)</option>
+                  <option value="8ef">8º Ano EF (SARESP)</option>
+                  <option value="7ef">7º Ano EF (SARESP)</option>
+                  <option value="6ef">6º Ano EF (SARESP)</option>
+                  <option value="5ef">5º Ano EF (SARESP)</option>
+                  <option value="todos">Todas as Séries</option>
+                </select>
+              </label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dia/Lista</span>
+                <select id="sim-filter-dia" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none">
+                  <option value="1">Dia 1 / Lista 1</option>
+                  <option value="2">Dia 2 / Lista 2</option>
+                </select>
+              </label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Componente</span>
+                <select id="sim-filter-componente" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none">
+                  <option value="todos">Todos os componentes</option>
+                  ${componentes.map(c => `<option value="${this.esc(c)}">${this.esc(c)}</option>`).join("")}
+                </select>
+              </label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Dificuldade</span>
+                <select id="sim-filter-dificuldade" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-500 focus:outline-none">
+                  <option value="todas">Todas as dificuldades</option>
+                  <option>Fácil</option>
+                  <option>Média</option>
+                  <option>Desafio</option>
+                  <option>Referência</option>
+                </select>
+              </label>
+              <label class="space-y-1.5"><span class="text-[11px] uppercase font-bold text-slate-400">Buscar</span>
+                <input id="sim-filter-busca" class="w-full bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none" placeholder="assunto, descritor..." value="${this.esc(this.state.busca)}">
+              </label>
             </div>
 
             <!-- Seletor Rápido de Questões (Pills 1..N) -->
@@ -247,14 +598,12 @@ const SimuladosView = {
             ${questoes.length > 60 ? `<p class="text-xs text-slate-400 mt-4">Mostrando 60 primeiras questões. Use os filtros para refinar o conjunto.</p>` : ""}
           </section>
 
-          <!-- Downloads e Gabarito -->
-          <section class="mt-12 grid md:grid-cols-3 lg:grid-cols-5 gap-4">
-            ${configs.map(config => this.downloadCard(config)).join("")}
-            <article class="glass-card rounded-3xl border border-amber-500/30 p-5 flex flex-col gap-4 bg-amber-950/10">
-              <div class="w-11 h-11 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30"><i data-lucide="key-round"></i></div>
-              <div><h3 class="font-black text-white">Gabarito oficial</h3><p class="text-xs text-slate-400 mt-1">PDF consolidado com as respostas dos cadernos oficiais.</p></div>
-              <a href="assets/simulados/Gabarito_Simulado_Provao_2026.pdf" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/30 text-xs font-bold text-center transition-all">Abrir gabarito</a>
-            </article>
+          <!-- Cadernos em PDF para Download -->
+          <section class="mt-12">
+            <h3 class="text-lg font-black text-white mb-4">Cadernos em PDF da Série</h3>
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+              ${visibleConfigs.map(config => this.downloadCard(config)).join("")}
+            </div>
           </section>
         </section>
       </main>`;
@@ -272,15 +621,73 @@ const SimuladosView = {
   },
 
   simuladoCard(config) {
-    return `<article class="rounded-2xl border border-slate-700 bg-dark-950/75 p-4 hover:border-brand-500/60 transition-all">
-      <div class="flex items-start justify-between gap-3">
-        <div><h3 class="font-black text-white">${this.esc(config.serie)} · Dia ${config.dia}</h3><p class="text-xs text-slate-400 mt-1 leading-relaxed">${this.esc(config.descricao)}</p></div>
-        <span class="px-2.5 py-1 rounded-lg bg-brand-500/15 text-brand-200 text-[11px] font-black border border-brand-500/30">${config.totalQuestoes}Q</span>
+    const prog = this.getSimuladoStatus(config.id);
+    const isFinished = prog.status === "finished";
+    const isDraft = prog.status === "draft";
+
+    let borderBgClass = "border-slate-700 bg-dark-950/75 hover:border-brand-500/60";
+    let statusBadge = `
+      <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-[11px] font-bold border border-slate-700 flex items-center gap-1">
+        <i data-lucide="circle-dashed" class="w-3 h-3 text-slate-400"></i>
+        <span>Pendente</span>
+      </span>
+    `;
+    let actionBtn = `
+      <a href="#simulados/prova/${config.id}" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold shadow-glow-blue transition-all inline-flex items-center gap-1.5">
+        <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Iniciar Prova Passo a Passo
+      </a>
+    `;
+
+    if (isFinished) {
+      borderBgClass = "border-emerald-500/50 bg-emerald-950/20 shadow-lg shadow-emerald-950/20";
+      statusBadge = `
+        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-[11px] font-black border border-emerald-500/40 flex items-center gap-1">
+          <i data-lucide="check-circle-2" class="w-3 h-3 text-emerald-400"></i>
+          <span>Realizado (${prog.score}%)</span>
+        </span>
+      `;
+      actionBtn = `
+        <a href="#simulados/prova/${config.id}" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-glow-emerald transition-all inline-flex items-center gap-1.5">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Refazer / Ver Prova
+        </a>
+      `;
+    } else if (isDraft) {
+      borderBgClass = "border-amber-500/50 bg-amber-950/20 shadow-lg shadow-amber-950/20";
+      statusBadge = `
+        <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 text-[11px] font-black border border-amber-500/40 flex items-center gap-1">
+          <i data-lucide="clock" class="w-3 h-3 text-amber-400"></i>
+          <span>Em Andamento (${prog.answersCount || 0} resp.)</span>
+        </span>
+      `;
+      actionBtn = `
+        <a href="#simulados/prova/${config.id}" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold shadow-lg transition-all inline-flex items-center gap-1.5">
+          <i data-lucide="play" class="w-3.5 h-3.5"></i> Continuar Simulado
+        </a>
+      `;
+    }
+
+    return `<article class="rounded-2xl border ${borderBgClass} p-4 transition-all flex flex-col justify-between">
+      <div>
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="font-black text-white text-base leading-snug">${this.esc(config.titulo || (config.serie + ' · Dia ' + config.dia))}</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">${this.esc(config.descricao)}</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-lg bg-brand-500/15 text-brand-200 text-[11px] font-black border border-brand-500/30 flex-shrink-0">${config.totalQuestoes}Q</span>
+        </div>
+        <div class="mt-3 flex items-center gap-2">
+          ${statusBadge}
+          <span class="text-[11px] text-slate-400 font-mono">${config.tempoMinutos} min max</span>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <a href="#simulados/prova/${config.id}" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold shadow-glow-blue transition-all">Iniciar Prova Passo a Passo</a>
-        <a href="${config.pdfUrl}" target="_blank" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10 transition-all">Abrir PDF</a>
-        <button type="button" data-import-simulado="${config.id}" class="px-3 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-500/25 transition-all">Importar</button>
+      <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-800">
+        ${actionBtn}
+        <a href="${config.pdfUrl}" target="_blank" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-bold border border-white/10 transition-all inline-flex items-center gap-1">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> PDF
+        </a>
+        <button type="button" data-import-simulado="${config.id}" class="px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-500/25 transition-all">
+          Importar
+        </button>
       </div>
     </article>`;
   },
@@ -288,8 +695,8 @@ const SimuladosView = {
   downloadCard(config) {
     return `<article class="glass-card rounded-3xl border border-white/10 p-5 flex flex-col gap-4">
       <div class="w-11 h-11 rounded-2xl bg-brand-500/15 text-brand-300 flex items-center justify-center border border-brand-500/25"><i data-lucide="file-text"></i></div>
-      <div><h3 class="font-black text-white">${this.esc(config.serie)} · Dia ${config.dia}</h3><p class="text-xs text-slate-400 mt-1">${config.totalQuestoes} questões · ${config.componentes.length} componentes.</p></div>
-      <a href="${config.pdfUrl}" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs font-bold text-center transition-all">Abrir / baixar PDF</a>
+      <div><h3 class="font-black text-white text-sm leading-snug">${this.esc(config.titulo || (config.serie + ' · Dia ' + config.dia))}</h3><p class="text-xs text-slate-400 mt-1">${config.totalQuestoes} questões · ${config.componentes?.length || 1} componentes.</p></div>
+      <a href="${config.pdfUrl}" target="_blank" class="mt-auto px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs font-bold text-center transition-all inline-flex items-center justify-center gap-1.5"><i data-lucide="download" class="w-3.5 h-3.5"></i> Abrir / Baixar PDF</a>
     </article>`;
   },
 
@@ -310,7 +717,7 @@ const SimuladosView = {
       <div class="flex flex-wrap items-center justify-between gap-2 mt-4 pt-3 border-t border-slate-800/80 text-[11px]">
         <div class="flex items-center gap-2">
           <span class="px-2 py-1 rounded-lg bg-slate-800/90 text-slate-300 font-mono">${taxa}</span>
-          <span class="px-2 py-1 rounded-lg bg-slate-800/90 text-slate-300 font-mono">Gabarito: ${q.respostaCorreta}</span>
+          <span class="px-2 py-1 rounded-lg bg-slate-800/90 text-slate-400 font-mono">${this.esc(q.origem || 'Oficial')}</span>
         </div>
         <button
           type="button"
@@ -324,25 +731,83 @@ const SimuladosView = {
   },
 
   bindCatalogEvents() {
-    const update = () => {
+    // 1. Dropdown Principal de Seleção de Série
+    const mainSelectSerie = document.getElementById("main-select-serie");
+    if (mainSelectSerie) {
+      mainSelectSerie.onchange = () => {
+        const serieId = mainSelectSerie.value;
+        this.state.serie = serieId;
+        const matchingConfig = window.SimuladosData.getAllConfigs().find(c => c.serieSlug === serieId);
+        if (matchingConfig) {
+          this.state.simuladoId = matchingConfig.id;
+          this.state.dia = String(matchingConfig.dia || "1");
+        }
+        this.state.currentIndex = 0;
+        this.renderCatalogo();
+      };
+    }
+
+    // 2. Dropdown Principal de Seleção de Caderno
+    const mainSelectCaderno = document.getElementById("main-select-caderno");
+    if (mainSelectCaderno) {
+      mainSelectCaderno.onchange = () => {
+        this.state.simuladoId = mainSelectCaderno.value;
+      };
+    }
+
+    // 3. Botão de Iniciar Simulado Selecionado Diretamente
+    const btnIniciarDireto = document.getElementById("btn-iniciar-caderno-selecionado");
+    if (btnIniciarDireto) {
+      btnIniciarDireto.onclick = () => {
+        const targetId = this.state.simuladoId;
+        if (targetId) {
+          window.location.hash = `#simulados/prova/${targetId}`;
+        }
+      };
+    }
+
+    // 4. Tabs Rápidas de Série no Topo
+    document.querySelectorAll("[data-select-serie]").forEach(btn => {
+      btn.onclick = () => {
+        const serieId = btn.dataset.selectSerie;
+        this.state.serie = serieId;
+        const matchingConfig = window.SimuladosData.getAllConfigs().find(c => c.serieSlug === serieId);
+        if (matchingConfig) {
+          this.state.simuladoId = matchingConfig.id;
+          this.state.dia = String(matchingConfig.dia || "1");
+        }
+        this.state.currentIndex = 0;
+        this.renderCatalogo();
+      };
+    });
+
+    // 5. Filtros da Seção de Treino
+    const updateTreino = () => {
       this.state.serie = document.getElementById("sim-filter-serie").value;
       this.state.dia = document.getElementById("sim-filter-dia").value;
       const selectedConfig = window.SimuladosData.getAllConfigs().find(config =>
-        config.serieSlug === this.state.serie && String(config.dia) === String(this.state.dia)
+        (this.state.serie === "todos" || config.serieSlug === this.state.serie) && String(config.dia) === String(this.state.dia)
       );
-      this.state.simuladoId = selectedConfig?.id || `${this.state.serie}_dia${this.state.dia}`;
+      if (selectedConfig) this.state.simuladoId = selectedConfig.id;
       this.state.componente = document.getElementById("sim-filter-componente").value;
       this.state.dificuldade = document.getElementById("sim-filter-dificuldade").value;
       this.state.busca = document.getElementById("sim-filter-busca").value.trim();
       this.state.currentIndex = 0;
       this.renderCatalogo();
     };
-    ["sim-filter-serie", "sim-filter-dia", "sim-filter-componente", "sim-filter-dificuldade"].forEach(id => document.getElementById(id)?.addEventListener("change", update));
+
+    ["sim-filter-serie", "sim-filter-dia", "sim-filter-componente", "sim-filter-dificuldade"].forEach(id => {
+      document.getElementById(id)?.addEventListener("change", updateTreino);
+    });
+
     document.getElementById("sim-filter-busca")?.addEventListener("input", () => {
       clearTimeout(this.searchTimer);
-      this.searchTimer = setTimeout(update, 250);
+      this.searchTimer = setTimeout(updateTreino, 250);
     });
-    document.querySelectorAll("[data-import-simulado]").forEach(btn => btn.onclick = () => this.importarSimulado(btn.dataset.importSimulado));
+
+    document.querySelectorAll("[data-import-simulado]").forEach(btn => {
+      btn.onclick = () => this.importarSimulado(btn.dataset.importSimulado);
+    });
 
     document.getElementById("btn-start-treino-first")?.addEventListener("click", () => {
       this.state.currentIndex = 0;
@@ -1079,16 +1544,30 @@ const SimuladosView = {
     this.currentSimuladoId = config.id;
     this.state.answers = JSON.parse(localStorage.getItem(`simulado_answers_${config.id}`) || "{}");
     this.state.currentIndex = 0;
-    this.state.startedAt = new Date().toISOString();
+
+    const keyStarted = `simulado_started_${config.id}`;
+    let savedStarted = localStorage.getItem(keyStarted);
+    if (!savedStarted) {
+      savedStarted = new Date().toISOString();
+      localStorage.setItem(keyStarted, savedStarted);
+    }
+    this.state.startedAt = savedStarted;
     this.loadedCloudFor = null;
     this.carregarProgressoNuvem(config.id);
-    this.state.remainingSeconds = config.tempoMinutos * 60;
+
+    const totalSeconds = (config.tempoMinutos || 120) * 60;
+    const elapsedSeconds = Math.max(0, Math.floor((Date.now() - new Date(savedStarted).getTime()) / 1000));
+    this.state.remainingSeconds = Math.max(0, totalSeconds - elapsedSeconds);
+
     clearInterval(this.state.timer);
     this.state.timer = setInterval(() => {
       this.state.remainingSeconds -= 1;
       const timer = document.getElementById("sim-timer");
       if (timer) timer.textContent = this.formatTime(this.state.remainingSeconds);
-      if (this.state.remainingSeconds <= 0) this.finishSimulado();
+      if (this.state.remainingSeconds <= 0) {
+        clearInterval(this.state.timer);
+        this.finishSimulado({ autoSubmit: true });
+      }
     }, 1000);
   },
 
@@ -1191,7 +1670,7 @@ const SimuladosView = {
     this.state.secureMode = false;
   },
 
-  finishSimulado() {
+  finishSimulado({ autoSubmit = false } = {}) {
     const config = this.getSelectedConfig();
     const identity = this.getSimuladoIdentity(config.id);
     if (!identity) {
@@ -1203,13 +1682,36 @@ const SimuladosView = {
     const missingQuestions = questoes
       .filter(q => !this.state.answers[q.id])
       .map(q => q.numero);
-    if (missingQuestions.length > 0) {
+    if (missingQuestions.length > 0 && !autoSubmit) {
       alert(`Responda todas as questões antes de enviar. Faltam: ${missingQuestions.map(n => `Q${String(n).padStart(2, "0")}`).join(", ")}`);
       const firstMissing = questoes.findIndex(q => !this.state.answers[q.id]);
       if (firstMissing >= 0) this.state.currentIndex = firstMissing;
       return this.renderProva(config.id);
     }
+
+    if (!autoSubmit) {
+      const keyStarted = `simulado_started_${config.id}`;
+      const savedStarted = localStorage.getItem(keyStarted) || this.state.startedAt || new Date().toISOString();
+      const tempoGastoSegundos = Math.max(0, Math.floor((Date.now() - new Date(savedStarted).getTime()) / 1000));
+      const tempoMinimoSegundos = 30 * 60; // 30 minutos
+
+      if (tempoGastoSegundos < tempoMinimoSegundos) {
+        const minutosGastos = Math.floor(tempoGastoSegundos / 60);
+        const confirmRapido = confirm(`Não acha que foi rápido demais? Melhor revisar.\n\nVocê realizou apenas ${minutosGastos} minuto(s) de avaliação. O tempo mínimo recomendado é de 30 minutos.\n\nDeseja realmente entregar agora ou prefere revisar suas respostas?`);
+        if (!confirmRapido) {
+          return;
+        }
+      }
+
+      const answeredTotal = Object.keys(this.state.answers).filter(k => !!this.state.answers[k]).length;
+      const confirmMsg = `Você respondeu ${answeredTotal} de ${questoes.length} questões. Deseja enviar definitivamente o seu simulado?`;
+      if (!confirm(confirmMsg)) {
+        return;
+      }
+    }
+
     clearInterval(this.state.timer);
+    try { localStorage.removeItem(`simulado_started_${config.id}`); } catch (_) {}
     const porComponente = {};
     let acertos = 0;
     questoes.forEach(q => {

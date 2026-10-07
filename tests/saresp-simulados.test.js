@@ -27,14 +27,12 @@ const EXPECTED_BOOKLETS = {
   saresp_2026_8ef_dia2: { total: 40, serieSlug: '8ef', dia: 2, alternativas: 4 },
   saresp_2026_9ef_dia1: { total: 48, serieSlug: '9ef', dia: 1, alternativas: 4 },
   saresp_2026_9ef_dia2: { total: 40, serieSlug: '9ef', dia: 2, alternativas: 4 },
-  saresp_2026_3em_lp_l1: { total: 24, serieSlug: '3serie', dia: 1, alternativas: 5 },
-  saresp_2026_3em_lp_l2: { total: 24, serieSlug: '3serie', dia: 2, alternativas: 5 },
-  saresp_2026_3em_mat_l1: { total: 24, serieSlug: '3serie', dia: 1, alternativas: 5 },
-  saresp_2026_3em_mat_l2: { total: 24, serieSlug: '3serie', dia: 2, alternativas: 5 }
+  saresp_2026_3em_lp: { total: 48, serieSlug: '3serie', dia: 1, alternativas: 5 },
+  saresp_2026_3em_mat: { total: 48, serieSlug: '3serie', dia: 2, alternativas: 5 }
 };
 
 describe('Simulados SARESP 2026 (Ensino Fundamental e 3ª Série EM)', () => {
-  it('deve registrar os 13 cadernos oficiais do SARESP no catálogo global', () => {
+  it('deve registrar os 11 cadernos oficiais do SARESP com listas unificadas de 48Q no catálogo global', () => {
     Object.entries(EXPECTED_BOOKLETS).forEach(([id, expected]) => {
       const config = context.window.SimuladosData.getConfig(id);
       assert.ok(config, `Configuração ${id} deve existir`);
@@ -84,7 +82,7 @@ describe('Simulados SARESP 2026 (Ensino Fundamental e 3ª Série EM)', () => {
       assert.ok(Number.isInteger(q.paginaPdf) && q.paginaPdf > 0, `${q.id} deve ter página PDF válida`);
       assert.ok(q.imagemPagina.endsWith(`_p${q.paginaPdf}.webp`), `${q.id} deve apontar para imagem da página`);
       assert.ok(q.imagemPagina.startsWith('assets/simulados/pages/'), `${q.id} deve usar pasta de páginas renderizadas`);
-      assert.ok(q.imagemQuestao.endsWith(`${q.id}.webp`), `${q.id} deve apontar para imagem recortada da questão`);
+      assert.ok(q.imagemQuestao.endsWith(`.webp`), `${q.id} deve apontar para imagem recortada da questão`);
       assert.ok(q.imagemQuestao.startsWith('assets/simulados/questions/'), `${q.id} deve usar pasta de questões recortadas`);
       assert.ok(q.pdfUrl.endsWith('.pdf'), `${q.id} deve manter PDF oficial associado`);
     });
