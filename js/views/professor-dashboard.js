@@ -143,11 +143,11 @@ const ProfessorDashboardView = {
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
               <div>
                 <h3 class="text-base font-black text-white">Relatório por sala</h3>
-                <p class="text-xs text-slate-500 mt-1">Quem entregou, quem está fazendo e quem ainda não começou. As listas de alunos ficam só neste computador.</p>
+                <p class="text-xs text-slate-500 mt-1">Quem entregou, quem está fazendo e quem ainda não começou. As listas de alunos ficam visíveis só para professores.</p>
               </div>
               <div class="flex flex-wrap gap-2 items-center">
                 <label class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold cursor-pointer">
-                  Carregar listas das salas (CSV)
+                  Atualizar listas das salas (CSV)
                   <input id="rel-salas-arquivos" type="file" accept=".csv" multiple class="hidden" onchange="ProfessorDashboardView.carregarListasSalas(this.files)">
                 </label>
                 <select id="rel-salas-prova" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white max-w-[260px]"></select>
@@ -456,11 +456,16 @@ const ProfessorDashboardView = {
 
   // ===== Relatório por sala =====
   lerListasSalas() {
-    try { return JSON.parse(localStorage.getItem("relatorio_salas") || "{}"); } catch (_) { return {}; }
+    return this._salas || {};
+  },
+
+  async carregarSalasDaNuvem() {
+    try { this._salas = await DB.lerTurmas(); } catch (e) { console.warn("Erro ao ler salas:", e); this._salas = this._salas || {}; }
+    return this._salas;
   },
 
   async carregarListasSalas(files) {
-    const salas = this.lerListasSalas();
+    const salas = { ...(await this.carregarSalasDaNuvem()) };
     for (const file of files) {
       const sala = file.name.replace(/\.csv$/i, "").trim();
       const texto = (await file.text()).replace(/^﻿/, "");
@@ -472,11 +477,20 @@ const ProfessorDashboardView = {
         return { nome: c[iNome] || "", ra: c[iRa] || "", email: String(c[iEmail] || "").toLowerCase() };
       }).filter((a) => a.email || a.ra);
     }
-    try { localStorage.setItem("relatorio_salas", JSON.stringify(salas)); } catch (_) {}
+    const info = document.getElementById("rel-salas-info");
+    if (info) info.innerText = "Salvando listas para todos os professores...";
+    try {
+      await DB.salvarTurmas(salas);
+      this._salas = salas;
+    } catch (e) {
+      if (info) info.innerText = "Erro ao salvar as listas: " + (e.message || e);
+      return;
+    }
     this.prepararRelatorioSalas();
   },
 
-  prepararRelatorioSalas() {
+  async prepararRelatorioSalas(recarregar = false) {
+    if (recarregar || !this._salas) await this.carregarSalasDaNuvem();
     const sel = document.getElementById("rel-salas-prova");
     const info = document.getElementById("rel-salas-info");
     if (!sel) return;
@@ -489,7 +503,7 @@ const ProfessorDashboardView = {
     const nomes = Object.keys(salas).sort();
     if (info) info.innerText = nomes.length
       ? `Salas carregadas: ${nomes.map((n) => `${n} (${salas[n].length})`).join(" · ")}`
-      : "Nenhuma sala carregada. Clique em \"Carregar listas das salas\" e escolha os arquivos 1A.csv, 1B.csv... da pasta cadastro-alunos.";
+      : "Nenhuma sala cadastrada. Clique em \"Atualizar listas das salas\" e escolha os arquivos 1A.csv, 1B.csv... da pasta cadastro-alunos.";
   },
 
   async gerarRelatorioSalas() {
@@ -596,7 +610,7 @@ const ProfessorDashboardView = {
         console.warn("Erro ao carregar resultados dos simulados:", simError);
       }
       this.atividades = atividades;
-      this.prepararRelatorioSalas();
+      this.prepararRelatorioSalas(true);
       this.submissoes = submissoes;
       this.mostrarContagemSeries();
       this.renderEmAndamento(atividades).catch((e) => console.warn("Erro ao carregar provas em andamento:", e));
