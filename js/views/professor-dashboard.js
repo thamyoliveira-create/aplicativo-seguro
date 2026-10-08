@@ -510,7 +510,8 @@ const ProfessorDashboardView = {
       const m = id.match(/^(\d)serie_dia(\d)$/);
       return m ? `Simulado ENEM · ${m[1]}ª Série · ${m[2]}º Dia (antigo)` : id;
     };
-    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])];
+    const ocultos = window.SimuladosData?.OCULTOS || [];
+    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])].filter((i) => !ocultos.includes(i));
     ids.sort((a, b) => ((cont[b]?.e || 0) + (cont[b]?.f || 0)) - ((cont[a]?.e || 0) + (cont[a]?.f || 0)));
     const sims = ids.map((id) => {
       const n = cont[id];
@@ -593,7 +594,7 @@ const ProfessorDashboardView = {
       const idSel = prova.replace(/^(sim|serie):/, "");
       const prefixo = idSel.startsWith("saresp") ? `saresp_2026_${mSerie[1]}em` : `${mSerie[1]}serie_dia`;
       const ids = new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.values(porAluno).flatMap((o) => Object.keys(o))]);
-      colunas = [...ids].filter((i) => i.startsWith(prefixo)).sort();
+      colunas = [...ids].filter((i) => i.startsWith(prefixo) && !(window.SimuladosData?.OCULTOS || []).includes(i)).sort();
     }
     const rotulo = (id) => {
       const m = id.match(/dia(\d)$/); if (m) return `Dia ${m[1]}`;

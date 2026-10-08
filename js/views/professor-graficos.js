@@ -67,7 +67,8 @@ const ProfessorGraficosView = {
     // Simulados com entregas primeiro
     const cont = {};
     this.dados.fin.forEach((p) => { cont[p.simuladoId] = (cont[p.simuladoId] || 0) + 1; });
-    const ids = Object.keys(cont).sort((a, b) => cont[b] - cont[a]);
+    const ocultos = window.SimuladosData?.OCULTOS || [];
+    const ids = Object.keys(cont).filter((i) => !ocultos.includes(i)).sort((a, b) => cont[b] - cont[a]);
     const sel = document.getElementById("graf-sim");
     if (!ids.length) { document.getElementById("graf-conteudo").innerHTML = "Ainda não há simulados entregues."; return; }
     sel.innerHTML = ids.map((id) => `<option value="${id}">${this.esc(this.nomeSim(id))} — ${cont[id]} entregas</option>`).join("");
