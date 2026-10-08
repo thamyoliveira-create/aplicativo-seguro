@@ -9,6 +9,25 @@ const PortalAuth = {
     return window.FirebaseAPI;
   },
 
+  // E-mail de aluno padronizado: "0000" + RA sem zeros à esquerda + dígito + "sp@..."
+  // Assim "000112350142-7", "0112350142-7" ou "112350142-7" viram a mesma conta.
+  canonicalStudentEmail(email) {
+    const e = String(email || "").trim().toLowerCase();
+    const [local, dom] = e.split("@");
+    const m = /^0*(\d+[0-9x])(sp)?$/.exec(local || "");
+    if (!dom || !dom.endsWith("educacao.sp.gov.br") || !m) return e;
+    return `0000${m[1]}sp@${dom}`;
+  },
+
+  // Variações antigas do mesmo aluno (contas criadas com 3 zeros ou sem "sp")
+  studentEmailVariants(email) {
+    const c = this.canonicalStudentEmail(email);
+    const [local, dom] = c.split("@");
+    if (!dom || !local.startsWith("0000")) return [c];
+    const corpo = local.slice(4, -2); // RA + dígito
+    return [...new Set([c, `000${corpo}sp@${dom}`, `0000${corpo}@${dom}`, `000${corpo}@${dom}`])];
+  },
+
   normalizeEmail(email) {
     return String(email || "").trim().toLowerCase();
   },
@@ -178,7 +197,8 @@ const PortalAuth = {
 
   async register({ email, password, displayName, role }) {
     const F = await this.api();
-    const normalized = this.validateEmail(email, role);
+    let normalized = this.validateEmail(email, role);
+    if (role === "student") normalized = this.canonicalStudentEmail(normalized);
     if (String(password || "").length < 8) throw new Error("Use uma senha com pelo menos 8 caracteres.");
     if (!String(displayName || "").trim()) throw new Error("Informe seu nome completo.");
 
@@ -197,7 +217,20 @@ const PortalAuth = {
     const normalized = this.validateEmail(email, role);
 
     try {
-      const credential = await F.signInWithEmailAndPassword(F.auth, normalized, password);
+      const tentativas = role === "student" ? this.studentEmailVariants(normalized) : [normalized];
+      let credential = null;
+      let ultimoErro = null;
+      for (const tentativa of tentativas) {
+        try {
+          credential = await F.signInWithEmailAndPassword(F.auth, tentativa, password);
+          break;
+        } catch (err) {
+          ultimoErro = err;
+          const semConta = ["auth/user-not-found", "auth/invalid-credential", "auth/invalid-login-credentials", "auth/wrong-password"].includes(err?.code);
+          if (!semConta) throw err;
+        }
+      }
+      if (!credential) throw ultimoErro;
       await credential.user.reload();
 
       if (this.roleFromEmail(credential.user.email) !== role) {
