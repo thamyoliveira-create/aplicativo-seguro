@@ -197,6 +197,7 @@ const SimuladosView = {
         <section class="glass-card rounded-3xl p-8 max-w-xl text-center border border-slate-700">
           <h1 class="text-2xl font-black text-white">Sua série ainda não foi liberada</h1>
           <p class="text-slate-300 mt-3">Peça para a professora cadastrar o seu RA. Depois, recarregue esta página.</p>
+          <p class="text-slate-400 text-xs mt-3 font-mono">Conta: ${this.esc((StudentAuth.user && StudentAuth.user.email) || "")}</p>
           <a href="#" class="inline-flex mt-6 px-5 py-3 rounded-2xl bg-brand-600 text-white font-bold shadow-glow-blue">Voltar ao início</a>
         </section>
       </main>`;
