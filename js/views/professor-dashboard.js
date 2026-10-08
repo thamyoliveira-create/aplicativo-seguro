@@ -474,7 +474,7 @@ const ProfessorDashboardView = {
       const iNome = cab.indexOf("nome"), iEmail = cab.indexOf("email"), iRa = cab.indexOf("ra");
       salas[sala] = linhas.map((l) => {
         const c = (l.match(/("([^"]*)"|[^,]*)(,|$)/g) || []).map((x) => x.replace(/,$/, "").replace(/^"|"$/g, "").trim());
-        return { nome: c[iNome] || "", ra: c[iRa] || "", email: String(c[iEmail] || "").toLowerCase() };
+        return { nome: c[iNome] || "", ra: c[iRa] || "", email: DB.emailPadrao(c[iEmail] || "") };
       }).filter((a) => a.email || a.ra);
     }
     const info = document.getElementById("rel-salas-info");
@@ -539,7 +539,7 @@ const ProfessorDashboardView = {
         const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
         porAluno = {};
         const reg = (p, tipoReg) => {
-          const e = String(p.studentEmail).toLowerCase();
+          const e = DB.emailPadrao(p.studentEmail);
           porAluno[e] = porAluno[e] || {};
           if (tipoReg === "fazendo" && porAluno[e][p.simuladoId]) return;
           const r = p.result || {};
@@ -549,12 +549,12 @@ const ProfessorDashboardView = {
         };
         and.forEach((p) => reg(p, "fazendo"));
         fin.forEach((p) => reg(p, "entregou"));
-        and.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "fazendo"; });
-        fin.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "entregou"; });
+        and.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "fazendo"; });
+        fin.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "entregou"; });
       } else {
         const subs = await DB.getSubmissoes(id, true);
         subs.forEach((s) => {
-          const e = String(s.alunoEmail).toLowerCase();
+          const e = DB.emailPadrao(s.alunoEmail);
           if (s.status === "in_progress") { if (!status[e]) status[e] = "fazendo"; } else status[e] = "entregou";
         });
       }
@@ -584,12 +584,12 @@ const ProfessorDashboardView = {
     const tabela = (alunos) => `<div class="overflow-x-auto"><table class="w-full text-left text-[11px]">
       <thead><tr class="text-slate-400"><th class="py-1 pr-3">Aluno</th>${colunas.map((c) => `<th class="py-1 pr-3">${esc(rotulo(c))}</th>`).join("")}</tr></thead>
       <tbody>${[...alunos].sort((a, b) => a.nome.localeCompare(b.nome)).map((a) => `<tr class="border-t border-slate-800">
-        <td class="py-1 pr-3 text-slate-200">${esc(a.nome)}</td>${colunas.map((c) => `<td class="py-1 pr-3">${celula((porAluno[a.email] || {})[c])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+        <td class="py-1 pr-3 text-slate-200">${esc(a.nome)}</td>${colunas.map((c) => `<td class="py-1 pr-3">${celula((porAluno[DB.emailPadrao(a.email)] || {})[c])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     out.innerHTML = nomesSalas.map((sala) => {
       const alunos = salas[sala];
-      const ent = alunos.filter((a) => status[a.email] === "entregou");
-      const faz = alunos.filter((a) => status[a.email] === "fazendo");
-      const nao = alunos.filter((a) => !status[a.email]);
+      const ent = alunos.filter((a) => status[DB.emailPadrao(a.email)] === "entregou");
+      const faz = alunos.filter((a) => status[DB.emailPadrao(a.email)] === "fazendo");
+      const nao = alunos.filter((a) => !status[DB.emailPadrao(a.email)]);
       const lista = (arr, cor) => arr.length ? arr.map((a) => `<span class="inline-block px-2 py-0.5 m-0.5 rounded-lg ${cor}">${esc(a.nome)}</span>`).join("") : `<span class="text-slate-500">ninguém</span>`;
       return `<details class="rounded-2xl bg-dark-900 border border-slate-800 p-3" ${nao.length ? "" : ""}>
         <summary class="cursor-pointer flex flex-wrap items-center gap-3">
@@ -610,11 +610,11 @@ const ProfessorDashboardView = {
 
   // Nome e sala oficiais (lista da SED) a partir do e-mail do aluno
   nomeDaTurma(email) {
-    const e = String(email || "").toLowerCase();
+    const e = DB.emailPadrao(email);
     if (!this._salas || !e) return null;
     if (!this._indiceSalas || this._indiceSalasRef !== this._salas) {
       this._indiceSalas = {};
-      Object.entries(this._salas).forEach(([sala, al]) => al.forEach((a) => { this._indiceSalas[a.email] = { nome: a.nome, sala }; }));
+      Object.entries(this._salas).forEach(([sala, al]) => al.forEach((a) => { this._indiceSalas[DB.emailPadrao(a.email)] = { nome: a.nome, sala }; }));
       this._indiceSalasRef = this._salas;
     }
     return this._indiceSalas[e] || null;
