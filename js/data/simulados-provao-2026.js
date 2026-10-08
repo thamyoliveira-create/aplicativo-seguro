@@ -8014,7 +8014,9 @@ const SimuladosData = {
   },
 
   getAllConfigs() {
-    return Object.values(SIMULADOS_CONFIG).filter((c) => !this.OCULTOS.includes(c.id));
+    // Sem duplicados (apelidos _l1/_l2 apontam para a mesma prova)
+    const vistos = new Set();
+    return Object.values(SIMULADOS_CONFIG).filter((c) => !this.OCULTOS.includes(c.id) && !vistos.has(c.id) && vistos.add(c.id));
   },
 
   getQuestoesPorSimulado(simuladoId) {
