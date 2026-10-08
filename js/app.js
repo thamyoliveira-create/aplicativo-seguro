@@ -74,6 +74,8 @@ const App = {
           preview: parts[3] === "visualizar" || parts[3] === "editar",
           edit: parts[3] === "editar"
         });
+      } else if (parts[1] === "graficos") {
+        await ProfessorGraficosView.render();
       } else if (parts[1] === "configuracoes") {
         await ProfessorConfiguracoesView.render();
       } else {
