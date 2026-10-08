@@ -140,18 +140,24 @@ const ProfessorDashboardView = {
           </section>
 
           <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
-            <h3 class="text-base font-black text-white">Séries dos alunos</h3>
-            <p class="text-xs text-slate-500 mt-1">Cole os RAs (com dígito, um por linha). Cada aluno só verá os simulados da série dele.</p>
-            <div class="grid md:grid-cols-[180px_1fr_auto] gap-3 mt-4 items-start">
-              <select id="serie-alunos-select" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white">
-                <option value="1serie">1ª Série EM</option><option value="2serie">2ª Série EM</option><option value="3serie">3ª Série EM</option>
-                <option value="9ef">9º Ano EF</option><option value="8ef">8º Ano EF</option><option value="7ef">7º Ano EF</option>
-                <option value="6ef">6º Ano EF</option><option value="5ef">5º Ano EF</option>
-              </select>
-              <textarea id="serie-alunos-ras" rows="3" placeholder="123456789-0" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono"></textarea>
-              <button onclick="ProfessorDashboardView.salvarSeriesAlunos()" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Salvar RAs</button>
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+              <div>
+                <h3 class="text-base font-black text-white">Relatório por sala</h3>
+                <p class="text-xs text-slate-500 mt-1">Quem entregou, quem está fazendo e quem ainda não começou. As listas de alunos ficam visíveis só para professores.</p>
+              </div>
+              <div class="flex flex-wrap gap-2 items-center">
+                <label class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold cursor-pointer">
+                  Atualizar listas das salas (CSV)
+                  <input id="rel-salas-arquivos" type="file" accept=".csv" multiple class="hidden" onchange="ProfessorDashboardView.carregarListasSalas(this.files)">
+                </label>
+                <select id="rel-salas-prova" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white max-w-[260px]"></select>
+                <button onclick="ProfessorDashboardView.gerarRelatorioSalas()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Gerar relatório</button>
+                <button onclick="ProfessorDashboardView.exportarRelatorioCSV()" class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold">Baixar planilha</button>
+                <button onclick="ProfessorDashboardView.imprimirRelatorio()" class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold">Imprimir</button>
+              </div>
             </div>
-            <p id="serie-alunos-status" class="text-[11px] text-slate-400 mt-3"></p>
+            <p id="rel-salas-info" class="text-[11px] text-slate-400 mt-3"></p>
+            <div id="rel-salas-resultado" class="mt-4 space-y-3 text-xs"></div>
           </section>
 
           <section class="grid lg:grid-cols-2 gap-6">
@@ -435,7 +441,6 @@ const ProfessorDashboardView = {
       const r = await DB.salvarSeriesAlunos(serie, ras);
       document.getElementById("serie-alunos-ras").value = r.invalidos.join("\n");
       status.innerText = `${r.salvos} aluno(s) salvos.` + (r.invalidos.length ? ` ${r.invalidos.length} RA(s) inválidos ficaram na caixa para corrigir.` : "");
-      this.mostrarContagemSeries();
     } catch (e) {
       status.innerText = "Erro ao salvar: " + (e.message || e);
     }
@@ -449,6 +454,240 @@ const ProfessorDashboardView = {
       const txt = Object.entries(c).map(([k, v]) => `${k}: ${v}`).join(" · ");
       status.innerText = (status.innerText ? status.innerText + "  |  " : "") + "Cadastrados → " + (txt || "nenhum");
     } catch (_) {}
+  },
+
+  // ===== Relatório por sala =====
+  lerListasSalas() {
+    return this._salas || {};
+  },
+
+  async carregarSalasDaNuvem() {
+    try { this._salas = await DB.lerTurmas(); } catch (e) { console.warn("Erro ao ler salas:", e); this._salas = this._salas || {}; }
+    return this._salas;
+  },
+
+  async carregarListasSalas(files) {
+    const salas = { ...(await this.carregarSalasDaNuvem()) };
+    for (const file of files) {
+      const sala = file.name.replace(/\.csv$/i, "").trim();
+      const texto = (await file.text()).replace(/^﻿/, "");
+      const linhas = texto.split(/\r?\n/).filter((l) => l.trim());
+      const cab = linhas.shift().split(",").map((c) => c.replace(/"/g, "").trim().toLowerCase());
+      const iNome = cab.indexOf("nome"), iEmail = cab.indexOf("email"), iRa = cab.indexOf("ra");
+      salas[sala] = linhas.map((l) => {
+        const c = (l.match(/("([^"]*)"|[^,]*)(,|$)/g) || []).map((x) => x.replace(/,$/, "").replace(/^"|"$/g, "").trim());
+        return { nome: c[iNome] || "", ra: c[iRa] || "", email: DB.emailPadrao(c[iEmail] || "") };
+      }).filter((a) => a.email || a.ra);
+    }
+    const info = document.getElementById("rel-salas-info");
+    if (info) info.innerText = "Salvando listas para todos os professores...";
+    try {
+      await DB.salvarTurmas(salas);
+      this._salas = salas;
+    } catch (e) {
+      if (info) info.innerText = "Erro ao salvar as listas: " + (e.message || e);
+      return;
+    }
+    this.prepararRelatorioSalas();
+  },
+
+  async prepararRelatorioSalas(recarregar = false) {
+    if (recarregar || !this._salas) await this.carregarSalasDaNuvem();
+    const sel = document.getElementById("rel-salas-prova");
+    const info = document.getElementById("rel-salas-info");
+    if (!sel) return;
+    // Conta entregas por simulado e coloca primeiro os que já têm entregas
+    let cont = {};
+    try {
+      const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
+      fin.forEach((p) => { cont[p.simuladoId] = cont[p.simuladoId] || { e: 0, f: 0 }; cont[p.simuladoId].e++; });
+      and.forEach((p) => { cont[p.simuladoId] = cont[p.simuladoId] || { e: 0, f: 0 }; cont[p.simuladoId].f++; });
+    } catch (_) {}
+    const nomeSim = (id) => {
+      const c = window.SimuladosData?.getAllConfigs().find((x) => x.id === id);
+      if (c) return c.titulo || id;
+      const m = id.match(/^(\d)serie_dia(\d)$/);
+      return m ? `Simulado ENEM · ${m[1]}ª Série · ${m[2]}º Dia (antigo)` : id;
+    };
+    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])];
+    ids.sort((a, b) => ((cont[b]?.e || 0) + (cont[b]?.f || 0)) - ((cont[a]?.e || 0) + (cont[a]?.f || 0)));
+    const sims = ids.map((id) => {
+      const n = cont[id];
+      const extra = n ? ` — ${n.e} entregas${n.f ? `, ${n.f} fazendo` : ""}` : "";
+      return `<option value="sim:${id}">${nomeSim(id)}${extra}</option>`;
+    });
+    const atvs = (this.atividades || []).map((a) => `<option value="atv:${a.id}">Atividade: ${String(a.titulo || a.id).replace(/</g, "")}</option>`);
+    const atual = sel.value;
+    sel.innerHTML = [...sims, ...atvs].join("");
+    if (atual) sel.value = atual;
+    const salas = this.lerListasSalas();
+    const nomes = Object.keys(salas).sort();
+    if (info) info.innerText = nomes.length
+      ? `Salas carregadas: ${nomes.map((n) => `${n} (${salas[n].length})`).join(" · ")}`
+      : "Nenhuma sala cadastrada. Clique em \"Atualizar listas das salas\" e escolha os arquivos 1A.csv, 1B.csv... da pasta cadastro-alunos.";
+  },
+
+  async gerarRelatorioSalas() {
+    const out = document.getElementById("rel-salas-resultado");
+    const prova = document.getElementById("rel-salas-prova").value;
+    const salas = this.lerListasSalas();
+    if (!Object.keys(salas).length) { out.innerHTML = `<p class="text-amber-300">Carregue as listas das salas primeiro.</p>`; return; }
+    out.innerHTML = `<p class="text-slate-400">Buscando entregas...</p>`;
+    const status = {}; // email -> "entregou" | "fazendo"
+    let porAluno = null; // email -> { simuladoId: {nota, acertos, total} | {fazendo} }
+    try {
+      const [tipo, id] = prova.split(/:(.*)/s);
+      if (tipo === "sim") {
+        const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
+        porAluno = {};
+        const reg = (p, tipoReg) => {
+          const e = DB.emailPadrao(p.studentEmail);
+          porAluno[e] = porAluno[e] || {};
+          if (tipoReg === "fazendo" && porAluno[e][p.simuladoId]) return;
+          const r = p.result || {};
+          porAluno[e][p.simuladoId] = tipoReg === "fazendo" ? { fazendo: true } : {
+            nota: r.score ?? null, acertos: r.totalAcertos ?? null, total: r.totalQuestoes ?? null, answers: p.answers || r.answers || {}
+          };
+        };
+        and.forEach((p) => reg(p, "fazendo"));
+        fin.forEach((p) => reg(p, "entregou"));
+        and.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "fazendo"; });
+        fin.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "entregou"; });
+      } else {
+        const subs = await DB.getSubmissoes(id, true);
+        subs.forEach((s) => {
+          const e = DB.emailPadrao(s.alunoEmail);
+          if (s.status === "in_progress") { if (!status[e]) status[e] = "fazendo"; } else status[e] = "entregou";
+        });
+      }
+    } catch (e) {
+      out.innerHTML = `<p class="text-rose-400">Erro ao buscar entregas: ${String(e.message || e).replace(/</g, "")}</p>`; return;
+    }
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    // Simulado de uma série: mostra só as salas daquela série (ex.: 2serie -> 2A, 2B...)
+    let nomesSalas = Object.keys(salas).sort();
+    const mSerie = prova.match(/^sim:(\d)serie/) || prova.match(/^sim:saresp_2026_(\d)em/);
+    if (mSerie) nomesSalas = nomesSalas.filter((n) => n.startsWith(mSerie[1]));
+    // Colunas: os simulados da mesma série (ex.: Dia 1 e Dia 2)
+    let colunas = [];
+    if (porAluno && mSerie) {
+      const idSel = prova.slice(4);
+      const prefixo = idSel.startsWith("saresp") ? `saresp_2026_${mSerie[1]}em` : `${mSerie[1]}serie_dia`;
+      const ids = new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.values(porAluno).flatMap((o) => Object.keys(o))]);
+      colunas = [...ids].filter((i) => i.startsWith(prefixo)).sort();
+    }
+    const rotulo = (id) => {
+      const m = id.match(/dia(\d)$/); if (m) return `Dia ${m[1]}`;
+      if (/_lp$/.test(id)) return "Português"; if (/_mat$/.test(id)) return "Matemática"; return id;
+    };
+    const celula = (r) => !r ? `<span class="text-slate-600">—</span>`
+      : r.fazendo ? `<span class="text-amber-300">fazendo</span>`
+      : `<span class="text-emerald-300 font-bold">${r.nota ?? "?"}%</span>${r.acertos != null ? ` <span class="text-slate-400">(${r.acertos}/${r.total})</span>` : ""}`;
+    const tabela = (alunos) => `<div class="overflow-x-auto"><table class="w-full text-left text-[11px]">
+      <thead><tr class="text-slate-400"><th class="py-1 pr-3">Aluno</th>${colunas.map((c) => `<th class="py-1 pr-3">${esc(rotulo(c))}</th>`).join("")}</tr></thead>
+      <tbody>${[...alunos].sort((a, b) => a.nome.localeCompare(b.nome)).map((a) => `<tr class="border-t border-slate-800">
+        <td class="py-1 pr-3 text-slate-200">${esc(a.nome)}</td>${colunas.map((c) => `<td class="py-1 pr-3">${celula((porAluno[DB.emailPadrao(a.email)] || {})[c])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    // Desempenho por sala no simulado escolhido (média e questões mais difíceis)
+    const idSimSel = prova.startsWith("sim:") ? prova.slice(4) : null;
+    const questoesSel = idSimSel ? (window.SimuladosData?.getQuestoesPorSimulado(idSimSel) || []) : [];
+    const desempenho = (alunos) => {
+      if (!porAluno || !idSimSel) return null;
+      const res = alunos.map((a) => (porAluno[DB.emailPadrao(a.email)] || {})[idSimSel]).filter((r) => r && !r.fazendo);
+      if (!res.length) return null;
+      const notas = res.map((r) => Number(r.nota)).filter((n) => !isNaN(n));
+      const media = notas.length ? Math.round(notas.reduce((x, y) => x + y, 0) / notas.length) : null;
+      const porQ = questoesSel.map((q) => {
+        const resp = res.filter((r) => r.answers && r.answers[q.id] != null);
+        const certos = resp.filter((r) => String(r.answers[q.id]).toUpperCase() === String(q.respostaCorreta).toUpperCase()).length;
+        return { n: q.numero, comp: q.componente || "", pct: resp.length ? Math.round((certos / resp.length) * 100) : null };
+      }).filter((x) => x.pct != null);
+      const faceis = porQ.filter((x) => x.pct >= 70).length, medias = porQ.filter((x) => x.pct >= 40 && x.pct < 70).length, dificeis = porQ.filter((x) => x.pct < 40).length;
+      const piores = [...porQ].sort((a, b) => a.pct - b.pct).slice(0, 6);
+      return { media, faceis, medias, dificeis, piores, porQ, n: res.length };
+    };
+    this._ultimoRelatorio = { prova, provaNome: document.getElementById("rel-salas-prova").selectedOptions[0]?.text || prova, colunas, rotulo, nomesSalas, salas, porAluno, status, desempenho };
+    out.innerHTML = nomesSalas.map((sala) => {
+      const alunos = salas[sala];
+      const d = desempenho(alunos);
+      const blocoD = d ? `<div class="rounded-xl bg-slate-950/60 border border-slate-800 p-2 mb-2 text-[11px]">
+          <span class="font-bold text-white">Média da sala: ${d.media ?? "-"}%</span> <span class="text-slate-500">(${d.n} entregas)</span> ·
+          <span class="text-emerald-300">${d.faceis} fáceis</span> · <span class="text-amber-300">${d.medias} médias</span> · <span class="text-rose-300">${d.dificeis} difíceis</span>
+          <div class="mt-1 text-slate-300">Mais erradas: ${d.piores.map((x) => `Q${x.n} (${x.pct}% acerto)`).join(", ")}</div></div>` : "";
+      const ent = alunos.filter((a) => status[DB.emailPadrao(a.email)] === "entregou");
+      const faz = alunos.filter((a) => status[DB.emailPadrao(a.email)] === "fazendo");
+      const nao = alunos.filter((a) => !status[DB.emailPadrao(a.email)]);
+      const lista = (arr, cor) => arr.length ? arr.map((a) => `<span class="inline-block px-2 py-0.5 m-0.5 rounded-lg ${cor}">${esc(a.nome)}</span>`).join("") : `<span class="text-slate-500">ninguém</span>`;
+      return `<details class="rounded-2xl bg-dark-900 border border-slate-800 p-3" ${nao.length ? "" : ""}>
+        <summary class="cursor-pointer flex flex-wrap items-center gap-3">
+          <span class="font-black text-white text-sm">${esc(sala)}</span>
+          <span class="text-emerald-400 font-bold">${ent.length} entregaram</span>
+          <span class="text-amber-300 font-bold">${faz.length} fazendo</span>
+          <span class="text-rose-400 font-bold">${nao.length} não começaram</span>
+          <span class="text-slate-500">de ${alunos.length}</span>
+          ${d && d.media != null ? `<span class="text-white font-bold">média ${d.media}%</span>` : ""}
+        </summary>
+        <div class="mt-3 space-y-2">${blocoD}${colunas.length ? tabela(alunos) : `
+          <div><div class="text-rose-400 font-bold mb-1">Não começaram</div>${lista(nao, "bg-rose-950/50 text-rose-200")}</div>
+          <div><div class="text-amber-300 font-bold mb-1">Fazendo agora</div>${lista(faz, "bg-amber-950/50 text-amber-200")}</div>
+          <div><div class="text-emerald-400 font-bold mb-1">Entregaram</div>${lista(ent, "bg-emerald-950/50 text-emerald-200")}</div>`}
+        </div>
+      </details>`;
+    }).join("");
+  },
+
+  // Nome e sala oficiais (lista da SED) a partir do e-mail do aluno
+  nomeDaTurma(email) {
+    const e = DB.emailPadrao(email);
+    if (!this._salas || !e) return null;
+    if (!this._indiceSalas || this._indiceSalasRef !== this._salas) {
+      this._indiceSalas = {};
+      Object.entries(this._salas).forEach(([sala, al]) => al.forEach((a) => { this._indiceSalas[DB.emailPadrao(a.email)] = { nome: a.nome, sala }; }));
+      this._indiceSalasRef = this._salas;
+    }
+    return this._indiceSalas[e] || null;
+  },
+
+  linhasRelatorio() {
+    const R = this._ultimoRelatorio;
+    if (!R) return null;
+    const cel = (r) => !r ? "" : r.fazendo ? "fazendo" : `${r.nota ?? ""}% (${r.acertos ?? ""}/${r.total ?? ""})`;
+    const cab = ["Sala", "Aluno", "RA", ...(R.colunas.length ? R.colunas.map((c) => R.rotulo(c)) : ["Situação"])];
+    const linhas = [];
+    R.nomesSalas.forEach((sala) => [...R.salas[sala]].sort((a, b) => a.nome.localeCompare(b.nome)).forEach((a) => {
+      const e = DB.emailPadrao(a.email);
+      const vals = R.colunas.length ? R.colunas.map((c) => cel(((R.porAluno || {})[e] || {})[c]))
+        : [R.status[e] === "entregou" ? "entregou" : R.status[e] === "fazendo" ? "fazendo" : "não começou"];
+      linhas.push([sala, a.nome, a.ra, ...vals]);
+    }));
+    return { cab, linhas };
+  },
+
+  exportarRelatorioCSV() {
+    const t = this.linhasRelatorio();
+    if (!t) { alert("Gere o relatório primeiro."); return; }
+    const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const csv = [t.cab, ...t.linhas].map((l) => l.map(q).join(";")).join("\r\n");
+    const nome = `relatorio-${(this._ultimoRelatorio.prova || "").replace(/[^a-z0-9]+/gi, "-")}.csv`;
+    const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = nome; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  },
+
+  imprimirRelatorio() {
+    const t = this.linhasRelatorio();
+    if (!t) { alert("Gere o relatório primeiro."); return; }
+    const R = this._ultimoRelatorio;
+    const esc = (v) => String(v ?? "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    const blocos = R.nomesSalas.map((sala) => {
+      const d = R.desempenho(R.salas[sala]);
+      const linhas = t.linhas.filter((l) => l[0] === sala);
+      return `<h2>${esc(sala)}</h2>${d ? `<p><b>Média: ${d.media ?? "-"}%</b> (${d.n} entregas) · ${d.faceis} fáceis · ${d.medias} médias · ${d.dificeis} difíceis<br>Mais erradas: ${d.piores.map((x) => `Q${x.n} (${x.pct}%)`).join(", ")}</p>` : ""}
+        <table><tr>${t.cab.slice(1).map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${linhas.map((l) => `<tr>${l.slice(1).map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</table>`;
+    }).join("");
+    const w = window.open("", "_blank");
+    if (!w) { alert("Permita pop-ups para imprimir."); return; }
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Relatório por sala</title><style>body{font:12px Arial;margin:24px}h1{font-size:18px}h2{font-size:15px;margin:18px 0 4px;page-break-after:avoid}table{border-collapse:collapse;width:100%;margin-bottom:8px}th,td{border:1px solid #bbb;padding:3px 6px;text-align:left}th{background:#eee}</style></head><body><h1>Relatório por sala — ${esc(R.provaNome)}</h1><p>Gerado em ${new Date().toLocaleString("pt-BR")}</p>${blocos}</body></html>`);
+    w.document.close(); w.focus(); setTimeout(() => w.print(), 300);
   },
 
   pararEmAndamento() {
@@ -470,12 +709,12 @@ const ProfessorDashboardView = {
     const hora = (iso) => iso ? new Date(iso).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "-";
     const itens = [
       ...subs.filter((s) => recente(s.ultimaAtividade || s.dataInicio, this.LIMITE_ONLINE_PROVA_MS)).map((s) => ({
-        nome: s.alunoNome, ra: s.alunoRA, turma: s.turma,
+        nome: this.nomeDaTurma(s.alunoEmail)?.nome || s.alunoNome, ra: s.alunoRA, turma: this.nomeDaTurma(s.alunoEmail)?.sala || s.turma,
         prova: (atividades.find((a) => a.id === s.atividadeId) || {}).titulo || "Avaliação",
         inicio: s.dataInicio, inf: window.resumoInfracoes(s.infracoes)
       })),
       ...sims.filter((s) => recente(s.updatedAt || s.startedAt, this.LIMITE_ONLINE_SIMULADO_MS)).map((s) => ({
-        nome: s.studentName, ra: s.studentRA, turma: "",
+        nome: this.nomeDaTurma(s.studentEmail)?.nome || s.studentName, ra: s.studentRA, turma: this.nomeDaTurma(s.studentEmail)?.sala || "",
         prova: `Simulado ${s.simuladoId || ""}`.trim(),
         inicio: s.startedAt || s.updatedAt, respondidas: Object.keys(s.answers || {}).length,
         inf: { total: 0, texto: "" }
@@ -508,6 +747,7 @@ const ProfessorDashboardView = {
         console.warn("Erro ao carregar resultados dos simulados:", simError);
       }
       this.atividades = atividades;
+      this.prepararRelatorioSalas(true);
       this.submissoes = submissoes;
       this.mostrarContagemSeries();
       this.renderEmAndamento(atividades).catch((e) => console.warn("Erro ao carregar provas em andamento:", e));
