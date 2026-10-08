@@ -494,7 +494,26 @@ const ProfessorDashboardView = {
     const sel = document.getElementById("rel-salas-prova");
     const info = document.getElementById("rel-salas-info");
     if (!sel) return;
-    const sims = (window.SimuladosData?.getAllConfigs() || []).map((c) => `<option value="sim:${c.id}">${c.titulo || c.id}</option>`);
+    // Conta entregas por simulado e coloca primeiro os que já têm entregas
+    let cont = {};
+    try {
+      const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
+      fin.forEach((p) => { cont[p.simuladoId] = cont[p.simuladoId] || { e: 0, f: 0 }; cont[p.simuladoId].e++; });
+      and.forEach((p) => { cont[p.simuladoId] = cont[p.simuladoId] || { e: 0, f: 0 }; cont[p.simuladoId].f++; });
+    } catch (_) {}
+    const nomeSim = (id) => {
+      const c = window.SimuladosData?.getAllConfigs().find((x) => x.id === id);
+      if (c) return c.titulo || id;
+      const m = id.match(/^(\d)serie_dia(\d)$/);
+      return m ? `Simulado ENEM · ${m[1]}ª Série · ${m[2]}º Dia (antigo)` : id;
+    };
+    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])];
+    ids.sort((a, b) => ((cont[b]?.e || 0) + (cont[b]?.f || 0)) - ((cont[a]?.e || 0) + (cont[a]?.f || 0)));
+    const sims = ids.map((id) => {
+      const n = cont[id];
+      const extra = n ? ` — ${n.e} entregas${n.f ? `, ${n.f} fazendo` : ""}` : "";
+      return `<option value="sim:${id}">${nomeSim(id)}${extra}</option>`;
+    });
     const atvs = (this.atividades || []).map((a) => `<option value="atv:${a.id}">Atividade: ${String(a.titulo || a.id).replace(/</g, "")}</option>`);
     const atual = sel.value;
     sel.innerHTML = [...sims, ...atvs].join("");
@@ -513,10 +532,23 @@ const ProfessorDashboardView = {
     if (!Object.keys(salas).length) { out.innerHTML = `<p class="text-amber-300">Carregue as listas das salas primeiro.</p>`; return; }
     out.innerHTML = `<p class="text-slate-400">Buscando entregas...</p>`;
     const status = {}; // email -> "entregou" | "fazendo"
+    let porAluno = null; // email -> { simuladoId: {nota, acertos, total} | {fazendo} }
     try {
       const [tipo, id] = prova.split(/:(.*)/s);
       if (tipo === "sim") {
         const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
+        porAluno = {};
+        const reg = (p, tipoReg) => {
+          const e = String(p.studentEmail).toLowerCase();
+          porAluno[e] = porAluno[e] || {};
+          if (tipoReg === "fazendo" && porAluno[e][p.simuladoId]) return;
+          const r = p.result || {};
+          porAluno[e][p.simuladoId] = tipoReg === "fazendo" ? { fazendo: true } : {
+            nota: r.score ?? null, acertos: r.totalAcertos ?? null, total: r.totalQuestoes ?? null
+          };
+        };
+        and.forEach((p) => reg(p, "fazendo"));
+        fin.forEach((p) => reg(p, "entregou"));
         and.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "fazendo"; });
         fin.filter((p) => p.simuladoId === id).forEach((p) => { status[String(p.studentEmail).toLowerCase()] = "entregou"; });
       } else {
@@ -534,6 +566,25 @@ const ProfessorDashboardView = {
     let nomesSalas = Object.keys(salas).sort();
     const mSerie = prova.match(/^sim:(\d)serie/) || prova.match(/^sim:saresp_2026_(\d)em/);
     if (mSerie) nomesSalas = nomesSalas.filter((n) => n.startsWith(mSerie[1]));
+    // Colunas: os simulados da mesma série (ex.: Dia 1 e Dia 2)
+    let colunas = [];
+    if (porAluno && mSerie) {
+      const idSel = prova.slice(4);
+      const prefixo = idSel.startsWith("saresp") ? `saresp_2026_${mSerie[1]}em` : `${mSerie[1]}serie_dia`;
+      const ids = new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.values(porAluno).flatMap((o) => Object.keys(o))]);
+      colunas = [...ids].filter((i) => i.startsWith(prefixo)).sort();
+    }
+    const rotulo = (id) => {
+      const m = id.match(/dia(\d)$/); if (m) return `Dia ${m[1]}`;
+      if (/_lp$/.test(id)) return "Português"; if (/_mat$/.test(id)) return "Matemática"; return id;
+    };
+    const celula = (r) => !r ? `<span class="text-slate-600">—</span>`
+      : r.fazendo ? `<span class="text-amber-300">fazendo</span>`
+      : `<span class="text-emerald-300 font-bold">${r.nota ?? "?"}%</span>${r.acertos != null ? ` <span class="text-slate-400">(${r.acertos}/${r.total})</span>` : ""}`;
+    const tabela = (alunos) => `<div class="overflow-x-auto"><table class="w-full text-left text-[11px]">
+      <thead><tr class="text-slate-400"><th class="py-1 pr-3">Aluno</th>${colunas.map((c) => `<th class="py-1 pr-3">${esc(rotulo(c))}</th>`).join("")}</tr></thead>
+      <tbody>${[...alunos].sort((a, b) => a.nome.localeCompare(b.nome)).map((a) => `<tr class="border-t border-slate-800">
+        <td class="py-1 pr-3 text-slate-200">${esc(a.nome)}</td>${colunas.map((c) => `<td class="py-1 pr-3">${celula((porAluno[a.email] || {})[c])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     out.innerHTML = nomesSalas.map((sala) => {
       const alunos = salas[sala];
       const ent = alunos.filter((a) => status[a.email] === "entregou");
@@ -548,13 +599,25 @@ const ProfessorDashboardView = {
           <span class="text-rose-400 font-bold">${nao.length} não começaram</span>
           <span class="text-slate-500">de ${alunos.length}</span>
         </summary>
-        <div class="mt-3 space-y-2">
+        <div class="mt-3 space-y-2">${colunas.length ? tabela(alunos) : `
           <div><div class="text-rose-400 font-bold mb-1">Não começaram</div>${lista(nao, "bg-rose-950/50 text-rose-200")}</div>
           <div><div class="text-amber-300 font-bold mb-1">Fazendo agora</div>${lista(faz, "bg-amber-950/50 text-amber-200")}</div>
-          <div><div class="text-emerald-400 font-bold mb-1">Entregaram</div>${lista(ent, "bg-emerald-950/50 text-emerald-200")}</div>
+          <div><div class="text-emerald-400 font-bold mb-1">Entregaram</div>${lista(ent, "bg-emerald-950/50 text-emerald-200")}</div>`}
         </div>
       </details>`;
     }).join("");
+  },
+
+  // Nome e sala oficiais (lista da SED) a partir do e-mail do aluno
+  nomeDaTurma(email) {
+    const e = String(email || "").toLowerCase();
+    if (!this._salas || !e) return null;
+    if (!this._indiceSalas || this._indiceSalasRef !== this._salas) {
+      this._indiceSalas = {};
+      Object.entries(this._salas).forEach(([sala, al]) => al.forEach((a) => { this._indiceSalas[a.email] = { nome: a.nome, sala }; }));
+      this._indiceSalasRef = this._salas;
+    }
+    return this._indiceSalas[e] || null;
   },
 
   pararEmAndamento() {
@@ -576,12 +639,12 @@ const ProfessorDashboardView = {
     const hora = (iso) => iso ? new Date(iso).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "-";
     const itens = [
       ...subs.filter((s) => recente(s.ultimaAtividade || s.dataInicio, this.LIMITE_ONLINE_PROVA_MS)).map((s) => ({
-        nome: s.alunoNome, ra: s.alunoRA, turma: s.turma,
+        nome: this.nomeDaTurma(s.alunoEmail)?.nome || s.alunoNome, ra: s.alunoRA, turma: this.nomeDaTurma(s.alunoEmail)?.sala || s.turma,
         prova: (atividades.find((a) => a.id === s.atividadeId) || {}).titulo || "Avaliação",
         inicio: s.dataInicio, inf: window.resumoInfracoes(s.infracoes)
       })),
       ...sims.filter((s) => recente(s.updatedAt || s.startedAt, this.LIMITE_ONLINE_SIMULADO_MS)).map((s) => ({
-        nome: s.studentName, ra: s.studentRA, turma: "",
+        nome: this.nomeDaTurma(s.studentEmail)?.nome || s.studentName, ra: s.studentRA, turma: this.nomeDaTurma(s.studentEmail)?.sala || "",
         prova: `Simulado ${s.simuladoId || ""}`.trim(),
         inicio: s.startedAt || s.updatedAt, respondidas: Object.keys(s.answers || {}).length,
         inf: { total: 0, texto: "" }
