@@ -80,7 +80,7 @@ const DB = {
         F.orderBy("createdAt", "desc")
       );
       const result = await F.getDocs(q);
-      return result.docs.map((item) => this.mapActivity(item));
+      return result.docs.filter((d) => d.id !== this.TURMAS_ID).map((item) => this.mapActivity(item));
     } catch (err) {
       console.warn("Tentando fallback de atividades:", err);
       const qFallback = F.query(
@@ -89,8 +89,49 @@ const DB = {
       );
       const result = await F.getDocs(qFallback);
       return result.docs
+        .filter((d) => d.id !== this.TURMAS_ID)
         .map((item) => this.mapActivity(item))
         .sort((a, b) => String(b._createdAt || "").localeCompare(String(a._createdAt || "")));
+    }
+  },
+
+  // ===== Listas de alunos por sala (compartilhadas entre professores) =====
+  // Guardadas num documento interno da coleção "activities" (só professores leem).
+  TURMAS_ID: "turmas-escola",
+
+  async lerTurmas() {
+    const F = await this.api();
+    const snap = await F.getDoc(F.doc(F.db, "activities", this.TURMAS_ID));
+    if (!snap.exists()) return {};
+    return this.parseJson(snap.data().contentJson, {});
+  },
+
+  async salvarTurmas(salas) {
+    const F = await this.api();
+    const teacher = TeacherAuth.user || await TeacherAuth.session();
+    if (!teacher) throw new Error("Sua sessão docente expirou.");
+    const ref = F.doc(F.db, "activities", this.TURMAS_ID);
+    const contentJson = JSON.stringify(salas);
+    const atual = await F.getDoc(ref);
+    if (atual.exists()) {
+      await F.updateDoc(ref, { contentJson, updatedAt: F.serverTimestamp() });
+    } else {
+      await F.setDoc(ref, {
+        teacherId: teacher.id,
+        title: "Listas de alunos por sala (uso interno)",
+        subject: "",
+        grade: "",
+        accessCode: "TURMAS-INTERNO",
+        instructions: "",
+        status: "draft",
+        securitySettings: {
+          bloquearCopiarColar: false, bloquearBotaoDireito: false, telaCheiaObrigatoria: false,
+          marcaDaguaRA: false, detectarTrocaAba: false, embaralharQuestoes: false, embaralharAlternativas: false
+        },
+        contentJson,
+        createdAt: F.serverTimestamp(),
+        updatedAt: F.serverTimestamp()
+      });
     }
   },
 
