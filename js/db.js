@@ -527,6 +527,15 @@ const DB = {
         const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(email));
         const hash = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 20);
         if (window.SERIES_ALUNOS[hash]) return window.SERIES_ALUNOS[hash];
+        // Não achou: pode ser lista antiga guardada no navegador. Busca a versão mais nova.
+        try {
+          const txt = await fetch(`js/data/series-alunos.js?t=${Date.now()}`, { cache: "no-store" }).then((r) => r.text());
+          const m = txt.match(/=\s*(\{[\s\S]*\})\s*;/);
+          if (m) {
+            window.SERIES_ALUNOS = JSON.parse(m[1]);
+            if (window.SERIES_ALUNOS[hash]) return window.SERIES_ALUNOS[hash];
+          }
+        } catch (_) {}
       }
     } catch (_) {}
     // 2) Cadastro feito pelo painel (Firestore)
