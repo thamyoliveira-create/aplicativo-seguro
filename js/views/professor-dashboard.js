@@ -530,7 +530,11 @@ const ProfessorDashboardView = {
       out.innerHTML = `<p class="text-rose-400">Erro ao buscar entregas: ${String(e.message || e).replace(/</g, "")}</p>`; return;
     }
     const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    out.innerHTML = Object.keys(salas).sort().map((sala) => {
+    // Simulado de uma série: mostra só as salas daquela série (ex.: 2serie -> 2A, 2B...)
+    let nomesSalas = Object.keys(salas).sort();
+    const mSerie = prova.match(/^sim:(\d)serie/) || prova.match(/^sim:saresp_2026_(\d)em/);
+    if (mSerie) nomesSalas = nomesSalas.filter((n) => n.startsWith(mSerie[1]));
+    out.innerHTML = nomesSalas.map((sala) => {
       const alunos = salas[sala];
       const ent = alunos.filter((a) => status[a.email] === "entregou");
       const faz = alunos.filter((a) => status[a.email] === "fazendo");
