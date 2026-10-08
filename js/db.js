@@ -515,6 +515,15 @@ const DB = {
     return () => { unsubA(); unsubB(); };
   },
 
+  // E-mail institucional padronizado: "0000" + RA sem zeros à esquerda + dígito + "sp@..."
+  emailPadrao(email) {
+    const e = String(email || "").trim().toLowerCase();
+    const [local, dom] = e.split("@");
+    const m = /^0*(\d+[0-9x])(sp)?$/.exec(local || "");
+    if (!dom || !dom.endsWith("educacao.sp.gov.br") || !m) return e;
+    return `0000${m[1]}sp@${dom}`;
+  },
+
   // ===== Série de cada aluno (lista de RAs cadastrada pela professora) =====
   async getSerieAluno() {
     const F = await this.api();
@@ -523,7 +532,8 @@ const DB = {
     // 1) Lista fixa publicada com o site (js/data/series-alunos.js)
     try {
       if (window.SERIES_ALUNOS && window.crypto?.subtle) {
-        const email = PortalAuth.normalizeEmail(student.email);
+        // Alguns alunos têm e-mail com 3 ou 4 zeros no início: padroniza para "0000" + RA
+        const email = DB.emailPadrao(student.email);
         const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(email));
         const hash = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 20);
         if (window.SERIES_ALUNOS[hash]) return window.SERIES_ALUNOS[hash];
