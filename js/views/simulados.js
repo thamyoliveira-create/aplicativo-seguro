@@ -62,9 +62,11 @@ const SimuladosView = {
     }
 
     // 2. Consulta assíncrona na nuvem (Firebase)
+    let progressosNuvemCache = null;
     try {
       if (typeof DB !== "undefined" && DB.obterTodosProgressosAluno) {
         const progressosNuvem = await DB.obterTodosProgressosAluno();
+        progressosNuvemCache = progressosNuvem;
         if (Array.isArray(progressosNuvem)) {
           progressosNuvem.forEach(p => {
             if (!p.simuladoId) return;
@@ -90,11 +92,45 @@ const SimuladosView = {
           });
         }
       }
+      // 3. Recupera provas feitas quando o salvamento na nuvem falhava (ficaram só no celular)
+      await this.recuperarProvasLocais(Array.isArray(progressosNuvemCache) ? progressosNuvemCache : []);
     } catch (e) {
       console.warn("Aviso ao carregar progresso da nuvem:", e);
     } finally {
       this.progressLoaded = true;
       this.loadingProgress = false;
+    }
+  },
+
+  async recuperarProvasLocais(nuvem) {
+    try {
+      const student = StudentAuth.user || await StudentAuth.session();
+      if (!student || !window.SimuladosData) return;
+      const naNuvem = new Set(nuvem.filter((p) => p && p.mode !== "treino").map((p) => p.simuladoId));
+      for (const c of window.SimuladosData.getAllConfigs()) {
+        if (naNuvem.has(c.id)) continue;
+        let answers = null;
+        try { answers = JSON.parse(localStorage.getItem(`simulado_answers_${c.id}`) || "null"); } catch (_) {}
+        if (!answers || !Object.keys(answers).filter((k) => answers[k]).length) continue;
+        const questoes = window.SimuladosData.getQuestoesPorSimulado(c.id) || [];
+        const respondidas = questoes.filter((q) => answers[q.id]).length;
+        const acertos = questoes.filter((q) => answers[q.id] && String(answers[q.id]).toUpperCase() === String(q.respostaCorreta).toUpperCase()).length;
+        const nome = student.display_name || "";
+        const ra = PortalAuth.extractRAFromEmail(student.email) || "";
+        if (respondidas >= questoes.length && questoes.length) {
+          await DB.salvarResultadoSimulado({
+            simuladoId: c.id, serie: c.serie, dia: c.dia, answers,
+            score: Math.round((acertos / questoes.length) * 100), totalQuestoes: questoes.length, totalAcertos: acertos,
+            studentName: nome, studentRA: ra, studentEmail: student.email,
+            completedAt: new Date().toISOString(), recuperadoDoAparelho: true
+          });
+          this.studentProgressMap[c.id] = { status: "finished", score: Math.round((acertos / questoes.length) * 100), totalAcertos: acertos, totalQuestoes: questoes.length };
+        } else {
+          await DB.salvarProgressoSimulado({ simuladoId: c.id, mode: "prova", answers, status: "draft", studentName: nome, studentRA: ra });
+        }
+      }
+    } catch (e) {
+      console.warn("Não foi possível recuperar provas guardadas no aparelho:", e);
     }
   },
 
