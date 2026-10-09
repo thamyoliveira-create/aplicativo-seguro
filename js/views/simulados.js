@@ -93,6 +93,7 @@ const SimuladosView = {
         }
       }
       // 3. Recupera provas feitas quando o salvamento na nuvem falhava (ficaram só no celular)
+      this.pendentesNaoEnviadas = await this.enviarPendentes();
       await this.recuperarProvasLocais(Array.isArray(progressosNuvemCache) ? progressosNuvemCache : []);
     } catch (e) {
       console.warn("Aviso ao carregar progresso da nuvem:", e);
@@ -100,6 +101,80 @@ const SimuladosView = {
       this.progressLoaded = true;
       this.loadingProgress = false;
     }
+  },
+
+  // ===== Provas ainda não enviadas (sem internet) =====
+  guardarPendente(resultado) {
+    try { localStorage.setItem(`simulado_pendente_${resultado.simuladoId}`, JSON.stringify(resultado)); } catch (_) {}
+  },
+
+  listarPendentes() {
+    const out = [];
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith("simulado_pendente_")) { try { out.push(JSON.parse(localStorage.getItem(k))); } catch (_) {} }
+      }
+    } catch (_) {}
+    return out.filter(Boolean);
+  },
+
+  salvarComPrazo(resultado, ms = 15000) {
+    // Sem internet o Firebase pode ficar "salvando" para sempre: depois do prazo avisamos o aluno
+    return Promise.race([
+      DB.salvarResultadoSimulado(resultado),
+      new Promise((_, rej) => setTimeout(() => rej(new Error("Sem conexão com a internet.")), ms))
+    ]);
+  },
+
+  enviarResultado(resultado) {
+    const aviso = () => document.getElementById("aviso-nao-enviada");
+    const note = () => document.getElementById("cloud-result-note");
+    const sucesso = () => {
+      try { localStorage.removeItem(`simulado_pendente_${resultado.simuladoId}`); } catch (_) {}
+      this.setCloudStatus("synced", "Resultado salvo na nuvem.");
+      if (note()) note().textContent = "✅ Prova enviada com sucesso para a professora.";
+      aviso()?.classList.add("hidden");
+      window.removeEventListener("online", this._reenviarOnline);
+      clearInterval(this._reenviarTimer);
+    };
+    const falha = (err) => {
+      this.setCloudStatus("local", "Prova NÃO enviada. Guardada neste aparelho.");
+      if (note()) note().textContent = "Ainda não enviada: " + (err?.message || "sem conexão");
+      aviso()?.classList.remove("hidden");
+    };
+    const tentar = () => {
+      const btn = document.getElementById("btn-reenviar");
+      if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+      // Se o envio original terminar depois do prazo, ainda conta como sucesso
+      const envio = DB.salvarResultadoSimulado(resultado);
+      envio.then(sucesso).catch(() => {});
+      return Promise.race([envio, new Promise((_, rej) => setTimeout(() => rej(new Error("Sem conexão com a internet.")), 15000))]).catch(falha)
+        .finally(() => { if (btn) { btn.disabled = false; btn.textContent = "Enviar agora"; } });
+    };
+    window.removeEventListener("online", this._reenviarOnline);
+    clearInterval(this._reenviarTimer);
+    this._reenviarOnline = () => tentar();
+    window.addEventListener("online", this._reenviarOnline);
+    this._reenviarTimer = setInterval(() => {
+      if (!localStorage.getItem(`simulado_pendente_${resultado.simuladoId}`) || !document.getElementById("btn-reenviar")) return clearInterval(this._reenviarTimer);
+      tentar();
+    }, 30000);
+    setTimeout(() => { const b = document.getElementById("btn-reenviar"); if (b) b.onclick = tentar; }, 0);
+    return tentar();
+  },
+
+  async enviarPendentes() {
+    const pend = this.listarPendentes();
+    let restantes = 0;
+    for (const r of pend) {
+      try {
+        await this.salvarComPrazo(r, 12000);
+        localStorage.removeItem(`simulado_pendente_${r.simuladoId}`);
+        this.studentProgressMap[r.simuladoId] = { status: "finished", score: r.score, totalAcertos: r.totalAcertos, totalQuestoes: r.totalQuestoes };
+      } catch (_) { restantes++; }
+    }
+    return restantes;
   },
 
   async recuperarProvasLocais(nuvem) {
@@ -557,6 +632,7 @@ const SimuladosView = {
                   <p class="text-[11px] font-black tracking-[0.2em] text-brand-300 uppercase">${currentSerieInfo.label} · ${currentSerieInfo.badge}</p>
                   <h2 class="text-2xl font-black text-white mt-1">Cadernos e Listas Oficiais</h2>
                   <p class="text-xs text-slate-400 mt-1">${visibleConfigs.length} caderno(s) disponível(is) para esta série.</p>
+                  ${this.pendentesNaoEnviadas ? `<div class="mt-3 rounded-2xl border-2 border-rose-500 bg-rose-950/70 p-3 text-rose-100 text-sm font-bold">⚠️ Você tem ${this.pendentesNaoEnviadas} prova(s) que AINDA NÃO FORAM ENVIADAS. Conecte-se à internet e recarregue esta página para enviar.</div>` : ""}
                 </div>
                 <div class="flex items-center gap-2">
                   <span class="px-3 py-1.5 rounded-xl bg-brand-500/15 text-brand-300 text-xs font-bold font-mono border border-brand-500/30">
@@ -1833,6 +1909,11 @@ const SimuladosView = {
           <p class="text-slate-300 text-base mt-2">Você acertou <b class="text-emerald-300">${acertos}</b> de <b class="text-white">${questoes.length}</b> questões.</p>
           <p class="text-xs text-emerald-300 mt-2 font-mono">${this.esc(identity.studentName)} · RA ${this.esc(identity.studentRA)} · ${this.esc(identity.studentEmail)}</p>
           <p id="cloud-result-note" class="text-xs text-slate-400 mt-2 font-mono">Salvando resultado na nuvem...</p>
+          <div id="aviso-nao-enviada" class="hidden mt-4 rounded-2xl border-2 border-rose-500 bg-rose-950/70 p-4">
+            <p class="text-rose-100 font-black text-base">⚠️ Sua prova AINDA NÃO FOI ENVIADA para a professora.</p>
+            <p class="text-rose-200 text-sm mt-1">Ela está guardada neste aparelho. Conecte-se à internet (Wi-Fi ou dados) e toque em "Enviar agora". Não feche esta página nem limpe o navegador.</p>
+            <button id="btn-reenviar" class="mt-3 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm">Enviar agora</button>
+          </div>
 
           <div class="grid md:grid-cols-2 gap-3 mt-6">
             ${Object.entries(porComponente).map(([comp, row]) => `
@@ -1855,17 +1936,8 @@ const SimuladosView = {
       </main>`;
 
     this.setCloudStatus("syncing", "Salvando resultado na nuvem...");
-    DB.salvarResultadoSimulado(resultado)
-      .then(() => {
-        this.setCloudStatus("synced", "Resultado salvo na nuvem.");
-        const note = document.getElementById("cloud-result-note");
-        if (note) note.textContent = "Resultado salvo com sucesso na nuvem.";
-      })
-      .catch((err) => {
-        this.setCloudStatus("local", err.message || "Resultado salvo neste dispositivo.");
-        const note = document.getElementById("cloud-result-note");
-        if (note) note.textContent = err.message || "Resultado salvo neste dispositivo.";
-      });
+    this.guardarPendente(resultado);
+    this.enviarResultado(resultado);
 
     document.getElementById("review-simulado").onclick = () => {
       localStorage.removeItem(`simulado_answers_${config.id}`);

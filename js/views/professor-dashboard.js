@@ -141,6 +141,32 @@ const ProfessorDashboardView = {
           </section>
 
           <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <h3 class="text-base font-black text-white">Cadastrar alunos de uma sala</h3>
+            <p class="text-xs text-slate-500 mt-1">Use a lista baixada da SED (arquivo .htm ou .csv). O site cria as contas que faltam, libera os simulados da série e atualiza o relatório por sala. Só entram alunos com situação "Ativo".</p>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <label class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold cursor-pointer">
+                Escolher lista
+                <input id="cad-arquivo" type="file" accept=".htm,.html,.csv,.xls,.txt" class="hidden" onchange="ProfessorDashboardView.lerListaCadastro(this.files[0])">
+              </label>
+              <input id="cad-sala" placeholder="Sala (ex.: 2A)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-32">
+              <input id="cad-senha" placeholder="Senha inicial (mín. 6)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-44">
+              <button onclick="ProfessorDashboardView.cadastrarSala()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Cadastrar</button>
+            </div>
+            <p id="cad-msg" class="text-xs text-slate-400 mt-2"></p>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <h3 class="text-base font-black text-white">Senha de aluno</h3>
+            <p class="text-xs text-slate-500 mt-1">Aluno esqueceu a senha? Digite o RA e uma nova senha. Ele já entra com ela.</p>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <input id="senha-ra" placeholder="RA (ex.: 113384100-4)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-48">
+              <input id="senha-nova" placeholder="Nova senha (mín. 6)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-48">
+              <button onclick="ProfessorDashboardView.redefinirSenhaAluno()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Trocar senha</button>
+              <span id="senha-msg" class="text-xs"></span>
+            </div>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
               <div>
                 <h3 class="text-base font-black text-white">Relatório por sala</h3>
@@ -455,6 +481,103 @@ const ProfessorDashboardView = {
       const txt = Object.entries(c).map(([k, v]) => `${k}: ${v}`).join(" · ");
       status.innerText = (status.innerText ? status.innerText + "  |  " : "") + "Cadastrados → " + (txt || "nenhum");
     } catch (_) {}
+  },
+
+  // Lê lista da SED (.htm com tabela, .csv com ; ou ,) ou a planilha "nome,ra,email"
+  async lerListaCadastro(file) {
+    const msg = document.getElementById("cad-msg");
+    this._cadAlunos = [];
+    if (!file) return;
+    const texto = (await file.text()).replace(/^\uFEFF/, "");
+    let linhas = [];
+    if (/<table/i.test(texto)) {
+      const doc = new DOMParser().parseFromString(texto, "text/html");
+      linhas = [...doc.querySelectorAll("tr")].map((tr) => [...tr.querySelectorAll("th,td")].map((c) => c.textContent.trim()));
+    } else {
+      const sep = (texto.match(/;/g) || []).length > (texto.match(/,/g) || []).length ? ";" : ",";
+      linhas = texto.split(/\r?\n/).filter((l) => l.trim()).map((l) =>
+        (l.match(new RegExp(`("([^"]*)"|[^${sep}]*)(${sep}|$)`, "g")) || []).map((x) => x.replace(new RegExp(`${sep}$`), "").replace(/^"|"$/g, "").trim()));
+    }
+    const iCab = linhas.findIndex((l) => l.some((c) => /^nome/i.test(c)));
+    if (iCab < 0) { msg.className = "text-xs text-rose-400 mt-2"; msg.innerText = "Não achei a coluna \"Nome\" nessa lista."; return; }
+    const cab = linhas[iCab].map((c) => c.toLowerCase());
+    const col = (re) => cab.findIndex((c) => re.test(c));
+    const iNome = col(/^nome/), iRa = col(/^ra$/), iDig = col(/^dig/), iEmail = col(/email/), iSit = col(/situa/);
+    let inativos = 0;
+    linhas.slice(iCab + 1).forEach((l) => {
+      if (!l[iNome]) return;
+      if (iSit >= 0 && l[iSit] && !/^ativo/i.test(l[iSit])) { inativos++; return; }
+      const ra = iRa >= 0 ? `${l[iRa] || ""}${iDig >= 0 && l[iDig] ? "-" + l[iDig] : ""}` : "";
+      const email = DB.emailPadrao(iEmail >= 0 && l[iEmail] ? l[iEmail] : (ra ? `${ra.replace(/\D|x/gi, (c) => /x/i.test(c) ? "x" : "")}sp@aluno.educacao.sp.gov.br` : ""));
+      if (/@aluno\.educacao\.sp\.gov\.br$/.test(email)) this._cadAlunos.push({ nome: l[iNome], ra, email });
+    });
+    const sala = document.getElementById("cad-sala");
+    const m = file.name.toUpperCase().match(/(\d[A-Z])(-NOITE)?/);
+    if (m && !sala.value) sala.value = m[0];
+    msg.className = "text-xs text-slate-300 mt-2";
+    msg.innerText = `${this._cadAlunos.length} alunos ativos encontrados${inativos ? ` (${inativos} não ativos ignorados)` : ""}. Confira a sala e clique em Cadastrar.`;
+  },
+
+  async cadastrarSala() {
+    const msg = document.getElementById("cad-msg");
+    const sala = document.getElementById("cad-sala").value.trim().toUpperCase();
+    const senha = document.getElementById("cad-senha").value;
+    const alunos = this._cadAlunos || [];
+    const aviso = (t, cor = "text-amber-300") => { msg.className = `text-xs mt-2 ${cor}`; msg.innerText = t; };
+    if (!alunos.length) return aviso("Escolha a lista de alunos primeiro.");
+    if (!/^\d[A-Z]/.test(sala)) return aviso("Digite a sala (ex.: 2A, 3C-NOITE).");
+    if (senha.length < 6) return aviso("A senha inicial precisa ter pelo menos 6 caracteres.");
+    let criados = 0, jaTinham = 0; const erros = [];
+    try {
+      await window.firebaseReady;
+      const user = window.FirebaseAPI?.auth?.currentUser;
+      if (!user) throw new Error("Sua sessão expirou. Entre novamente.");
+      for (let i = 0; i < alunos.length; i += 25) {
+        aviso(`Cadastrando ${Math.min(i + 25, alunos.length)} de ${alunos.length}...`, "text-slate-300");
+        const r = await fetch("/api/alunos/cadastrar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${await user.getIdToken()}` },
+          body: JSON.stringify({ sala, senha, alunos: alunos.slice(i, i + 25).map((a) => ({ nome: a.nome, email: a.email })) })
+        });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(d.error || "Erro ao cadastrar.");
+        criados += d.criados; jaTinham += d.jaTinham; erros.push(...(d.erros || []));
+      }
+      // Atualiza a lista da sala no relatório
+      const salas = { ...(await this.carregarSalasDaNuvem()) };
+      salas[sala] = alunos.map((a) => ({ nome: a.nome, ra: a.ra, email: a.email }));
+      await DB.salvarTurmas(salas);
+      this._salas = salas;
+      this.prepararRelatorioSalas();
+      aviso(`Sala ${sala} pronta: ${criados} contas criadas, ${jaTinham} já existiam, ${alunos.length} liberados para os simulados da ${sala[0]}ª série.${erros.length ? " Erros: " + erros.join("; ") : ""}`, erros.length ? "text-amber-300" : "text-emerald-300");
+    } catch (e) {
+      aviso((e.message || String(e)) + (criados ? ` (${criados} contas já tinham sido criadas)` : ""), "text-rose-400");
+    }
+  },
+
+  async redefinirSenhaAluno() {
+    const ra = document.getElementById("senha-ra").value.trim();
+    const senha = document.getElementById("senha-nova").value;
+    const msg = document.getElementById("senha-msg");
+    const ok = (t, cor) => { msg.className = "text-xs " + cor; msg.innerText = t; };
+    if (!ra || senha.length < 6) return ok("Preencha o RA e uma senha com pelo menos 6 caracteres.", "text-amber-300");
+    ok("Trocando...", "text-slate-400");
+    try {
+      await window.firebaseReady;
+      const user = window.FirebaseAPI?.auth?.currentUser;
+      if (!user) throw new Error("Sua sessão expirou. Entre novamente.");
+      const r = await fetch("/api/alunos/redefinir-senha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${await user.getIdToken()}` },
+        body: JSON.stringify({ ra, senha })
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || "Erro ao trocar a senha.");
+      ok(`Senha trocada para o RA ${ra}.`, "text-emerald-300");
+      document.getElementById("senha-nova").value = "";
+    } catch (e) {
+      ok(e.message || String(e), "text-rose-400");
+    }
   },
 
   // ===== Relatório por sala =====

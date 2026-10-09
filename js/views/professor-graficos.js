@@ -98,6 +98,63 @@ const ProfessorGraficosView = {
     return porSala;
   },
 
+  // Percentual de acerto por questão e por habilidade (descritor)
+  calcularHabilidades(simId, sala) {
+    const questoes = window.SimuladosData?.getQuestoesPorSimulado(simId) || [];
+    let emails = null;
+    if (sala) emails = new Set((this.dados.salas[sala] || []).map((a) => DB.emailPadrao(a.email)));
+    const provas = this.dados.fin.filter((p) => p.simuladoId === simId && (!emails || emails.has(DB.emailPadrao(p.studentEmail))))
+      .map((p) => p.answers || p.result?.answers || {}).filter((a) => Object.keys(a).length);
+    const porQ = questoes.map((q) => {
+      const resp = provas.map((a) => a[q.id]).filter((v) => v != null && v !== "");
+      const certa = String(q.respostaCorreta).toUpperCase();
+      const cont = {}; resp.forEach((v) => { const k = String(v).toUpperCase(); cont[k] = (cont[k] || 0) + 1; });
+      const erro = Object.entries(cont).filter(([k]) => k !== certa).sort((x, y) => y[1] - x[1])[0];
+      return {
+        n: q.numero, comp: q.componente || "", desc: q.descritor || q.assunto || "Sem descritor", assunto: q.assunto || "",
+        certa, total: resp.length, pct: resp.length ? Math.round(((cont[certa] || 0) / resp.length) * 100) : null,
+        erro: erro ? `${erro[0]} (${Math.round((erro[1] / resp.length) * 100)}%)` : "-"
+      };
+    }).filter((x) => x.pct != null);
+    const grupos = {};
+    porQ.forEach((q) => { const k = q.comp + "|" + q.desc; (grupos[k] = grupos[k] || { comp: q.comp, desc: q.desc, qs: [] }).qs.push(q); });
+    const porHab = Object.values(grupos).map((g) => ({ ...g, pct: Math.round(g.qs.reduce((x, q) => x + q.pct, 0) / g.qs.length) }))
+      .sort((a, b) => a.pct - b.pct);
+    return { porQ: [...porQ].sort((a, b) => a.pct - b.pct), porHab, alunos: provas.length };
+  },
+
+  desenharHabilidades(simId, sala) {
+    const r = this.calcularHabilidades(simId, sala);
+    this._hab = { ...r, simId, sala };
+    const el = document.getElementById("hab-conteudo");
+    if (!r.alunos) { el.innerHTML = `<p class="text-slate-400">Nenhuma prova entregue ${sala ? "nesta sala" : ""} ainda.</p>`; return; }
+    const cor = (p) => p < 40 ? "#e5484d" : p < 70 ? "#d9a21b" : "#2e9e6b";
+    const barra = (p) => `<div class="flex items-center gap-2"><div class="h-2 rounded bg-slate-800 w-24"><div class="h-2 rounded" style="width:${p}%;background:${cor(p)}"></div></div><b style="color:${cor(p)}">${p}%</b></div>`;
+    el.innerHTML = `
+      <p class="text-slate-400 mb-2">${r.alunos} prova(s) analisada(s) · <span style="color:#e5484d">abaixo de 40% = prioridade</span> · <span style="color:#d9a21b">40 a 69%</span> · <span style="color:#2e9e6b">70% ou mais</span></p>
+      <div class="overflow-x-auto"><table class="w-full text-left">
+        <thead class="text-slate-400"><tr><th class="py-1 pr-2">Habilidade / descritor</th><th class="pr-2">Componente</th><th class="pr-2">Questões</th><th>Acerto</th></tr></thead>
+        <tbody>${r.porHab.map((h) => `<tr class="border-t border-slate-800"><td class="py-1 pr-2 text-slate-200">${this.esc(h.desc)}</td><td class="pr-2">${this.esc(h.comp)}</td><td class="pr-2">${h.qs.map((q) => "Q" + q.n).join(", ")}</td><td>${barra(h.pct)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <details class="mt-3"><summary class="cursor-pointer font-bold text-white">Ver questão por questão</summary>
+      <div class="overflow-x-auto"><table class="w-full text-left mt-2">
+        <thead class="text-slate-400"><tr><th class="py-1 pr-2">Questão</th><th class="pr-2">Componente</th><th class="pr-2">Assunto</th><th class="pr-2">Gabarito</th><th class="pr-2">Erro mais marcado</th><th>Acerto</th></tr></thead>
+        <tbody>${r.porQ.map((q) => `<tr class="border-t border-slate-800"><td class="py-1 pr-2 font-bold text-white">Q${q.n}</td><td class="pr-2">${this.esc(q.comp)}</td><td class="pr-2">${this.esc(q.assunto)}</td><td class="pr-2">${q.certa}</td><td class="pr-2">${q.erro}</td><td>${barra(q.pct)}</td></tr>`).join("")}</tbody>
+      </table></div></details>`;
+  },
+
+  baixarHabilidades() {
+    const h = this._hab; if (!h || !h.alunos) return;
+    const c = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const linhas = [["Questão", "Componente", "Habilidade/descritor", "Assunto", "Gabarito", "Erro mais marcado", "Respostas", "% acerto"].map(c).join(";")]
+      .concat([...h.porQ].sort((a, b) => a.n - b.n).map((q) => [q.n, q.comp, q.desc, q.assunto, q.certa, q.erro, q.total, q.pct].map(c).join(";")));
+    const blob = new Blob(["\uFEFF" + linhas.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `acertos-${h.simId}${h.sala ? "-" + h.sala : ""}.csv`;
+    a.click();
+  },
+
   desenhar(simId) {
     this.charts.forEach((c) => c.destroy()); this.charts = [];
     const atual = this.calcular(simId);
@@ -132,7 +189,24 @@ const ProfessorGraficosView = {
         <summary class="cursor-pointer font-bold text-white">Ver os números em tabela</summary>
         <table class="w-full mt-3 text-left"><thead class="text-slate-400"><tr><th class="py-1">Sala</th><th>Ativos</th><th>Fizeram</th><th>Fazendo</th><th>Não fizeram</th><th>Participação</th><th>Média</th>${anterior ? "<th>Média anterior</th>" : ""}</tr></thead>
         <tbody>${atual.map((s, i) => `<tr class="border-t border-slate-800"><td class="py-1 font-bold text-white">${this.esc(s.sala)}</td><td>${s.ativos}</td><td>${s.fizeram}</td><td>${s.fazendo}</td><td>${s.ativos - s.fizeram}</td><td>${s.ativos ? Math.round(s.fizeram / s.ativos * 100) : 0}%</td><td>${s.media ?? "-"}${s.media != null ? "%" : ""}</td>${anterior ? `<td>${anterior[i]?.media ?? "-"}${anterior[i]?.media != null ? "%" : ""}</td>` : ""}</tr>`).join("")}</tbody></table>
-      </details>`;
+      </details>
+      <section class="mt-4 rounded-2xl bg-slate-900/60 border border-slate-800 p-4 text-xs">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div><h3 class="text-sm font-black text-white">Acertos por habilidade e por questão</h3>
+          <p class="text-[11px] text-slate-400">Do mais difícil para o mais fácil. Use para planejar a recuperação.</p></div>
+          <div class="flex gap-2 items-center">
+            <select id="hab-sala" class="bg-dark-950 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-white">
+              <option value="">Série inteira</option>${atual.map((s) => `<option>${this.esc(s.sala)}</option>`).join("")}
+            </select>
+            <button id="hab-csv" class="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold">Baixar planilha</button>
+          </div>
+        </div>
+        <div id="hab-conteudo" class="mt-3"></div>
+      </section>`;
+    const selSala = document.getElementById("hab-sala");
+    selSala.onchange = () => this.desenharHabilidades(simId, selSala.value);
+    document.getElementById("hab-csv").onclick = () => this.baixarHabilidades();
+    this.desenharHabilidades(simId, "");
 
     const C = this.cores;
     Chart.defaults.color = C.texto2;
