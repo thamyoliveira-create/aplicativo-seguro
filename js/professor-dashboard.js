@@ -30,6 +30,7 @@ const ProfessorDashboardView = {
                 <i data-lucide="book-open-check" class="w-3.5 h-3.5"></i>
                 Simulados
               </a>
+              <a href="#professor/graficos" class="inline-flex items-center px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold transition-colors" title="Gráficos">Gráficos</a>
               <a href="#professor/configuracoes" class="hidden sm:inline-flex p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-colors" title="Configurações">
                 <i data-lucide="settings" class="w-4 h-4"></i>
               </a>
@@ -136,6 +137,32 @@ const ProfessorDashboardView = {
                 <div class="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
                 Carregando atividades...
               </div>
+            </div>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <h3 class="text-base font-black text-white">Cadastrar alunos de uma sala</h3>
+            <p class="text-xs text-slate-500 mt-1">Use a lista baixada da SED (arquivo .htm ou .csv). O site cria as contas que faltam, libera os simulados da série e atualiza o relatório por sala. Só entram alunos com situação "Ativo".</p>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <label class="px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-[11px] text-slate-200 font-bold cursor-pointer">
+                Escolher lista
+                <input id="cad-arquivo" type="file" accept=".htm,.html,.csv,.xls,.txt" class="hidden" onchange="ProfessorDashboardView.lerListaCadastro(this.files[0])">
+              </label>
+              <input id="cad-sala" placeholder="Sala (ex.: 2A)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-32">
+              <input id="cad-senha" placeholder="Senha inicial (mín. 6)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-44">
+              <button onclick="ProfessorDashboardView.cadastrarSala()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Cadastrar</button>
+            </div>
+            <p id="cad-msg" class="text-xs text-slate-400 mt-2"></p>
+          </section>
+
+          <section class="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 md:p-6">
+            <h3 class="text-base font-black text-white">Senha de aluno</h3>
+            <p class="text-xs text-slate-500 mt-1">Aluno esqueceu a senha? Digite o RA e uma nova senha. Ele já entra com ela.</p>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <input id="senha-ra" placeholder="RA (ex.: 113384100-4)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-48">
+              <input id="senha-nova" placeholder="Nova senha (mín. 6)" class="bg-dark-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-48">
+              <button onclick="ProfessorDashboardView.redefinirSenhaAluno()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold">Trocar senha</button>
+              <span id="senha-msg" class="text-xs"></span>
             </div>
           </section>
 
@@ -456,6 +483,103 @@ const ProfessorDashboardView = {
     } catch (_) {}
   },
 
+  // Lê lista da SED (.htm com tabela, .csv com ; ou ,) ou a planilha "nome,ra,email"
+  async lerListaCadastro(file) {
+    const msg = document.getElementById("cad-msg");
+    this._cadAlunos = [];
+    if (!file) return;
+    const texto = (await file.text()).replace(/^\uFEFF/, "");
+    let linhas = [];
+    if (/<table/i.test(texto)) {
+      const doc = new DOMParser().parseFromString(texto, "text/html");
+      linhas = [...doc.querySelectorAll("tr")].map((tr) => [...tr.querySelectorAll("th,td")].map((c) => c.textContent.trim()));
+    } else {
+      const sep = (texto.match(/;/g) || []).length > (texto.match(/,/g) || []).length ? ";" : ",";
+      linhas = texto.split(/\r?\n/).filter((l) => l.trim()).map((l) =>
+        (l.match(new RegExp(`("([^"]*)"|[^${sep}]*)(${sep}|$)`, "g")) || []).map((x) => x.replace(new RegExp(`${sep}$`), "").replace(/^"|"$/g, "").trim()));
+    }
+    const iCab = linhas.findIndex((l) => l.some((c) => /^nome/i.test(c)));
+    if (iCab < 0) { msg.className = "text-xs text-rose-400 mt-2"; msg.innerText = "Não achei a coluna \"Nome\" nessa lista."; return; }
+    const cab = linhas[iCab].map((c) => c.toLowerCase());
+    const col = (re) => cab.findIndex((c) => re.test(c));
+    const iNome = col(/^nome/), iRa = col(/^ra$/), iDig = col(/^dig/), iEmail = col(/email/), iSit = col(/situa/);
+    let inativos = 0;
+    linhas.slice(iCab + 1).forEach((l) => {
+      if (!l[iNome]) return;
+      if (iSit >= 0 && l[iSit] && !/^ativo/i.test(l[iSit])) { inativos++; return; }
+      const ra = iRa >= 0 ? `${l[iRa] || ""}${iDig >= 0 && l[iDig] ? "-" + l[iDig] : ""}` : "";
+      const email = DB.emailPadrao(iEmail >= 0 && l[iEmail] ? l[iEmail] : (ra ? `${ra.replace(/\D|x/gi, (c) => /x/i.test(c) ? "x" : "")}sp@aluno.educacao.sp.gov.br` : ""));
+      if (/@aluno\.educacao\.sp\.gov\.br$/.test(email)) this._cadAlunos.push({ nome: l[iNome], ra, email });
+    });
+    const sala = document.getElementById("cad-sala");
+    const m = file.name.toUpperCase().match(/(\d[A-Z])(-NOITE)?/);
+    if (m && !sala.value) sala.value = m[0];
+    msg.className = "text-xs text-slate-300 mt-2";
+    msg.innerText = `${this._cadAlunos.length} alunos ativos encontrados${inativos ? ` (${inativos} não ativos ignorados)` : ""}. Confira a sala e clique em Cadastrar.`;
+  },
+
+  async cadastrarSala() {
+    const msg = document.getElementById("cad-msg");
+    const sala = document.getElementById("cad-sala").value.trim().toUpperCase();
+    const senha = document.getElementById("cad-senha").value;
+    const alunos = this._cadAlunos || [];
+    const aviso = (t, cor = "text-amber-300") => { msg.className = `text-xs mt-2 ${cor}`; msg.innerText = t; };
+    if (!alunos.length) return aviso("Escolha a lista de alunos primeiro.");
+    if (!/^\d[A-Z]/.test(sala)) return aviso("Digite a sala (ex.: 2A, 3C-NOITE).");
+    if (senha.length < 6) return aviso("A senha inicial precisa ter pelo menos 6 caracteres.");
+    let criados = 0, jaTinham = 0; const erros = [];
+    try {
+      await window.firebaseReady;
+      const user = window.FirebaseAPI?.auth?.currentUser;
+      if (!user) throw new Error("Sua sessão expirou. Entre novamente.");
+      for (let i = 0; i < alunos.length; i += 25) {
+        aviso(`Cadastrando ${Math.min(i + 25, alunos.length)} de ${alunos.length}...`, "text-slate-300");
+        const r = await fetch("/api/alunos/cadastrar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${await user.getIdToken()}` },
+          body: JSON.stringify({ sala, senha, alunos: alunos.slice(i, i + 25).map((a) => ({ nome: a.nome, email: a.email })) })
+        });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(d.error || "Erro ao cadastrar.");
+        criados += d.criados; jaTinham += d.jaTinham; erros.push(...(d.erros || []));
+      }
+      // Atualiza a lista da sala no relatório
+      const salas = { ...(await this.carregarSalasDaNuvem()) };
+      salas[sala] = alunos.map((a) => ({ nome: a.nome, ra: a.ra, email: a.email }));
+      await DB.salvarTurmas(salas);
+      this._salas = salas;
+      this.prepararRelatorioSalas();
+      aviso(`Sala ${sala} pronta: ${criados} contas criadas, ${jaTinham} já existiam, ${alunos.length} liberados para os simulados da ${sala[0]}ª série.${erros.length ? " Erros: " + erros.join("; ") : ""}`, erros.length ? "text-amber-300" : "text-emerald-300");
+    } catch (e) {
+      aviso((e.message || String(e)) + (criados ? ` (${criados} contas já tinham sido criadas)` : ""), "text-rose-400");
+    }
+  },
+
+  async redefinirSenhaAluno() {
+    const ra = document.getElementById("senha-ra").value.trim();
+    const senha = document.getElementById("senha-nova").value;
+    const msg = document.getElementById("senha-msg");
+    const ok = (t, cor) => { msg.className = "text-xs " + cor; msg.innerText = t; };
+    if (!ra || senha.length < 6) return ok("Preencha o RA e uma senha com pelo menos 6 caracteres.", "text-amber-300");
+    ok("Trocando...", "text-slate-400");
+    try {
+      await window.firebaseReady;
+      const user = window.FirebaseAPI?.auth?.currentUser;
+      if (!user) throw new Error("Sua sessão expirou. Entre novamente.");
+      const r = await fetch("/api/alunos/redefinir-senha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${await user.getIdToken()}` },
+        body: JSON.stringify({ ra, senha })
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || "Erro ao trocar a senha.");
+      ok(`Senha trocada para o RA ${ra}.`, "text-emerald-300");
+      document.getElementById("senha-nova").value = "";
+    } catch (e) {
+      ok(e.message || String(e), "text-rose-400");
+    }
+  },
+
   // ===== Relatório por sala =====
   lerListasSalas() {
     return this._salas || {};
@@ -509,7 +633,8 @@ const ProfessorDashboardView = {
       const m = id.match(/^(\d)serie_dia(\d)$/);
       return m ? `Simulado ENEM · ${m[1]}ª Série · ${m[2]}º Dia (antigo)` : id;
     };
-    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])];
+    const ocultos = window.SimuladosData?.OCULTOS || [];
+    const ids = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.keys(cont)])].filter((i) => !ocultos.includes(i));
     ids.sort((a, b) => ((cont[b]?.e || 0) + (cont[b]?.f || 0)) - ((cont[a]?.e || 0) + (cont[a]?.f || 0)));
     const sims = ids.map((id) => {
       const n = cont[id];
@@ -518,7 +643,15 @@ const ProfessorDashboardView = {
     });
     const atvs = (this.atividades || []).map((a) => `<option value="atv:${a.id}">Atividade: ${String(a.titulo || a.id).replace(/</g, "")}</option>`);
     const atual = sel.value;
-    sel.innerHTML = [...sims, ...atvs].join("");
+    // Opções "todos os dias" por série (relatório unificado Dia 1 + Dia 2)
+    const series = [...new Set(ids.map((i) => (i.match(/^(\d)serie/) || i.match(/^saresp_2026_(\d)em/) || [])[1]).filter(Boolean))].sort();
+    const unificados = series.flatMap((n) => {
+      const out = [];
+      if (ids.some((i) => i.startsWith(`${n}serie_dia`))) out.push(`<option value="serie:${n}serie_dia">${n}ª Série · Provão (Dia 1 + Dia 2 juntos)</option>`);
+      if (ids.some((i) => i.startsWith(`saresp_2026_${n}em_`))) out.push(`<option value="serie:saresp_2026_${n}em_">${n}ª Série · SARESP (Português + Matemática juntos)</option>`);
+      return out;
+    });
+    sel.innerHTML = [...unificados, ...sims, ...atvs].join("");
     if (atual) sel.value = atual;
     const salas = this.lerListasSalas();
     const nomes = Object.keys(salas).sort();
@@ -537,7 +670,7 @@ const ProfessorDashboardView = {
     let porAluno = null; // email -> { simuladoId: {nota, acertos, total} | {fazendo} }
     try {
       const [tipo, id] = prova.split(/:(.*)/s);
-      if (tipo === "sim") {
+      if (tipo === "sim" || tipo === "serie") {
         const [fin, and] = await Promise.all([DB.getResultadosSimulados(), DB.getSimuladosEmAndamento()]);
         porAluno = {};
         const reg = (p, tipoReg) => {
@@ -553,6 +686,16 @@ const ProfessorDashboardView = {
         fin.forEach((p) => reg(p, "entregou"));
         and.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "fazendo"; });
         fin.filter((p) => p.simuladoId === id).forEach((p) => { status[DB.emailPadrao(p.studentEmail)] = "entregou"; });
+        if (tipo === "serie") {
+          // Unificado: "entregou" só quem fez todos os dias; "fazendo" quem fez parte ou está com prova aberta
+          const dias = [...new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...fin.map((p) => p.simuladoId)])].filter((i) => i.startsWith(id));
+          Object.entries(porAluno).forEach(([e, o]) => {
+            const feitos = dias.filter((d) => o[d] && !o[d].fazendo).length;
+            const algum = dias.some((d) => o[d]);
+            if (feitos === dias.length && dias.length) status[e] = "entregou";
+            else if (algum) status[e] = "fazendo";
+          });
+        }
       } else {
         const subs = await DB.getSubmissoes(id, true);
         subs.forEach((s) => {
@@ -566,15 +709,15 @@ const ProfessorDashboardView = {
     const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     // Simulado de uma série: mostra só as salas daquela série (ex.: 2serie -> 2A, 2B...)
     let nomesSalas = Object.keys(salas).sort();
-    const mSerie = prova.match(/^sim:(\d)serie/) || prova.match(/^sim:saresp_2026_(\d)em/);
+    const mSerie = prova.match(/^(?:sim|serie):(\d)serie/) || prova.match(/^(?:sim|serie):saresp_2026_(\d)em/);
     if (mSerie) nomesSalas = nomesSalas.filter((n) => n.startsWith(mSerie[1]));
     // Colunas: os simulados da mesma série (ex.: Dia 1 e Dia 2)
     let colunas = [];
     if (porAluno && mSerie) {
-      const idSel = prova.slice(4);
+      const idSel = prova.replace(/^(sim|serie):/, "");
       const prefixo = idSel.startsWith("saresp") ? `saresp_2026_${mSerie[1]}em` : `${mSerie[1]}serie_dia`;
       const ids = new Set([...(window.SimuladosData?.getAllConfigs() || []).map((c) => c.id), ...Object.values(porAluno).flatMap((o) => Object.keys(o))]);
-      colunas = [...ids].filter((i) => i.startsWith(prefixo)).sort();
+      colunas = [...ids].filter((i) => i.startsWith(prefixo) && !(window.SimuladosData?.OCULTOS || []).includes(i)).sort();
     }
     const rotulo = (id) => {
       const m = id.match(/dia(\d)$/); if (m) return `Dia ${m[1]}`;
@@ -620,8 +763,8 @@ const ProfessorDashboardView = {
       return `<details class="rounded-2xl bg-dark-900 border border-slate-800 p-3" ${nao.length ? "" : ""}>
         <summary class="cursor-pointer flex flex-wrap items-center gap-3">
           <span class="font-black text-white text-sm">${esc(sala)}</span>
-          <span class="text-emerald-400 font-bold">${ent.length} entregaram</span>
-          <span class="text-amber-300 font-bold">${faz.length} fazendo</span>
+          <span class="text-emerald-400 font-bold">${ent.length} ${prova.startsWith("serie:") ? "fizeram todos" : "entregaram"}</span>
+          <span class="text-amber-300 font-bold">${faz.length} ${prova.startsWith("serie:") ? "incompletos" : "fazendo"}</span>
           <span class="text-rose-400 font-bold">${nao.length} não começaram</span>
           <span class="text-slate-500">de ${alunos.length}</span>
           ${d && d.media != null ? `<span class="text-white font-bold">média ${d.media}%</span>` : ""}
