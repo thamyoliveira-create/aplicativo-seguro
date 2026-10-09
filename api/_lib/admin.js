@@ -32,7 +32,7 @@ async function verificarProfessor(req) {
 }
 
 function contaServico() {
-  const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
+  const raw = process.env.FIREBASE_SERVICE_ACCOUNT || process.env.IREBASE_SERVICE_ACCOUNT;
   if (!raw) throw erro("Falta configurar a chave FIREBASE_SERVICE_ACCOUNT na Vercel.", 503);
   const sa = JSON.parse(raw.trim().startsWith("{") ? raw : Buffer.from(raw, "base64").toString("utf8"));
   sa.private_key = String(sa.private_key).replace(/\\n/g, "\n");
