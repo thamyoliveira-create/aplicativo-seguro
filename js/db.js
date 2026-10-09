@@ -548,7 +548,12 @@ const DB = {
         } catch (_) {}
       }
     } catch (_) {}
-    // 2) Cadastro feito pelo painel (Firestore)
+    // 2) Cadastro feito pelo painel da professora (consulta pelo servidor)
+    try {
+      const r = await fetch("/api/alunos/serie", { headers: { Authorization: `Bearer ${await F.auth.currentUser.getIdToken()}` }, cache: "no-store" });
+      if (r.ok) { const d = await r.json(); if (d.serie) return d.serie; }
+    } catch (_) {}
+    // 3) Cadastro antigo (Firestore direto)
     try {
       const snap = await F.getDoc(F.doc(F.db, "studentSeries", PortalAuth.normalizeEmail(student.email)));
       return snap.exists() ? snap.data().serie : null;
