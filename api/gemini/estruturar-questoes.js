@@ -15,7 +15,8 @@ module.exports = async function handler(req, res) {
 
     const resultado = await callGemini({
       systemInstruction: `Você elabora avaliações escolares em português brasileiro. ${instrucaoModo} Retorne JSON válido com tituloSugerido, disciplinaSugerida, anoTurmaSugerido e questoes. Cada questão deve ter id, tipo (multipla_escolha ou dissertativa), enunciado, textoApoio, habilidadeBNCC, peso e respostaEsperada. Questões objetivas também devem ter correta e alternativas com id, texto e correta.`,
-      prompt: `Arquivo: ${nomeArquivo}\nModo: ${modo}\n\nCONTEÚDO DO MATERIAL:\n${texto}`
+      prompt: `Arquivo: ${nomeArquivo}\nModo: ${modo}\n\nCONTEÚDO DO MATERIAL:\n${texto}`,
+      maxOutputTokens: modo === "importar" ? 32768 : 8192
     });
 
     const questoes = Array.isArray(resultado.questoes) ? resultado.questoes.slice(0, 30).map((questao) => {

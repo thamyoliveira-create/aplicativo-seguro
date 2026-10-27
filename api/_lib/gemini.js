@@ -37,27 +37,34 @@ function parseGeminiJson(value) {
   return JSON.parse(cleaned);
 }
 
-async function callGemini({ systemInstruction, prompt }) {
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function callGemini({ systemInstruction, prompt, maxOutputTokens = 8192, budgetMs = 270000 }) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw Object.assign(new Error("A chave GEMINI_API_KEY ainda não foi configurada na Vercel."), { status: 503 });
 
   const models = [...new Set([GEMINI_MODEL, ...GEMINI_FALLBACK_MODELS, "gemini-3.6-flash"])]
     .filter((model) => !RETIRED_MODELS.has(model))
-    .slice(0, 2);
+    .slice(0, 3);
+  // Modelo principal tenta 2 vezes (sobrecarga costuma passar em segundos), depois os alternativos.
+  const attempts = [models[0], models[0], ...models.slice(1)];
   const requestBody = JSON.stringify({
     systemInstruction: { parts: [{ text: systemInstruction }] },
     contents: [{ role: "user", parts: [{ text: prompt }] }],
     generationConfig: {
       temperature: 0.2,
-      maxOutputTokens: 8192,
+      maxOutputTokens,
       responseMimeType: "application/json"
     }
   });
+  const deadline = Date.now() + budgetMs;
   let lastError;
 
-  for (const [index, model] of models.entries()) {
+  for (const [index, model] of attempts.entries()) {
+    const remaining = deadline - Date.now();
+    if (remaining < 15000) break;
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), index === 0 ? 22000 : 28000);
+    const timeout = setTimeout(() => controller.abort(), Math.min(remaining, 150000));
     console.info("[gemini] geração iniciada", { model, tentativa: index + 1 });
     try {
       const response = await fetch(
@@ -67,8 +74,12 @@ async function callGemini({ systemInstruction, prompt }) {
       const data = await response.json().catch(() => ({}));
       if (response.ok) {
         const text = data.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("") || "";
-        if (!text) throw Object.assign(new Error("A IA não retornou questões."), { status: 502 });
-        return parseGeminiJson(text);
+        if (!text) throw Object.assign(new Error("A IA não retornou questões."), { status: 502, transient: true });
+        try {
+          return parseGeminiJson(text);
+        } catch {
+          throw Object.assign(new Error("A IA devolveu uma resposta incompleta."), { status: 502, transient: true });
+        }
       }
 
       const transient = response.status === 408 || response.status === 429 || response.status >= 500;
@@ -77,11 +88,18 @@ async function callGemini({ systemInstruction, prompt }) {
         transient
       });
       if (!transient) throw lastError;
-      console.warn("[gemini] modelo indisponível; tentando alternativa", { model, status: response.status });
+      console.warn("[gemini] modelo indisponível; tentando de novo", { model, status: response.status });
+      await sleep(Math.min(2000 * (index + 1), 6000));
     } catch (error) {
-      if (error?.name !== "AbortError") throw error;
-      lastError = Object.assign(new Error(`Tempo excedido no modelo ${model}.`), { status: 504, transient: true });
-      console.warn("[gemini] tempo excedido; tentando alternativa", { model });
+      if (error?.name === "AbortError") {
+        lastError = Object.assign(new Error(`Tempo excedido no modelo ${model}.`), { status: 504, transient: true });
+        console.warn("[gemini] tempo excedido; tentando alternativa", { model });
+      } else if (error?.transient) {
+        lastError = error;
+        console.warn("[gemini] resposta inválida; tentando de novo", { model, motivo: error.message });
+      } else {
+        throw error;
+      }
     } finally {
       clearTimeout(timeout);
     }
