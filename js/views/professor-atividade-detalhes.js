@@ -665,7 +665,7 @@ const ProfessorAtividadeDetalhesView = {
     const button = document.getElementById("save-activity-edit");
     if (button) { button.disabled = true; button.querySelector("span").textContent = "Salvando…"; }
     try {
-      await DB.salvarAtividade(this.atividade);
+      await DB.salvarAtividade({ ...this.atividade, status: "ativa" });
       this.editMode = false;
       this.activeTab = "gabarito";
       alert("Alterações salvas com sucesso.");
