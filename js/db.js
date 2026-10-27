@@ -179,7 +179,8 @@ const DB = {
     const activitySnap = isExisting ? await F.getDoc(activityRef) : null;
     const previousCode = activitySnap?.exists() ? activitySnap.data().accessCode : null;
 
-    const status = atividade.status === "ativa" ? "published" : (atividade.status || "draft");
+    // O painel mostra toda atividade criada como "Prova Ativa"; sem status explícito, publica para os alunos.
+    const status = (!atividade.status || atividade.status === "ativa") ? "published" : atividade.status;
     const createdAt = activitySnap?.exists() ? activitySnap.data().createdAt : F.serverTimestamp();
     const now = F.serverTimestamp();
     const requestedSecurity = atividade.configuracoesSeguranca || {};
