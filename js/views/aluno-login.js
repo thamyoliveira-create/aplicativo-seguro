@@ -247,7 +247,9 @@ const AlunoLoginView = {
         }));
         window.location.hash = `#aluno/prova/${atividade.codigo}`;
       } catch (err) {
-        error.textContent = err.message;
+        error.textContent = /permission|insufficient/i.test(err?.message || "")
+          ? "Código não encontrado ou atividade ainda não publicada. Confira o código com a professora."
+          : err.message;
         button.disabled = false;
         button.querySelector("span").textContent = "Entrar na atividade";
       }

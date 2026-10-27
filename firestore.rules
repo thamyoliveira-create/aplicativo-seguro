@@ -195,7 +195,7 @@ service cloud.firestore {
         recentTimestamp(request.resource.data.updatedAt) &&
         getAfter(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.teacherId == request.auth.uid;
 
-      allow get: if isTeacher() || (isStudent() && resource.data.status == 'published');
+      allow get: if isTeacher() || (isStudent() && (resource == null || resource.data.status == 'published'));
       allow list: if isTeacher();
 
       allow update: if isTeacher() &&
