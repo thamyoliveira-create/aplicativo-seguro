@@ -245,7 +245,13 @@ const AlunoLoginView = {
           atividadeId: atividade.id,
           teacherId: atividade.teacherId
         }));
-        window.location.hash = `#aluno/prova/${atividade.codigo}`;
+        const destino = `#aluno/prova/${atividade.codigo}`;
+        if (window.location.hash === destino) {
+          // Mesmo hash não dispara "hashchange": renderiza a prova manualmente
+          await App.handleRoute();
+        } else {
+          window.location.hash = destino;
+        }
       } catch (err) {
         error.textContent = /permission|insufficient/i.test(err?.message || "")
           ? "Código não encontrado ou atividade ainda não publicada. Confira o código com a professora."
