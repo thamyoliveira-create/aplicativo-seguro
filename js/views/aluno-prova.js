@@ -357,7 +357,9 @@ const AlunoProvaView = {
 
           html += `
             <label
-              onclick="AlunoProvaView.selectOption('' + q.id + '', '' + alt.id + '')"
+              data-qid="${String(q.id).replace(/"/g, "&quot;")}"
+              data-alt="${String(alt.id).replace(/"/g, "&quot;")}"
+              onclick="AlunoProvaView.selectOption(this.dataset.qid, this.dataset.alt)"
               class="flex items-start gap-3.5 p-4 rounded-2xl border ${altClass} cursor-pointer transition-all duration-150 select-none group"
             >
               <div class="w-6.5 h-6.5 rounded-full border-2 ${isSelected ? "border-brand-500 bg-brand-500 text-white" : "border-slate-600 bg-dark-950 text-slate-400 group-hover:border-slate-400"} flex items-center justify-center flex-shrink-0 text-xs font-bold uppercase transition-colors">
